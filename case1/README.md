@@ -79,3 +79,10 @@ References on the *general idea* only:
 **Current screening interpretation:** Across the main fixed-5 kW battery-power sweep some zero-ENS cases reached 15 households; the targeted higher-household battery-power extension finds limited zero-ENS combinations through **17 households** (including 80 panels, 20 battery modules, 15 kW battery DC power and a hypothetical 24 kVA parallel-inverter set), but none at 18–20 households within the tested envelope. This is a bound on the **tested scenario grid**, not a claim that the transformer or community has a field-proven 17-household limit.
 
 The current results report **PCC-only feasibility** and simulated energy availability if an island is correctly engineered. They are not commissioning or islanding proof.
+
+
+### Annual SOC boundary-condition diagnostics (B05)
+
+The default annual screen retains the declared **55% initial nominal battery SOC**, without artificially balancing the beginning and end of the model year. Each new design row reports `initial_stored_kwh`, `end_stored_kwh`, `soc_boundary_drift_kwh` and `soc_boundary_closed` (numerical tolerance 0.001 kWh). Positive drift means net energy carried into the end of the window; negative drift means net energy drawn down. Compare designs only with that difference visible; these diagnostics do **not** constitute a periodic-energy closure or a correction to grid imports.
+
+For a **separate sensitivity analysis only**, `wp1_v3.model.dispatch_cyclic(load, pv, modules, inverter_kva, ...)` searches for an initial SOC whose ending usable energy matches its beginning over a complete, grid-connected local-day window. It reruns the same load, PV, battery and controller conditions and raises an error if closure cannot be demonstrated within the specified tolerance; it never adds energy to a simulated result. This method **must not** replace the physically preconditioned initial SOC of an outage/stress window, and does not establish a cyclic state for the adaptive controller's past-solar history. The already saved results predate these reporting changes and remain historical-only pending the controlled source-aligned rerun.
