@@ -57,3 +57,29 @@ def test_nondominated_frontier():
 def test_legacy_independent_source_is_in_package():
     assert (ROOT/'legacy/independent_case1_original/sanrafael_case1/rule_dispatch.py').is_file()
     assert (ROOT/'legacy/independent_case1_original/sanrafael_case1/grid_check.py').is_file()
+
+def test_g1a_high_generation_ac_dc_conservation():
+    # B01/B11: local inverter generation exceeds demand that the PCC can serve
+    # once reactive-power loading is enforced.
+    for requested_kw, available_pv_kw in [(23.0, 25.0), (26.0, 30.0),
+                                          (30.0, 20.0)]:
+        out, demand, pv = trial(hours=1, load_kw=requested_kw,
+                                pv_kw=available_pv_kw, modules=8,
+                                inverter=24.0, pf=.98, cap_pu=.9)
+        pv_accounted=(out.pv_direct_ac/m.ETA_INV + out.pv_charge_dc
+                      +out.grid_export/m.ETA_INV+out.curtailed_dc)
+        load_supplied=(out.pv_direct_ac+out.battery_discharge_dc*m.ETA_INV
+                       +out.grid_import)
+        assert np.allclose(pv_accounted,pv,atol=1e-6)
+        assert np.allclose(load_supplied,out.load_served,atol=1e-6)
+        assert (out.pcc_kva<=4.5+1e-6).all()
+        # Stored-energy recurrence also checks refunded battery discharge.
+        usable_capacity=8*m.USABLE_KWH_MODULE
+        initial_stored=usable_capacity*(.55-.1)/.9
+        expected_stored=(initial_stored
+                         +float(out.pv_charge_dc.iloc[0])*m.ETA_BAT
+                         -float(out.battery_discharge_dc.iloc[0])/m.ETA_BAT)
+        assert np.isclose(float(out.soc_usable_kwh.iloc[0]),
+                          expected_stored,atol=1e-6)
+        assert np.allclose(
+            np.hypot(out.pcc_p_kw,out.pcc_q_kvar),out.pcc_kva,atol=1e-6)
