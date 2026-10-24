@@ -11,8 +11,18 @@ from matplotlib.lines import Line2D
 COLORS={0:'#64748b',2:'#a855f7',4:'#2563eb',6:'#0d9488',8:'#d97706',10:'#be185d',12:'#16a34a',16:'#0e7490',20:'#b45309',24:'#7c3aed'}
 MARKERS={8:'v',12:'o',16:'s',20:'D',24:'^',28:'P',32:'X',36:'h',40:'*',48:'<',56:'>',64:'p',72:'8',80:'d'}
 
+def eligible_designs(df):
+    """Algebraic PCC screen only: zero unmet grid demand, within kVA limit.
+    This is not a feeder-voltage or protection feasibility certificate.
+    """
+    return df[(df.grid_ens_kwh<=1e-7) &
+              (df.max_trafo_kva<=df.transformer_allow_kva+1e-7)]
+
+
 def frontier(df,cost):
-    d=df.sort_values([cost,'self_sufficiency_pct'],ascending=[True,False])
+    # Positional uniqueness avoids duplicating rows when concat retains labels.
+    d=df.reset_index(drop=True).sort_values(
+        [cost,'self_sufficiency_pct'],ascending=[True,False])
     best=-float('inf'); picks=[]
     for row in d.itertuples(index=True):
         if row.self_sufficiency_pct>best+1e-6:
@@ -53,8 +63,7 @@ def pareto_panels(df, out: Path):
 
     def draw_panel(ax, hh, cost_col, annotate=False):
         sub = df[df.households == hh]
-        passing = sub[(sub.grid_ens_kwh <= 1e-7) &
-                      (sub.max_trafo_kva <= sub.transformer_allow_kva + 1e-5)]
+        passing = eligible_designs(sub)
         failed = sub.drop(index=passing.index)
         # Color EVERY plotted point with the same continuous BESS-size scale.
         for g in groups:
@@ -143,8 +152,7 @@ def pareto_panels(df, out: Path):
         for hh in hhs:
             fig,ax=plt.subplots(figsize=(11.5,7.0),dpi=150)
             draw_panel(ax,hh,col,annotate=False)
-            s_passing = df[(df.households == hh) & (df.grid_ens_kwh <= 1e-7) &
-                           (df.max_trafo_kva <= df.transformer_allow_kva + 1e-5)]
+            s_passing = eligible_designs(df[df.households == hh])
             fig.suptitle(f'PV–BESS sizing  |  {hh} households  |  {title}',fontsize=14)
             if len(s_passing):
                 f = frontier(s_passing,col)
@@ -163,7 +171,7 @@ def pareto_panels(df, out: Path):
             plt.close(fig)
 
 def expansion_plots(df,out:Path):
-    feasible=df[df.grid_ens_kwh<=1e-8]
+    feasible=eligible_designs(df)
     fig,axes=plt.subplots(1,2,figsize=(13,5.5),layout='constrained')
     for target,mark in [(80,'o'),(90,'s'),(95,'^')]:
         counts=[];households=sorted(df.households.unique())
@@ -184,12 +192,13 @@ def expansion_plots(df,out:Path):
     fig.savefig(out/'02_household_expansion_feasible_designs.png',dpi=170);plt.close(fig)
 
 
-def duration_plot(samples,out:Path):
+def duration_plot(samples,out:Path,cap_pu=.9):
     fig,ax=plt.subplots(figsize=(10,5.8))
     for label,df in samples.items():
         curve=np.sort(df.pcc_kva.to_numpy())[::-1]
         ax.plot(np.arange(len(curve)),curve,label=label,lw=1.55)
-    ax.axhline(4.5,ls='--',color='black',label='Assumed 90% loading: 4.5 kVA')
+    ax.axhline(5*cap_pu,ls='--',color='black',
+               label=f'Assumed {100*cap_pu:g}% loading: {5*cap_pu:g} kVA')
     ax.axhline(5,ls=':',color='black',label='Transformer nameplate: 5 kVA')
     ax.set_title('Transformer loading duration, annual 2025 dispatch')
     ax.set_xlabel('Hours ranked from highest to lowest loading');ax.set_ylabel('PCC apparent power (kVA)')

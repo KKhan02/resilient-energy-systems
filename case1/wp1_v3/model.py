@@ -166,7 +166,7 @@ def get_reserve(pv_series,policy='conventional',gain=.60,low=.30,high=.75):
 
 
 def dispatch(load:pd.Series,pv_dc:pd.Series,modules:int,inverter_kva:float,cap_pu=.9,pf=.98,
-             policy='conventional',grid_on=None,initial_soc_pu=.55,charge_discharge_kw=5.,
+             policy='conventional',grid_on=None,initial_soc_pu=.55,charge_discharge_kw=None,
              flex_fraction=.15,reserve_override=None):
     if not load.index.equals(pv_dc.index):raise ValueError('time index mismatch')
     if inverter_kva not in INVERTERS:raise ValueError('unknown inverter')
@@ -177,7 +177,12 @@ def dispatch(load:pd.Series,pv_dc:pd.Series,modules:int,inverter_kva:float,cap_p
     if policy=='adaptive_lm' and not isinstance(load.index,pd.DatetimeIndex):
         raise ValueError('adaptive_lm requires a DatetimeIndex for local-hour scheduling')
     on=np.ones(len(load),dtype=np.bool_) if grid_on is None else np.asarray(grid_on,dtype=np.bool_)
-    batlimit=min(charge_discharge_kw,48*INVERTERS[inverter_kva][1]/1000,4.8*modules)
+    # None uses datasheet battery port and module bank capabilities.
+    # The annual research sweep explicitly supplies 5.0 kW for comparability.
+    if charge_discharge_kw is not None and charge_discharge_kw<0:
+        raise ValueError('battery charge/discharge power cannot be negative')
+    physical_limit=min(48*INVERTERS[inverter_kva][1]/1000,4.8*modules)
+    batlimit=physical_limit if charge_discharge_kw is None else min(charge_discharge_kw,physical_limit)
     pvfull=pd.Series(np.asarray(pv_dc),index=pv_dc.index)
     reserve=get_reserve(pvfull,policy) if reserve_override is None else np.asarray(reserve_override,dtype=float)
     if len(reserve)!=len(load):raise ValueError("reserve_override length mismatch")
@@ -196,7 +201,7 @@ def dispatch(load:pd.Series,pv_dc:pd.Series,modules:int,inverter_kva:float,cap_p
 def score(frame,load,pv,modules,panels,inv,houses,cap_pu,pf):
     """Energy+cost metrics; total cost includes purchased energy, not CAPEX alone."""
     available=float(pv.sum());imports=float(frame.grid_import.sum());exports=float(frame.grid_export.sum())
-    ens=float(frame.ens.sum());served=float(frame.load_served.sum())
+    ens=float(frame.ens.sum());served=float(frame.load_served.sum());demand=float(load.sum())
     pv_cap=PV_UNIT_COST*panels;bat_cap=BAT_UNIT_COST*modules;inv_cap=INV_UNIT_COST*inv
     capex=pv_cap+bat_cap+inv_cap
     # 15y inverter & battery replacements (provisional; throughput aging varies).
@@ -206,7 +211,11 @@ def score(frame,load,pv,modules,panels,inv,houses,cap_pu,pf):
                 bess_usable_kwh=USABLE_KWH_MODULE*modules,inverter_kva=inv,load_pf=pf,
                 transformer_allow_kva=5*cap_pu,demand_kwh=float(load.sum()),served_kwh=served,
                 grid_ens_kwh=ens,grid_import_kwh=imports,grid_export_kwh=exports,
+                # The legacy field is retained for saved-CSV compatibility.
                 self_sufficiency_pct=100*(served-imports)/max(served,1e-9),
+                self_sufficiency_of_served_pct=100*(served-imports)/max(served,1e-9),
+                one_minus_import_fraction_of_demand_pct=100*(1-imports/max(demand,1e-9)),
+                locally_supplied_fraction_of_demand_pct=100*(served-imports)/max(demand,1e-9),
                 pv_curtailment_pct=100*float(frame.curtailed_dc.sum())/max(available,1e-9),
                 annualized_equipment_usd=annual_equipment,
                 annual_total_no_credit_usd=annual_equipment+PRICE_IMPORT*imports,
