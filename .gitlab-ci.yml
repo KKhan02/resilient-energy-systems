@@ -1,9 +1,11 @@
+# Lightweight Case 1 model verification; annual sweeps remain researcher-run.
+# `python -m pytest` (not bare pytest) preserves case1/ on sys.path.
 stages:
   - test
 
 case1_unit_tests:
-  image: python:3.11-slim
   stage: test
+  image: python:3.11-slim
   variables:
     MPLBACKEND: "Agg"
     NUMBA_CACHE_DIR: "/tmp/numba_cache"
@@ -16,3 +18,20 @@ case1_unit_tests:
     when: always
     reports:
       junit: case1/test-results.xml
+
+case1_legacy_baseline_tests:
+  stage: test
+  image: python:3.11-slim
+  variables:
+    MPLBACKEND: "Agg"
+    NUMBA_CACHE_DIR: "/tmp/numba_cache"
+  before_script:
+    - python -m pip install -r case1/legacy/independent_case1_original/requirements.txt
+    - python -m pip freeze | grep -E '^(numpy|pandas|pvlib|pypsa|pandapower|highspy|pytest)=='
+  script:
+    - cd case1
+    - python -m pytest legacy/independent_case1_original/tests/test_case1.py -q --junitxml=legacy-results.xml
+  artifacts:
+    when: always
+    reports:
+      junit: case1/legacy-results.xml
