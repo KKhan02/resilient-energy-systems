@@ -1,0 +1,13 @@
+# SEEDExchange San Rafael Case 1
+#
+# pandapower currently requires pandas < 3, and recent PyPSA releases require
+# pandas >= 3. The pin below keeps both stages working in one environment;
+# it matches the versions the v18 / v5 baselines were executed with.
+pandas>=2.2,<3
+numpy>=1.26
+matplotlib>=3.8
+pvlib>=0.11
+pypsa>=0.34,<1.4
+highspy>=1.7
+pandapower>=3.0
+pytest>=8.0

@@ -1,0 +1,46 @@
+San Rafael / El Arenal - Case Study 1
+  transformer      94022, 5.0 kVA single-phase
+  loading limit    0.90 pu
+  power factor     import 0.95, export 1.00
+  active envelope  import 4.275 kW, export 4.500 kW
+  households       4
+  results          /home/claude/case1/results_case1
+
+  HOMER model      /home/claude/case1/data/SimulacionTampico1k.xml
+                   PV 5.22 kWp, inverter 5.0 kW, 4 battery modules, 7592 kWh/yr for 4 houses
+                   tariff 0.290 buy / 0.275 sell USD/kWh, 25 y at 6.0%
+  weather          NASA_POWER_SanRafael_hourly_2025.csv, 7054.0 kWh/yr DC at 5.22 kWp
+  monthly radiation NASA POWER: Nasa Data.csv
+
+[17:50:49] 0. provenance and baseline validation
+Baseline validation: 98 checks, 98 passed, 0 failed.
+[17:53:40] 1. reference case: v18 constraint vs Case 1 5 kVA constraint
+[17:53:54] 2. transformer constraint sensitivity
+[17:54:01] 3. oversizing grid: PV x BESS x inverter
+[17:54:10] 3b. oversizing grid under export restriction
+[17:54:15] 3c. curtailment attribution
+[17:54:16] 4. BESS energy vs BESS charge/discharge power
+[17:54:18] 5. economically useful size under both compensation regimes
+[17:54:20] 6. control strategy comparison
+[17:54:44] 7. vulnerability and adaptive resilience
+[17:54:50]    REF_12P_4B_5K: 100 scenarios x 5 controllers
+[17:54:55]    OS_16P_4B_5K: 100 scenarios x 5 controllers
+[17:55:00]    OS_16P_8B_5K: 100 scenarios x 5 controllers
+[17:55:06]    OS_20P_8B_8K: 100 scenarios x 5 controllers
+[17:55:11]    OS_24P_8B_12K: 100 scenarios x 5 controllers
+[17:55:12] 8. demand-realization uncertainty on the causal controller
+[17:55:28] 9. pandapower electrical feasibility screen
+[17:55:31] 9a. export-control counterfactual: controlled vs uncontrolled export
+[17:55:33] 9b. inverter power-factor sensitivity at the worst export hour
+[17:55:35] 9c. network critical hours
+[17:55:36] 10. run manifest
+[17:55:36] wrote 24 tables to /home/claude/case1/results_case1
+
+Wrote 8 figures to /home/claude/case1/results_case1/figures
+
+Headline results
+  pv_useful_size_NET_METERING_HOMER: {'recommended_size': 24.0, 'self_sufficiency_pct': 99.88510520360595, 'pv_curtailment_pct': 1.8309983515826556, 'annualized_total_cost_usd': 188.06968219662917, 'lcoe_usd_per_kwh': 0.024772086696078655, 'npc_usd': 2404.1617300918624, 'reason': 'largest size reached through consecutive cost-effective increments'}
+  bess_useful_size_NET_METERING_HOMER: {'recommended_size': 0.0, 'self_sufficiency_pct': 41.75340652281818, 'pv_curtailment_pct': 2.142458727434461e-16, 'annualized_total_cost_usd': 469.5790929723662, 'lcoe_usd_per_kwh': 0.061851829948941804, 'npc_usd': 6002.796789942393, 'reason': 'next increment to bess_modules=2 returns 0.01 USD per USD, below the threshold'}
+  pv_useful_size_SELF_CONSUMPTION_ONLY: {'recommended_size': 16.0, 'self_sufficiency_pct': 96.63355940317932, 'pv_curtailment_pct': 5.813558805848331e-17, 'annualized_total_cost_usd': 1336.9685936645856, 'lcoe_usd_per_kwh': 0.17610229105171044, 'npc_usd': 17090.94570523364, 'reason': 'next increment to panel_count=20 returns 0.36 USD per USD, below the threshold'}
+  bess_useful_size_SELF_CONSUMPTION_ONLY: {'recommended_size': 4.0, 'self_sufficiency_pct': 96.63355940317932, 'pv_curtailment_pct': 5.813558805848331e-17, 'annualized_total_cost_usd': 1336.9685936645856, 'lcoe_usd_per_kwh': 0.17610229105171044, 'npc_usd': 17090.94570523364, 'reason': 'next increment to bess_modules=6 returns 0.09 USD per USD, below the threshold'}
+  baseline validation: 98/98 checks passed

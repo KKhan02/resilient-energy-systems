@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+numba
+plotly
+pvlib
+pytest
+# To run the preserved independent LP and network validation also install:
+# pypsa
+# highspy
+# pandapower

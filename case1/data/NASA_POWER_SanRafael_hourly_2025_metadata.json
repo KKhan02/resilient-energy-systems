@@ -1,0 +1,50 @@
+{
+  "latitude": 6.2523,
+  "longitude": -75.0143,
+  "start": "20250101",
+  "end": "20251231",
+  "time_standard": "LST",
+  "parameters": {
+    "ALLSKY_SFC_SW_DWN": {
+      "units": "Wh/m^2",
+      "longname": "All Sky Surface Shortwave Downward Irradiance"
+    },
+    "ALLSKY_SFC_SW_DIFF": {
+      "units": "Wh/m^2",
+      "longname": "All Sky Surface Shortwave Diffuse Irradiance"
+    },
+    "ALLSKY_SFC_SW_DNI": {
+      "units": "Wh/m^2",
+      "longname": "All Sky Surface Shortwave Downward Direct Normal Irradiance"
+    },
+    "CLRSKY_SFC_SW_DWN": {
+      "units": "Wh/m^2",
+      "longname": "Clear Sky Surface Shortwave Downward Irradiance"
+    },
+    "T2M": {
+      "units": "C",
+      "longname": "Temperature at 2 Meters"
+    },
+    "WS10M": {
+      "units": "m/s",
+      "longname": "Wind Speed at 10 Meters"
+    }
+  },
+  "header": {
+    "title": "NASA/POWER Source Native Resolution Hourly Data",
+    "api": {
+      "version": "v2.10.0",
+      "name": "POWER Hourly API"
+    },
+    "sources": [
+      "MERRA2",
+      "SYN1DEG",
+      "POWER"
+    ],
+    "fill_value": -999.0,
+    "time_standard": "LST",
+    "start": "20250101",
+    "end": "20251231"
+  },
+  "api_url": "https://power.larc.nasa.gov/api/temporal/hourly/point?parameters=ALLSKY_SFC_SW_DWN%2CALLSKY_SFC_SW_DIFF%2CALLSKY_SFC_SW_DNI%2CCLRSKY_SFC_SW_DWN%2CT2M%2CWS10M&community=RE&longitude=-75.0143&latitude=6.2523&start=20250101&end=20251231&format=JSON&time-standard=LST"
+}

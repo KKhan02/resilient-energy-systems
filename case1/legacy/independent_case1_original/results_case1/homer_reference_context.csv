@@ -1,0 +1,13 @@
+metric,HOMER reference
+AC primary load [kWh/yr],7592.0
+PV production [kWh/yr],7326.3
+PV penetration [%],96.50026343519494
+Grid purchases [kWh/yr],4667.4
+Grid sales [kWh/yr],4030.9
+Net grid import [kWh/yr],636.4999999999995
+Derived operational self-sufficiency [%],38.52212855637514
+Derived net grid independence [%],91.61617492096946
+HOMER renewable fraction [%],61.085
+Battery energy in [kWh/yr],18.2
+Battery energy out [kWh/yr],17.3
+Battery throughput [kWh/yr],17.745

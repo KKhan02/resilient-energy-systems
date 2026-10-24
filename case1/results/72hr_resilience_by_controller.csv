@@ -1,0 +1,5 @@
+controller,households,panels,bess_modules,annual_self_sufficiency_pct,stress_ens_kwh,stress_critical_ens_kwh,deferred_backlog_at_end_kwh,total_shortfall_including_backlog_kwh,low_solar_factor,stress_demand_factor,outage_start_hour,outage_hours,stress_window_start,islanding_confirmed
+conventional,8,32,6,93.99549606744641,65.05888259393667,16.263187433610923,0.0,65.05888259393667,0.5,1.25,24,48,2025-02-09 00:00:00,False
+fixed_reserve,8,32,6,73.81764423302015,54.379644923474316,13.10094017610947,0.0,54.379644923474316,0.5,1.25,24,48,2025-02-09 00:00:00,False
+adaptive,8,32,6,84.41773050480448,56.93576033910202,13.564885405786573,0.0,56.93576033910202,0.5,1.25,24,48,2025-02-09 00:00:00,False
+adaptive_lm,8,32,6,84.41773050480448,56.93576033910201,13.10094017610947,0.0,56.93576033910201,0.5,1.25,24,48,2025-02-09 00:00:00,False

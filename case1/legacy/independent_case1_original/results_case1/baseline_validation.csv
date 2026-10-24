@@ -1,0 +1,99 @@
+group,check,expected,actual,difference,tolerance,mode,status
+homer,annual 4-house load [kWh],7592.0,7592.0,0.0,1e-09,absolute,PASS
+homer,PV reference [kWp],5.22,5.22,0.0,1e-09,absolute,PASS
+homer,inverter rating [kW],5.0,5.0,0.0,1e-09,absolute,PASS
+homer,inverter efficiency,0.95,0.95,0.0,1e-12,absolute,PASS
+homer,battery round-trip efficiency,0.95,0.95,0.0,1e-12,absolute,PASS
+homer,battery minimum SOC [pu],0.1,0.1,0.0,1e-12,absolute,PASS
+homer,battery usable bank [kWh],17.3,17.3,0.0,1e-12,absolute,PASS
+homer,grid buy [USD/kWh],0.29,0.29,0.0,1e-12,absolute,PASS
+homer,grid sell [USD/kWh],0.275,0.275,0.0,1e-12,absolute,PASS
+homer,day-to-day load variability,0.2,0.2,0.0,1e-12,absolute,PASS
+homer,timestep load variability,0.25,0.25,0.0,1e-12,absolute,PASS
+homer,HOMER annual PV production [kWh],7326.3,7326.3,0.0,1e-09,absolute,PASS
+homer,project lifetime [y],25,25,0.0,0.0,absolute,PASS
+homer,discount rate,0.06,0.06,0.0,1e-12,absolute,PASS
+demand,annual 4-house load [kWh],7592.0,7592.0,0.0,1e-06,absolute,PASS
+demand,stochastic 4-house peak [kW],2.166677435937405,2.166677435937405,0.0,1e-12,absolute,PASS
+demand,deterministic 4-house peak [kW],1.4963834557023217,1.4963834557023217,0.0,1e-12,absolute,PASS
+demand,clipped household-hours,168,168,0.0,0.0,absolute,PASS
+demand,clipped household-hours [%],0.09589,0.0958904109589041,4.1095890410125513e-07,0.0001,absolute,PASS
+demand,"peak load, 4 houses [kW]",2.1667,2.166677435937405,-2.2564062595265e-05,5e-05,absolute,PASS
+demand,"peak load, 5 houses [kW]",2.5193,2.5192661271901553,-3.387280984457064e-05,5e-05,absolute,PASS
+demand,"peak load, 6 houses [kW]",2.9979,2.997864645053701,-3.535494629902658e-05,5e-05,absolute,PASS
+demand,"peak load, 7 houses [kW]",3.7174,3.717398254603524,-1.7453964762381702e-06,5e-05,absolute,PASS
+demand,"peak load, 8 houses [kW]",4.1833,4.1833495266636875,4.952666368751579e-05,5e-05,absolute,PASS
+demand,"annual load, 4 houses [kWh]",7592.0,7592.0,0.0,1e-06,absolute,PASS
+demand,"annual load, 5 houses [kWh]",9490.0,9490.0,0.0,1e-06,absolute,PASS
+demand,"annual load, 6 houses [kWh]",11388.0,11388.0,0.0,1e-06,absolute,PASS
+demand,"annual load, 7 houses [kWh]",13286.0,13286.0,0.0,1e-06,absolute,PASS
+demand,"annual load, 8 houses [kWh]",15184.0,15184.0,0.0,1e-06,absolute,PASS
+resource,HOMER-calibrated annual PV DC [kWh],7326.3,7326.299999999999,-9.094947017729282e-13,1e-06,absolute,PASS
+resource,NASA annual GHI [kWh/m2],1773.00935,1773.00935,0.0,1e-05,absolute,PASS
+resource,NASA annual POA [kWh/m2],1772.391717,1772.391717236679,2.3667894311074633e-07,1e-05,absolute,PASS
+resource,NASA POA/GHI ratio,0.999652,0.9996516472046122,-3.5279538779242614e-07,1e-06,absolute,PASS
+resource,NASA annual PV DC at 5.22 kWp [kWh],7054.003295,7054.0032949933475,-6.65295374346897e-09,0.0001,absolute,PASS
+resource,NASA peak PV DC at 5.22 kWp [kW],3.850082,3.8500822248692974,2.2486929740495043e-07,1e-05,absolute,PASS
+resource,v5 NASA inverter AC annual [kWh],6701.30313,6701.30313024368,2.436800059513189e-07,0.001,absolute,PASS
+resource,v5 NASA inverter AC peak [kW],3.657578,3.6575781136258323,1.1362583229868051e-07,1e-05,absolute,PASS
+resource,v5 inverter clipping hours at 5 kW,0,0,0.0,0.0,absolute,PASS
+lp_s2_homer_shape,self_sufficiency_pct,84.9801,84.98009520337413,-4.7966258591713995e-06,0.0005,relative,PASS
+lp_s2_homer_shape,net_grid_independence_pct,89.46,89.45827331992659,-0.001726680073403486,0.0005,relative,PASS
+lp_s2_homer_shape,grid_import_kwh,1140.3112,1140.3111721598366,-2.7840163511427818e-05,0.0005,relative,PASS
+lp_s2_homer_shape,grid_export_kwh,339.9833,339.9832826086629,-1.7391337109984306e-05,0.0005,relative,PASS
+lp_s2_homer_shape,battery_throughput_kwh,3454.8435,3454.8435223661763,2.2366176381183323e-05,0.0005,relative,PASS
+lp_s2_homer_shape,battery_charge_kwh,3543.429254,3543.429253708899,-2.9110105970175937e-07,0.0005,relative,PASS
+lp_s2_homer_shape,battery_discharge_kwh,3366.257791,3366.257791023453,2.34531398746185e-08,0.0005,relative,PASS
+lp_s2_homer_shape,peak_import_kw,2.0192,2.019229819536114,2.9819536113695477e-05,0.0005,relative,PASS
+lp_s2_homer_shape,peak_export_kw,2.1406,2.140582358493794,-1.764150620608973e-05,0.0005,relative,PASS
+lp_s2_homer_shape,pv_dc_generation_kwh,7326.3,7326.299999999999,-9.094947017729282e-13,0.0005,relative,PASS
+lp_s2_homer_shape,pv_penetration_pct,96.5,96.50026343519492,0.0002634351949239999,0.0005,relative,PASS
+lp_s2_homer_shape,max |AC node residual| [kW],0.0,4.440892098500626e-16,4.440892098500626e-16,1e-07,absolute,PASS
+lp_s2_homer_shape,simultaneous charge and discharge hours,0,0,0.0,0.0,absolute,PASS
+lp_s2_homer_shape,minimum battery SOC >= minimum [pu],True,True,0.0,0.0,absolute,PASS
+lp_s2_nasa,self_sufficiency_pct,82.8746,82.87462058043158,2.058043158115197e-05,0.0005,relative,PASS
+lp_s2_nasa,net_grid_independence_pct,86.016405,86.01640471509832,-2.849016880190902e-07,0.0005,relative,PASS
+lp_s2_nasa,grid_import_kwh,1300.1588,1300.1588055336347,5.533634748644545e-06,0.0005,relative,PASS
+lp_s2_nasa,grid_export_kwh,238.5243,238.52425150389843,-4.8496101584305507e-05,0.0005,relative,PASS
+lp_s2_nasa,battery_throughput_kwh,3508.7209,3508.7208877174935,-1.2282506304472918e-05,0.0005,relative,PASS
+lp_s2_nasa,battery_charge_kwh,3598.68809,3598.68808996666,-3.3340256777592003e-08,0.0005,relative,PASS
+lp_s2_nasa,battery_discharge_kwh,3418.75,3418.7536854683267,0.003685468326693808,0.0005,relative,PASS
+lp_s2_nasa,peak_import_kw,2.1667,2.166677435937405,-2.2564062595265e-05,0.0005,relative,PASS
+lp_s2_nasa,peak_export_kw,2.5313,2.531287102942691,-1.2897057308780546e-05,0.0005,relative,PASS
+lp_s2_nasa,pv_dc_generation_kwh,7054.0033,7054.003294993347,-5.0066537369275466e-06,0.0005,relative,PASS
+lp_s2_nasa,pv_penetration_pct,92.91,92.91363665691973,0.003636656919738357,0.0005,relative,PASS
+lp_s2_nasa,max |AC node residual| [kW],0.0,4.440892098500626e-16,4.440892098500626e-16,1e-07,absolute,PASS
+lp_s2_nasa,simultaneous charge and discharge hours,0,0,0.0,0.0,absolute,PASS
+lp_s2_nasa,minimum battery SOC >= minimum [pu],True,True,0.0,0.0,absolute,PASS
+lp_house_sweep,"self-sufficiency, 4 houses [%]",82.87,82.87462058043158,0.004620580431577537,0.0005,relative,PASS
+lp_house_sweep,"grid import, 4 houses [kWh]",1300.16,1300.1588055336347,-0.0011944663654048782,0.0005,relative,PASS
+lp_house_sweep,"self-sufficiency, 5 houses [%]",68.96,68.956216272713,-0.0037837272870007155,0.0005,relative,PASS
+lp_house_sweep,"grid import, 5 houses [kWh]",2946.06,2946.055075719536,-0.004924280463910691,0.0005,relative,PASS
+lp_house_sweep,"self-sufficiency, 6 houses [%]",57.76,57.759102445352305,-0.000897554647693255,0.0005,relative,PASS
+lp_house_sweep,"grid import, 6 houses [kWh]",4810.39,4810.393413523279,0.0034135232790504233,0.0005,relative,PASS
+lp_house_sweep,"self-sufficiency, 7 houses [%]",49.7,49.699887429622166,-0.00011257037783707347,0.0005,relative,PASS
+lp_house_sweep,"grid import, 7 houses [kWh]",6682.87,6682.872956100399,0.002956100399387651,0.0005,relative,PASS
+lp_house_sweep,"self-sufficiency, 8 houses [%]",43.64,43.635901663148246,-0.004098336851754425,0.0005,relative,PASS
+lp_house_sweep,"grid import, 8 houses [kWh]",8558.32,8558.324691467571,0.004691467571319663,0.0005,relative,PASS
+lp_bess_sweep,"self-sufficiency, 0 modules [%]",40.1,40.09516850989798,-0.0048314901020205525,0.0005,relative,PASS
+lp_bess_sweep,"self-sufficiency, 1 modules [%]",59.2,59.199617265338944,-0.00038273466105920306,0.0005,relative,PASS
+lp_bess_sweep,"self-sufficiency, 2 modules [%]",75.53,75.52900085507737,-0.000999144922630535,0.0005,relative,PASS
+lp_bess_sweep,"self-sufficiency, 3 modules [%]",82.09,82.08528855455988,-0.004711445440122475,0.0005,relative,PASS
+lp_bess_sweep,"self-sufficiency, 4 modules [%]",82.87,82.87462058043158,0.004620580431577537,0.0005,relative,PASS
+lp_pv_sweep,"self-sufficiency, 4 panels [%]",29.33,29.326571107742616,-0.003428892257382188,0.0005,relative,PASS
+lp_pv_sweep,"self-sufficiency, 6 panels [%]",43.62,43.62447838805994,0.0044783880599439385,0.0005,relative,PASS
+lp_pv_sweep,"self-sufficiency, 8 panels [%]",57.75,57.75252190676827,0.002521906768272686,0.0005,relative,PASS
+lp_pv_sweep,"self-sufficiency, 10 panels [%]",71.65,71.6452885957534,-0.004711404246606321,0.0005,relative,PASS
+lp_pv_sweep,"self-sufficiency, 12 panels [%]",82.87,82.87462058043158,0.004620580431577537,0.0005,relative,PASS
+network_v5,equivalent MV line-line voltage [kV],13.2,13.199959204482413,-4.079551758628952e-05,0.0005,absolute,PASS
+network_v5,equivalent LV line-line voltage [kV],0.4157,0.4156921938165305,-7.806183469516448e-06,0.0005,absolute,PASS
+network_v5,equivalent transformer rating [kVA],15.0,15.0,0.0,1e-09,absolute,PASS
+network_v5,single-phase equivalent difference [%],-0.002981,-0.002980987748492644,1.225150735592942e-08,1e-05,absolute,PASS
+network_v5,peak-demand transformer loading [%],50.9661,50.96606101027867,-3.898972132532208e-05,0.001,absolute,PASS
+network_v5,5 kW inverter-stress transformer loading [%],92.2167,92.21674833131229,4.833131228565435e-05,0.001,absolute,PASS
+network_v5,annual minimum LV voltage [pu],0.9736,0.9735989593155545,-1.0406844455079778e-06,0.0001,absolute,PASS
+network_v5,annual maximum LV voltage [pu],1.0094,1.0094082576219265,8.257621926466285e-06,0.0001,absolute,PASS
+network_v5,annual maximum transformer loading [%],61.3215,61.321525162427115,2.5162427114366892e-05,0.001,absolute,PASS
+network_v5,annual maximum import [kW],2.2467,2.24667086545575,-2.9134544250020156e-05,0.001,absolute,PASS
+network_v5,annual maximum export [kW],3.0216,3.021616431055918,1.6431055918086912e-05,0.001,absolute,PASS
+network_v5,first nominal transformer overload [houses],9,9,0.0,0.0,absolute,PASS

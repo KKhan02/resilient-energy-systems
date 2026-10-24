@@ -1,0 +1,11 @@
+case,control,binding_limits,storage_limit,ac_path_limit,hours,curtailed_kwh,share_of_curtailed_pct,export_control_kw
+REF_12P_4B_5K,CONVENTIONAL,none,none,none,0,0.0,0.0,4.5
+REF_12P_4B_5K,CONVENTIONAL,battery_full+export_blocked,battery_full,export_blocked,247,251.07815947778778,100.00000000000003,0.0
+OS_16P_4B_5K,CONVENTIONAL,none,none,none,0,0.0,0.0,4.5
+OS_16P_4B_5K,CONVENTIONAL,battery_full+export_blocked,battery_full,export_blocked,897,1451.9594455179006,99.99999999999999,0.0
+OS_16P_8B_5K,CONVENTIONAL,none,none,none,0,0.0,0.0,4.5
+OS_16P_8B_5K,CONVENTIONAL,battery_full+export_blocked,battery_full,export_blocked,780,1323.4801864862761,100.0,0.0
+OS_20P_8B_8K,CONVENTIONAL,battery_full+export_at_cap,battery_full,export_at_cap,54,15.798426805032214,99.99999999999993,4.5
+OS_20P_8B_8K,CONVENTIONAL,battery_full+export_blocked,battery_full,export_blocked,1598,3529.8847287950766,99.99999999999999,0.0
+OS_24P_8B_12K,CONVENTIONAL,battery_full+export_at_cap,battery_full,export_at_cap,358,258.3173681038288,100.0,4.5
+OS_24P_8B_12K,CONVENTIONAL,battery_full+export_blocked,battery_full,export_blocked,2026,5879.281358894108,100.00000000000003,0.0

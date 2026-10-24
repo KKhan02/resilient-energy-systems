@@ -1,0 +1,16 @@
+profile,role,diagnostic,value
+HOMER_CALIBRATED_SHAPE,benchmark annual-energy reference,method,HOMER_CALIBRATED_GEOMETRIC_SHAPE
+HOMER_CALIBRATED_SHAPE,benchmark annual-energy reference,monthly_radiation_source,NASA POWER: Nasa Data.csv
+HOMER_CALIBRATED_SHAPE,benchmark annual-energy reference,annual_pv_dc_kwh_at_reference_kwp,7326.299999999999
+HOMER_CALIBRATED_SHAPE,benchmark annual-energy reference,homer_annual_pv_dc_kwh,7326.3
+HOMER_CALIBRATED_SHAPE,benchmark annual-energy reference,peak_pv_dc_kw_at_reference_kwp,2.9107068495841397
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,source,NASA_POWER_SanRafael_hourly_2025.csv
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,method,NASA_GHI_ERBS_MIDPOINT
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,annual_ghi_kwh_m2,1773.00935
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,annual_poa_kwh_m2,1772.391717236679
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,poa_to_ghi_ratio,0.9996516472046122
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,erbs_max_daylight_closure_error,2.1089047585073834e-16
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,erbs_p95_daylight_closure_error,0.0
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,annual_pv_dc_kwh_at_reference_kwp,7054.0032949933475
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,peak_pv_dc_kw_at_reference_kwp,3.8500822248692974
+NASA_GHI_ERBS,GHI-anchored weather-derived physical case and default grid handoff,reference_kwp,5.22

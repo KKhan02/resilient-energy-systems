@@ -1,0 +1,41 @@
+parameter,status,source
+adaptive_reserve_gain,CONTROL,Objective 6 strategy definition: reserve raised when trailing solar availability falls
+bess_module_sweep,CONTROL,Objective 2: BESS energy investigated separately from charge/discharge power
+critical_load_fraction,ASSUMED,No appliance survey available; 30% of hourly demand treated as critical
+deferrable_load_fraction,ASSUMED,No appliance survey available; 15% of daily energy treated as shiftable within the day
+fixed_reserve_soc_pu,CONTROL,Objective 6 strategy definition: fixed emergency SOC reserve
+grid_last_resort_penalty_usd_per_kwh,CONTROL,"v18 operating-priority coefficient, not a tariff"
+high_demand_multipliers,CONTROL,Explicit stress multiplier on the reference demand realization
+houses_per_lv_branch,ASSUMED,Representative radial layout; service drops not surveyed
+inverter_family,MEASURED,"Deye datasheet supplied with project: SUN-5/6/7.6/8K-SG02LP2-US-AM2, SUN-10/12K-SG02LP2-US-AM3"
+inverter_key_sweep,CONTROL,"Objective 2: inverter AC rating as its own axis, within the quoted Deye family"
+inverter_lifetime_y,REFERENCE,HOMER converter lifetime 15 y
+inverter_split_phase,MEASURED,"Datasheet grid connection form 2L+N+PE, 120/240 V - matches EPM single-phase 240/120 V secondary"
+loading_limit_pu,ASSUMED,Permissible continuous loading; no EPM continuous-rating document obtained. Swept 0.80/0.90/1.00
+low_solar_derate_factors,CONTROL,Explicit stress multiplier on the measured low-irradiance window
+lv_max_i_ka,ASSUMED,Installation-specific 1/0 AAC ampacity not available; screening value
+lv_r_single_ohm_per_km,MEASURED,"EPM RA8-017 / ET-TD-ME01-02, 1/0 AAC reference 0.656 ohm/km"
+lv_screen_min_pu,MEASURED,"EPM RA8-017 3% voltage-drop design reference, applied as a 0.97-1.03 pu screening band"
+lv_voltage_kv,MEASURED,EPM asset data: 240/120 V split secondary
+lv_x_single_ohm_per_km,ASSUMED,Installation geometry not available
+mv_max_i_ka,MEASURED,"Nexans Colombia, #2 ACSR Sparrow ampacity approx. 184 A"
+mv_r_ohm_per_km,MEASURED,"EPM ET-TD-ME01-03, #2 AWG ACSR Sparrow, 0.8320 ohm/km at 20 C"
+mv_voltage_kv,MEASURED,EPM asset data: 7.621 kV primary
+mv_x_ohm_per_km,ASSUMED,Installation geometry not available
+nasa_site_altitude_m,MEASURED,NASA POWER grid cell elevation for the project point
+outage_duration_sweep_h,CONTROL,v18 durations extended with a 48 h case
+panel_count_sweep,CONTROL,"Objective 2: extend 12 -> 16/20/24 panels, subject to datasheet DC input limits"
+pf_export,ASSUMED,Deye hybrid inverter default unity power factor; 0.8 lead-lag adjustable per datasheet
+pf_import,ASSUMED,Project lead: 0.95 for rural household lighting-dominated load; EPM RA8-017 uses 0.90 for sizing
+primary_length_m,MEASURED,"EPM screenshot trace, approx. 354.2 m"
+pv_derating_factor,REFERENCE,HOMER derating factor 80%
+pv_module_rated_w,REFERENCE,Project quotation: 12 x 435 Wp = 5.22 kWp
+pv_surface_tilt_deg,REFERENCE,HOMER slope 5.0 deg
+pv_temp_coeff_per_c,REFERENCE,HOMER temperature coefficient -0.300 %/C
+quoted_reference_subtotal_usd,REFERENCE,"Project quotation subtotal, anchors the installed-cost level"
+secondary_length_m,MEASURED,"Corrected EPM secondary trace, approx. 324.5 m"
+solar_position_interval_midpoint_min,DERIVED,NASA POWER hourly values are interval averages; solar position at +30 min midpoint
+stochastic_load_seed,REFERENCE,"PyPSA v18 reproducible reference realization, seed 20250913"
+tariff_sensitivity_usd_per_kwh,CONTROL,Optional: EPM invoice-derived subsidised / unsubsidised band vs HOMER 0.29 USD/kWh
+transformer_kva,MEASURED,"EPM asset data, transformer 94022 (5 kVA, single-phase)"
+trf_vk_percent,ASSUMED,Transformer 94022 nameplate impedance not available; engineering proxy
