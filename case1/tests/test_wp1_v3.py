@@ -211,3 +211,45 @@ def test_g3_throughput_limited_battery_uses_multiple_replacements():
     expected=sum(cost/(1+m.DISCOUNT)**y for y in (8,16,24))
     assert np.isclose(m.replacement_npv(cost,life),expected)
     assert np.isclose(m.replacement_npv(cost,25.),0.0)
+
+def test_g3_soc_boundary_reports_actual_stored_energy_and_drift():
+    result,demand,pv=trial(hours=6,load_kw=2.0,pv_kw=0.0,
+                           modules=4,initial_soc_pu=.55)
+    diagnostics=m.soc_boundary_diagnostics(result,modules=4,initial_soc_pu=.55)
+    initial=4*m.USABLE_KWH_MODULE*(.55-.1)/.9
+    assert np.isclose(diagnostics["initial_stored_kwh"],initial)
+    assert np.isclose(diagnostics["end_stored_kwh"],result.soc_usable_kwh.iloc[-1])
+    assert np.isclose(diagnostics["soc_boundary_drift_kwh"],
+                      result.soc_usable_kwh.iloc[-1]-initial)
+    score=m.score(result,demand,pv,4,12,5,4,.9,.98)
+    assert np.isclose(score["soc_boundary_drift_kwh"],
+                      diagnostics["soc_boundary_drift_kwh"])
+    assert abs(diagnostics["soc_boundary_drift_kwh"])>0.01
+
+
+def test_g3_initial_soc_sensitivity_changes_import_without_grid_charging():
+    low,d,p=trial(hours=4,load_kw=2.,pv_kw=0.,modules=4,initial_soc_pu=.10)
+    high,_,_=trial(hours=4,load_kw=2.,pv_kw=0.,modules=4,initial_soc_pu=.90)
+    assert low.grid_import.iloc[0]>high.grid_import.iloc[0]+1.
+    assert np.isclose(low.soc_usable_kwh.iloc[0],0.)
+    assert np.isclose(low.pv_charge_dc.sum(),0.)
+    assert np.isclose(high.pv_charge_dc.sum(),0.)
+
+
+def test_g3_periodic_soc_is_opt_in_and_closes_full_day_window():
+    idx=pd.date_range("2025-01-01",periods=48,freq="h")
+    load=pd.Series(1.5,index=idx)
+    pv=pd.Series(np.where((idx.hour>=8)&(idx.hour<=16),3.0,0.0),index=idx)
+    periodic,info=m.dispatch_cyclic(
+        load,pv,modules=4,inverter_kva=5.,charge_discharge_kw=5.,
+        soc_tolerance_kwh=1e-3)
+    assert abs(info["soc_boundary_drift_kwh"])<=1e-3
+    assert .1<=info["initial_soc_pu"]<=1.
+    assert np.isclose(info["end_stored_kwh"],
+                      periodic.soc_usable_kwh.iloc[-1])
+    with pytest.raises(ValueError,match="complete local days"):
+        m.dispatch_cyclic(load.iloc[6:],pv.iloc[6:],
+                          modules=4,inverter_kva=5.)
+    with pytest.raises(ValueError,match="grid-connected"):
+        m.dispatch_cyclic(load,pv,modules=4,inverter_kva=5.,
+                          grid_on=np.r_[np.ones(24,bool),np.zeros(24,bool)])
