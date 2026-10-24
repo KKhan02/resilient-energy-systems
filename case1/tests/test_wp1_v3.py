@@ -113,3 +113,42 @@ def test_g1b_import_projection_counts_deferred_backlog():
     assert np.isclose(result.deferred_backlog_kwh.iloc[1],1.305)
     assert np.isclose(demand.sum(),result.load_served.sum()
                       +result.ens.sum()+result.deferred_backlog_kwh.iloc[-1])
+
+def test_g2_battery_power_default_uses_hardware_limit():
+    index=pd.date_range("2025-01-01",periods=1,freq="h")
+    load=pd.Series([0.0],index=index)
+    pv=pd.Series([40.0],index=index)
+    hardware=m.dispatch(load,pv,modules=8,inverter_kva=24.0)
+    explicit=m.dispatch(load,pv,modules=8,inverter_kva=24.0,
+                        charge_discharge_kw=5.0)
+    assert hardware.pv_charge_dc.iloc[0]>5.0
+    assert np.isclose(explicit.pv_charge_dc.iloc[0],5.0)
+
+
+def test_g2_frontier_is_robust_to_duplicate_index_labels():
+    from wp1_v3.plots import frontier
+    df=pd.DataFrame({"self_sufficiency_pct":[80,70,90],
+                     "annual_total_no_credit_usd":[100,110,200]},
+                     index=[0,0,1])
+    found=frontier(df,"annual_total_no_credit_usd")
+    assert len(found)==2
+    assert set(found.self_sufficiency_pct)=={80,90}
+
+
+def test_g2_single_feasibility_definition():
+    from wp1_v3.plots import eligible_designs
+    df=pd.DataFrame({
+        "grid_ens_kwh":[0.0,1e-5,0.0],
+        "max_trafo_kva":[4.5,4.0,4.7],
+        "transformer_allow_kva":[4.5,4.5,4.5]})
+    assert list(eligible_designs(df).index)==[0]
+
+
+def test_g2_two_self_sufficiency_definitions_are_named():
+    output,d,pv=trial(load_kw=9.0,pv_kw=0.0,modules=0)
+    result=m.score(output,d,pv,0,12,5,4,.9,.98)
+    assert "self_sufficiency_of_served_pct" in result
+    assert "one_minus_import_fraction_of_demand_pct" in result
+    assert np.isclose(result["self_sufficiency_of_served_pct"],
+                      result["self_sufficiency_pct"])
+    assert result["one_minus_import_fraction_of_demand_pct"] > result["self_sufficiency_pct"]
