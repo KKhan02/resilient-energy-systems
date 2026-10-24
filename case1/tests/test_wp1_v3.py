@@ -182,3 +182,32 @@ def test_g2_two_self_sufficiency_definitions_are_named():
     assert np.isclose(result["self_sufficiency_of_served_pct"],
                       result["self_sufficiency_pct"])
     assert result["one_minus_import_fraction_of_demand_pct"] > result["self_sufficiency_pct"]
+
+def test_g3_battery_float_life_and_inverter_replacements_are_separate():
+    # Reference HOMER: inverter 15 y, battery float 20 y with zero cycling.
+    r,load,pv=trial(hours=1,load_kw=0,pv_kw=0,modules=4)
+    result=m.score(r,load,pv,4,12,5,4,.9,.98)
+    battery_cap=4*m.BAT_UNIT_COST
+    inv_cap=5*m.INV_UNIT_COST
+    assert np.isclose(result["battery_life_years"],20.0)
+    assert np.isclose(result["annual_battery_throughput_kwh"],0.0)
+    assert np.isclose(result["battery_replacement_npv_usd"],
+                      battery_cap/(1+m.DISCOUNT)**20)
+    assert np.isclose(result["inverter_replacement_npv_usd"],
+                      inv_cap/(1+m.DISCOUNT)**15)
+    expected_equipment=(result["capex_ex_vat_usd"]
+                        +result["battery_replacement_npv_usd"]
+                        +result["inverter_replacement_npv_usd"])*m.CRF
+    assert np.isclose(result["annualized_equipment_usd"],expected_equipment)
+
+
+def test_g3_throughput_limited_battery_uses_multiple_replacements():
+    # 4 modules, 23660 kWh lifetime throughput per module, eight-year life.
+    annual_throughput=4*23660/8
+    life,basis=m.battery_replacement_life(4,annual_throughput)
+    assert np.isclose(life,8)
+    assert basis=="throughput limited"
+    cost=4*m.BAT_UNIT_COST
+    expected=sum(cost/(1+m.DISCOUNT)**y for y in (8,16,24))
+    assert np.isclose(m.replacement_npv(cost,life),expected)
+    assert np.isclose(m.replacement_npv(cost,25.),0.0)
