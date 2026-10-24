@@ -41,7 +41,7 @@ CRF=DISCOUNT*(1+DISCOUNT)**PROJECT_Y/((1+DISCOUNT)**PROJECT_Y-1)
 COLS=['pv_direct_ac','pv_charge_dc','battery_discharge_dc','grid_import','grid_export','curtailed_dc','soc_usable_kwh','load_served','ens','pcc_kva','pcc_p_kw','pcc_q_kvar','deferred_backlog_kwh','reserve_soc','critical_ens']
 
 @njit(cache=True)
-def _core(load,pv,grid_on,reserve_soc,modules,inv_kva,bat_dc_power,trafo_allow_kva,pf,flex_frac,import_trigger,initial_stored):
+def _core(load,pv,grid_on,reserve_soc,local_hour,modules,inv_kva,bat_dc_power,trafo_allow_kva,pf,flex_frac,import_trigger,initial_stored):
     """1-hour causal dynamics. reserve_soc is already computed from past data only.
     All AC power in kW, PV/BESS in DC kW and energy in kWh.
     If demand cannot be served under 5 kVA constraint, record ENS, not feasibility.
@@ -55,11 +55,11 @@ def _core(load,pv,grid_on,reserve_soc,modules,inv_kva,bat_dc_power,trafo_allow_k
         ld=load[t]; sun=pv[t]; on=grid_on[t]
         reserv=max(0.,(reserve_soc[t]-.1)/.9*emax) if on else 0.
         firm=ld*(1-flex_frac); new_flexible=ld*flex_frac
-        due=age>=8 or (t%24)==23
+        due=age>=8 or local_hour[t]==23
         # Deferral is permitted only for a scenario-defined fraction of demand.
         # Account for overdue backlog explicitly; no energy disappears.
         if flex_frac>0:
-            projected=max(0.,firm+new_flexible-backlog*.0-min(sun*ETA_INV,inv_kva)-min(max(e-reserv,0)*ETA_BAT*ETA_INV,bat_dc_power*ETA_INV))
+            projected=max(0.,firm+new_flexible+backlog-min(sun*ETA_INV,inv_kva)-min(max(e-reserv,0)*ETA_BAT*ETA_INV,bat_dc_power*ETA_INV))
             if (on and (projected<=import_trigger or due)):
                 flexible_now=new_flexible+backlog
             elif (not on and (sun*ETA_INV>firm)):
@@ -181,7 +181,13 @@ def dispatch(load:pd.Series,pv_dc:pd.Series,modules:int,inverter_kva:float,cap_p
     emax=modules*USABLE_KWH_MODULE
     e0=emax*(initial_soc_pu-.10)/.9
     flex=flex_fraction if policy=='adaptive_lm' else 0.
-    arr=_core(np.asarray(load,dtype=float),np.asarray(pv_dc,dtype=float),on,reserve,modules,
+    if flex>0:
+        if not isinstance(load.index,pd.DatetimeIndex):
+            raise ValueError('adaptive_lm requires a DatetimeIndex for local-hour scheduling')
+        local_hour=np.asarray(load.index.hour,dtype=np.int64)
+    else:
+        local_hour=np.zeros(len(load),dtype=np.int64)
+    arr=_core(np.asarray(load,dtype=float),np.asarray(pv_dc,dtype=float),on,reserve,local_hour,modules,
               inverter_kva,batlimit,5*cap_pu,pf,flex,.8*5*cap_pu*.95,e0)
     return pd.DataFrame(arr,index=load.index,columns=COLS)
 
