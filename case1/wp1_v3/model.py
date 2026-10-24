@@ -37,6 +37,35 @@ PV_UNIT_COST=3856/12 * QUOTE_SCALE
 BAT_UNIT_COST=4770/4 * QUOTE_SCALE
 INV_UNIT_COST=3330/5 * QUOTE_SCALE
 CRF=DISCOUNT*(1+DISCOUNT)**PROJECT_Y/((1+DISCOUNT)**PROJECT_Y-1)
+# From the original HOMER XML and preserved independent reference model.
+BATTERY_FLOAT_LIFE_Y=20.0
+BATTERY_LIFETIME_THROUGHPUT_KWH_PER_MODULE=23660.0
+INVERTER_LIFE_Y=15.0
+
+
+def battery_replacement_life(modules,annual_battery_throughput_kwh):
+    """HOMER float/throughput life, using annual 0.5*(charge+discharge)."""
+    if modules<=0:
+        return float('inf'),'no battery'
+    if annual_battery_throughput_kwh<=0:
+        return BATTERY_FLOAT_LIFE_Y,'float life (no cycling)'
+    throughput_years=(modules*BATTERY_LIFETIME_THROUGHPUT_KWH_PER_MODULE
+                      /annual_battery_throughput_kwh)
+    if throughput_years<BATTERY_FLOAT_LIFE_Y:
+        return throughput_years,'throughput limited'
+    return BATTERY_FLOAT_LIFE_Y,'float life limited'
+
+
+def replacement_npv(component_capex,component_lifetime_years):
+    """Discount replacements strictly inside the study horizon (no end replacement)."""
+    if component_capex<=0 or component_lifetime_years<=0:
+        return 0.
+    total=0.
+    year=component_lifetime_years
+    while year<PROJECT_Y-1e-9:
+        total+=component_capex/(1+DISCOUNT)**year
+        year+=component_lifetime_years
+    return total
 
 COLS=['pv_direct_ac','pv_charge_dc','battery_discharge_dc','grid_import','grid_export','curtailed_dc','soc_usable_kwh','load_served','ens','pcc_kva','pcc_p_kw','pcc_q_kvar','deferred_backlog_kwh','reserve_soc','critical_ens']
 
@@ -204,9 +233,15 @@ def score(frame,load,pv,modules,panels,inv,houses,cap_pu,pf):
     ens=float(frame.ens.sum());served=float(frame.load_served.sum());demand=float(load.sum())
     pv_cap=PV_UNIT_COST*panels;bat_cap=BAT_UNIT_COST*modules;inv_cap=INV_UNIT_COST*inv
     capex=pv_cap+bat_cap+inv_cap
-    # 15y inverter & battery replacements (provisional; throughput aging varies).
-    replacement_npv=(inv_cap+bat_cap)/(1+DISCOUNT)**15 if modules else inv_cap/(1+DISCOUNT)**15
-    annual_equipment=(capex+replacement_npv)*CRF
+    # Match preserved independent HOMER convention: annual battery DC
+    # throughput = 0.5 * (charge + discharge), no separate wear-cost charge.
+    annual_battery_throughput=.5*(
+        float(frame.pv_charge_dc.sum())+float(frame.battery_discharge_dc.sum()))
+    battery_life,battery_basis=battery_replacement_life(
+        modules,annual_battery_throughput)
+    battery_rep=replacement_npv(bat_cap,battery_life)
+    inverter_rep=replacement_npv(inv_cap,INVERTER_LIFE_Y)
+    annual_equipment=(capex+battery_rep+inverter_rep)*CRF
     return dict(households=houses,panels=panels,pv_kwp=panels*PANEL_KWP,bess_modules=modules,
                 bess_usable_kwh=USABLE_KWH_MODULE*modules,inverter_kva=inv,load_pf=pf,
                 transformer_allow_kva=5*cap_pu,demand_kwh=float(load.sum()),served_kwh=served,
@@ -218,6 +253,11 @@ def score(frame,load,pv,modules,panels,inv,houses,cap_pu,pf):
                 locally_supplied_fraction_of_demand_pct=100*(served-imports)/max(demand,1e-9),
                 pv_curtailment_pct=100*float(frame.curtailed_dc.sum())/max(available,1e-9),
                 annualized_equipment_usd=annual_equipment,
+                annual_battery_throughput_kwh=annual_battery_throughput,
+                battery_life_years=battery_life if modules else 0.,
+                battery_life_basis=battery_basis,
+                battery_replacement_npv_usd=battery_rep,
+                inverter_replacement_npv_usd=inverter_rep,
                 annual_total_no_credit_usd=annual_equipment+PRICE_IMPORT*imports,
                 annual_total_homer_credit_usd=annual_equipment+PRICE_IMPORT*imports-PRICE_EXPORT*exports,
                 annual_total_no_credit_per_house_usd=(annual_equipment+PRICE_IMPORT*imports)/houses,
