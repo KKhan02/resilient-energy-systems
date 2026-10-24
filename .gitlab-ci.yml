@@ -30,7 +30,7 @@ case1_legacy_baseline_tests:
     - python -m pip freeze | grep -E '^(numpy|pandas|pvlib|pypsa|pandapower|highspy|pytest)=='
   script:
     - cd case1
-    - python -m pytest legacy/independent_case1_original/tests/test_case1.py -q --junitxml=legacy-results.xml
+    - PYTHONPATH=legacy/independent_case1_original python -m pytest legacy/independent_case1_original/tests/test_case1.py -q --junitxml=legacy-results.xml
   artifacts:
     when: always
     reports:
