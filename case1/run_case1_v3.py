@@ -21,7 +21,7 @@ reference_v2.XML_PATH=ROOT/'data/SimulacionTampico1k(1).xml'
 
 
 def choose_candidate(df,houses,target=90.):
-    f=df[(df.households==houses)&(df.grid_ens_kwh<=1e-7)]
+    f=plots.eligible_designs(df[df.households==houses])
     qualified=f[f.self_sufficiency_pct>=target]
     if len(qualified):return qualified.sort_values('annual_total_no_credit_usd').iloc[0]
     if len(f):return f.sort_values(['self_sufficiency_pct','annual_total_no_credit_usd'],ascending=[False,True]).iloc[0]
@@ -63,8 +63,10 @@ def run(quick=False,require_pvlib=False,pf=.98,trafo_factor=.9):
     table=pd.DataFrame(candidate_rows)
     table.to_csv(OUT/'all_hardware_eligible_designs.csv',index=False,float_format='%.7f')
     pd.DataFrame(rejected,columns=['households','panels','bess_modules','inverter_kva','reason']).to_csv(OUT/'excluded_hardware_designs.csv',index=False)
-    table[table.grid_ens_kwh>1e-7].to_csv(OUT/'excluded_grid_ens_designs.csv',index=False)
-    table[table.grid_ens_kwh<=1e-7].to_csv(OUT/'PCC_screened_designs.csv',index=False)
+    eligible=plots.eligible_designs(table)
+    table.drop(index=eligible.index).to_csv(
+        OUT/'excluded_grid_ens_designs.csv',index=False)
+    eligible.to_csv(OUT/'PCC_screened_designs.csv',index=False)
     # Additional expanded-housing, battery-power feasibility search.
     # Does not overstate the fixed-5kW main sweep as a population limit.
     higher=[]
@@ -87,7 +89,7 @@ def run(quick=False,require_pvlib=False,pf=.98,trafo_factor=.9):
     table.to_csv(OUT/'ALL_designs_including_extended_battery_power.csv',index=False)
     frontier=[]
     for hh in HOUSES:
-        eligible=table[(table.households==hh)&(table.grid_ens_kwh<=1e-7)]
+        eligible=plots.eligible_designs(table[table.households==hh])
         if not len(eligible):continue
         for regime,col in [('no_credit','annual_total_no_credit_usd'),('homer_credit','annual_total_homer_credit_usd')]:
             f=plots.frontier(eligible,col).copy();f['regime']=regime;frontier.append(f)
@@ -110,7 +112,7 @@ def run(quick=False,require_pvlib=False,pf=.98,trafo_factor=.9):
         hourly.assign(demand_kw=load,pv_dc_available_kw=solar).to_csv(OUT/f'hourly_selected_{hh}house.csv',index_label='timestamp',float_format='%.7f')
     if representatives:
         pd.DataFrame(representatives).to_csv(OUT/'selected_community_options.csv',index=False)
-        plots.duration_plot(trafo_samples,FIG)
+        plots.duration_plot(trafo_samples,FIG,cap_pu=trafo_factor)
         plots.monthly_balance(monthly_samples,FIG)
     power_rows=[]
     for hh in (4,8,12,15,17):
