@@ -1,13 +1,11 @@
-# SEEDExchange San Rafael Case 1
-#
-# pandapower currently requires pandas < 3, and recent PyPSA releases require
-# pandas >= 3. The pin below keeps both stages working in one environment;
-# it matches the versions the v18 / v5 baselines were executed with.
-pandas>=2.2,<3
-numpy>=1.26
-matplotlib>=3.8
-pvlib>=0.11
-pypsa>=0.34,<1.4
-highspy>=1.7
-pandapower>=3.0
-pytest>=8.0
+# Verified reference baseline environment (GitLab CI, Python 3.11)
+# Separate from the consolidated Case 1 core environment, which uses pandas 3.
+# Re-evaluate and verify reference parity before upgrading these direct pins.
+pandas==2.3.3
+numpy==2.4.6
+matplotlib==3.11.2
+pvlib==0.16.1
+pypsa==1.2.4
+highspy==1.15.1
+pandapower==3.5.6
+pytest==9.1.1
