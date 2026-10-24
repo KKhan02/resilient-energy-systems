@@ -173,6 +173,9 @@ def dispatch(load:pd.Series,pv_dc:pd.Series,modules:int,inverter_kva:float,cap_p
     if not .1<=initial_soc_pu<=1:raise ValueError('bad initial SOC')
     if not 0<pf<=1:raise ValueError('bad PF')
     if modules<0:raise ValueError('bad modules')
+    # Validate BEFORE get_reserve calls pandas resample('D').
+    if policy=='adaptive_lm' and not isinstance(load.index,pd.DatetimeIndex):
+        raise ValueError('adaptive_lm requires a DatetimeIndex for local-hour scheduling')
     on=np.ones(len(load),dtype=np.bool_) if grid_on is None else np.asarray(grid_on,dtype=np.bool_)
     # None uses datasheet battery port and module bank capabilities.
     # The annual research sweep explicitly supplies 5.0 kW for comparability.
@@ -187,8 +190,6 @@ def dispatch(load:pd.Series,pv_dc:pd.Series,modules:int,inverter_kva:float,cap_p
     e0=emax*(initial_soc_pu-.10)/.9
     flex=flex_fraction if policy=='adaptive_lm' else 0.
     if flex>0:
-        if not isinstance(load.index,pd.DatetimeIndex):
-            raise ValueError('adaptive_lm requires a DatetimeIndex for local-hour scheduling')
         local_hour=np.asarray(load.index.hour,dtype=np.int64)
     else:
         local_hour=np.zeros(len(load),dtype=np.int64)
