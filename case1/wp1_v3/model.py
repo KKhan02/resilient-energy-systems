@@ -267,7 +267,7 @@ def dispatch_cyclic(load,pv_dc,modules,inverter_kva,*,
     if not isinstance(load.index,pd.DatetimeIndex) or len(load)<24 or len(load)%24:
         raise ValueError('periodic SOC requires complete local days')
     if load.index[0].hour!=0 or load.index[-1].hour!=23 or (
-            not np.all(np.diff(load.index.asi8)==3600*10**9)):
+            not np.all((load.index[1:]-load.index[:-1])==pd.Timedelta(hours=1))):
         raise ValueError('periodic SOC requires complete local days at hourly resolution')
     if 'grid_on' in dispatch_kwargs and dispatch_kwargs['grid_on'] is not None:
         if not bool(np.all(dispatch_kwargs['grid_on'])):
