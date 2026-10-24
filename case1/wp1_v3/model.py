@@ -227,7 +227,94 @@ def dispatch(load:pd.Series,pv_dc:pd.Series,modules:int,inverter_kva:float,cap_p
     return pd.DataFrame(arr,index=load.index,columns=COLS)
 
 
-def score(frame,load,pv,modules,panels,inv,houses,cap_pu,pf):
+def soc_boundary_diagnostics(frame,modules,initial_soc_pu=.55,
+                             tolerance_kwh=1e-3):
+    """Report beginning/end usable DC energy; never silently erase drift.
+
+    Nominal SOC 10% maps to zero usable energy, 100% to full usable bank.
+    The result belongs to the specific simulated window, not the grid itself.
+    """
+    if frame.empty:
+        raise ValueError('SOC boundary requires a nonempty dispatch')
+    if modules<0 or not .1<=initial_soc_pu<=1.:
+        raise ValueError('invalid battery modules or initial SOC')
+    if tolerance_kwh<0:
+        raise ValueError('SOC closure tolerance must be nonnegative')
+    capacity=modules*USABLE_KWH_MODULE
+    initial=capacity*(initial_soc_pu-.1)/.9
+    ending=float(frame.soc_usable_kwh.iloc[-1])
+    drift=ending-initial
+    return dict(initial_soc_pu=float(initial_soc_pu),
+                initial_stored_kwh=initial,
+                end_stored_kwh=ending,
+                soc_boundary_drift_kwh=drift,
+                soc_boundary_drift_pct_usable=100*drift/capacity if capacity else 0.,
+                soc_boundary_closed=abs(drift)<=tolerance_kwh)
+
+
+def dispatch_cyclic(load,pv_dc,modules,inverter_kva,*,
+                    soc_tolerance_kwh=1e-3,max_iterations=32,
+                    **dispatch_kwargs):
+    """Opt-in periodic full-day SOC sensitivity; NOT an outage initializer.
+
+    Search for E_end=E_start with exactly the same weather/demand/dispatch
+    policy over the repeated study window. No battery energy is fabricated:
+    a candidate is accepted only when rerunning dispatch closes the residual.
+    The ordinary annual sweep still starts at the documented 55% nominal SOC.
+    """
+    if 'initial_soc_pu' in dispatch_kwargs:
+        raise ValueError('periodic SOC solves initial_soc_pu; do not set it')
+    if not isinstance(load.index,pd.DatetimeIndex) or len(load)<24 or len(load)%24:
+        raise ValueError('periodic SOC requires complete local days')
+    if load.index[0].hour!=0 or load.index[-1].hour!=23 or (
+            not np.all(np.diff(load.index.asi8)==3600*10**9)):
+        raise ValueError('periodic SOC requires complete local days at hourly resolution')
+    if 'grid_on' in dispatch_kwargs and dispatch_kwargs['grid_on'] is not None:
+        if not bool(np.all(dispatch_kwargs['grid_on'])):
+            raise ValueError('periodic SOC is only for grid-connected baseline windows')
+    if soc_tolerance_kwh<=0 or max_iterations<1:
+        raise ValueError('positive SOC tolerance and iteration count required')
+
+    def candidate(soc):
+        frame=dispatch(load,pv_dc,modules,inverter_kva,
+                       initial_soc_pu=soc,**dispatch_kwargs)
+        return frame,soc_boundary_diagnostics(frame,modules,soc,soc_tolerance_kwh)
+
+    trial_frame,trial_info=candidate(.55)
+    if abs(trial_info['soc_boundary_drift_kwh'])<=soc_tolerance_kwh:
+        return trial_frame,dict(trial_info,method='periodic_window_soc',
+                                solver_iterations=1)
+    if modules==0:
+        return trial_frame,dict(trial_info,method='not_applicable_no_battery',
+                                solver_iterations=1)
+
+    lo,hi=.1,1.
+    frame_lo,diag_lo=candidate(lo)
+    if abs(diag_lo['soc_boundary_drift_kwh'])<=soc_tolerance_kwh:
+        return frame_lo,dict(diag_lo,method='periodic_window_soc',
+                             solver_iterations=2)
+    frame_hi,diag_hi=candidate(hi)
+    if abs(diag_hi['soc_boundary_drift_kwh'])<=soc_tolerance_kwh:
+        return frame_hi,dict(diag_hi,method='periodic_window_soc',
+                             solver_iterations=3)
+    if diag_lo['soc_boundary_drift_kwh']<0 or diag_hi['soc_boundary_drift_kwh']>0:
+        raise RuntimeError('SOC periodic boundary is not bracketed')
+
+    for iteration in range(1,max_iterations+1):
+        mid=(lo+hi)/2
+        frame,info=candidate(mid)
+        drift=info['soc_boundary_drift_kwh']
+        if abs(drift)<=soc_tolerance_kwh:
+            return frame,dict(info,method='periodic_window_soc',
+                              solver_iterations=iteration+3)
+        if drift>0:
+            lo=mid
+        else:
+            hi=mid
+    raise RuntimeError('SOC periodic boundary did not close within tolerance')
+
+
+def score(frame,load,pv,modules,panels,inv,houses,cap_pu,pf,initial_soc_pu=.55):
     """Energy+cost metrics; total cost includes purchased energy, not CAPEX alone."""
     available=float(pv.sum());imports=float(frame.grid_import.sum());exports=float(frame.grid_export.sum())
     ens=float(frame.ens.sum());served=float(frame.load_served.sum());demand=float(load.sum())
@@ -242,6 +329,7 @@ def score(frame,load,pv,modules,panels,inv,houses,cap_pu,pf):
     battery_rep=replacement_npv(bat_cap,battery_life)
     inverter_rep=replacement_npv(inv_cap,INVERTER_LIFE_Y)
     annual_equipment=(capex+battery_rep+inverter_rep)*CRF
+    boundary=soc_boundary_diagnostics(frame,modules,initial_soc_pu)
     return dict(households=houses,panels=panels,pv_kwp=panels*PANEL_KWP,bess_modules=modules,
                 bess_usable_kwh=USABLE_KWH_MODULE*modules,inverter_kva=inv,load_pf=pf,
                 transformer_allow_kva=5*cap_pu,demand_kwh=float(load.sum()),served_kwh=served,
@@ -266,4 +354,6 @@ def score(frame,load,pv,modules,panels,inv,houses,cap_pu,pf):
                 charge_dc_kwh=float(frame.pv_charge_dc.sum()),
                 discharge_dc_kwh=float(frame.battery_discharge_dc.sum()),
                 capex_ex_vat_usd=capex,capex_incl_19pct_vat_usd=capex*(QUOTE_TOTAL_USD/QUOTE_SUBTOTAL_USD),
-                available_pv_dc_kwh=available,scenario_status='PCC_ONLY_NOT_SPLIT_PHASE_VERIFIED')
+                available_pv_dc_kwh=available,
+                **boundary,
+                scenario_status='PCC_ONLY_NOT_SPLIT_PHASE_VERIFIED')
