@@ -96,6 +96,9 @@ def test_g1b_midnight_uses_real_window_hour():
     assert np.isclose(result.deferred_backlog_kwh.iloc[5],0.0)
     # Overdue demand is not made to vanish: unserved requests count as ENS.
     assert np.isclose(result.ens.iloc[5],13.0)
+    # One-hour resolution: demand is either served, unserved, or deferred.
+    assert np.isclose(demand.sum(),result.load_served.sum()
+                      +result.ens.sum()+result.deferred_backlog_kwh.iloc[-1])
 
 
 def test_g1b_import_projection_counts_deferred_backlog():
@@ -108,3 +111,5 @@ def test_g1b_import_projection_counts_deferred_backlog():
                       policy='adaptive_lm',reserve_override=np.full(2,.1))
     assert np.isclose(result.deferred_backlog_kwh.iloc[0],0.9)
     assert np.isclose(result.deferred_backlog_kwh.iloc[1],1.305)
+    assert np.isclose(demand.sum(),result.load_served.sum()
+                      +result.ens.sum()+result.deferred_backlog_kwh.iloc[-1])
