@@ -1,0 +1,45 @@
+bus_id,bus_type,x_px,y_px,trafo_group,house_id,note
+EPM_GRID,upstream_grid,,,,,abstract upstream grid bus; not positioned on image
+ENERGY_CENTER,energy_center_placeholder,749.33,489.67,,,"visual placeholder near houses 25, 26 and 29"
+T01,transformer_lv_bus,632.2,205.8,T01,,candidate transformer position at group centroid
+T02,transformer_lv_bus,497.6,275.0,T02,,candidate transformer position at group centroid
+T03,transformer_lv_bus,892.4,282.6,T03,,candidate transformer position at group centroid
+T04,transformer_lv_bus,695.8,395.0,T04,,candidate transformer position at group centroid
+T05,transformer_lv_bus,898.2,477.0,T05,,candidate transformer position at group centroid
+T06,transformer_lv_bus,429.6,529.8,T06,,candidate transformer position at group centroid
+T07,transformer_lv_bus,775.8,583.8,T07,,candidate transformer position at group centroid
+H01,house,1024,557,T05,1,ASHRAM
+H02,house,891,479,T05,2,DANIEL
+H03,house,895,449,T05,3,GERARDO
+H04,house,837,409,T05,4,MARLENI
+H05,house,901,391,T03,5,MILTON
+H06,house,939,371,T03,6,ARTE AMBIGUO
+H07,house,915,291,T03,7,INESITA
+H08,house,913,113,T03,8,LAURA
+H09,house,680,35,T01,9,MANUEL
+H10,house,794,247,T03,10,NATASHA
+H11,house,625,214,T01,11,JULIANA
+H12,house,526,109,T01,12,ELCI
+H13,house,530,226,T02,13,DONA OLGA
+H14,house,361,246,T02,14,LEANDRO
+H15,house,469,271,T02,15,LEONARDO
+H16,house,530,299,T02,16,JUAN DAVID
+H17,house,671,312,T01,17,CHALITO / NUEVO PROP
+H18,house,598,333,T02,18,GLAMPING TAIBARA
+H19,house,699,355,T04,19,MAURICIO E
+H20,house,659,359,T01,20,ADRIANA
+H21,house,611,382,T06,21,CARLOS HENRY
+H22,house,650,417,T04,22,MILENA
+H23,house,688,391,T04,23,CLEMENCIA
+H24,house,731,387,T04,24,LEO
+H25,house,711,425,T04,25,CENTRO INSP
+H26,house,844,491,T05,26,CASA PIEDRA
+H27,house,872,547,T07,27,CLAUDIO
+H28,house,838,543,T07,28,SERGIO / BETY
+H29,house,693,553,T07,29,MAURICIO M
+H30,house,515,561,T06,30,HENRY BOTERO
+H31,house,390,572,T06,31,CALICHE
+H32,house,367,573,T06,32,GRACILIANO
+H33,house,265,561,T06,33,DAYRO GALLO
+H34,house,791,631,T07,34,DEICY
+H35,house,685,645,T07,35,JACOBO

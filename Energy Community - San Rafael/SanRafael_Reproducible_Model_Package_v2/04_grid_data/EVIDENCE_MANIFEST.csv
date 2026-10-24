@@ -1,0 +1,24 @@
+evidence_id,filename,description
+site_satellite_layout,Foto satelital con viviendas en la Cuenca del Arenal.jpg,Original community satellite image with houses 1-35
+epm_initial_search,107d0952-d200-44ad-a276-1ecdfafa18b7.png,Initial EPM search showing nearby transformers on circuit R50-02
+epm_exact_project_search,0f2a740f-f42f-4b0b-bac7-c742b1104b73.png,Exact project-coordinate EPM search showing circuit 221-12 and 5 kVA transformers
+epm_transformer_availability,00e09b2c-4392-4771-b8b0-07f9e03af87f.png,Transformer availability/table information
+epm_transformer_table,7667a52a-5cd7-4ec7-824b-0d35fd8755b5.png,Transformer table for 94022 and 92395
+epm_transformer_coordinates,8e6158f4-5c01-4c2e-9391-60f8b6397e3b.png,"Transformer coordinates, rural classification and circuit"
+epm_transformer_ids_phase,fb1d52ed-c47e-43c1-989f-8174f086d414.png,"Transformer IDs, nodes, aerial location and 1F phase"
+epm_transformer_region,80ae45df-f195-4313-b5ca-7fd80e130b1a.png,Region/substation/protection/insulation fields
+epm_transformer_vereda,06e07fab-7b9f-4488-a2f2-560ee28599a0.png,Vereda Las Camelias and kVA unit fields
+epm_secondary_conductor_table,77f7d433-6400-43ec-b5f2-56b23c66a2c1.png,"Secondary conductor table, AAC #2 and 1/0"
+epm_primary_conductor_table,14214421-7234-4e8f-91cb-628f32e7972e.png,"Primary conductor table, ACSR #2 and 4/0"
+epm_primary_legend_map,5fcf558d-fecd-4a49-bdf1-c9a3e6ce66de.png,Primary conductor map and legend
+epm_transformer_94022_popup,57d75e1a-a782-4ca4-95b4-8b9d3fa7b555.png,Transformer 94022 popup
+epm_primary_94022_popup,b3de38f5-7bac-460a-939d-1280ee5ed19b.png,Selected #2 ACSR primary conductor popup
+epm_secondary_94022_popup,ace39055-0efa-4014-b355-685bae8f8306.png,Selected 1/0 AAC secondary conductor popup
+epm_route_context_1,88d4aa30-4ecd-4a16-9ddf-5cee9ed911c5.png,EPM route context around project
+satellite_context,b2d360d6-7910-42c3-8adf-ea5bcab57a51.png,Satellite context near project and inspiration centre
+epm_scale_30m_full,18a0c3ab-24ca-42fb-861b-0b1a4851d9b2.png,EPM map at 30 m scale
+epm_scale_100m_full,171727f8-7c82-4a6e-91c8-d14677006d3a.png,EPM map at 100 m scale
+epm_secondary_context,e9b59229-e0b8-42a9-bb1d-3fe0c21892ac.png,Secondary conductor map context
+epm_secondary_base,205b0928-cd28-4bcc-973d-a8072b2086b4.png,Secondary route base screenshot
+epm_primary_context,af771082-a4a1-4797-825a-0ba23bfdda6f.png,Broader EPM primary-route context
+user_secondary_trace,027cec5a-23d4-461b-97bf-63f955ffe581.png,User-corrected black trace of the secondary route

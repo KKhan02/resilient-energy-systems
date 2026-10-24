@@ -1,0 +1,47 @@
+bus_id,bus_type,x_px,y_px,trafo_group,house_id,note
+EPM_GRID,upstream_grid,,,,,abstract upstream grid bus; not positioned on image
+ENERGY_CENTER,energy_center_placeholder,749.33,489.67,,,"visual placeholder near houses 25, 26 and 29"
+T01,transformer_lv_bus,625.5,167.5,T01,,candidate transformer position at group centroid
+T02,transformer_lv_bus,874.0,217.0,T02,,candidate transformer position at group centroid
+T03,transformer_lv_bus,472.5,260.5,T03,,candidate transformer position at group centroid
+T04,transformer_lv_bus,629.5,372.75,T04,,candidate transformer position at group centroid
+T05,transformer_lv_bus,707.25,389.5,T05,,candidate transformer position at group centroid
+T06,transformer_lv_bus,893.0,405.0,T06,,candidate transformer position at group centroid
+T07,transformer_lv_bus,907.75,518.5,T07,,candidate transformer position at group centroid
+T08,transformer_lv_bus,384.25,566.75,T08,,candidate transformer position at group centroid
+T09,transformer_lv_bus,751.75,593.0,T09,,candidate transformer position at group centroid
+H01,house,1024,557,T07,1,ASHRAM
+H02,house,891,479,T07,2,DANIEL
+H03,house,895,449,T06,3,GERARDO
+H04,house,837,409,T06,4,MARLENI
+H05,house,901,391,T06,5,MILTON
+H06,house,939,371,T06,6,ARTE AMBIGUO
+H07,house,915,291,T02,7,INESITA
+H08,house,913,113,T02,8,LAURA
+H09,house,680,35,T01,9,MANUEL
+H10,house,794,247,T02,10,NATASHA
+H11,house,625,214,T01,11,JULIANA
+H12,house,526,109,T01,12,ELCI
+H13,house,530,226,T03,13,DONA OLGA
+H14,house,361,246,T03,14,LEANDRO
+H15,house,469,271,T03,15,LEONARDO
+H16,house,530,299,T03,16,JUAN DAVID
+H17,house,671,312,T01,17,CHALITO / NUEVO PROP
+H18,house,598,333,T04,18,GLAMPING TAIBARA
+H19,house,699,355,T05,19,MAURICIO E
+H20,house,659,359,T04,20,ADRIANA
+H21,house,611,382,T04,21,CARLOS HENRY
+H22,house,650,417,T04,22,MILENA
+H23,house,688,391,T05,23,CLEMENCIA
+H24,house,731,387,T05,24,LEO
+H25,house,711,425,T05,25,CENTRO INSP
+H26,house,844,491,T07,26,CASA PIEDRA
+H27,house,872,547,T07,27,CLAUDIO
+H28,house,838,543,T09,28,SERGIO / BETY
+H29,house,693,553,T09,29,MAURICIO M
+H30,house,515,561,T08,30,HENRY BOTERO
+H31,house,390,572,T08,31,CALICHE
+H32,house,367,573,T08,32,GRACILIANO
+H33,house,265,561,T08,33,DAYRO GALLO
+H34,house,791,631,T09,34,DEICY
+H35,house,685,645,T09,35,JACOBO

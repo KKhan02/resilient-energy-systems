@@ -1,0 +1,9 @@
+metric,value,unit
+Minimum LV voltage,0.9735989593155545,pu
+Maximum LV voltage,1.0104650789746945,pu
+Maximum transformer loading,71.47379791258656,%
+Maximum LV line loading,6.853333741259775,%
+Maximum MV line loading,0.25387604046444157,%
+Maximum physical PCC import,2.24667086545575,kW
+Maximum physical PCC export,3.5144160512459166,kW
+Maximum NASA-derived inverter AC,4.643552057327195,kW

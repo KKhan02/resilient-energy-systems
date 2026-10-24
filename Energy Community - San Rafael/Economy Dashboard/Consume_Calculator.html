@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Community Settlement</title>
+<style>
+  :root{
+    --blueprint: #16324A;
+    --blueprint-line: rgba(255,255,255,0.09);
+    --paper: #FBFAF6;
+    --paper-line: #E3E0D6;
+    --ink: #1E2A30;
+    --ink-soft: #5B6B72;
+    --amber: #E0A038;
+    --amber-deep: #B97D1F;
+    --green: #4F7A5A;
+    --green-bg: #E9F1EA;
+    --rust: #B8532F;
+    --rust-bg: #F7E9E2;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background: var(--blueprint);
+    background-image:
+      linear-gradient(var(--blueprint-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--blueprint-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    font-family: var(--sans);
+    color: var(--ink);
+    min-height:100vh;
+    padding: 28px 16px 60px;
+  }
+  .sheet{
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .titleblock{
+    background: var(--paper);
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 3px;
+    padding: 18px 22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-bottom: 18px;
+  }
+  .titleblock h1{
+    margin:0 0 4px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .titleblock p{
+    margin:0;
+    color: var(--ink-soft);
+    font-size: 13.5px;
+    max-width: 46ch;
+    line-height:1.45;
+  }
+  .titleblock .meta{
+    display:flex;
+    gap: 18px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .titleblock .meta div{ display:flex; flex-direction:column; gap:2px;}
+  .titleblock .meta span:first-child{ color: var(--ink); font-weight:600;}
+  .titleblock input{
+    font-family: var(--mono);
+    font-size: 12px;
+    border: none;
+    border-bottom: 1px solid var(--paper-line);
+    background: transparent;
+    padding: 2px 0;
+    width: 140px;
+    color: var(--ink);
+  }
+  .titleblock input:focus{ outline:none; border-bottom-color: var(--amber-deep); }
+
+  .grid{
+    display:grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 820px){ .grid{ grid-template-columns: 1fr; } }
+
+  .panel{
+    background: var(--paper);
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 3px;
+    padding: 20px;
+  }
+  .panel + .panel{ margin-top: 18px; }
+  .panel h2{
+    margin:0 0 4px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .panel .sub{
+    margin: 0 0 16px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+
+  .field{ margin-bottom: 14px; }
+  .field label{
+    display:block;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-bottom: 5px;
+  }
+  .field .unit-wrap{ position:relative; }
+  .field input[type=number], .field input[type=text]{
+    width:100%;
+    padding: 8px 44px 8px 10px;
+    border: 1px solid var(--paper-line);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 14px;
+    background: #fff;
+    color: var(--ink);
+  }
+  .field input:focus{ outline: none; border-color: var(--amber-deep); box-shadow: 0 0 0 3px rgba(224,160,56,0.18); }
+  .field .unit{
+    position:absolute; right:10px; top:50%; transform:translateY(-50%);
+    font-size: 11.5px; color: var(--ink-soft); font-family: var(--mono);
+    pointer-events:none;
+  }
+
+  .divider{ height:1px; background: var(--paper-line); margin: 18px 0; }
+
+  .toggle{
+    display:flex;
+    border: 1px solid var(--paper-line);
+    border-radius: 5px;
+    overflow:hidden;
+    margin-bottom: 16px;
+  }
+  .toggle button{
+    flex:1;
+    padding: 9px 8px;
+    border:none;
+    background: #fff;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    cursor:pointer;
+    color: var(--ink-soft);
+    border-right: 1px solid var(--paper-line);
+  }
+  .toggle button:last-child{ border-right:none; }
+  .toggle button.active{ background: var(--blueprint); color:#fff; font-weight:600; }
+
+  .house-row{
+    display:grid;
+    grid-template-columns: 74px 1fr 70px;
+    gap: 8px;
+    align-items:center;
+    margin-bottom: 10px;
+  }
+  .house-row .tag{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .house-row input{
+    padding: 7px 8px;
+    border: 1px solid var(--paper-line);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 13px;
+    width:100%;
+  }
+  .house-row .pct-input{ opacity:1; }
+  .house-row .pct-input:disabled{ opacity: 0.35; background:#f2f1ec; }
+
+  /* results side */
+  .banner{
+    padding: 12px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height:1.5;
+    margin-bottom: 16px;
+    font-family: var(--mono);
+  }
+  .banner.ok{ background: var(--green-bg); color: #33513C; border: 1px solid rgba(79,122,90,0.3); }
+  .banner.warn{ background: var(--rust-bg); color: #7C3A1F; border: 1px solid rgba(184,83,47,0.3); }
+
+  .summary-strip{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 620px){ .summary-strip{ grid-template-columns: repeat(2, 1fr); } }
+
+  .penalty-panel{
+    border: 1px solid var(--paper-line);
+    border-radius: 4px;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    background: #FCFBF8;
+  }
+  .penalty-panel .prow{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .penalty-panel label{ font-size:12.5px; color: var(--ink-soft); }
+  .penalty-panel .pctfield{
+    display:flex; align-items:center; gap:6px;
+  }
+  .penalty-panel input[type=number]{
+    width: 64px;
+    padding: 5px 6px;
+    border:1px solid var(--paper-line);
+    border-radius:4px;
+    font-family: var(--mono);
+    font-size:13px;
+  }
+  .penalty-panel .checky{ display:flex; align-items:center; gap:6px; font-size:12.5px; color: var(--ink); }
+
+  .avg-badge{
+    display:inline-block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight:600;
+  }
+  .avg-badge.above{ background: var(--rust-bg); color: var(--rust); }
+  .avg-badge.below{ background: var(--green-bg); color: var(--green); }
+  .avg-badge.equal{ background: #EFEDE4; color: var(--ink-soft); }
+
+  .house-card{ border-left: 4px solid var(--paper-line); }
+  .house-card.above-avg{ border-left-color: var(--amber); }
+  .house-card.below-avg{ border-left-color: var(--green); }
+  .stat{
+    border: 1px solid var(--paper-line);
+    border-radius: 4px;
+    padding: 12px 12px;
+  }
+  .stat .label{ font-size:11px; color: var(--ink-soft); margin-bottom:6px; }
+  .stat .value{ font-family: var(--mono); font-size: 18px; font-weight:600; }
+  .stat.amber .value{ color: var(--amber-deep); }
+  .stat.green .value{ color: var(--green); }
+  .stat.rust .value{ color: var(--rust); }
+
+  .houses{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 620px){ .houses{ grid-template-columns: 1fr; } }
+  .house-card{
+    border: 1px solid var(--paper-line);
+    border-radius: 5px;
+    padding: 14px 16px;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .house-card.flash{ border-color: var(--amber-deep); box-shadow: 0 0 0 3px rgba(224,160,56,0.14); }
+  .house-card .hname{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom: 10px;
+  }
+  .house-card .hname strong{ font-size: 14px; }
+  .house-card .hname span{ font-family: var(--mono); font-size: 11.5px; color: var(--ink-soft); }
+  .line{
+    display:flex; justify-content:space-between;
+    font-size: 12.5px;
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--paper-line);
+  }
+  .line:last-child{ border-bottom:none; }
+  .line .k{ color: var(--ink-soft); }
+  .line .v{ font-family: var(--mono); }
+  .netbill{
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--paper-line);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .netbill .k{ font-size: 12.5px; font-weight:600; }
+  .netbill .v{ font-family: var(--mono); font-size: 16px; font-weight:700; }
+  .netbill .v.credit{ color: var(--green); }
+  .netbill .v.debit{ color: var(--rust); }
+
+  .footnote{
+    margin-top: 20px;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 78ch;
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="titleblock">
+    <div>
+      <h1>Energy community settlement</h1>
+      <p>5&nbsp;kVA shared transformer · rooftop solar + storage · 4 connected houses</p>
+    </div>
+    <div class="meta">
+      <div><span>Billing period</span><input type="text" id="periodLabel" value="March 2026"></div>
+      <div><span>Prepared by</span><input type="text" id="preparedBy" placeholder="your name"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- LEFT: INPUTS -->
+    <div>
+      <div class="panel">
+        <h2>Tariffs</h2>
+        <p class="sub">Prices used to value energy. Export price is usually lower than the purchase price under net-billing schemes.</p>
+        <div class="field">
+          <label>Grid purchase price (Pb)</label>
+          <div class="unit-wrap">
+            <input type="number" id="Pb" value="850" step="1" min="0">
+            <span class="unit">$/kWh</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Export / feed-in price (Ps)</label>
+          <div class="unit-wrap">
+            <input type="number" id="Ps" value="500" step="1" min="0">
+            <span class="unit">$/kWh</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Metering data</h2>
+        <p class="sub">From the inverter and the bidirectional meter at the transformer.</p>
+        <div class="field">
+          <label>Solar generation (G)</label>
+          <div class="unit-wrap">
+            <input type="number" id="G" value="620" step="1" min="0">
+            <span class="unit">kWh</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Exported to grid (E)</label>
+          <div class="unit-wrap">
+            <input type="number" id="E" value="90" step="1" min="0">
+            <span class="unit">kWh</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Imported from grid (I)</label>
+          <div class="unit-wrap">
+            <input type="number" id="I" value="70" step="1" min="0">
+            <span class="unit">kWh</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Cost-sharing method</h2>
+        <p class="sub">How the grid-import bill is split among the houses that exceed their solar share (G ÷ 4). Houses at or below it pay nothing and receive nothing.</p>
+        <div class="toggle">
+          <button id="btnProrata" class="active">By excess amount</button>
+          <button id="btnFixed">Fixed coefficients</button>
+        </div>
+        <div id="houseInputs"></div>
+        <div id="pctWarning" style="font-size:11.5px; color: var(--rust); display:none; margin-top:4px;">Coefficients (for the above-average houses) should add up to 100%.</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: RESULTS -->
+    <div class="panel">
+      <h2>Settlement</h2>
+      <p class="sub">Energy balance, community totals, and the bill for each house.</p>
+
+      <div id="validationBanner" class="banner ok">Balance check pending…</div>
+      <div id="genVsConsBanner" class="banner ok">Generation vs consumption pending…</div>
+
+      <div class="summary-strip">
+        <div class="stat amber">
+          <div class="label">Self-consumed solar</div>
+          <div class="value" id="statSC">–</div>
+        </div>
+        <div class="stat">
+          <div class="label">Export revenue</div>
+          <div class="value" id="statExportRev">–</div>
+        </div>
+        <div class="stat rust">
+          <div class="label">Net grid cost (import − export)</div>
+          <div class="value" id="statGridCost">–</div>
+        </div>
+        <div class="stat" id="statNetCard">
+          <div class="label">Recovered from above-average houses</div>
+          <div class="value" id="statNet">–</div>
+        </div>
+      </div>
+
+      <div class="houses" id="houseCards"></div>
+    </div>
+  </div>
+
+  <p class="footnote">
+    Rule: each house's fair share of solar is G ÷ 4. Houses consuming at or below that share pay nothing and receive nothing. Houses above it collectively cover the net cost of the grid exchange — (imported × purchase price) minus (exported × delivery price) — split either by how much each one exceeds its share, or by fixed coefficients you set for the above-average houses. If exports are worth more than what was imported, that net cost is zero or negative and nobody is billed.
+  </p>
+</div>
+
+<script>
+  const houseNames = ["House 1", "House 2", "House 3", "House 4"];
+  let mode = "prorata"; // or "fixed"
+  const consumption = [180, 140, 160, 120];
+  const fixedPct = [25, 25, 25, 25];
+
+  const fmtKWh = n => (Math.round(n*10)/10).toLocaleString() + " kWh";
+  const fmtMoney = n => "$" + Math.round(n).toLocaleString();
+
+  function buildHouseInputs(){
+    const wrap = document.getElementById('houseInputs');
+    wrap.innerHTML = "";
+    houseNames.forEach((name, i) => {
+      const row = document.createElement('div');
+      row.className = 'house-row';
+      row.innerHTML = `
+        <span class="tag">${name}</span>
+        <input type="number" min="0" step="1" value="${consumption[i]}" data-idx="${i}" class="cons-input" placeholder="kWh consumed">
+        <input type="number" min="0" step="1" value="${fixedPct[i]}" data-idx="${i}" class="pct-input" placeholder="%" ${mode==='prorata' ? 'disabled' : ''}>
+      `;
+      wrap.appendChild(row);
+    });
+    wrap.querySelectorAll('.cons-input').forEach(inp => {
+      inp.addEventListener('input', e => {
+        consumption[e.target.dataset.idx] = parseFloat(e.target.value) || 0;
+        compute();
+      });
+    });
+    wrap.querySelectorAll('.pct-input').forEach(inp => {
+      inp.addEventListener('input', e => {
+        fixedPct[e.target.dataset.idx] = parseFloat(e.target.value) || 0;
+        compute();
+      });
+    });
+  }
+
+  document.getElementById('btnProrata').addEventListener('click', () => {
+    mode = 'prorata';
+    document.getElementById('btnProrata').classList.add('active');
+    document.getElementById('btnFixed').classList.remove('active');
+    buildHouseInputs();
+    compute();
+  });
+  document.getElementById('btnFixed').addEventListener('click', () => {
+    mode = 'fixed';
+    document.getElementById('btnFixed').classList.add('active');
+    document.getElementById('btnProrata').classList.remove('active');
+    buildHouseInputs();
+    compute();
+  });
+
+  ['Pb','Ps','G','E','I'].forEach(id => {
+    document.getElementById(id).addEventListener('input', compute);
+  });
+
+  function compute(){
+    const Pb = parseFloat(document.getElementById('Pb').value) || 0;
+    const Ps = parseFloat(document.getElementById('Ps').value) || 0;
+    const G = parseFloat(document.getElementById('G').value) || 0;
+    const E = parseFloat(document.getElementById('E').value) || 0;
+
+    const Ctotal = consumption.reduce((a,b)=>a+b,0);
+    const I = parseFloat(document.getElementById('I').value) || 0;
+
+    // Self-consumption is now driven directly by the entered import value (Ctotal - I),
+    // since I is a real measured/entered input rather than an optional check.
+    const scFromMeter = Math.max(0, Math.min(Ctotal, Ctotal - I));
+    const scFromGeneration = Math.max(0, G - E);
+    const SCclamped = scFromMeter;
+
+    // Validation banner: compare the two independent ways of estimating self-consumption
+    const banner = document.getElementById('validationBanner');
+    const diff = Math.abs(scFromGeneration - scFromMeter);
+    const tolerance = Math.max(2, Ctotal * 0.03);
+    if (diff > tolerance){
+      banner.className = 'banner warn';
+      banner.textContent = `Balance mismatch: generation−export gives ${fmtKWh(scFromGeneration)} self-consumed, but consumption−import gives ${fmtKWh(scFromMeter)}. Difference of ${fmtKWh(diff)} — check meter readings.`;
+    } else {
+      banner.className = 'banner ok';
+      banner.textContent = `Energy balance checks out (self-consumption ≈ ${fmtKWh(scFromMeter)} both ways, within tolerance).`;
+    }
+
+    // Generated vs consumed comparison
+    const genBanner = document.getElementById('genVsConsBanner');
+    const genDelta = G - Ctotal;
+    if (genDelta >= 0){
+      genBanner.className = 'banner ok';
+      genBanner.textContent = `Generated ${fmtKWh(G)} vs consumed ${fmtKWh(Ctotal)} — surplus of ${fmtKWh(genDelta)} available for export or storage.`;
+    } else {
+      genBanner.className = 'banner warn';
+      genBanner.textContent = `Generated ${fmtKWh(G)} vs consumed ${fmtKWh(Ctotal)} — deficit of ${fmtKWh(Math.abs(genDelta))} must come from the grid.`;
+    }
+
+    const communitySavings = SCclamped * Pb;
+    const communityExportRev = E * Ps;
+    document.getElementById('statSC').textContent = fmtKWh(SCclamped);
+    document.getElementById('statExportRev').textContent = fmtMoney(communityExportRev);
+
+    // --- Net cost to recover: what's imported minus what's exported, valued at their respective prices ---
+    const netCost = (I * Pb) - (E * Ps);
+    const billableCost = Math.max(0, netCost);
+    document.getElementById('statGridCost').textContent = (netCost < 0 ? '−' : '') + fmtMoney(Math.abs(netCost));
+    document.getElementById('statGridCost').parentElement.className = 'stat ' + (netCost < 0 ? 'green' : 'rust');
+
+    const avgC = G / houseNames.length; // benchmark = each house's fair share of solar generation
+    const excess = consumption.map(c => Math.max(0, c - avgC));
+    const totalExcess = excess.reduce((a,b)=>a+b,0);
+
+    // shares of the grid-import bill, owed only by above-average houses
+    let costShare;
+    if (totalExcess <= 0.001){
+      costShare = consumption.map(()=>0); // nobody exceeds average — nobody is billed under this rule
+    } else if (mode === 'prorata'){
+      costShare = excess.map(x => x / totalExcess);
+    } else {
+      // fixed coefficients, renormalized only across the houses that are actually above average
+      const subsetSum = fixedPct.reduce((sum, p, i) => sum + (excess[i] > 0 ? p : 0), 0);
+      if (subsetSum > 0.001){
+        costShare = fixedPct.map((p, i) => excess[i] > 0 ? p / subsetSum : 0);
+      } else {
+        const aboveCount = excess.filter(x => x > 0).length;
+        costShare = excess.map(x => x > 0 ? 1/aboveCount : 0);
+      }
+      document.getElementById('pctWarning').style.display = Math.abs(fixedPct.reduce((a,b)=>a+b,0) - 100) > 0.5 ? 'block' : 'none';
+    }
+
+    const recovered = costShare.reduce((sum, s) => sum + s * billableCost, 0);
+    document.getElementById('statNet').textContent = fmtMoney(recovered);
+    document.getElementById('statNetCard').className = 'stat ' + (Math.abs(recovered - billableCost) > 1 ? 'rust' : 'green');
+
+    if (totalExcess <= 0.001 && billableCost > 0.01){
+      const banner = document.getElementById('validationBanner');
+      banner.className = 'banner warn';
+      banner.textContent = `No house exceeds its solar share, so the ${fmtMoney(billableCost)} net grid cost isn't being billed to anyone under this rule.`;
+    }
+
+    const cardsWrap = document.getElementById('houseCards');
+    cardsWrap.innerHTML = "";
+    houseNames.forEach((name, i) => {
+      const isAbove = excess[i] > 0.01;
+      const finalBill = costShare[i] * billableCost;
+
+      const badge = isAbove
+        ? `<span class="avg-badge above">+${fmtKWh(excess[i])} above average</span>`
+        : `<span class="avg-badge below">at or below average</span>`;
+
+      const card = document.createElement('div');
+      card.className = 'house-card flash' + (isAbove ? ' above-avg' : ' below-avg');
+      card.innerHTML = `
+        <div class="hname"><strong>${name}</strong><span>${isAbove ? (costShare[i]*100).toFixed(1) + '% of cost' : '—'}</span></div>
+        <div style="margin-bottom:8px;">${badge}</div>
+        <div class="line"><span class="k">Consumption</span><span class="v">${fmtKWh(consumption[i])}</span></div>
+        <div class="line"><span class="k">Solar share benchmark (G ÷ 4)</span><span class="v">${fmtKWh(avgC)}</span></div>
+        ${isAbove ? `<div class="line"><span class="k">Share of grid-import cost</span><span class="v">${(costShare[i]*100).toFixed(1)}%</span></div>` : ''}
+        <div class="netbill">
+          <span class="k">${finalBill > 0.01 ? 'Must pay' : 'Not billed'}</span>
+          <span class="v ${finalBill > 0.01 ? 'debit' : 'credit'}">${fmtMoney(finalBill)}</span>
+        </div>
+      `;
+      cardsWrap.appendChild(card);
+      setTimeout(() => card.classList.remove('flash'), 300);
+    });
+  }
+
+  buildHouseInputs();
+  compute();
+</script>
+</body>
+</html>

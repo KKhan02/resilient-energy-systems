@@ -1,0 +1,6 @@
+scenario_max_houses_per_trafo,trafo_id,n_houses,house_ids,x_px,y_px,trafo_rating_kva,inverter_rating_kw,pv_dc_kwp,status
+7,T01,7,"11,12,13,14,15,16,18",519.86,242.57,5.0,5.0,5.4,candidate proximity grouping on image; not existing EPM allocation
+7,T02,7,"4,5,6,7,8,9,10",854.14,265.29,5.0,5.0,5.4,candidate proximity grouping on image; not existing EPM allocation
+7,T03,7,"17,19,20,22,23,24,25",687.0,378.0,5.0,5.0,5.4,candidate proximity grouping on image; not existing EPM allocation
+7,T04,7,"1,2,3,26,27,28,34",879.29,528.14,5.0,5.0,5.4,candidate proximity grouping on image; not existing EPM allocation
+7,T05,7,"21,29,30,31,32,33,35",503.71,549.57,5.0,5.0,5.4,candidate proximity grouping on image; not existing EPM allocation

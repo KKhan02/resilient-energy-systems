@@ -1,0 +1,3 @@
+calibration_id,image_filename,scale_m,scale_px,used_for
+primary_100m_map,af771082-a4a1-4797-825a-0ba23bfdda6f.png,100.0,104.0,primary trace
+secondary_30m_map,027cec5a-23d4-461b-97bf-63f955ffe581.png,30.0,126.0,user black secondary trace

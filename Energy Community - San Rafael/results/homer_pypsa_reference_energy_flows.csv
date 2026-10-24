@@ -1,0 +1,8 @@
+,HOMER,PyPSA
+Load [kWh/yr],7592.0,7592.0
+PV DC generation [kWh/yr],7326.3,7326.299999999999
+Grid imports [kWh/yr],4667.4,1140.3111721598366
+Grid exports [kWh/yr],4030.9,339.9832826086629
+Battery energy in [kWh/yr],18.2,3543.429253708899
+Battery energy out [kWh/yr],17.3,3366.2577910234536
+Battery throughput [kWh/yr],17.745,3454.8435223661763

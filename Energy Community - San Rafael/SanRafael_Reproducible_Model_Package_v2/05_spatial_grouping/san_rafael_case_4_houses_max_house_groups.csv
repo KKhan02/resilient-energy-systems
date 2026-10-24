@@ -1,0 +1,36 @@
+house_id,name,x_px,y_px,trafo_group_provisional,x_plot,y_plot,lon,lat,coord_status,group_id,max_houses_case
+1,ASHRAM,1024,557,T01,1024,255,,,image-derived; georeferencing required,T07,4
+2,DANIEL,891,479,T02,891,333,,,image-derived; georeferencing required,T07,4
+3,GERARDO,895,449,T02,895,363,,,image-derived; georeferencing required,T06,4
+4,MARLENI,837,409,T03,837,403,,,image-derived; georeferencing required,T06,4
+5,MILTON,901,391,T03,901,421,,,image-derived; georeferencing required,T06,4
+6,ARTE AMBIGUO,939,371,T03,939,441,,,image-derived; georeferencing required,T06,4
+7,INESITA,915,291,T04,915,521,,,image-derived; georeferencing required,T02,4
+8,LAURA,913,113,T05,913,699,,,image-derived; georeferencing required,T02,4
+9,MANUEL,680,35,T06,680,777,,,image-derived; georeferencing required,T01,4
+10,NATASHA,794,247,T04,794,565,,,image-derived; georeferencing required,T02,4
+11,JULIANA,625,214,T07,625,598,,,image-derived; georeferencing required,T01,4
+12,ELCI,526,109,T07,526,703,,,image-derived; georeferencing required,T01,4
+13,DONA OLGA,530,226,T07,530,586,,,image-derived; georeferencing required,T03,4
+14,LEANDRO,361,246,T08,361,566,,,image-derived; georeferencing required,T03,4
+15,LEONARDO,469,271,T08,469,541,,,image-derived; georeferencing required,T03,4
+16,JUAN DAVID,530,299,T08,530,513,,,image-derived; georeferencing required,T03,4
+17,CHALITO / NUEVO PROP,671,312,T09,671,500,,,image-derived; georeferencing required,T01,4
+18,GLAMPING TAIBARA,598,333,T09,598,479,,,image-derived; georeferencing required,T04,4
+19,MAURICIO E,699,355,T10,699,457,,,image-derived; georeferencing required,T05,4
+20,ADRIANA,659,359,T09,659,453,,,image-derived; georeferencing required,T04,4
+21,CARLOS HENRY,611,382,T11,611,430,,,image-derived; georeferencing required,T04,4
+22,MILENA,650,417,T11,650,395,,,image-derived; georeferencing required,T04,4
+23,CLEMENCIA,688,391,T10,688,421,,,image-derived; georeferencing required,T05,4
+24,LEO,731,387,T10,731,425,,,image-derived; georeferencing required,T05,4
+25,CENTRO INSP,711,425,T11,711,387,,,image-derived; georeferencing required,T05,4
+26,CASA PIEDRA,844,491,T02,844,321,,,image-derived; georeferencing required,T07,4
+27,CLAUDIO,872,547,T12,872,265,,,image-derived; georeferencing required,T07,4
+28,SERGIO / BETY,838,543,T12,838,269,,,image-derived; georeferencing required,T09,4
+29,MAURICIO M,693,553,T13,693,259,,,image-derived; georeferencing required,T09,4
+30,HENRY BOTERO,515,561,T14,515,251,,,image-derived; georeferencing required,T08,4
+31,CALICHE,390,572,T14,390,240,,,image-derived; georeferencing required,T08,4
+32,GRACILIANO,367,573,T14,367,239,,,image-derived; georeferencing required,T08,4
+33,DAYRO GALLO,265,561,T15,265,251,,,image-derived; georeferencing required,T08,4
+34,DEICY,791,631,T12,791,181,,,image-derived; georeferencing required,T09,4
+35,JACOBO,685,645,T13,685,167,,,image-derived; georeferencing required,T09,4

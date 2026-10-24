@@ -1,0 +1,14 @@
+parameter,value,status,source
+Transformer 94022 rating,5 kVA,Actual EPM asset,Project EPM asset data
+Transformer primary / secondary,7.621 kV / 240-120 V,Actual EPM asset,Project EPM asset data
+Primary route,354.2 m,Image-derived approximate,EPM screenshot trace
+Secondary route,324.5 m,Image-derived approximate,Corrected EPM secondary trace
+#2 ACSR resistance,0.8320 ohm/km @20 C,Official EPM technical literature,ET-TD-ME01-03
+1/0 AAC resistance reference,0.656 ohm/km,Official EPM design reference,RA8-017 / ET-TD-ME01-02
+#2 ACSR ampacity,184 A,Supplementary manufacturer reference,Nexans Colombia
+1/0 AAC ampacity,150 A,Engineering screening assumption,Replace with exact installation-specific value if obtained
+Transformer vk / vkr,3.0% / 1.8%,Engineering proxy,Exact 94022 nameplate not available
+Load power factor,0.90,EPM residential calculation reference,RA8-017
+Hourly solar resource,2025 hourly GHI/DHI/DNI/T2M/WS10M,NASA POWER hourly dataset,NASA_POWER_SanRafael_hourly_2025.csv
+PV array,"5.22 kWp, 5.0 degree tilt",HOMER / quotation reference,Finalized project reference system
+PV derating / inverter efficiency,0.80 / 0.95,HOMER reference,Finalized project reference system

@@ -1,0 +1,43 @@
+bus_id,bus_type,x_px,y_px,trafo_group,house_id,note
+EPM_GRID,upstream_grid,,,,,abstract upstream grid bus; not positioned on image
+ENERGY_CENTER,energy_center_placeholder,749.33,489.67,,,"visual placeholder near houses 25, 26 and 29"
+T01,transformer_lv_bus,538.75,251.25,T01,,candidate transformer position at group centroid
+T02,transformer_lv_bus,854.14,265.29,T02,,candidate transformer position at group centroid
+T03,transformer_lv_bus,680.25,408.62,T03,,candidate transformer position at group centroid
+T04,transformer_lv_bus,855.0,542.75,T04,,candidate transformer position at group centroid
+T05,transformer_lv_bus,384.25,566.75,T05,,candidate transformer position at group centroid
+H01,house,1024,557,T04,1,ASHRAM
+H02,house,891,479,T04,2,DANIEL
+H03,house,895,449,T04,3,GERARDO
+H04,house,837,409,T02,4,MARLENI
+H05,house,901,391,T02,5,MILTON
+H06,house,939,371,T02,6,ARTE AMBIGUO
+H07,house,915,291,T02,7,INESITA
+H08,house,913,113,T02,8,LAURA
+H09,house,680,35,T02,9,MANUEL
+H10,house,794,247,T02,10,NATASHA
+H11,house,625,214,T01,11,JULIANA
+H12,house,526,109,T01,12,ELCI
+H13,house,530,226,T01,13,DONA OLGA
+H14,house,361,246,T01,14,LEANDRO
+H15,house,469,271,T01,15,LEONARDO
+H16,house,530,299,T01,16,JUAN DAVID
+H17,house,671,312,T01,17,CHALITO / NUEVO PROP
+H18,house,598,333,T01,18,GLAMPING TAIBARA
+H19,house,699,355,T03,19,MAURICIO E
+H20,house,659,359,T03,20,ADRIANA
+H21,house,611,382,T03,21,CARLOS HENRY
+H22,house,650,417,T03,22,MILENA
+H23,house,688,391,T03,23,CLEMENCIA
+H24,house,731,387,T03,24,LEO
+H25,house,711,425,T03,25,CENTRO INSP
+H26,house,844,491,T04,26,CASA PIEDRA
+H27,house,872,547,T04,27,CLAUDIO
+H28,house,838,543,T04,28,SERGIO / BETY
+H29,house,693,553,T03,29,MAURICIO M
+H30,house,515,561,T05,30,HENRY BOTERO
+H31,house,390,572,T05,31,CALICHE
+H32,house,367,573,T05,32,GRACILIANO
+H33,house,265,561,T05,33,DAYRO GALLO
+H34,house,791,631,T04,34,DEICY
+H35,house,685,645,T04,35,JACOBO

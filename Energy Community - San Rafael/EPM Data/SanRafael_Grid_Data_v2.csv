@@ -1,0 +1,29 @@
+parameter,value,unit,status,basis
+Circuit,221-12,,Actual EPM,EPM exact project search
+Substation,SAN CARLOS,,Actual EPM,EPM transformer records
+Transformer node,931076,,Actual EPM,Transformer 94022
+Transformer number,94022,,Actual EPM,Transformer 94022
+Transformer owner,EPM,,Actual EPM,Transformer 94022
+Transformer rating,5.0,kVA,Actual EPM,Portal explicitly shows kVA unit
+Transformer primary voltage,7.621,kV,Actual EPM,Transformer 94022
+Transformer secondary voltage,240/120,V,Actual EPM,Transformer 94022
+Transformer phases,1F,,Actual EPM,Transformer 94022
+Transformer installation,AEREO,,Actual EPM,Transformer 94022
+Transformer insulation,ACEITE MINERAL,,Actual EPM,Transformer 94022
+Transformer protection,CONVENCIONAL,,Actual EPM,Transformer 94022
+Transformer classification,RURAL,,Actual EPM,Transformer 94022
+Transformer vereda,LAS CAMELIAS,,Actual EPM,Transformer 94022
+Transformer region,ORIENTE,,Actual EPM,Transformer 94022
+Transformer subregion,GUATAPE,,Actual EPM,Transformer 94022
+Transformer latitude,6.246949759,deg,Actual EPM,Transformer 94022
+Transformer longitude,-75.006208238,deg,Actual EPM,Transformer 94022
+Primary conductor,#2 ACSR,,Actual selected EPM segment,Popup at transformer 94022
+Primary installation,AEREO,,Actual selected EPM segment,Popup at transformer 94022
+Secondary conductor,1/0 AAC,,Actual selected EPM segment,Popup at transformer 94022
+Secondary installation,AEREO,,Actual selected EPM segment,Popup at transformer 94022
+Primary local branch length,354.2,m,Image-derived approximate,EPM map scale trace
+Secondary traced route length,328.8,m,Image-derived approximate,User black trace + 30 m scale
+Transformer vk,3.0,%,Grupo EPM proxy,Use until nameplate/EPM impedance is obtained
+Transformer load loss,90.0,W,Grupo EPM proxy,Use until nameplate/EPM impedance is obtained
+Transformer no-load loss,30.0,W,Grupo EPM proxy,Use until nameplate/EPM impedance is obtained
+Transformer i0,2.5,%,Grupo EPM proxy,Use until nameplate/EPM impedance is obtained

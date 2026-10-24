@@ -1,0 +1,42 @@
+edge_id,from_bus,to_bus,edge_type,rating,note
+EPM_T01,EPM_GRID,T01,transformer_upstream_placeholder,5 kVA transformer,electrical upstream path to be replaced by actual EPM topology
+EPM_T02,EPM_GRID,T02,transformer_upstream_placeholder,5 kVA transformer,electrical upstream path to be replaced by actual EPM topology
+EPM_T03,EPM_GRID,T03,transformer_upstream_placeholder,5 kVA transformer,electrical upstream path to be replaced by actual EPM topology
+EPM_T04,EPM_GRID,T04,transformer_upstream_placeholder,5 kVA transformer,electrical upstream path to be replaced by actual EPM topology
+EPM_T05,EPM_GRID,T05,transformer_upstream_placeholder,5 kVA transformer,electrical upstream path to be replaced by actual EPM topology
+EPM_T06,EPM_GRID,T06,transformer_upstream_placeholder,5 kVA transformer,electrical upstream path to be replaced by actual EPM topology
+T04_H01,T04,H01,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T04_H02,T04,H02,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T04_H03,T04,H03,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T04_H04,T04,H04,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T04_H05,T04,H05,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T04_H06,T04,H06,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T01_H07,T01,H07,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T01_H08,T01,H08,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T01_H09,T01,H09,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T01_H10,T01,H10,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T01_H11,T01,H11,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T02_H12,T02,H12,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T02_H13,T02,H13,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T02_H14,T02,H14,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T02_H15,T02,H15,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T02_H16,T02,H16,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T01_H17,T01,H17,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T02_H18,T02,H18,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T03_H19,T03,H19,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T03_H20,T03,H20,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T05_H21,T05,H21,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T03_H22,T03,H22,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T03_H23,T03,H23,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T03_H24,T03,H24,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T03_H25,T03,H25,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T06_H26,T06,H26,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T06_H27,T06,H27,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T06_H28,T06,H28,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T06_H29,T06,H29,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T05_H30,T05,H30,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T05_H31,T05,H31,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T05_H32,T05,H32,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T05_H33,T05,H33,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T06_H34,T06,H34,lv_house_connection,,image-layout connection; conductor/length not yet assigned
+T06_H35,T06,H35,lv_house_connection,,image-layout connection; conductor/length not yet assigned

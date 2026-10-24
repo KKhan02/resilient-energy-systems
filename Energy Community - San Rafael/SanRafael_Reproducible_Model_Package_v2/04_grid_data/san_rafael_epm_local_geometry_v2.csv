@@ -1,0 +1,3 @@
+section_id,from,to,network_level,voltage,conductor,installation,length_m,length_basis,status
+MV_LOCAL_01,Transformer 94022,nearest upstream primary junction,Primary,7.621 kV phase-neutral,#2 ACSR,Aerial,354.2,"EPM screenshot trace, 100 m scale bar",image-derived approximate
+LV_LOCAL_01,Transformer 94022,end of highlighted secondary route,Secondary,240/120 V,1/0 AAC,Aerial,328.8,"user-highlighted black polyline over EPM secondary conductor, 30 m scale bar",image-derived approximate

@@ -1,0 +1,8 @@
+metric,value,unit
+NASA-derived PV DC annual energy,6338.705210707929,kWh/year
+NASA-derived inverter AC annual energy,6021.769950172533,kWh/year
+HOMER PV DC reference,7326.3,kWh/year
+NASA DC / HOMER DC,86.51986965737042,%
+Maximum NASA-derived PV DC,4.8879495340286265,kW
+Maximum NASA-derived inverter AC,4.643552057327195,kW
+Hours at 5 kW inverter clipping,0.0,hours

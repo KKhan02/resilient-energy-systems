@@ -1,0 +1,6 @@
+max_houses_case,number_of_planning_groups,largest_group,smallest_group,group_sizes,status
+4,9,4,3,"4, 4, 4, 4, 4, 4, 4, 4, 3",image-derived planning grouping
+5,7,5,5,"5, 5, 5, 5, 5, 5, 5",image-derived planning grouping
+6,6,6,5,"6, 6, 6, 6, 6, 5",image-derived planning grouping
+7,5,7,7,"7, 7, 7, 7, 7",image-derived planning grouping
+8,5,8,4,"8, 8, 8, 7, 4",image-derived planning grouping
