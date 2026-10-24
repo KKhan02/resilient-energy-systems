@@ -83,3 +83,28 @@ def test_g1a_high_generation_ac_dc_conservation():
                           expected_stored,atol=1e-6)
         assert np.allclose(
             np.hypot(out.pcc_p_kw,out.pcc_q_kvar),out.pcc_kva,atol=1e-6)
+
+def test_g1b_midnight_uses_real_window_hour():
+    # Window begins at 18:00, so index position 5 (not 23) is 23:00.
+    idx=pd.date_range('2025-06-15 18:00',periods=8,freq='h')
+    demand=pd.Series(10.0,index=idx)
+    pv=pd.Series(0.0,index=idx)
+    result=m.dispatch(demand,pv,modules=0,inverter_kva=5.0,pf=1.0,
+                      policy='adaptive_lm',reserve_override=np.full(8,.1))
+    # At 23:00, all outstanding flexible requests become due.
+    assert np.isclose(result.deferred_backlog_kwh.iloc[4],7.5)
+    assert np.isclose(result.deferred_backlog_kwh.iloc[5],0.0)
+    # Overdue demand is not made to vanish: unserved requests count as ENS.
+    assert np.isclose(result.ens.iloc[5],13.0)
+
+
+def test_g1b_import_projection_counts_deferred_backlog():
+    # New demand alone is below the trigger; adding backlog exceeds it.
+    # Controller must not silently recover backlog without evaluating it.
+    idx=pd.date_range('2025-06-15 10:00',periods=2,freq='h')
+    demand=pd.Series([6.0,2.7],index=idx)
+    pv=pd.Series([0.0,0.0],index=idx)
+    result=m.dispatch(demand,pv,modules=0,inverter_kva=5.0,pf=1.0,
+                      policy='adaptive_lm',reserve_override=np.full(2,.1))
+    assert np.isclose(result.deferred_backlog_kwh.iloc[0],0.9)
+    assert np.isclose(result.deferred_backlog_kwh.iloc[1],1.305)
