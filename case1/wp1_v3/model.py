@@ -83,21 +83,55 @@ def _core(load,pv,grid_on,reserve_soc,modules,inv_kva,bat_dc_power,trafo_allow_k
         discharge=min(deficit/ETA_INV,bat_dc_power,max(0.,e-reserv)*ETA_BAT,max(0.,inv_kva-direct)/ETA_INV) if modules>0 else 0.
         e-=discharge/ETA_BAT
         local=direct+discharge*ETA_INV
-        # Reactive load is based on actual load before optional shedding.
-        q=request*qfac if on else 0.
-        export_bound=math.sqrt(max(0.,trafo_allow_kva**2-q**2))
-        export=min(remaining*ETA_INV,max(0.,inv_kva-local),export_bound) if on else 0.
-        curtailed=max(0.,remaining-export/ETA_INV)
-        deficit=max(0.,request-local)
-        imp=deficit if on else 0.
+        # Apply the PCC apparent-power constraint to actually served load.
+        # Import is positive only when local generation cannot supply demand.
+        imp=max(0.,request-local) if on else 0.
         served=min(request,local+imp)
         if on and math.hypot(imp,served*qfac)>trafo_allow_kva+1e-8:
-            # Exact positive solution for served load x when import is x-local
-            A=1+qfac*qfac
-            discr=max(0.,(2*local)**2-4*A*(local*local-trafo_allow_kva*trafo_allow_kva))
-            x=(2*local+math.sqrt(discr))/(2*A)
-            served=max(0.,min(request,x))
+            if qfac>0. and local*qfac>=trafo_allow_kva:
+                # Even with zero import, local generation would serve
+                # too much reactive demand for the allowed PCC rating.
+                served=min(request,trafo_allow_kva/qfac)
+            else:
+                # Solve (served-local)^2+(served*qfac)^2=limit^2
+                # for the larger (physically admissible) served-load root.
+                A=1.+qfac*qfac
+                discr=max(0.,(2.*local)**2
+                          -4.*A*(local*local-trafo_allow_kva**2))
+                served=min(request,(2.*local+math.sqrt(discr))/(2.*A))
+            served=max(0.,served)
             imp=max(0.,served-local)
+
+        if local>served:
+            # Local inverter output cannot exceed served demand. Back off
+            # BESS discharge first, refunding its stored energy; then back
+            # off PV direct supply and restore it to the surplus DC pool.
+            excess_ac=local-served
+            returned_dc=min(discharge,excess_ac/ETA_INV)
+            discharge-=returned_dc
+            e+=returned_dc/ETA_BAT
+            excess_ac-=returned_dc*ETA_INV
+            pv_released_ac=min(direct,max(0.,excess_ac))
+            direct-=pv_released_ac
+            remaining+=pv_released_ac/ETA_INV
+            local=direct+discharge*ETA_INV
+            imp=max(0.,served-local) if on else 0.
+
+            # Preserve the agreed priority: PV surplus charges BESS before
+            # any export or curtailment. Respect the total charge power
+            # and the remaining stored-energy headroom.
+            extra_charge=min(remaining,max(0.,bat_dc_power-charge),
+                             max(0.,(emax-e)/ETA_BAT)) if modules>0 else 0.
+            charge+=extra_charge
+            e+=extra_charge*ETA_BAT
+            remaining-=extra_charge
+
+        # Use final served-load Q, not requested-load Q, for export envelope.
+        q=served*qfac if on else 0.
+        export_bound=math.sqrt(max(0.,trafo_allow_kva**2-q*q))
+        export=min(remaining*ETA_INV,max(0.,inv_kva-local),
+                   export_bound) if on else 0.
+        curtailed=max(0.,remaining-export/ETA_INV)
         ens=max(0.,request-served)
         # More than 0.3 of load assumed noncritical; critical demand shed last.
         crit=.3*ld
