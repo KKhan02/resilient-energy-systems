@@ -1,3 +1,4 @@
+import pytest
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -113,3 +114,32 @@ def test_g1b_import_projection_counts_deferred_backlog():
     assert np.isclose(result.deferred_backlog_kwh.iloc[1],1.305)
     assert np.isclose(demand.sum(),result.load_served.sum()
                       +result.ens.sum()+result.deferred_backlog_kwh.iloc[-1])
+
+def test_g2_load_management_index_error_is_actionable():
+    # Guard must run before pandas.resample, including with an adaptive reserve.
+    index=pd.RangeIndex(3)
+    demand=pd.Series([1.0]*3,index=index)
+    pv=pd.Series([0.0]*3,index=index)
+    with pytest.raises(ValueError,match="adaptive_lm requires a DatetimeIndex"):
+        m.dispatch(demand,pv,modules=4,inverter_kva=5.,
+                   policy="adaptive_lm")
+
+
+def test_g2_solar_selection_is_explicit(monkeypatch):
+    import run_case1_v3 as runner
+    calls=[]
+    def fail_pvlib(frame):
+        calls.append("pvlib")
+        raise ImportError("pvlib intentionally unavailable")
+    def fake_approx(frame):
+        calls.append("approximate")
+        return "approx",{"method":"APPROX"}
+    monkeypatch.setattr(runner.reference_v2,"pvlib_nasa_pv",fail_pvlib)
+    monkeypatch.setattr(runner.reference_v2,"approximate_nasa_pv",fake_approx)
+
+    with pytest.raises(RuntimeError,match="pvlib"):
+        runner.select_solar_profile(None,solar_method="pvlib")
+    assert calls==["pvlib"], "Strict pvlib must never fall back"
+    result,metadata=runner.select_solar_profile(None,solar_method="approximate")
+    assert result=="approx" and metadata["method"]=="APPROX"
+    assert calls==["pvlib","approximate"]

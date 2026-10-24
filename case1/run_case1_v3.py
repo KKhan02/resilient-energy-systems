@@ -28,16 +28,27 @@ def choose_candidate(df,houses,target=90.):
     return None
 
 
-def run(quick=False,require_pvlib=False,pf=.98,trafo_factor=.9):
+def select_solar_profile(weather, solar_method='pvlib'):
+    """Explicit solar-model selection. Never substitute approximations silently."""
+    if solar_method=='pvlib':
+        try:
+            return reference_v2.pvlib_nasa_pv(weather)
+        except ImportError as exc:
+            raise RuntimeError(
+                'pvlib is required for source-aligned results. Install the '
+                'project requirements, or explicitly select '
+                '--solar-method approximate for exploratory runs.'
+            ) from exc
+    if solar_method=='approximate':
+        return reference_v2.approximate_nasa_pv(weather)
+    raise ValueError(f'Unknown solar method: {solar_method}')
+
+
+def run(quick=False,require_pvlib=False,pf=.98,trafo_factor=.9,solar_method='pvlib'):
+    if require_pvlib and solar_method!='pvlib':
+        raise ValueError('--require-pvlib cannot be combined with approximate solar')
     df,meta,sd=reference_v2.read_inputs()
-    try:
-        if require_pvlib:
-            pv,diag=reference_v2.pvlib_nasa_pv(df)
-        else:
-            pv,diag=reference_v2.pvlib_nasa_pv(df)
-    except ImportError:
-        if require_pvlib:raise RuntimeError('Install pvlib: pip install pvlib')
-        pv,diag=reference_v2.approximate_nasa_pv(df)
+    pv,diag=select_solar_profile(df,solar_method)
     loads=reference_v2.build_stochastic_load(sd,df.index,houses=20)
     PV=[12,16,20,24] if quick else list(range(8,41,4))+[48,56,64,72,80]
     BESS=[0,4,8] if quick else [0,2,4,6,8,10,12,16,20,24]
@@ -172,7 +183,13 @@ def run(quick=False,require_pvlib=False,pf=.98,trafo_factor=.9):
               FIG,stress_index[24],stress_index[-1])
     pd.DataFrame(resilience_rows).to_csv(OUT/'72hr_resilience_by_controller.csv',index=False)
     hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (reference_v2.NASA_PATH,reference_v2.XML_PATH)}
-    manifest={'solar_method':diag['method'],'original_v18_v5_pvlib_parity_claim':bool('PVLIB' in diag['method']),
+    manifest={'solar_method':diag['method'],'requested_solar_method':solar_method,
+       'approximation_explicitly_requested':solar_method=='approximate',
+       'main_hardware_eligible_rows':len(candidate_rows),
+       'main_zero_ens_rows':int((pd.DataFrame(candidate_rows).grid_ens_kwh<=1e-7).sum()),
+       'combined_unique_rows':len(table),
+       'combined_zero_ens_rows':int((table.grid_ens_kwh<=1e-7).sum()),
+       'original_v18_v5_pvlib_parity_claim':bool('PVLIB' in diag['method']),
        'solar_resource_annual_dc_at_5p22_kwh':diag['annual_dc_kwh_at_5p22'],
        'houses_swept':HOUSES,'panels_swept':PV,'battery_modules_swept':BESS,
        'inverter_rating_kva_swept':inverter_ratings,'trafo_loading_limit_ASSUMED':trafo_factor,
@@ -193,8 +210,12 @@ def run(quick=False,require_pvlib=False,pf=.98,trafo_factor=.9):
 if __name__=='__main__':
     p=argparse.ArgumentParser()
     p.add_argument('--quick',action='store_true',help='Small smoke-test sweep')
-    p.add_argument('--require-pvlib',action='store_true',help='Fail if pvlib is missing')
+    p.add_argument('--require-pvlib',action='store_true',
+                   help='Legacy compatibility flag: pvlib is now the default')
+    p.add_argument('--solar-method',choices=('pvlib','approximate'),
+                   default='pvlib',
+                   help='Explicit weather-to-PV method; approximate is exploratory only')
     p.add_argument('--pf',type=float,default=.98,help='Household PF assumption, default 0.98')
     p.add_argument('--loading',type=float,default=.9,help='Transformer operating fraction, assumed')
     a=p.parse_args()
-    run(a.quick,a.require_pvlib,a.pf,a.loading)
+    run(a.quick,a.require_pvlib,a.pf,a.loading,a.solar_method)
