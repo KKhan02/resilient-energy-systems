@@ -1,7 +1,6 @@
 scenario_id,households,architecture,modules_pv_total,pv_kwp_total,bess_modules_total,bess_nominal_kwh_total,bess_usable_kwh_study_total,pv_allocation,battery_allocation,reference_bess_total_power_kw,hardware_feasibility,status
 PV_C4,4,centralized,12,5.22,0,0,0,shared_installation,none,0,unverified,proposed_pv_only_reference
 PV_D4,4,distributed,12,5.22,0,0,0,3_panels_per_house,none,0,unverified,proposed_pv_only_reference
-PV_H4,4,hybrid_distributed_PV,12,5.22,0,0,0,3_panels_per_house,none,0,unverified,proposed_pv_only_reference
 C4,4,centralized,12,5.22,4,20.48,17.3,all_12_at_shared_site,all_4_at_shared_site,5.0,unverified,proposed_concept_only
 D4,4,distributed,12,5.22,4,20.48,17.3,3_panels_per_house,1_module_per_house,5.0,unverified_single_module_hybrid_inverter_and_roof,proposed_concept_only
 H4,4,hybrid_distributed_PV,12,5.22,4,20.48,17.3,3_panels_per_house,all_4_at_shared_site,5.0,unverified_shared_connection_and_roof,proposed_concept_only
