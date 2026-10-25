@@ -35,3 +35,24 @@ case1_legacy_baseline_tests:
     when: always
     reports:
       junit: case1/legacy-results.xml
+
+
+# Site A explanatory solar-access scenarios; no change to Case 1 results.
+case1_site_a_solar_screen:
+  stage: test
+  image: python:3.11-slim
+  variables:
+    MPLBACKEND: "Agg"
+    NUMBA_CACHE_DIR: "/tmp/numba_cache"
+  before_script:
+    - python -m pip install -r case1/requirements.txt
+  script:
+    - cd case1
+    - python -m pytest studies/site_a_solar/tests/test_solar_access.py -q --junitxml=site-a-tests.xml
+    - python studies/site_a_solar/solar_access_pvlib.py --weather data/NASA_POWER_SanRafael_hourly_2025.csv --outdir site_a_solar_ci_results
+  artifacts:
+    when: always
+    paths:
+      - case1/site_a_solar_ci_results/
+    reports:
+      junit: case1/site-a-tests.xml

@@ -1,0 +1,17 @@
+{
+  "source_branch": "study/site-a-solar-tree-sensitivity",
+  "pipeline_id": 2986382596,
+  "job_id": 17447618767,
+  "pvlib_version": "0.16.1",
+  "weather_sha256": "b8555ec0e89c2cff4909c70a0b02d78b9f770e9356e0904dba00599219db9736",
+  "weather_file": "case1/data/NASA_POWER_SanRafael_hourly_2025.csv",
+  "generated_from": "Executed GitLab CI stdout JSON; all output hypotheses",
+  "outputs": [
+    "tree_height_setback_sensitivity_2025.csv",
+    "uniform_horizon_sensitivity_2025.csv",
+    "orientation_unshaded_2025.csv",
+    "RESULTS_AND_LIMITATIONS_2025.json",
+    "west_sector_hypothetical_poa.svg"
+  ],
+  "measured_site_shading": false
+}
