@@ -53,3 +53,18 @@ Compare: **centralized PV+BESS at this clearing**, **distributed household PV+BE
 - NASA POWER hourly data: https://power.larc.nasa.gov/docs/services/api/temporal/hourly/
 - pvlib POA model: https://pvlib-python.readthedocs.io/en/stable/reference/generated/pvlib.irradiance.get_total_irradiance.html
 - PVsyst near-shadings: https://www.pvsyst.com/help/project-design/shadings/near-shadings-main-dialog/index.html
+
+
+## Executed pvlib sensitivity results (not site measurements)
+
+The actual pinned pvlib 0.16.1 / NASA 2025 calculations were executed in [GitLab pipeline 2986382596](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/2986382596) and checked into the [results/](results/) directory with the input SHA256 and job ID. Detailed result tables can be audited directly and are **persistent repository files**, not only temporary CI artifacts.
+
+Illustrative output for a **10° south-facing array, fictional WEST-sector obstructions**, all assuming level ground and a 1.5 m panel reference height:
+
+| Hypothetical tree height | Hypothetical horizontal setback | Obstruction angle | Reduced plane-of-array irradiation |
+|---:|---:|---:|---:|
+| 8 m | 20 m | 18.0° | 0.37% |
+| 12 m | 10 m | 46.4° | 5.85% |
+| 18 m | 5 m | 73.1° | 13.60% |
+
+The unshaded POA reference in these cases is **1,585.831 kWh/m²/year**. These percentages suppress only direct-beam irradiance in the hypothetical west sector, holding diffuse irradiation unchanged. They are **not estimated real Site A tree losses**. All 54 tree cases, 20 uniform horizons and five PV orientations are saved in the repository. [Illustrative plot (SVG)](results/west_sector_hypothetical_poa.svg). [CI provenance](results/CI_PROVENANCE.json).
