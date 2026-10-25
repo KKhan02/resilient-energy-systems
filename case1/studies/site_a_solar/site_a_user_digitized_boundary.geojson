@@ -1,0 +1,43 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Site A user-digitized clearing; NOT property survey",
+        "area_geodesic_m2": 1759.26,
+        "perimeter_geodesic_m": 181.65,
+        "original_mapper_area_m2": 1770.83,
+        "interpretation": "Gross clearing from satellite drawing; NOT usable buildable area",
+        "satellite_source": "Esri World Imagery; image acquisition date unverified"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -75.0096537179,
+              6.2482983326
+            ],
+            [
+              -75.0092244902,
+              6.2486714973
+            ],
+            [
+              -75.0090152417,
+              6.2484635913
+            ],
+            [
+              -75.009111818,
+              6.2482503543
+            ],
+            [
+              -75.0096537179,
+              6.2482983326
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

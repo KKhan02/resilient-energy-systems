@@ -1,0 +1,10 @@
+tree_height_assumed_m,setback_assumed_m,panel_midheight_assumed_m,horizon_angle_deg,geometry_status
+8,5,1.5,52.43,hypothetical_not_observed
+8,10,1.5,33.02,hypothetical_not_observed
+8,20,1.5,18.00,hypothetical_not_observed
+12,5,1.5,64.54,hypothetical_not_observed
+12,10,1.5,46.40,hypothetical_not_observed
+12,20,1.5,27.70,hypothetical_not_observed
+18,5,1.5,73.14,hypothetical_not_observed
+18,10,1.5,58.78,hypothetical_not_observed
+18,20,1.5,39.52,hypothetical_not_observed
