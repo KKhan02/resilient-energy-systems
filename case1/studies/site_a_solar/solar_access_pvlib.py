@@ -106,6 +106,9 @@ def run(weather,outdir):
     (outdir/"RESULTS_AND_LIMITATIONS.json").write_text(json.dumps(summary,indent=2)+"\n")
     print("SITE_A_SUMMARY_JSON="+json.dumps(summary))
     print("SITE_A_TREE_SOUTH_WEST_JSON="+trees.query("tilt_deg==10 and azimuth_deg==180 and assumed_tree_sector=='west'").to_json(orient="records"))
+    print("SITE_A_FULL_TREES_JSON="+trees.to_json(orient="records"))
+    print("SITE_A_UNIFORM_HORIZON_JSON="+uniform.to_json(orient="records"))
+    print("SITE_A_ORIENTATION_JSON="+pd.DataFrame([{"tilt_deg":t,"azimuth_deg":a,"unshaded_poa_kwh_m2":round(v,3)} for (t,a),v in bases.items()]).to_json(orient="records"))
     return summary
 
 if __name__=="__main__":

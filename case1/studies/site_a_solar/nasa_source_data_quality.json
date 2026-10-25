@@ -1,6 +1,6 @@
 {
   "source_file": "case1/data/NASA_POWER_SanRafael_hourly_2025.csv",
-  "source_sha256": "37ad26763e483aa5df98435298ccadf26de47f66493d58fa7252277bc891ed1d",
+  "source_sha256": "b8555ec0e89c2cff4909c70a0b02d78b9f770e9356e0904dba00599219db9736",
   "source_lat": 6.2523,
   "source_lon": -75.0143,
   "site_a_lat": 6.248376671296207,
@@ -13,5 +13,8 @@
   "hours_dhi_exceeds_ghi": 329,
   "observed_shading_loss": null,
   "data_modified": false,
-  "scope": "gridded horizontal 2025 resource, not weather measured at Site A"
+  "scope": "gridded horizontal 2025 resource, not weather measured at Site A",
+  "source_sha256_validation": "Computed by GitLab CI pvlib run from case1/data/NASA_POWER_SanRafael_hourly_2025.csv",
+  "local_uploaded_file_sha256": "37ad26763e483aa5df98435298ccadf26de47f66493d58fa7252277bc891ed1d",
+  "local_vs_gitlab_note": "Two separately provided copies differ byte-for-byte; same annual GHI to reported precision. Do not substitute sources without verifying underlying row equality."
 }
