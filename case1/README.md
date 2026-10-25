@@ -91,3 +91,7 @@ For a **separate sensitivity analysis only**, `wp1_v3.model.dispatch_cyclic(load
 ## Site A supporting resource/siting studies
 
 - [Candidate Site A — level-ground pvlib tree-height/setback solar-access sensitivities](studies/site_a_solar/README.md). Supporting case-study materials, tracked assumptions and CI-executed hypothetical solar resource screen. Not validated site-specific tree shading; network voltage drop is a separate pandapower task.
+
+## Architecture comparison protocol (draft)
+
+- [Centralized vs distributed vs hybrid PV/BESS study protocol](studies/architecture_comparison/README.md): proposed matched-capacity 4-household comparison, explicit physical/utility data gaps, scenario CSV and design-decision register. **Documentation only; no new simulations or architecture selection.**
