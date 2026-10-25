@@ -1,74 +1,76 @@
-# San Rafael Case 1 — Architecture comparison protocol (DRAFT, NO IMPLEMENTATION)
+# San Rafael Case 1 — PV/BESS expansion, grouping and network-impact study protocol
 
-**Status:** Study structure proposed for review. This documentation DOES NOT select an architecture, equipment catalogue, metering contract, feeder geometry, outage system, PV orientation or dispatch control. NO simulation code or published results are changed by this branch.
+**Status: DRAFT FOR ENGINEERING DISCUSSION, not an approved design or simulation.** This document sets the correct research priorities without changing the main Case 1 code or saved results.
 
-## 1. Research objective and agreed design directions
+## 1. Main research question
 
-Compare these three physical architectures:
-- **C — Centralized PV + centralized BESS:** common ground/roof installation with AC injection at a shared LV node; Site A is a candidate, not approved or surveyed.
-- **D — Distributed PV + distributed household BESS:** arrays and storage at individual premises. Each house needs an actual available roof/site and a compatible electrical installation.
-- **H — Distributed rooftop PV + shared BESS:** generation at household nodes; a shared bank at a separately identified common node (possibly Site A).
+> How many households can be served, at what electricity cost, self-sufficiency and grid/network impact, as we increase PV capacity (kWp), battery energy (usable kWh) and battery charge/discharge power (kW); and when is one shared PV+BESS installation preferable to several *shared group-level* PV+BESS clusters?
 
-The team already agreed to multi-objective **annualized supply cost**, **energy self-sufficiency**, **resilience during diverse outages**, installation **footprint**, and a 2-D sensitivity on BESS **usable energy** versus **power**. Voltage drop and voltage rise at **all houses** are an explicit **separate pandapower workstream**. **Critical-load percentages and deferrable-load management are PARKED completely**, including in the active baseline and comparative studies. The old 30% / 15% modelled shares must not enter active results.
+The dominant variables are **household grouping, installed PV, BESS energy/power, inverter topology, grid constraints and lifecycle costs**, not a generic "one PV + one battery at every house" comparison.
 
-## 2. Apples-to-apples reference: 4 households only
+### Primary architectures (different physical decisions)
 
-The proposal quoted **12 × 435 W PV panels = 5.22 kWp** and **4 × 5.12 kWh battery modules = 20.48 kWh nominal**; the main model describes **17.3 kWh usable** for that bank. The **~50 m² complete-system footprint** is a planning estimate, not a measured module layout or buildable area. The inverter quotation describes one 5-kW unit; whether it is compatible with the real service and other architectures is UNRESOLVED.
+- **C — Centralized shared PV+BESS**: one larger installation at candidate Site A or another defensible shared location, serving the selected household group(s). One equipment location; actual LV feeder/PCC(s) unverified.
+- **K — Distributed GROUP-LEVEL clusters**: two or more *shared* installations, each serving several nearby homes. Each cluster gets its own physically valid connection topology, inverter and BESS bank. Examples: 12 homes as 2 groups of 6 or 3 groups of 4, and 20 homes as 2 of 10 or 5 of 4 (exploratory partitions, NOT mapped EPM groups).
+- **H — Hybrid cluster topology**: a principal central PV+BESS installation plus satellite shared PV and/or BESS for subsets of homes. Quantities and locations are open; it does not mean distributed PV necessarily at every household.
+- **I — Individual PV+BESS at EVERY home**: accepted as an ADDITIONAL benchmark, not the primary distributed or hybrid research. This extends the individual/shared sensitivity already explored in PyPSA v18. Discrete 5.12 kWh battery-module, inverter and roof feasibility constraints apply; cannot assume one whole-module bank can use the shared inverter quoted for four modules.
+- **PV-only controls** without storage are needed to isolate storage value; no extra hybrid-without-a-hybrid component should be counted as a distinct architecture.
 
-For a **conceptual 4-household matched-capacity comparison**:
-- C: all 12 PV panels and 4 battery modules at one shared site;
-- D: a *hypothetical even split* of 3 PV panels and one battery module per house (only where the exact inverter/BMS and roof are capable of operating a single module);
-- H: 3 PV panels per house; 4 battery modules at one shared site.
+**Do not assume that connecting several physically independent clusters behind the SAME 5 kVA PCC multiplies its rating.** A "cluster" may refer to grouping behind a single transformer/PCC, independent grid-connected nodes, or a network with an approved shared bus. Those are different electrical and commercial architectures, and should NOT be conflated. Use conditional results only until confirmed by EPM/physical mapping.
 
-All three share **the same total demand timeseries, annual resource basis, number of panels, nominal storage, and initially the same total permitted battery charging/discharging-power target**. The presently used 5 kW total BESS-power limit is a **reference study target**, not proof of safe or purchasable inverter/BMS configurations. Physical inverter conversion capacities, module granularity, wiring and inverter efficiency must be checked, and apparent equal-capacity combinations can be ruled out if the hardware cannot support them.
+## 2. Evidence already available, and what it does NOT prove
 
-The no-BESS PV-only control should be retained for each feasible architecture as a baseline. A second series will vary battery module count and hardware-permitted discharge/charge power **independently**, without silently upgrading inverter capabilities.
+- **PyPSA v18** already compares shared versus individual systems using matched total hardware and household profiles, and studies 4–8-household consumption and limited PV/BESS sweeps. It is energy-system modelling, **not a detailed feeder model**. The earlier PV sweep deliberately capped at 12 panels and four battery modules.
+- **pandapower v5** already explored stochastic 4–8-household groupings, transformer/feeder headroom, and voltage/load stress. It uses representative rather than surveyed LV geometry. The existing 324.5 m route and 4–8-house scenarios should be the starting reference, **not proof** that future expanded clusters share one circuit.
+- **Case 1 v3** already screens households 4–20, PV 8–80 × 435 W, batteries 0–24 modules and additional 5–15 kW battery-power cases. Historic ~11,515 design rows are **stale** after dispatch/economics/provenance revisions and NOT independently pandapower validated. It provides a scenario foundation, not an approved optimum or a physical limit of 17 homes.
+- Candidate Site A has a user-digitized ~1,759 m² *gross* clearing, not a verified usable construction site. Reference proposal: **12 × 435 W = 5.22 kWp**, **4 × 5.12 kWh = 20.48 kWh nominal**, ~17.3 kWh usable modelled, **~50 m²** tentative total installation footprint (not a survey).
 
-For **8–20 households**, the neat one-module-per-house allocation with just four total battery modules is impossible. Do **not** pretend that fractional modules can be installed. The capacity- and service-matched architecture grid must be rebuilt using physically discrete allocations and identifiable houses. Avoid asserting that each house has a battery if only a subset does.
+## 3. Expansion/grouper design matrix — three types of comparisons
 
-The CSV `architecture_reference_matrix_DRAFT.csv` is a **planning matrix, NOT a device procurement list**.
+**A. Capacity growth at fixed household count and fixed physical topology.** Hold the same demand realization, PV resource basis, tariff scenario and inverter/transformer assumptions. Increase PV panel count, battery module count and battery kW *independently*, then in combinations. Record incremental change in grid import/export, unmet demand, curtailment, annual cost, battery throughput/life, thermal loading, household voltage and footprint. Explicit PV-only and grid-only references. Use equipment-feasible ratings; do not extrapolate an actual inverter beyond port/input limits.
 
-## 3. Evaluation stages
+**B. Population growth at given installed system.** At fixed hardware and physical topology, add households incrementally. This identifies where the existing design becomes insufficient, but **it is NOT the same as optimizing system size for each number of households**.
 
-### Stage 0 — Confirm constraints and business boundaries (decision gate)
-Determine whether the community has one legally permissible common connection/meter, individual meters, virtual self-consumption or another permitted arrangement. EPM interconnection/export rules, ownership, supplier warranties and islanding hardware cannot be inferred from energy modelling. Confirm actual installation rights for Site A and household roofs.
+**C. Joint group size + equipment sizing + clustering.** For total households N (initial study N=4–20), compare *one shared group* against multiple partitions (e.g. N=8: 1×8 versus 2×4; N=12: 1×12, 2×6, 3×4; N=16: 1×16, 2×8, 4×4; N=20: 1×20, 2×10, 4×5, 5×4). For each partition, search physically valid PV, BESS and inverter sizes. These are **research partitions**, not geospatial clusters until household coordinates are linked to the topology. Larger populations may be studied later only after constraints and network model assumptions are agreed.
 
-### Stage 1 — Neutral capacity comparison (model-design proposal, not yet executed)
-Keep the SAME annual household demand realization, resource year, panel count, battery energy, target battery-power allowance, and assumed tariff/discount assumptions. Evaluate C, D and H **without inventing site-to-site yield benefits**. Differences should only arise from topology-dependent inverter efficiency, electrical losses and genuine additional equipment where explicitly represented and evidenced. If physical topology is absent, report **"equivalent aggregate-energy model cannot discriminate location"**, not a spurious ranking.
+The two distinct comparisons that must both be reported:
 
-### Stage 2 — Spatial and solar-resource sensitivities
-For Site A use `../site_a_solar/` and the digitized ~1,759 m² gross clearing, with **level ground assumed** and tree-height/setback sensitivities. The solar study calculates **plane-of-array irradiation**, not proven PV yield. Rooftop geometry/shading is unknown and may only be handled by clearly labelled hypothetical scenarios until roof data are available. Avoid claiming centrally or distributively superior shading by default.
+1. **Matched TOTAL hardware** across C/K/H: same total PV panels, nominal/usable battery energy and **same aggregate permitted battery kW**, as far as physically feasible, plus the same demand and irradiation reference. This isolates topology / power-sharing / diversity. A 5 kW **per-cluster** choice with two clusters becomes 10 kW aggregate and is *not* equal hardware to a single 5 kW installation; do not silently call it matched.
+2. **Optimized REAL-WORLD equipment per architecture**: each cluster has discrete devices, and can carry extra inverters, BMS, protection, metering and BOS costs. Compare optimized lifecycle cost, resilience, connection constraints and spatial footprint even if capacities differ.
 
-### Stage 3 — LV electrical workstream in pandapower
-Build/reference an LV feeder with actual or labelled hypothetical nodes, cable lengths, conductor properties, transformer connections, household legs/phases and injection locations. Compare lowest-house voltage, voltage-rise hours, thermal currents, losses and active/reactive PCC. The 5-kVA reference transformer and assumed 90% (4.5-kVA) operating envelope are **screening assumptions**, not utility approval; the algebraic PCC cap cannot certify household voltages. No results from this workstream are implied by the present protocol.
+If absent feeder data mean an aggregate energy model cannot distinguish where PV is located, explicitly say so instead of reporting a fabricated topology advantage. **Network loading, bus voltage, feeder current/losses, reverse-flow distribution and the electrically weakest/farthest house** go to the separately maintained pandapower model.
 
-### Stage 4 — Resilience and design economics
-Calculate grid-connected reliability using **all household demand**, without critical/deferrable splits. For outages, compare **total demand served, total ENS, hours of full-load supply, depletion/recovery** at diverse start times and solar conditions. Islanded service is a **conditional technical scenario** until true grid-forming operation, switchgear, anti-islanding/protection and transfer arrangements are verified. Compare real inverter/BESS counts and costs and give no export-credit baseline with explicitly hypothetical remuneration sensitivities until tariff evidence is obtained.
+## 4. Staged study method: PyPSA / dispatch, pandapower, pvlib, economics
 
-## 4. Common proposed reporting (no rankings yet)
+### Stage 1 — Shared reference and robust capacity sweep
+Use the same year/hours/loads for all scenarios and a versioned pvlib-derived solar input. Maintain a grid-only and PV-only reference. For each N, run incremental PV, battery-energy and charge/discharge-power sweeps, respecting battery/inverter ratings. Report **zero-ENS normal-operation screening** and self-sufficiency/cost trade-offs; never call a scenario network-feasible based on PCC kVA screening alone. Compare fixed-5-kW bank power versus manufacturer-permitted power *as separate scenario axes*, already agreed.
 
-Each architecture/population should report:
-- PV kWp, nominal and usable BESS kWh, maximum battery charging/discharging kW, inverter ratings and number of inverter devices;
-- annual demand, ENS, PV supply, grid imports/exports, self-sufficiency of total demand, curtailment and signed annual SOC drift;
-- annualized equipment/replacements, grid purchases, total USD/year and USD/household/year, plus unpriced site/electrical/civil-work omissions;
-- total unserved energy and full-demand availability in outages; no assertion of protected minimum household service;
-- required PV/ground/rooftop area, equipment enclosure and access area, site/feeder geometry provenance, shaded PV assumption;
-- pandapower minimum and maximum bus/service voltage and worst-house node, feeder losses and ampacity where topology validation exists;
-- feasibility status in separate columns: `energy_screen`, `site_space`, `hardware`, `network`, `islanding`, `EPM_approval`. Never collapse into a blanket "feasible" flag.
+### Stage 2 — Group/cluster configurations
+Use spatially meaningful household membership when actual coordinates are available; otherwise clearly document synthetic partitions. For C, K, H and secondary I, allocate PV, batteries, inverters, electricity demand and available roof/ground area. Define whether clusters exchange power, have separate PCCs/meters or share a capped transformer; the effect on power flows and costs depends on this definition.
 
-## 5. Decisions STILL requiring discussion BEFORE implementation
+### Stage 3 — pandapower validation (separate electrical workstream)
+Transfer chronological and stress-case injections for each distinct point in the **actual or explicitly synthetic** LV topology. Compute minimum/maximum individual house voltage, farthest/worst node, current, cable and transformer loading, losses, import/export and reverse power flow over appropriate samples. Model voltage-drop with pandapower, **not** illustrative resistance-only "answer" tables. Treat 5 kVA nameplate / 4.5 kVA operational cap as the existing single-PCC reference assumption, NOT extra capacity created by PV storage or by re-labelling the same connection. Study upgrades or multiple separate PCCs only as separately costed/permitted alternatives, not an assumed EPM approval.
 
-1. **Metering/ownership/community sharing**: physically shared LV connection versus separately metered houses; what constitutes a "community" tariff/settlement?
-2. **Distributed storage definition**: every house must have BESS, or is a mixed subset acceptable? This controls comparison fairness and storage granularity for 8–20 homes.
-3. **Equipment matching**: reference 5-kW inverter is not trivially replaceable by four small hybrid inverters; establish feasible catalogue options, costs, and AC/DC topology.
-4. **Roof feasibility**: identify which houses have roof area, solar access and permission; Site A ground rights remain unverified.
-5. **Grid and islanding architecture**: interconnection location(s), utility service type, neutral/phase arrangements, export policy, and conditional island-capable topology.
-6. **Scope and priorities**: confirm the exact normalization of cost and whether resilience is part of the Pareto objective or a separate stress-screen.
+### Stage 4 — Land, roof and solar yield
+Use Site A's traced polygon and **assumed level ground** as a preliminary candidate, not surveyed land. Apply the documented pvlib tree-height and setback **sensitivity** only as explicit hypothetical shade cases, not measured loss. For K/H/I verify (or label unknown) each candidate cluster plot or roof, array/setback sizing, shared BESS enclosure, inverter/switchgear/access and cable routing. **50 m²** is for the original 12-panel/four-module proposal only; do not linearly scale it without a physical layout.
 
-The scenario matrix is deliberately a **4-household illustration** only. There are **no new results, design selections, or engineering claims** in this work.
+### Stage 5 — Consistent lifecycle economics and robustness
+Compare annualized equipment, inverter and battery replacement per validated HOMER-based rules, grid imports and optional export credits, but **also installation and BOS**, additional inverters/switchgear/protection, any extra transformers/cables/service drops, maintenance, land/civil works and metering/settlement where evidenced. Unknown costs remain explicit ranges/unpriced, not zeros masquerading as verified. Report total cost and cost/house/year, marginal $/additional-household, incremental $/kWh grid import avoided, and cost per increased reliability outcome. Avoid claiming official EPM tariffs/approval from HOMER illustration.
 
-## 6. Provenance and connections
+For resilience compare diverse outage start hours, months and low-solar conditions using full normal household demand **without any 30%-critical or 15%-deferrable decomposition**. Report total ENS, time all load is served, annual SOC drift/preconditioned SOC, recovery. Islanding service remains **conditional** on proper inverter/control/protection topology; multiple islanded clusters may perform differently.
 
-- Site A source geometry, hypothetical pvlib shade outputs and CI provenance: [Site A solar study](../site_a_solar/README.md).
-- Historical Case 1 results are stale and must not be republished as if this architectural study reran them.
-- Development process: agree choices, then test-first implementation on a separate MR, then reference validation and electrical network verification.
+## 5. Pareto and decision reporting
+
+Within each N/grouping and topology, compare annualized cost vs grid dependence vs full-load resilience, and retain all electrical/site constraints as distinct feasibility gates. Do not mix total project costs across very different household numbers without normalization. Show PV/BESS footprint, grid voltage envelopes, curtailment and connection assumptions as independent constraints. Hold user approval before weights, reference capacities or actual cluster split are selected.
+
+## 6. Proposed research gates requiring discussion BEFORE implementation
+
+- **Electrical ownership/connection:** actual transformer 94022 locations, split-phase details, whether one PCC, multiple individually rated PCCs or an upgrade is permitted; cluster sharing/meters.
+- **Group topology and households:** actual household geocoordinates/branch membership, right to build Site A/other cluster plots, roof availability and real feeder routes.
+- **Hardware and BOS:** whether commercially operable single-module household storage exists, parallel inverter compatibility, per-cluster equipment counts and costs.
+- **Expansion range:** beyond the existing 4–20 households? desired self-sufficiency targets? boundary conditions for "served" (zero grid-connected ENS vs acceptable probabilistic threshold).
+- **Objectives and ranking:** resilience on the Pareto or as a separate stress-screen, export-credit economics only as sensitivity or allowed real tariff, cost of new connection/reinforcement.
+- **Critical/deferrable loads REMAIN PARKED** until professor decision. No active scenario should use those fractions.
+
+### Implementation hold
+This branch is **documentation and comparison design only**. Do not run or alter the optimization, PV/BESS sizing or saved CSV/Pareto figures until the team agrees which group/PCC assumptions and matched-vs-optimized comparisons to implement. Version all supporting data in GitLab, with tests, provenance and CI.
