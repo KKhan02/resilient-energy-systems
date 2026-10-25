@@ -1,0 +1,13 @@
+topic,status,study_position,decision_gate
+main_question,AGREED,"Expand PV/BESS power/energy and household count; quantify network and cost impacts",Fix comparison constraints before simulation
+architecture_priority,AGREED,"C centralized vs K shared multi-home clusters vs H central plus satellite clusters",Define grid connection and spatial group membership
+individual_home_battery,SECONDARY_AGREED,"One battery at each participating home as extra benchmark; already studied in PyPSA v18",Physical inverter and battery feasibility
+pv_and_bess_expansion,AGREED_DIRECTION,"Study panel count; battery modules; battery charge discharge kW; grouping and cost",Choose accepted design grid and bounds
+battery_power_comparison,AGREED,"Fixed 5kW benchmark vs hardware-permitted bank power separately",No invented port ratings
+electrical_impact,AGREED,"pandapower checks household voltages; transformer/loading; losses and reverse flow",Actual or explicit synthetic LV topology
+capacity_fairness,PROPOSED,"Match TOTAL PV/BESS AND aggregate battery power before optimized equipment comparison",Agree matched and optimum axes
+transformer_constraints,UNCONFIRMED,"Existing 5kVA reference PCC remains capped; clusters do not create grid capacity automatically",EPM connection and possible reinforcement
+solar_access,ASSUMPTION_BASED,"Site A scenario shading in separate pvlib study; rooftop/cluster solar unspecified",Location data or tagged hypothetical shading
+costing,PROPOSED,"Annualized hardware costs plus BOS/transformers/cables/protection and lifecycle",Supplier cost basis or uncertainty ranges
+critical_defer_load,PARKED,"No 30 percent critical or 15 percent deferrable split in active scenarios",Professor discussion
+outage_diversity,AGREED,"Different outage times and resource variability on full household load",Verify islanding design or label theoretical
