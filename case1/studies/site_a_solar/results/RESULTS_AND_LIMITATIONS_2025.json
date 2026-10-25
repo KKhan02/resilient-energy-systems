@@ -1,0 +1,33 @@
+{
+  "status": "EXPLORATORY_ASSUMPTION_NOT_SITE_SHADE_MEASUREMENT",
+  "site_lat": 6.248376671296207,
+  "site_lon": -75.00932156861505,
+  "source_lat": 6.2523,
+  "source_lon": -75.0143,
+  "assumed_level_ground": true,
+  "assumed_panel_midheight_m": 1.5,
+  "assumed_tree_heights_m": [
+    8,
+    12,
+    18
+  ],
+  "assumed_setbacks_m": [
+    5,
+    10,
+    20
+  ],
+  "assumed_tree_azimuth_sectors": [
+    "all",
+    "east",
+    "west"
+  ],
+  "observed_tree_heights_m": null,
+  "chosen_pv_configuration": null,
+  "annual_ghi_kwh_m2": 1773.009,
+  "hours_dhi_exceeds_ghi": 329,
+  "source_sha256": "b8555ec0e89c2cff4909c70a0b02d78b9f770e9356e0904dba00599219db9736",
+  "pvlib_version": "0.16.1",
+  "screened_tree_cases": 54,
+  "output_unit": "plane-of-array kWh/m2 NOT PV DC or AC electricity",
+  "limitations": "no sky-diffuse occlusion, canopy shape, near-array shadows, string mismatch or survey"
+}
