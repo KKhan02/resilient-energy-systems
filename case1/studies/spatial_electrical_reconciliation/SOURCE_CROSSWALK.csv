@@ -18,3 +18,4 @@ PP-V5-VERIFIED,case1/legacy/SanRafael_pandapower_Grid_Check_v5_uncertainty.ipynb
 SOLAR-A,case1/studies/site_a_solar/site_a_user_digitized_boundary.geojson,user traced shape,Approx 1759m2 gross clearing,Not surveyed buildable site area
 CASE1,case1/results/RUN_MANIFEST.json,historic aggregated results,Combined previous 11515-design screen,Stale and not nodal pandapower validated
 RESERVE-OBSERVATION,6.251758291989109 -75.0141263961902,participant field observation,Reserve reportedly near 5kVA EPM transformer,Exact transformer ID and geolocation not yet verified
+EPM-SECOND-TRAF,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/02_raw_epm_screenshots/04_transformer_table_94022_92395.png,archived EPM screenshot,"Two operational 5kVA entries: 94022/node931076 and 92395/node923848 on circuit221-12",92395 latitude longitude and customer assignment not verified

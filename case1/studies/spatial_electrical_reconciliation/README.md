@@ -46,6 +46,12 @@ The exact file-to-file crosswalk is in SOURCE_CROSSWALK.csv. OPEN_DATA_GATES.csv
 
 This audit does not authorize PV sizing, new network assets or islanding assumptions, and does not certify field topology.
 
+## Second existing transformer in the archived EPM table
+
+The original EPM screenshot `02_raw_epm_screenshots/04_transformer_table_94022_92395.png` contains **two distinct operational 5 kVA transformers**: **94022** (node 931076) and **92395** (node **923848**). Both are listed on circuit **221-12**, 7.621 kV primary, **240/120 V** secondary, marked OPERACION in the historical screenshot. The asset CSV provides geographic coordinates for 94022, but **not 92395**. Consequently 92395 is a plausible candidate to investigate for the reported reserve equipment; it is NOT verified as the reserve transformer. Their common MV circuit does **not** imply interconnected LV secondaries or 10 kVA pooled capacity. Source: [original EPM screenshot](../../../Energy%20Community%20-%20San%20Rafael/SanRafael_Reproducible_Model_Package_v2/02_raw_epm_screenshots/04_transformer_table_94022_92395.png).
+
+[Archived transformer evidence register](archived_epm_transformers.csv) preserves these two distinct records and their coordinate limitations.
+
 ## Reserve visit and household-count clarification
 
 Participant reports visiting a reserve at **6.251758291989109, -75.0141263961902**, near an **EPM-map-verifiable 5 kVA transformer**. This is the **reserve reference coordinate**, NOT the verified geographic position or asset ID of its transformer. The asset number, exact pole, circuit, and supplied households are unknown. The reserve coordinate is approximately **1,025.6 m straight-line** from archived transformer **94022** (6.246949759, -75.006208238), so they must NOT be conflated or automatically assigned to one LV network. The official EPM viewer should be used to record the new asset ID before modelling; no new simulated transformer has been added.

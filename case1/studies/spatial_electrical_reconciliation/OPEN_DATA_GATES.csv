@@ -10,3 +10,4 @@ G08,High,Additional inverter switchgear cabling and permitting costs for cluster
 G09,High,Aggregate 11515 design results stale and lack nodal validation,Unsuitable as new optimized cluster outcomes,Powerflow compliance inferred from PCC limit
 G10,High,Additional 5kVA transformer reportedly near reserve but asset ID unknown,May distinguish real existing supply areas,Do not treat reserve point as verified transformer pole or as 94022
 G11,High,User refers to 33 households but satellite archive contains 35 sites,Reconcile eligible customer roster and nonhousehold facilities,Do not exclude two facilities without evidence
+G12,High,Archived EPM table includes second 5kVA transformer 92395 but location not confirmed,Map which existing LV service territory supplies reserve and study houses,Same MV circuit does not imply shared LV bus

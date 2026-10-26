@@ -1,0 +1,3 @@
+source,transformer_id,node,circuit,archived_operating_state,rating_kva,primary_kv,secondary_v,latitude,longitude,location_status,customer_territory_status
+archived_EPM_table_04_transformer_table_94022_92395.png,94022,931076,221-12,OPERACION,5,7.621,240/120,6.246949759,-75.006208238,archived_94022_asset_CSV,unverified
+archived_EPM_table_04_transformer_table_94022_92395.png,92395,923848,221-12,OPERACION,5,7.621,240/120,,,not_present_in_source_asset_CSV,unverified
