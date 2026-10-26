@@ -1,0 +1,10 @@
+id,priority,unresolved_evidence_or_decision,why_it_matters,do_not_assume
+G01,High,35 houses have no georeferenced WGS84 coordinates,Spatial group pixel centroids cannot be placed as real electrical buses,That x_px is longitude
+G02,High,Actual transformer 94022 service territory not verified,Thirty-five nearby properties may use other transformers,All 35 behind 5kVA
+G03,Medium,LV geometry register 328.8m differs from 324.452m reproduced digitization,Route scaling/endpoint provenance unresolved,That these are separate confirmed routes
+G04,High,Original proximity grouping assumes 5 to 9 extra hypothetical 5kVA transformer positions,Inconsistent with minimizing additional transformers,Any extra transformer capacity from clustering
+G05,High,House service drops leg allocation and individual feeder taps not verified,Farthest house voltage and neutral loading remain unknown,Balanced equivalent proves 120V service
+G06,High,Newer uploaded v18/v5 notebooks absent as distinct named GitLab versions,Reproducibility of most recent analyses is incomplete,That v17/37cell notebooks equal v18/44cell
+G07,Medium,Asset 94022 screenshot and CSV not independently current verified,Archived asset metadata could differ from utility today,Formal EPM permission or confirmed new connections
+G08,High,Additional inverter switchgear cabling and permitting costs for clusters not sourced,Cost comparisons understate distributed BOS uncertainty,Zero incremental connection costs
+G09,High,Aggregate 11515 design results stale and lack nodal validation,Unsuitable as new optimized cluster outcomes,Powerflow compliance inferred from PCC limit

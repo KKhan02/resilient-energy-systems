@@ -1,0 +1,19 @@
+id,verified_existing_source,evidence_kind,established_data,remaining_limitation
+ASSET-94022,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/04_grid_data/san_rafael_epm_asset_94022.csv,historical EPM extract,"94022 5kVA node931076 circuit221-12 lat6.246949759 lon-75.006208238",Not externally reverified live
+ASSET-IMAGE,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/02_raw_epm_screenshots/12_transformer_94022_popup.png,archived screenshot,Transformer asset screenshot exists,Not a new field verification
+HOUSE-IMAGE,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/01_raw_site/community_satellite_houses_1_35.jpg,satellite annotated image,35 numbered households mapped in image,No surveyed household coordinates or confirmed 94022 customers
+HOUSE-PIXELS,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/05_spatial_grouping/san_rafael_house_image_coordinates.csv,pixel mapping,"35 IDs; x_px y_px populated; all lat/lon blank",Georeferencing required
+LV-GEOMETRY,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/04_grid_data/san_rafael_epm_local_geometry_v2.csv,archived geometry register,"LV 328.8m MV 354.2m",LV differs from computed 324.452m
+LV-TRACE,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/05_spatial_grouping/secondary_trace_points_94022.csv,digitized image polyline,Recomputed 324.452085m using scale,Image-derived approximate not cable survey
+MV-TRACE,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/05_spatial_grouping/primary_trace_points_94022.csv,digitized image polyline,Recomputed 354.154665m using scale,Image-derived approximate not cable survey
+SCALE,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/05_spatial_grouping/scale_calibration.csv,calibration register,LV 30m/126px MV 100m/104px,Image reference uncertainty
+LENGTH-RESULT,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/07_generated_spatial/measured_line_lengths.csv,reproducible output,LV 324.452085m MV 354.154665m,Does not describe all house service drops
+GROUP-CODE,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/06_code/run_spatial_pipeline.py,clustering generator,Max houses per group 4..8,Creates hypothetical 5kVA transformers at image pixel centroids
+GROUP-8,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/05_spatial_grouping/san_rafael_case_8_houses_max_transformers.csv,hypothetical spatial groups,"5 candidate sites: 8/7/8/8/4 houses",Not EPM transformer assignments
+GROUP-EDGES,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/05_spatial_grouping/san_rafael_case_8_houses_max_edges.csv,placeholder topology,Includes transformer_upstream_placeholder edges,Not physical existing LV routing
+PYPSA-OLD,Energy Community - San Rafael/SanRafael_PyPSA_Scenarios.ipynb,GitLab notebook,Explicit v17 heading and 34 cells,Do not present as uploaded v18
+PP-OLD,Energy Community - San Rafael/SanRafael_pandapower_Grid_Check.ipynb,GitLab notebook,37 cells and reference v5-style feeder inputs,Do not present as uploaded newer 44-cell v5
+PYPSA-V18-UPLOAD,SanRafael_PyPSA_Scenarios_v18_uncertainty.ipynb,project attachment,38-cell newer uncertainty notebook,Needs separate tracked copy in GitLab
+PP-V5-UPLOAD,SanRafael_pandapower_Grid_Check_v5_uncertainty.ipynb,project attachment,44-cell newer uncertainty notebook,Needs separate tracked copy in GitLab
+SOLAR-A,case1/studies/site_a_solar/site_a_user_digitized_boundary.geojson,user traced shape,Approx 1759m2 gross clearing,Not surveyed buildable site area
+CASE1,case1/results/RUN_MANIFEST.json,historic aggregated results,Combined previous 11515-design screen,Stale and not nodal pandapower validated
