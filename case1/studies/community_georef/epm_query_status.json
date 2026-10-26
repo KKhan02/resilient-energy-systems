@@ -1,0 +1,14 @@
+{
+  "source": "https://podascens.epm.com.co/arcgis/rest/services/Disponibilidad2023/MapServer",
+  "schema_layers_verified": [
+    0,
+    3,
+    5,
+    6,
+    7
+  ],
+  "feature_records_validated": false,
+  "archived_transformer_94022": "not yet reverified live",
+  "transformer_92395": "location unverified",
+  "status": "schema only; execute bounded infrastructure query before publishing line geometries"
+}
