@@ -13,7 +13,8 @@ GROUP-8,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/05
 GROUP-EDGES,Energy Community - San Rafael/SanRafael_Reproducible_Model_Package_v2/05_spatial_grouping/san_rafael_case_8_houses_max_edges.csv,placeholder topology,Includes transformer_upstream_placeholder edges,Not physical existing LV routing
 PYPSA-OLD,Energy Community - San Rafael/SanRafael_PyPSA_Scenarios.ipynb,GitLab notebook,Explicit v17 heading and 34 cells,Do not present as uploaded v18
 PP-OLD,Energy Community - San Rafael/SanRafael_pandapower_Grid_Check.ipynb,GitLab notebook,37 cells and reference v5-style feeder inputs,Do not present as uploaded newer 44-cell v5
-PYPSA-V18-UPLOAD,SanRafael_PyPSA_Scenarios_v18_uncertainty.ipynb,project attachment,38-cell newer uncertainty notebook,Needs separate tracked copy in GitLab
-PP-V5-UPLOAD,SanRafael_pandapower_Grid_Check_v5_uncertainty.ipynb,project attachment,44-cell newer uncertainty notebook,Needs separate tracked copy in GitLab
+PYPSA-V18-VERIFIED,case1/legacy/SanRafael_PyPSA_Scenarios_v18_uncertainty.ipynb,GitLab tracked newer notebook,38-cell v18 exact SHA256 match to original local upload,Already versioned; retain original v17 history
+PP-V5-VERIFIED,case1/legacy/SanRafael_pandapower_Grid_Check_v5_uncertainty.ipynb,GitLab tracked newer notebook,44-cell v5 exact SHA256 match to original local upload,Already versioned; retain original 37-cell history
 SOLAR-A,case1/studies/site_a_solar/site_a_user_digitized_boundary.geojson,user traced shape,Approx 1759m2 gross clearing,Not surveyed buildable site area
 CASE1,case1/results/RUN_MANIFEST.json,historic aggregated results,Combined previous 11515-design screen,Stale and not nodal pandapower validated
+RESERVE-OBSERVATION,6.251758291989109 -75.0141263961902,participant field observation,Reserve reportedly near 5kVA EPM transformer,Exact transformer ID and geolocation not yet verified

@@ -73,6 +73,24 @@ def audit():
                 "sha256":hash_file(path)}
     older_pypsa=notebook("SanRafael_PyPSA_Scenarios.ipynb")
     older_pp=notebook("SanRafael_pandapower_Grid_Check.ipynb")
+    # Both latest uploaded notebook revisions already exist under case1/legacy/.
+    newer_paths = {
+        "pypsa_v18": ROOT / "case1/legacy/SanRafael_PyPSA_Scenarios_v18_uncertainty.ipynb",
+        "pandapower_v5": ROOT / "case1/legacy/SanRafael_pandapower_Grid_Check_v5_uncertainty.ipynb",
+    }
+    expected = {
+        "pypsa_v18": ("0ed79c7cd19de757fb3daf7177752c6a5df82c95079a19519a048c8c63ae6ebc",38),
+        "pandapower_v5": ("35a0dfbcbb2bd2d251c03f34a176bf9c3f5654a4cf9cab1970646dea10985652",44),
+    }
+    newer_tracked = {}
+    for label,path in newer_paths.items():
+        digest=hash_file(path)
+        contents=json.loads(path.read_text(encoding="utf-8"))
+        exp_digest,exp_count=expected[label]
+        assert digest==exp_digest and len(contents["cells"])==exp_count
+        newer_tracked[label]={"path":str(path.relative_to(ROOT)),
+                              "sha256":digest,"cells":len(contents["cells"]),
+                              "identical_to_uploaded_original":True}
     assert older_pypsa["cells"]==34 and "v17" in older_pypsa["heading"]
     assert older_pp["cells"]==37
     pp_cells=json.loads((ORIGINAL/"SanRafael_pandapower_Grid_Check.ipynb").read_text(encoding="utf-8"))["cells"]
@@ -91,9 +109,7 @@ def audit():
                          "lv_difference_register_vs_trace_m":lv_register-lv["derived_length_m"]},
         "groupings":groups,
         "gitlab_original_notebooks":{"pypsa":older_pypsa,"pandapower":older_pp},
-        "newer_uploaded_notebooks_unversioned_in_this_repo":[
-           "SanRafael_PyPSA_Scenarios_v18_uncertainty.ipynb",
-           "SanRafael_pandapower_Grid_Check_v5_uncertainty.ipynb"],
+        "newer_already_tracked_notebooks":newer_tracked,
         "source_sha256":{
            str(x.relative_to(ROOT)):hash_file(x) for x in (
              PACKAGE/"04_grid_data/san_rafael_epm_asset_94022.csv",

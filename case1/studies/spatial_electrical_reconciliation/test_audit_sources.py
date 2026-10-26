@@ -31,3 +31,9 @@ class SourceReconciliationTests(unittest.TestCase):
         n=self.data["gitlab_original_notebooks"]
         self.assertIn("v17",n["pypsa"]["heading"])
         self.assertEqual(n["pandapower"]["cells"],37)
+
+    def test_latest_notebooks_are_sha256_identical_to_uploads(self):
+        newer=self.data["newer_already_tracked_notebooks"]
+        self.assertEqual(newer["pypsa_v18"]["cells"],38)
+        self.assertEqual(newer["pandapower_v5"]["cells"],44)
+        self.assertTrue(all(x["identical_to_uploaded_original"] for x in newer.values()))
