@@ -50,6 +50,20 @@ def sanitize(features):
                        "properties":{k:v for k,v in p.items() if k.upper() in KEEP}})
     return result
 
+
+def count_query(layer,where,timeout):
+    """Test whether a layer is populated, without fetching any feature attributes."""
+    params={"f":"json","where":where,"returnCountOnly":"true","returnGeometry":"false"}
+    req=Request(BASE+"/"+str(layer)+"/query?"+urlencode(params),
+                headers={"User-Agent":"SEEDExchange-energy-research-gis/1.0"})
+    with urlopen(req,timeout=timeout) as response:
+        data=json.load(response)
+    if "error" in data:
+        raise RuntimeError(str(data["error"]))
+    if not isinstance(data.get("count"),int):
+        raise RuntimeError("Count-only query did not return a numeric count")
+    return data["count"]
+
 def run(outdir,timeout):
     geo=json.loads((HERE/"house_points_provisional.geojson").read_text(encoding="utf-8"))
     bbox=bbox_from_features(geo["features"])
@@ -75,9 +89,19 @@ def run(outdir,timeout):
         except Exception as exc:
             record["error"]=str(exc)[:220]
         status["layers"][name]=record
+    # Distinguish empty local geographic queries from empty / restricted entire service.
+    status["service_coverage_checks"]={}
+    for lid,field in ((0,"CODIGO_TRANSFORMADOR"),(5,"CODE")):
+        checks={}
+        for key,where in (("all_features","1=1"),
+                          ("94022",field+"='94022'"),
+                          ("92395",field+"='92395'")):
+            try:checks[key]={"status":"queried","count":count_query(lid,where,timeout)}
+            except Exception as exc:checks[key]={"status":"unavailable","error":str(exc)[:220]}
+        status["service_coverage_checks"][LAYERS[lid]]=checks
     status["complete_retrieval"]=all(x["complete"] for x in status["layers"].values())
     (outdir/"epm_query_status.json").write_text(json.dumps(status,indent=2)+"\n",encoding="utf-8")
-    print("EPM_QUERY_RESULT="+json.dumps(status["layers"],separators=(",",":")))
+    print("EPM_QUERY_RESULT="+json.dumps({"area_layers":status["layers"],"coverage_checks":status["service_coverage_checks"]},separators=(",",":")))
 
 if __name__=="__main__":
     ap=argparse.ArgumentParser()
