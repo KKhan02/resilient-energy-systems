@@ -95,3 +95,8 @@ For a **separate sensitivity analysis only**, `wp1_v3.model.dispatch_cyclic(load
 ## Architecture comparison protocol (draft)
 
 - [Centralized vs distributed vs hybrid PV/BESS study protocol](studies/architecture_comparison/README.md): proposed matched-capacity 4-household comparison, explicit physical/utility data gaps, scenario CSV and design-decision register. **Documentation only; no new simulations or architecture selection.**
+
+
+## Historic LV/site data reconciliation
+
+- [Original 94022 asset, 35-house map, 324.452m trace vs 328.8m register, synthetic clustering and notebook version audit](studies/spatial_electrical_reconciliation/README.md). This uses the pre-existing source files; it does not imply new transformer capacity, a surveyed network or updated electrical results.

@@ -1,0 +1,125 @@
+{
+  "provenance": {
+    "pipeline_id": 2990014704,
+    "job_id": 17471165555,
+    "commit_at_execution": "137a7b1cfd58b1bdc41559deb41b62eacd1d0754",
+    "status": "success",
+    "reproducible_command": "python case1/studies/spatial_electrical_reconciliation/audit_sources.py --output spatial_source_audit_result.json",
+    "note": "Snapshot of actual GitLab CI execution; exact full output also stored as pipeline artifact"
+  },
+  "scope": "internal file consistency only; not EPM or site verification",
+  "result": {
+    "asset": {
+      "identifier": "Transformer 94022",
+      "node": "931076",
+      "circuit": "221-12",
+      "kva": 5,
+      "lat": 6.246949759,
+      "lon": -75.006208238,
+      "source": "archived EPM extract"
+    },
+    "houses": {
+      "image_ids": 35,
+      "georeferenced_lat_lon": 0,
+      "actual_transformer_allocation_verified": false
+    },
+    "lines": {
+      "lv": {
+        "points": 1103,
+        "image_polyline_pixels": 1362.6987581886979,
+        "derived_length_m": 324.45208528302334
+      },
+      "mv": {
+        "points": 325,
+        "image_polyline_pixels": 368.3208511739219,
+        "derived_length_m": 354.15466459030955
+      },
+      "lv_geometry_register_m": 328.8,
+      "mv_geometry_register_m": 354.2,
+      "lv_difference_register_vs_trace_m": 4.347914716976675
+    },
+    "groupings": {
+      "4": {
+        "candidate_transformers": 9,
+        "group_sizes": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3
+        ],
+        "house_count": 35,
+        "classification": "hypothetical proximity grouping not EPM allocation"
+      },
+      "5": {
+        "candidate_transformers": 7,
+        "group_sizes": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "house_count": 35,
+        "classification": "hypothetical proximity grouping not EPM allocation"
+      },
+      "6": {
+        "candidate_transformers": 6,
+        "group_sizes": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          5
+        ],
+        "house_count": 35,
+        "classification": "hypothetical proximity grouping not EPM allocation"
+      },
+      "7": {
+        "candidate_transformers": 5,
+        "group_sizes": [
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        "house_count": 35,
+        "classification": "hypothetical proximity grouping not EPM allocation"
+      },
+      "8": {
+        "candidate_transformers": 5,
+        "group_sizes": [
+          8,
+          8,
+          8,
+          7,
+          4
+        ],
+        "house_count": 35,
+        "classification": "hypothetical proximity grouping not EPM allocation"
+      }
+    },
+    "original_notebooks": {
+      "pypsa": {
+        "file": "Energy Community - San Rafael/SanRafael_PyPSA_Scenarios.ipynb",
+        "cells": 34,
+        "heading": "# San Rafael Energy Community, PyPSA Scenario Model v17",
+        "sha256": "74e4860a2fd6f63816f733d20629bb6633b47558e25d79a4ecb28cd0b0e429b6"
+      },
+      "pandapower": {
+        "file": "Energy Community - San Rafael/SanRafael_pandapower_Grid_Check.ipynb",
+        "cells": 37,
+        "heading": "# San Rafael LV Grid Impact Study",
+        "sha256": "0422f757ccdfb633e376474c6c66bd97d2a0b03c053809ecc8613b6cd91e66c3"
+      }
+    }
+  }
+}
