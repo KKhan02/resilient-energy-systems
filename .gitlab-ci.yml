@@ -56,3 +56,18 @@ case1_site_a_solar_screen:
       - case1/site_a_solar_ci_results/
     reports:
       junit: case1/site-a-tests.xml
+
+
+# Source-only check: recompute original digitized network lengths/group counts.
+# No pandapower simulation and no claims of existing connection verification.
+case1_original_spatial_source_audit:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - cd case1
+    - python -m unittest discover -s studies/spatial_electrical_reconciliation -p 'test_*.py' -v
+    - python studies/spatial_electrical_reconciliation/audit_sources.py --output spatial_source_audit_result.json
+  artifacts:
+    when: always
+    paths:
+      - case1/spatial_source_audit_result.json
