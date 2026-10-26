@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>San Rafael: offline community GIS</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>html,body{margin:0;background:#f6f8fa;color:#10223b;font:14px system-ui,sans-serif}
+header{padding:12px 16px;background:#102c43;color:white}h1{font-size:19px;margin:0}p{margin:5px 0}
+button{border:1px solid #a6b6c7;border-radius:5px;padding:8px 11px;cursor:pointer;background:white}
+button[aria-pressed=true]{background:#0b5b76;color:white}.bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px}
+.panel{margin:0 12px 12px;border:1px solid #c2cdd3;border-radius:8px;background:#fff;overflow:auto}
+.panel svg{display:block;width:min(100%,1250px);height:auto;margin:auto}
+mark{background:#fff4ce}footer{padding:5px 14px 18px;font-size:12px;color:#445}
+.point{cursor:pointer}.point circle{stroke:#182e40;stroke-width:1;fill:#fffdd9;fill-opacity:.9}
+.point text{fill:#182e40;font-size:13px;font-weight:700;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.point:hover circle,.point:focus circle{stroke:#f37326;stroke-width:3}
+.controlcircle{fill:none;stroke:#009bd5;stroke-width:2}
+#details{font-size:13px;color:#234;min-width:270px}
+</style></head><body>
+<header><h1>SEEDExchange · El Arenal provisional property map</h1><p>Archive photo and independent geographic estimates. No network data service or online map tiles required.</p></header>
+<div class="bar"><button type="button" id="satbtn" aria-pressed="true">Numbered satellite image</button><button type="button" id="geobtn" aria-pressed="false">Geographic estimates</button><span id="details">Select a numbered location for coordinates and status.</span></div>
+<div class="panel" id="satview"><svg viewBox="0 0 1280 812" role="img" aria-label="Original 35-point community satellite image with interactive numbered points">
+<image x="0" y="0" width="1280" height="812" href="data:image/jpeg;base64,__SATELLITE_BASE64__"/>
+<g id="satpoints"></g></svg></div>
+<div class="panel" id="geoview" hidden><svg id="geosvg" viewBox="0 0 1250 780" role="img" aria-label="Latitude longitude plot of unverified estimated property locations, not an electrical network">
+<rect x="0" y="0" width="1250" height="780" fill="#f4f8f9"/><g id="grid"></g><g id="geopoints"></g>
+<text x="630" y="26" text-anchor="middle" font-size="20">Estimated WGS84 positions, north up</text><text x="630" y="755" text-anchor="middle">Longitude (°W), increasing eastward →</text>
+</svg></div>
+<footer><p>All 35 numbered locations are mapped properties, not verified electricity meters. Their coordinates are provisional affine-image estimates with large independent control-point errors. Geographic proximity and archived clustering do not establish which EPM transformer or LV service line supplies a property.</p><p>Original image and pixel coordinates: archived SanRafael_Reproducible_Model_Package_v2. No modifications to source files. Transformer 94022, 5 kVA, remains archived evidence only. No current EPM LV geometry was available from the tested 2023 ArcGIS public service.</p></footer>
+<script>
+"use strict";
+const geo=__GEOJSON__;
+const controls=__CONTROLS__;
+const svgNS="http://www.w3.org/2000/svg";
+const el=(name,attrs)=>{const x=document.createElementNS(svgNS,name);Object.entries(attrs).forEach(([k,v])=>x.setAttribute(k,String(v)));return x};
+const satG=document.getElementById("satpoints"),geoG=document.getElementById("geopoints"),grid=document.getElementById("grid");
+const features=geo.features;
+function label(f){const p=f.properties,[lon,lat]=f.geometry.coordinates;document.getElementById("details").textContent="H"+p.house_id+" · estimated "+lat.toFixed(6)+", "+lon.toFixed(6)+" · proximity "+p.proximity_group_max8+" · electrical supply unknown";}
+function symbol(group,cx,cy,id,r=10){const g=el("g",{"class":"point",tabindex:"0",role:"button","aria-label":"Property H"+id});g.append(el("circle",{cx,cy,r}));const t=el("text",{x:cx,y:cy});t.textContent=String(id);g.append(t);const f=features.find(v=>v.properties.house_id===id);g.addEventListener("click",()=>label(f));g.addEventListener("keydown",ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();label(f)}});group.append(g)}
+const lons=features.map(f=>f.geometry.coordinates[0]),lats=features.map(f=>f.geometry.coordinates[1]);
+const lonMin=Math.min(...lons)-.0007,lonMax=Math.max(...lons)+.0007,latMin=Math.min(...lats)-.0007,latMax=Math.max(...lats)+.0007;
+const midlat=(latMin+latMax)/2,aspect=Math.cos(midlat*Math.PI/180),scale=Math.min(1040/((lonMax-lonMin)*aspect),630/(latMax-latMin));
+const X=lon=>110+(lon-lonMin)*aspect*scale,Y=lat=>710-(lat-latMin)*scale;
+for(let j=0;j<=5;j++){let lon=lonMin+(lonMax-lonMin)*j/5,lat=latMin+(latMax-latMin)*j/5;
+grid.append(el("line",{x1:X(lon),y1:52,x2:X(lon),y2:710,stroke:"#d3dee4","stroke-dasharray":"4 5"}));
+grid.append(el("line",{x1:110,y1:Y(lat),x2:1160,y2:Y(lat),stroke:"#d3dee4","stroke-dasharray":"4 5"}));
+let tx=el("text",{x:X(lon),y:729,"font-size":12,"text-anchor":"middle"});tx.textContent=lon.toFixed(4);grid.append(tx);
+let ty=el("text",{x:98,y:Y(lat),"font-size":12,"text-anchor":"end"});ty.textContent=lat.toFixed(4);grid.append(ty);}
+features.forEach(f=>{const p=f.properties,[lon,lat]=f.geometry.coordinates;symbol(satG,p.image_x,p.image_y,p.house_id);symbol(geoG,X(lon),Y(lat),p.house_id,11)});
+controls.features.forEach(f=>{const [lon,lat]=f.geometry.coordinates;geoG.prepend(el("circle",{"class":"controlcircle",cx:X(lon),cy:Y(lat),r:15}))});
+const satview=document.getElementById("satview"),geoview=document.getElementById("geoview"),satbtn=document.getElementById("satbtn"),geobtn=document.getElementById("geobtn");
+function show(which){satview.hidden=which!=="sat";geoview.hidden=which!=="geo";satbtn.setAttribute("aria-pressed",which==="sat");geobtn.setAttribute("aria-pressed",which==="geo")}
+satbtn.addEventListener("click",()=>show("sat"));geobtn.addEventListener("click",()=>show("geo"));
+show("sat");
+</script></body></html>

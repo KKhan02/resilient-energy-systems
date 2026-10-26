@@ -1,0 +1,42 @@
+{
+  "source": "https://podascens.epm.com.co/arcgis/rest/services/Disponibilidad2023/MapServer",
+  "query_date_utc": "2026-10-26",
+  "verified_by": "GitLab CI pipeline 2990746440, job 17476958299",
+  "reference_job_url": "https://gitlab.com/KKhan02/resilient-energy-systems/-/jobs/17476958299",
+  "schema_layers_verified": [
+    0,
+    3,
+    5,
+    6,
+    7
+  ],
+  "area_query": {
+    "format": "GeoJSON",
+    "result": "success responses, zero returned features",
+    "layers": {
+      "0": 0,
+      "3": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0
+    }
+  },
+  "whole_service_count_queries": {
+    "0": 25760,
+    "5": 25763
+  },
+  "transformer_code_count_queries": {
+    "92395": {
+      "0": 0,
+      "5": 0
+    },
+    "94022": {
+      "0": 0,
+      "5": 0
+    }
+  },
+  "can_build_verified_lv_network": false,
+  "archived_transformer_94022": "separate archived EPM evidence; not current-verified",
+  "transformer_92395": "location unverified",
+  "interpretation": "Service populated but did not return relevant local records; no absence or customer-territory inference."
+}

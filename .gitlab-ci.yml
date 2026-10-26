@@ -71,3 +71,30 @@ case1_original_spatial_source_audit:
     when: always
     paths:
       - case1/spatial_source_audit_result.json
+
+
+# Provisional 35-property image registration; no EPM/customer assignment assumptions.
+case1_community_georef_tests:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - cd case1/studies/community_georef
+    - python -m unittest discover -p 'test_*.py' -v
+    - python georeference.py --outdir /tmp/san_rafael_georef_rebuild
+  artifacts:
+    when: always
+    paths:
+      - case1/studies/community_georef/georeferencing_diagnostics.json
+
+# Read-only bounded public infrastructure layers. Network failures are recorded,
+# not misreported as no EPM assets. This job cannot validate LV service territories.
+case1_epm_public_gis_probe:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - cd case1/studies/community_georef
+    - python epm_fetch.py --outdir epm_probe_artifacts --timeout 9
+  artifacts:
+    when: always
+    paths:
+      - case1/studies/community_georef/epm_probe_artifacts/

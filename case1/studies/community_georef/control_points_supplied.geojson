@@ -1,0 +1,95 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.01088043441426,
+          6.248045463038177
+        ]
+      },
+      "properties": {
+        "house_id": 1,
+        "role": "fit",
+        "source": "user_supplied_2026_10_26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00788908008964,
+          6.244924355295598
+        ]
+      },
+      "properties": {
+        "house_id": 4,
+        "role": "fit",
+        "source": "user_supplied_2026_10_26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00878303534218,
+          6.244657033700395
+        ]
+      },
+      "properties": {
+        "house_id": 5,
+        "role": "fit_provisional",
+        "source": "user_supplied_2026_10_26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00971482367682,
+          6.244390318478516
+        ]
+      },
+      "properties": {
+        "house_id": 6,
+        "role": "fit",
+        "source": "user_supplied_2026_10_26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0032133949011,
+          6.242526097736332
+        ]
+      },
+      "properties": {
+        "house_id": 18,
+        "role": "fit",
+        "source": "user_supplied_2026_10_26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00416177092862,
+          6.245104639192945
+        ]
+      },
+      "properties": {
+        "house_id": 25,
+        "role": "excluded_other_nearby_building",
+        "source": "user_supplied_2026_10_26"
+      }
+    }
+  ]
+}
