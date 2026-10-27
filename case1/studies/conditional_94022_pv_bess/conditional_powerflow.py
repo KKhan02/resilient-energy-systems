@@ -78,7 +78,7 @@ def solve(points,hour,distance,siting,mode,pv_kwp=0,bess_kw=0,export="unrestrict
           max_lv_pu=round(max(vs),6),trafo_loading_pct=round(trafo,6),
           max_lv_line_loading_pct=round(vl,6),
           transformer_import_kw=round(float(n.res_trafo.p_hv_mw.iloc[0])*1000/3,6),
-          lv_losses_kw=round(sum(float(n.res_line.pl_mw.at(idx)) for idx in lines.values())*1000/3,6),
+          lv_losses_kw=round(sum(float(n.res_line.pl_mw.at[idx]) for idx in lines.values())*1000/3,6),
           screen_pass=(min(vs)>=.97 and max(vs)<=1.03 and trafo<=100 and vl<=100))
 def study():
     pts=house_points();hours=source_hours();rows=[]
