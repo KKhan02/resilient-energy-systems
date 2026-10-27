@@ -1,0 +1,40 @@
+
+<div id="referenceOverlay">
+<label><input id="reviewNew" type="checkbox" checked> Corrected house locations (user review)</label>
+<label><input id="reviewOriginal" type="checkbox"> Original image point labels</label>
+<label><input id="reviewShift" type="checkbox"> Indicate pixel-to-reviewed position shifts</label>
+<label><input id="reviewTransformer" type="checkbox" checked> Two coordinate-known EPM transformers</label>
+</div>
+<div id="groupReport" aria-label="Candidate transformer group sizes"></div>
+<script>
+(()=>{
+"use strict";
+const reviewed=__REVIEWED__;
+const known=__TRANSFORMERS__;
+const palette=__PALETTE__;
+const ns="http://www.w3.org/2000/svg",s=document.querySelector("#satview svg"),orig=document.getElementById("satpoints");
+const make=(name,attrs={},parent)=>{let node=document.createElementNS(ns,name);for(const [k,v] of Object.entries(attrs))node.setAttribute(k,String(v));if(parent)parent.append(node);return node};
+const shift=make("g",{id:"reviewShifts"},s),marked=make("g",{id:"reviewMarkers"},s),trafos=make("g",{id:"reviewTrafos"},s);
+const detail=document.getElementById("details");
+function tint(r){return r.candidates.length===0?palette.unassigned:r.candidates.length>1?palette.alternative:palette[r.candidates[0]]||palette.unassigned}
+const counts={};
+for(const r of reviewed){const tag=r.candidates.length===0?"Unassigned":r.candidates.length>1?"Alternatives":r.candidates[0];(counts[tag]??=[]).push(r.id);
+ const [px,py]=r.orig,{x,y}=r.pixel;
+ if(Math.hypot(px-x,py-y)>8)make("path",{class:"oldToNew",d:"M"+px+","+py+" L"+x+","+y},shift);
+ let g=make("g",{class:"newHouse",tabindex:"0",role:"button",style:"--category-color:"+tint(r),"aria-label":"Reviewed H"+r.id},marked);
+ make("circle",{cx:x,cy:y,r:10},g);let t=make("text",{x,y:y+.3},g);t.textContent=String(r.id);
+ const pick=()=>{detail.textContent="H"+String(r.id).padStart(2,"0")+" · "+r.p[1].toFixed(7)+", "+r.p[0].toFixed(7)+" · candidate "+(r.candidates.join(" OR ")||"unknown")+" · "+r.status+" (not utility-certified)";};
+ g.addEventListener("click",pick);g.addEventListener("keydown",ev=>{if(ev.key==="Enter"){pick()}});
+}
+for(const t of known){let g=make("g",{class:"evidenceTransformer"},trafos);make("rect",{x:t.x-6,y:t.y-6,width:12,height:12,rx:2},g);let label=make("text",{x:t.x+10,y:t.y-10},g);label.textContent=t.name;let title=make("title",{},g);title.textContent=t.name+" · "+t.capacity+" · located by georeferencing the original hackathon image, not field surveyed";}
+const order=["931076","923494","823002","900607","923848","241054","Alternatives","Unassigned"];
+const report=document.getElementById("groupReport");
+for(const k of order){const ids=counts[k]||[];if(!ids.length)continue;let div=document.createElement("div");div.className="entry";div.style.setProperty("--category-color",palette[k]||palette.alternative);let h=document.createElement("b");h.textContent=k+" · "+ids.length+" mapped sites";let p=document.createElement("p");p.textContent=ids.map(v=>"H"+String(v).padStart(2,"0")).join(", ");div.append(h,p);report.append(div)}
+const link=(id,cb)=>{let q=document.getElementById(id);q.addEventListener("change",()=>cb(q.checked));cb(q.checked)};
+link("reviewNew",v=>marked.style.display=v?"":"none");
+link("reviewOriginal",v=>orig.style.display=v?"":"none");
+link("reviewShift",v=>shift.style.display=v?"":"none");
+link("reviewTransformer",v=>trafos.style.display=v?"":"none");
+document.getElementById("referenceOverlay").addEventListener("change",()=>{});
+})();
+</script>
