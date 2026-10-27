@@ -126,3 +126,21 @@ case1_saved_v5_constraint_gate:
     when: always
     paths:
       - case1/studies/reference_v5_baseline/audit_summary.json
+
+
+# New pandapower AC sensitivity, conditional on 94022 candidate service territory.
+case1_conditional_94022_pv_bess:
+  stage: test
+  image: python:3.11-slim
+  variables:
+    NUMBA_CACHE_DIR: "/tmp/numba_cache"
+  before_script:
+    - python -m pip install -r case1/legacy/independent_case1_original/requirements.txt
+  script:
+    - cd case1/studies/conditional_94022_pv_bess
+    - python -m unittest test_conditional_powerflow.py -v
+    - python conditional_powerflow.py --outdir outputs
+  artifacts:
+    when: always
+    paths:
+      - case1/studies/conditional_94022_pv_bess/outputs/
