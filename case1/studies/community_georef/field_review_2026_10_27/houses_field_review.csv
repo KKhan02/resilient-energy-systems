@@ -1,0 +1,36 @@
+house_id,latitude,longitude,position_source,prior_estimated_latitude,prior_estimated_longitude,distance_from_prior_m,candidate_epm_nodes,assignment_confidence,assignment_source,proximity_group_max8,review_note
+H01,6.24804546,-75.01088043,prior_user_control,6.24808649,-75.01092262,6.5,,unassigned,user_map_interpretation_only,T04,
+H02,6.246173400381,-75.008867333599,new_user_map_point_2026_10_27,6.24622187,-75.00855147,35.4,,unassigned,user_map_interpretation_only,T04,Earlier possible 931076 or northern 25kVA; user did not select one here
+H03,6.245735736555,-75.008929643061,new_user_map_point_2026_10_27,6.24569388,-75.00869009,26.9,931076,probable,user_map_interpretation_only,T04,"Same as original study transformer, per field interpretation"
+H04,6.24492436,-75.00788908,prior_user_control,6.24477267,-75.00766851,29.6,823002,probable,user_map_interpretation_only,T02,
+H05,6.24465703,-75.00878304,prior_user_control_tentative,6.24466717,-75.00892506,15.8,823002,probable,user_map_interpretation_only,T02,Geographic landmark previously tentative
+H06,6.24439032,-75.00971482,prior_user_control,6.24443637,-75.00969052,5.8,931076,probable,user_map_interpretation_only,T02,"Same transformer as H03, per user"
+H07,6.242856437002,-75.009141986911,new_user_map_point_2026_10_27,6.24290951,-75.00939981,29.1,823002,probable,user_map_interpretation_only,T02,
+H08,6.238544617605,-75.009655882121,new_user_map_point_2026_10_27,6.23968854,-75.00973209,126.8,241054,possible,user_map_interpretation_only,T02,
+H09,6.236739165648,-75.004828762118,new_user_map_point_2026_10_27,6.23748091,-75.00545609,107.5,900607,possible,user_map_interpretation_only,T02,
+H10,6.24169997,-75.0071865,retained_prior_estimate,6.24169997,-75.0071865,0,923494|823002,alternative,user_map_interpretation_only,T02,
+H11,6.24052442,-75.00403598,retained_prior_estimate,6.24052442,-75.00403598,0,923494,possible,user_map_interpretation_only,T01,
+H12,6.23828888,-75.00236866,retained_prior_estimate,6.23828888,-75.00236866,0,900607,user_definite,user_map_interpretation_only,T01,User reports definitely supplied; EPM customer connection not independently verified
+H13,6.24041525,-75.0022014,retained_prior_estimate,6.24041525,-75.0022014,0,923494,possible,user_map_interpretation_only,T01,
+H14,6.240455067323,-74.998742892459,new_user_map_point_2026_10_27,6.24019671,-74.9989406,36,900607,unverifiable,user_map_interpretation_only,T01,User explicitly says cannot verify
+H15,6.24101857,-75.00094582,retained_prior_estimate,6.24101857,-75.00094582,0,900607,unverifiable,user_map_interpretation_only,T01,User explicitly says cannot verify
+H16,6.241922531926,-75.002348108136,new_user_map_point_2026_10_27,6.24173339,-75.00204951,39.1,923494,possible,user_map_interpretation_only,T01,
+H17,6.242581054624,-75.004740611835,new_user_map_point_2026_10_27,6.24245177,-75.00470829,14.7,923494,user_definite,user_map_interpretation_only,T01,User reports definitely supplied; EPM customer connection not independently verified
+H18,6.2425261,-75.00321339,prior_user_control,6.24258057,-75.00327406,9,923494,possible,user_map_interpretation_only,T01,Non-residential facility candidate
+H19,6.24332425,-75.00515218,retained_prior_estimate,6.24332425,-75.00515218,0,923494,possible,user_map_interpretation_only,T03,
+H20,6.24325928,-75.00438192,retained_prior_estimate,6.24325928,-75.00438192,0,923494,possible,user_map_interpretation_only,T03,
+H21,6.243647471521,-75.003318716614,new_user_map_point_2026_10_27,6.24350994,-75.00341974,18.9,923494,possible,user_map_interpretation_only,T03,
+H22,6.244478426223,-75.004079151297,new_user_map_point_2026_10_27,6.2442757,-75.0040898,22.4,923494,possible,user_map_interpretation_only,T03,
+H23,6.243846203288,-75.004723642594,new_user_map_point_2026_10_27,6.24393657,-75.00486774,18.8,923494,possible,user_map_interpretation_only,T03,
+H24,6.24401183,-75.00569515,retained_prior_estimate,6.24401183,-75.00569515,0,923494,possible,user_map_interpretation_only,T03,
+H25,6.24462939,-75.00523511,retained_prior_estimate,6.24462939,-75.00523511,0,923494,possible,user_map_interpretation_only,T03,Image-estimated H25 approved; non-residential facility candidate
+H26,6.246362494594,-75.007592448472,new_user_map_point_2026_10_27,6.24627733,-75.00763123,10.3,931076,possible,user_map_interpretation_only,T04,
+H27,6.24766959349,-75.008160816772,new_user_map_point_2026_10_27,6.24738456,-75.00804806,33.9,931076,probable,user_map_interpretation_only,T04,User believes original project location/transformer; location differs from study reference
+H28,6.247490631568,-75.007544224612,new_user_map_point_2026_10_27,6.24719571,-75.00740874,35.9,931076,possible,user_map_interpretation_only,T04,
+H29,6.247587268263,-75.004239123928,new_user_map_point_2026_10_27,6.24687892,-75.0046259,89.3,931076|923848,alternative,user_map_interpretation_only,T03,"Midway, actual circuit connection unknown"
+H30,6.246940516261,-75.001083793867,new_user_map_point_2026_10_27,6.24641283,-75.00121863,60.2,923848,user_definite,user_map_interpretation_only,T05,User reports definitely supplied; EPM customer connection not independently verified
+H31,6.246872630058,-74.998470712963,new_user_map_point_2026_10_27,6.24618269,-74.99881469,85.3,923848,possible,user_map_interpretation_only,T05,
+H32,6.246946197186,-74.998008326345,new_user_map_point_2026_10_27,6.24612186,-74.99837449,99.8,923848,possible,user_map_interpretation_only,T05,
+H33,6.246301879262,-74.996313925393,new_user_map_point_2026_10_27,6.24555531,-74.99645652,84,923848,possible,user_map_interpretation_only,T05,
+H34,6.24862349,-75.00633035,retained_prior_estimate,6.24862349,-75.00633035,0,931076,possible,user_map_interpretation_only,T04,
+H35,6.2485127,-75.00428209,retained_prior_estimate,6.2485127,-75.00428209,0,931076,possible,user_map_interpretation_only,T04,

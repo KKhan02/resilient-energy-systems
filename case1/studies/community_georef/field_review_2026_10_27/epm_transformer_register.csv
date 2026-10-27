@@ -1,0 +1,8 @@
+epm_node,trafo_number,portal_nominal_kw,separate_archived_kva,mv_circuit_or_portal_label,latitude,longitude,record_source,portal_municipio,status
+823002,113699,3,,221-12,,,EPM portal user-provided 2026-10-27,SAN CARLOS,operating_reported_or_archived_not_field_checked
+900607,85398,5,,221-12,,,EPM portal user-provided 2026-10-27,SAN CARLOS,operating_reported_or_archived_not_field_checked
+241054,98380,3,,221-13,,,EPM portal user-provided 2026-10-27,SAN CARLOS,operating_reported_or_archived_not_field_checked
+923494,106039,5,,221-12,,,EPM portal user-provided 2026-10-27,SAN CARLOS,operating_reported_or_archived_not_field_checked
+923848,92395,5,5,221-12,,,EPM portal current user table; archived 5kVA transformer table,SAN CARLOS,operating_reported_or_archived_not_field_checked
+931076,94022,,5,221-12,6.246949759,-75.006208238,Archived EPM transformer 94022 asset record,unverified,operating_reported_or_archived_not_field_checked
+NOT_CONFIRMED,NORTH_25KVA,,25,R50-02_label_not_equated_to_221-xx,6.249940251,-75.011914005,EPM northern transformer user-provided 2026-10-26; candidate codes 010729/010729c/224804,SAN RAFAEL,operating_reported_or_archived_not_field_checked

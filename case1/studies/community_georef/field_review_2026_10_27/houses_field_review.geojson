@@ -1,0 +1,809 @@
+{
+  "type": "FeatureCollection",
+  "name": "Field-review overlay on archived 35 point ids, no verified EPM service connections",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.01088043,
+          6.24804546
+        ]
+      },
+      "properties": {
+        "house_id": 1,
+        "image_x": 1024,
+        "image_y": 557,
+        "proximity_group_max8": "T04",
+        "position_source": "prior_user_control",
+        "position_shift_m": 6.5,
+        "candidate_epm_nodes": [],
+        "assignment_confidence": "unassigned",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.008867333599,
+          6.246173400381
+        ]
+      },
+      "properties": {
+        "house_id": 2,
+        "image_x": 891,
+        "image_y": 479,
+        "proximity_group_max8": "T04",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 35.4,
+        "candidate_epm_nodes": [],
+        "assignment_confidence": "unassigned",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.008929643061,
+          6.245735736555
+        ]
+      },
+      "properties": {
+        "house_id": 3,
+        "image_x": 895,
+        "image_y": 449,
+        "proximity_group_max8": "T04",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 26.9,
+        "candidate_epm_nodes": [
+          "931076"
+        ],
+        "assignment_confidence": "probable",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00788908,
+          6.24492436
+        ]
+      },
+      "properties": {
+        "house_id": 4,
+        "image_x": 837,
+        "image_y": 409,
+        "proximity_group_max8": "T02",
+        "position_source": "prior_user_control",
+        "position_shift_m": 29.6,
+        "candidate_epm_nodes": [
+          "823002"
+        ],
+        "assignment_confidence": "probable",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00878304,
+          6.24465703
+        ]
+      },
+      "properties": {
+        "house_id": 5,
+        "image_x": 901,
+        "image_y": 391,
+        "proximity_group_max8": "T02",
+        "position_source": "prior_user_control_tentative",
+        "position_shift_m": 15.8,
+        "candidate_epm_nodes": [
+          "823002"
+        ],
+        "assignment_confidence": "probable",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00971482,
+          6.24439032
+        ]
+      },
+      "properties": {
+        "house_id": 6,
+        "image_x": 939,
+        "image_y": 371,
+        "proximity_group_max8": "T02",
+        "position_source": "prior_user_control",
+        "position_shift_m": 5.8,
+        "candidate_epm_nodes": [
+          "931076"
+        ],
+        "assignment_confidence": "probable",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.009141986911,
+          6.242856437002
+        ]
+      },
+      "properties": {
+        "house_id": 7,
+        "image_x": 915,
+        "image_y": 291,
+        "proximity_group_max8": "T02",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 29.1,
+        "candidate_epm_nodes": [
+          "823002"
+        ],
+        "assignment_confidence": "probable",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.009655882121,
+          6.238544617605
+        ]
+      },
+      "properties": {
+        "house_id": 8,
+        "image_x": 913,
+        "image_y": 113,
+        "proximity_group_max8": "T02",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 126.8,
+        "candidate_epm_nodes": [
+          "241054"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004828762118,
+          6.236739165648
+        ]
+      },
+      "properties": {
+        "house_id": 9,
+        "image_x": 680,
+        "image_y": 35,
+        "proximity_group_max8": "T02",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 107.5,
+        "candidate_epm_nodes": [
+          "900607"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0071865,
+          6.24169997
+        ]
+      },
+      "properties": {
+        "house_id": 10,
+        "image_x": 794,
+        "image_y": 247,
+        "proximity_group_max8": "T02",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "923494",
+          "823002"
+        ],
+        "assignment_confidence": "alternative",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00403598,
+          6.24052442
+        ]
+      },
+      "properties": {
+        "house_id": 11,
+        "image_x": 625,
+        "image_y": 214,
+        "proximity_group_max8": "T01",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00236866,
+          6.23828888
+        ]
+      },
+      "properties": {
+        "house_id": 12,
+        "image_x": 526,
+        "image_y": 109,
+        "proximity_group_max8": "T01",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "900607"
+        ],
+        "assignment_confidence": "user_definite",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0022014,
+          6.24041525
+        ]
+      },
+      "properties": {
+        "house_id": 13,
+        "image_x": 530,
+        "image_y": 226,
+        "proximity_group_max8": "T01",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.998742892459,
+          6.240455067323
+        ]
+      },
+      "properties": {
+        "house_id": 14,
+        "image_x": 361,
+        "image_y": 246,
+        "proximity_group_max8": "T01",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 36,
+        "candidate_epm_nodes": [
+          "900607"
+        ],
+        "assignment_confidence": "unverifiable",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00094582,
+          6.24101857
+        ]
+      },
+      "properties": {
+        "house_id": 15,
+        "image_x": 469,
+        "image_y": 271,
+        "proximity_group_max8": "T01",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "900607"
+        ],
+        "assignment_confidence": "unverifiable",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.002348108136,
+          6.241922531926
+        ]
+      },
+      "properties": {
+        "house_id": 16,
+        "image_x": 530,
+        "image_y": 299,
+        "proximity_group_max8": "T01",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 39.1,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004740611835,
+          6.242581054624
+        ]
+      },
+      "properties": {
+        "house_id": 17,
+        "image_x": 671,
+        "image_y": 312,
+        "proximity_group_max8": "T01",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 14.7,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "user_definite",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00321339,
+          6.2425261
+        ]
+      },
+      "properties": {
+        "house_id": 18,
+        "image_x": 598,
+        "image_y": 333,
+        "proximity_group_max8": "T01",
+        "position_source": "prior_user_control",
+        "position_shift_m": 9,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00515218,
+          6.24332425
+        ]
+      },
+      "properties": {
+        "house_id": 19,
+        "image_x": 699,
+        "image_y": 355,
+        "proximity_group_max8": "T03",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00438192,
+          6.24325928
+        ]
+      },
+      "properties": {
+        "house_id": 20,
+        "image_x": 659,
+        "image_y": 359,
+        "proximity_group_max8": "T03",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.003318716614,
+          6.243647471521
+        ]
+      },
+      "properties": {
+        "house_id": 21,
+        "image_x": 611,
+        "image_y": 382,
+        "proximity_group_max8": "T03",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 18.9,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004079151297,
+          6.244478426223
+        ]
+      },
+      "properties": {
+        "house_id": 22,
+        "image_x": 650,
+        "image_y": 417,
+        "proximity_group_max8": "T03",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 22.4,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004723642594,
+          6.243846203288
+        ]
+      },
+      "properties": {
+        "house_id": 23,
+        "image_x": 688,
+        "image_y": 391,
+        "proximity_group_max8": "T03",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 18.8,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00569515,
+          6.24401183
+        ]
+      },
+      "properties": {
+        "house_id": 24,
+        "image_x": 731,
+        "image_y": 387,
+        "proximity_group_max8": "T03",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00523511,
+          6.24462939
+        ]
+      },
+      "properties": {
+        "house_id": 25,
+        "image_x": 711,
+        "image_y": 425,
+        "proximity_group_max8": "T03",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "923494"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.007592448472,
+          6.246362494594
+        ]
+      },
+      "properties": {
+        "house_id": 26,
+        "image_x": 844,
+        "image_y": 491,
+        "proximity_group_max8": "T04",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 10.3,
+        "candidate_epm_nodes": [
+          "931076"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.008160816772,
+          6.24766959349
+        ]
+      },
+      "properties": {
+        "house_id": 27,
+        "image_x": 872,
+        "image_y": 547,
+        "proximity_group_max8": "T04",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 33.9,
+        "candidate_epm_nodes": [
+          "931076"
+        ],
+        "assignment_confidence": "probable",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.007544224612,
+          6.247490631568
+        ]
+      },
+      "properties": {
+        "house_id": 28,
+        "image_x": 838,
+        "image_y": 543,
+        "proximity_group_max8": "T04",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 35.9,
+        "candidate_epm_nodes": [
+          "931076"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004239123928,
+          6.247587268263
+        ]
+      },
+      "properties": {
+        "house_id": 29,
+        "image_x": 693,
+        "image_y": 553,
+        "proximity_group_max8": "T03",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 89.3,
+        "candidate_epm_nodes": [
+          "931076",
+          "923848"
+        ],
+        "assignment_confidence": "alternative",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.001083793867,
+          6.246940516261
+        ]
+      },
+      "properties": {
+        "house_id": 30,
+        "image_x": 515,
+        "image_y": 561,
+        "proximity_group_max8": "T05",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 60.2,
+        "candidate_epm_nodes": [
+          "923848"
+        ],
+        "assignment_confidence": "user_definite",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.998470712963,
+          6.246872630058
+        ]
+      },
+      "properties": {
+        "house_id": 31,
+        "image_x": 390,
+        "image_y": 572,
+        "proximity_group_max8": "T05",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 85.3,
+        "candidate_epm_nodes": [
+          "923848"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.998008326345,
+          6.246946197186
+        ]
+      },
+      "properties": {
+        "house_id": 32,
+        "image_x": 367,
+        "image_y": 573,
+        "proximity_group_max8": "T05",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 99.8,
+        "candidate_epm_nodes": [
+          "923848"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.996313925393,
+          6.246301879262
+        ]
+      },
+      "properties": {
+        "house_id": 33,
+        "image_x": 265,
+        "image_y": 561,
+        "proximity_group_max8": "T05",
+        "position_source": "new_user_map_point_2026_10_27",
+        "position_shift_m": 84,
+        "candidate_epm_nodes": [
+          "923848"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00633035,
+          6.24862349
+        ]
+      },
+      "properties": {
+        "house_id": 34,
+        "image_x": 791,
+        "image_y": 631,
+        "proximity_group_max8": "T04",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "931076"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00428209,
+          6.2485127
+        ]
+      },
+      "properties": {
+        "house_id": 35,
+        "image_x": 685,
+        "image_y": 645,
+        "proximity_group_max8": "T04",
+        "position_source": "retained_prior_estimate",
+        "position_shift_m": 0,
+        "candidate_epm_nodes": [
+          "931076"
+        ],
+        "assignment_confidence": "possible",
+        "service_territory_verified": false
+      }
+    }
+  ]
+}

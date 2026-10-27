@@ -98,3 +98,17 @@ case1_epm_public_gis_probe:
     when: always
     paths:
       - case1/studies/community_georef/epm_probe_artifacts/
+
+
+# Review of user-supplied EPM screenshots and 35 mapped locations.
+# Data-only electrical evidence gate: no nodal pandapower run or transformer inventing.
+case1_20261027_field_review:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - cd case1/studies/community_georef/field_review_2026_10_27
+    - python -m unittest discover -p 'test_*.py' -v
+  artifacts:
+    when: always
+    paths:
+      - case1/studies/community_georef/field_review_2026_10_27/review_findings.json
