@@ -126,3 +126,16 @@ case1_saved_v5_constraint_gate:
     when: always
     paths:
       - case1/studies/reference_v5_baseline/audit_summary.json
+
+
+# Static offline overlay build/test on preserved source imagery, no LV topology assumptions.
+case1_satellite_review_overlay:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - cd case1/studies/community_georef/field_review_2026_10_27
+    - python -m unittest test_evidence_overlay.py -v
+  artifacts:
+    when: always
+    paths:
+      - case1/studies/community_georef/field_review_2026_10_27/satellite_epm_review_overlay.html
