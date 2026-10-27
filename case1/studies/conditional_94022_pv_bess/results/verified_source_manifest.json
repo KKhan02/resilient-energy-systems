@@ -1,0 +1,31 @@
+{
+  "source_job_url": "https://gitlab.com/KKhan02/resilient-energy-systems/-/jobs/17513000800",
+  "created_from_gitlab_ci": "2026-10-27",
+  "artifact_type": "actual pandapower 3.5.6 AC solved snapshots",
+  "rows": 36,
+  "houses": [
+    "H03",
+    "H06",
+    "H26",
+    "H27",
+    "H28",
+    "H34",
+    "H35"
+  ],
+  "data_sources": {
+    "case1/studies/community_georef/field_review_2026_10_27/houses_field_review.csv": "157f2ac460d5cf2e3ef4f162f1d03f91437f85f13157d0f4c711d559b85f60fe",
+    "Energy Community - San Rafael/pandapower_results_nasa/nasa_hourly_pv_and_load_inputs.csv": "276d3d782e3610196463704899c1026abc568a35cdbc32117a34367cd0c4b265"
+  },
+  "scope": "Existing transformer 94022 (5 kVA). Hypothetical seven independent service links, not installed EPM feeder. Archived synthetic profiles H1-H7 mapped to candidate property IDs by order.",
+  "geometry": "Euclidean and rectilinear distance bounds",
+  "electrical": "Original pandapower v5 conductor and threefold balanced-equivalent parameters",
+  "scenario": "Matched central vs two shared injections at H06 and H35. PV 2.61/5.22/10.44 kWp with aggregate 5kW AC limit; export gross-load cap sensitivity; battery discharge 0/2/4 kW at evening peak conditional on SOC.",
+  "exclusions": [
+    "SOC and 8760hour energy adequacy",
+    "PV/BESS lifecycle costs",
+    "verified feeder assignments",
+    "neutral and split-phase"
+  ],
+  "passing_screens": 31,
+  "failed_screens": 5
+}

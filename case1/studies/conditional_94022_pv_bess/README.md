@@ -1,0 +1,11 @@
+# Conditional 94022 PV+BESS nodal AC power-flow study
+
+Actual pandapower AC load-flow **snapshots**. Seven H03/H06/H26/H27/H28/H34/H35 sites are plausible, unverified customers of existing 94022 (node 931076, 5 kVA). Not an as-built EPM feeder.
+
+The user-approved route sensitivity uses Euclidean root-sum-square and rectilinear distances between the asset and corrected house positions. Each is represented as a separate hypothetical radial link from the LV transformer bus. No shared existing trunk is inferred. Conductor electrical properties match original v5 exactly: 1/0 AAC loop R=1.312 ohm/km, X=0.160 ohm/km, 150A proxy, MV #2 ACSR R=0.832, X=0.4 ohm/km, 354.2m; balanced 3x single-phase equivalent, physical transformer 5 kVA, 240/120 V.
+
+Matched equipment placement comparison: central PV+BESS at LV transformer bus, versus two shared multi-home cluster inverters located at candidate H06 and H35. Total AC injection is always equal between alternatives. PV sweep: 2.61, 5.22 and 10.44 kWp DC, with reference NASA AC at noon scaled from v5 5.22 kWp PV and clipped to 5 kW inverter power. PV export case unrestricted versus gross-demand cap as a no-export control proxy. Evening storage dispatch snapshot at 0/2/4 kW conditional on available SOC and inverter capability. Results include individual household minimum/maximum LV bus voltages, transformer loading, feeder loading, losses and transformer import. v5 voltage screen 0.97-1.03 pu and nominal equipment 100% are engineering screens only.
+
+Historical stochastic source house_1..house_7 load curves are associated with candidate locations **by order**, not as real metered profiles. These two snapshots cannot establish energy self-sufficiency, battery kWh adequacy, battery SOC or annual/lifecycle costs. A full 8760-hour PyPSA and battery energy model remains the next substantial step. No new transformers, actual wiring, neutral imbalance, critical/deferrable load splits or 35-house load-flow claims are made.
+
+Run: python case1/studies/conditional_94022_pv_bess/conditional_powerflow.py --outdir <output_directory>. Requires the project's pinned legacy pandapower environment. Output CSV and provenance JSON are committed after the CI model run, not fabricated.
