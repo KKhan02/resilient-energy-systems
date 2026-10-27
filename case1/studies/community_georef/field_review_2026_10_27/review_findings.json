@@ -1,0 +1,77 @@
+{
+  "source": "User-supplied updated house table and EPM transformer screen records on 2026-10-27; comparison baseline case1/studies/community_georef/house_points_provisional.csv",
+  "stats": {
+    "total": 35,
+    "position_new": 19,
+    "prior_user_controls": 5,
+    "retained_old": 11,
+    "definite": [
+      "H12",
+      "H17",
+      "H30"
+    ],
+    "ambiguous": [
+      "H10",
+      "H29"
+    ],
+    "unassigned": [
+      "H01",
+      "H02"
+    ],
+    "large_shifts": [
+      {
+        "id": "H08",
+        "m": 126.8
+      },
+      {
+        "id": "H09",
+        "m": 107.5
+      },
+      {
+        "id": "H29",
+        "m": 89.3
+      },
+      {
+        "id": "H30",
+        "m": 60.2
+      },
+      {
+        "id": "H31",
+        "m": 85.3
+      },
+      {
+        "id": "H32",
+        "m": 99.8
+      },
+      {
+        "id": "H33",
+        "m": 84
+      }
+    ]
+  },
+  "candidate_node_unique": [
+    "823002",
+    "900607",
+    "241054",
+    "923494",
+    "923848",
+    "931076"
+  ],
+  "north25kva_separate": true,
+  "duplicates_removed": [
+    "823002",
+    "900607",
+    "923848"
+  ],
+  "v5_observation": "5kVA reference model is only historical; no 35-property voltage calculation has been run",
+  "issues": [
+    "Capacidad Nominal [kW] is not kVA, and must not be converted without utility nameplate/power factor data",
+    "Five portal nodes list municipio SAN CARLOS; coordinates truncated to two decimals, do not infer exact locations from those values",
+    "Portal nodes and trafo numbers are different identifiers, notably 923848->92395 and 931076->94022",
+    "Shared MV 221-12 does not imply connected LV secondaries",
+    "H12,H17,H30 report definite supply based on user review, not independently verified customer meter links",
+    "H01 H02 supply unassigned, H10 and H29 alternatives",
+    "EPM line legend visually ambiguates design subterraneo and design facade-aereo: neither proves an energized route",
+    "No new transformers, no individual household system assumptions, no blocked critical/deferrable loads"
+  ]
+}
