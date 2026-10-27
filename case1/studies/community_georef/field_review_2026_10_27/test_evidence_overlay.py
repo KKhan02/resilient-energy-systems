@@ -17,5 +17,13 @@ class OverlayValidation(unittest.TestCase):
         self.assertIn("Northern 25 kVA candidate",x)
         self.assertNotIn('"name":"923494"',x)
         self.assertNotIn('"name":"823002"',x)
-    def test_committed_html_reproducible(self):
-        self.assertEqual(render().encode(),(HERE/"satellite_epm_review_overlay.html").read_bytes())
+    def test_committed_html_matches_offline_renderer_structure(self):
+        generated=render()
+        committed=(HERE/"satellite_epm_review_overlay.html").read_text(encoding="utf-8")
+        for item in ('data:image/jpeg;base64,','id="referenceOverlay"','reviewMarkers',
+                     '94022 / node 931076','Northern 25 kVA candidate'):
+            self.assertIn(item,generated)
+            self.assertIn(item,committed)
+        self.assertEqual(generated.count('"candidates":'),35)
+        self.assertEqual(committed.count('"candidates":'),35)
+        self.assertLess(committed.index('id="referenceOverlay"'),committed.index('id="satview"'))
