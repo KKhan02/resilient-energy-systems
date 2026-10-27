@@ -14,6 +14,11 @@ class AnnualSharedPVTests(unittest.TestCase):
         for k in ("pv","mods","power","ic"):
             self.assertEqual(sum(x[k] for x in a),sum(x[k] for x in b))
         self.assertTrue(all(len(x["ids"])>=2 for x in b))
+    def test_no_der_has_no_pv_bess_bos(self):
+        a=simulate(self.data,7,0,0,0,"C",0)
+        self.assertEqual(a["cost_annual_usd_mid_BOS"],a["cost_annual_usd_low_BOS"])
+        self.assertEqual(a["cost_annual_usd_mid_BOS"],a["cost_annual_usd_high_BOS"])
+        self.assertAlmostEqual(a["cost_annual_usd_mid_BOS"],a["grid_import_kwh"]*.29,places=1)
     def test_storage_balance_and_export_cap(self):
         a=simulate(self.data,7,24,4,5,"C",0)
         self.assertEqual(a["grid_export_kwh"],0)

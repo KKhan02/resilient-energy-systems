@@ -90,10 +90,11 @@ def simulate(data,n,pv,mods,power,layout,export_cap):
             replacements+=g["mods"]*BAT_USD/(1+DISCOUNT)**year
             year+=life
     inv=sum(g["ic"] for g in groups)*INV_USD
+    active_sites=len(groups) if component>0 else 0
     replacements+=inv/(1+DISCOUNT)**15
     # BOS scenarios explicitly UNSOURCED (0-30% + 0-1500 USD per site).
     def annual_cost(rate,site_fee):
-        capex=component*(1+rate)+site_fee*len(groups)
+        capex=component*(1+rate)+site_fee*active_sites
         return (capex+replacements)*CRF+.02*capex+.29*import_kwh
     return dict(homes=n,architecture=layout,shared_sites=len(groups),pv_panels=pv,
         pv_kwp=round(pv*PANEL_KW,5),battery_modules=mods,
