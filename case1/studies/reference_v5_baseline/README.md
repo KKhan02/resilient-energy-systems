@@ -1,0 +1,9 @@
+# El Arenal Case 1: saved pandapower v5 baseline power-flow constraint audit
+
+This is actual numerical evidence from the saved historical v5 pandapower results. It is NOT a new load flow, nor a verified network of the 35 georeferenced mapped properties. The existing reference topology is a 5 kVA 94022 equivalent single-phase transformer, approximately 324.5 m representative radial LV cable, with two households per assumed tap.
+
+Using original v5 stress conditions at each household count's own maximum-load hour, without PV or BESS injection, the first 0.97 pu LV voltage screening failure occurs at N=6. The first 100% nominal transformer overloading occurs at N=9. At N=8, the previously reported voltage is 0.951985 pu and loading is 98.682%. These thresholds are specific to the fixed image-derived model and the original simulated stochastic demand, NOT an approved number of EPM service customers or a measured voltage. The 0.97 to 1.03 pu screen is the v5 engineering screening band, not necessarily the statutory limit.
+
+The script audit_reference.py reads the original archived 1-20 household results without changing the original data, validates recorded screening flags, fingerprints the input by SHA256, and emits a 20-row source-linked table plus JSON findings. Tests rebuild committed outputs byte-for-byte in GitLab CI.
+
+This is a pre-expansion engineering gate: high calculated energy self-sufficiency on the older Case 1 cost/dispatch study does NOT prove physical voltage compliance. Next compare actual pandapower-controlled central vs multiple SHARED multi-home PV+BESS injections at identical aggregate equipment totals, based on the existing LV route, and retain uncertainty in actual household electrical connections. Equipment choices, dispatch, tariff and multi-site assumptions require their separate agreed design gate. No new transformer, individual household battery baseline, critical/deferrable split or islanding claim is introduced here.

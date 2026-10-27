@@ -112,3 +112,17 @@ case1_20261027_field_review:
     when: always
     paths:
       - case1/studies/community_georef/field_review_2026_10_27/review_findings.json
+
+
+# Archive-only saved pandapower v5 evidence; no new power-flow simulation.
+case1_saved_v5_constraint_gate:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - cd case1/studies/reference_v5_baseline
+    - python -m unittest discover -p 'test_*.py' -v
+    - python audit_reference.py --outdir /tmp/reference_v5_rebuilt
+  artifacts:
+    when: always
+    paths:
+      - case1/studies/reference_v5_baseline/audit_summary.json
