@@ -1,0 +1,14 @@
+{
+  "source": "Energy Community - San Rafael/pandapower_results_nasa/transformer_headroom_house_sweep.csv",
+  "input_sha256": "a2030df5f38dfc53067a822211e6091f3f3d7ee643c257a3ae56e5132154dca9",
+  "first_voltage_screen_failure_homes": 6,
+  "first_nominal_transformer_overload_homes": 9,
+  "screen_voltages_pu": [
+    0.97,
+    1.03
+  ],
+  "screen_transformer_loading_pct": 100,
+  "rows": 20,
+  "status": "PREVIOUSLY SAVED pandapower v5 results. No new power flow or utility topology validation.",
+  "assumptions": "Existing v5 5kVA, 324.5m representative fixed LV radial, two households per tap, balanced equivalent, max-load no-DER time for each N; 35 actual service connections unknown."
+}
