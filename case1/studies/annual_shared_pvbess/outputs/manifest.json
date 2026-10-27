@@ -1,0 +1,26 @@
+{
+  "description": "2025 annual energy/SOC/25y cost *conditional* screen, NOT PyPSA v18 optimization or pandapower validation",
+  "profiles": "Archived 8760h v5 NASA-based AC-unclipped PV profile and 20 synthetic household demands; ordinally reused by group, not meter data",
+  "input_sha256": {
+    "case1/studies/community_georef/field_review_2026_10_27/houses_field_review.csv": "157f2ac460d5cf2e3ef4f162f1d03f91437f85f13157d0f4c711d559b85f60fe",
+    "Energy Community - San Rafael/pandapower_results_nasa/nasa_hourly_pv_and_load_inputs.csv": "276d3d782e3610196463704899c1026abc568a35cdbc32117a34367cd0c4b265",
+    "case1/wp1_v3/model.py": "c978f01b6844818aedd652021a3392ba351035a6d5188638f716dd74d1ca85ea"
+  },
+  "candidate_territory_sizes": {
+    "931076": 7,
+    "923848": 4,
+    "923494": 12,
+    "900607": 4,
+    "823002": 3,
+    "241054": 1
+  },
+  "total_unique_candidates": 31,
+  "excluded_H01_H02_H10_H29": "unknown or multiple transformer candidates",
+  "architecture": "C one 10kW inverter vs K two separate 5kW shared systems for >=4 houses; matched aggregate panels, modules and battery power; pooled PCC balancing assumed",
+  "hardware": "435Wp PV, 5.12 kWh nominal / 4.325 kWh usable module; sqrt(0.95) battery one-way efficiency; inverter DC PV input <= 1.5 x AC screen",
+  "dispatch": "hourly myopic local self-consumption; zero battery lookahead, start 50% SOC; not optimized; source AC-unclipped PV scaled from 5.22kWp reference",
+  "cost": "HOMER historical component split in case1/wp1_v3/model.py, 25yr, 6% discount, inverter replaced year15, battery throughput or float20yr replacements; assumed BOS 0-30%, 0-1500USD/site, 2% annual O&M; import 0.29USD/kWh, export credit optional 0.275USD/kWh",
+  "missing_costs": "Actual LV cable, BOS quotes, protection, meter, permission, land, taxes, connection and transformer upgrades unpriced. Cost table NOT full verified lifecycle quote.",
+  "known_5kva": "Only existing node 931076/94022 and 923848/92395 have archived 5kVA rating; EPM portal 3kW/5kW not converted to kVA",
+  "excluded_assumptions": "No new transformers; no critical/deferrable fractions; no confirmed EPM service network; no voltage/current/neutral compliance"
+}
