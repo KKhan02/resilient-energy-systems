@@ -42,7 +42,11 @@ def render():
             "alternative":"#595f6b","unassigned":"#7e8790"}
     for token,data in (("__REVIEWED__",items),("__TRANSFORMERS__",transformers),("__PALETTE__",colors)):
         script=script.replace(token,json.dumps(data,separators=(",",":")))
-    return html.replace("</head>",style+"</head>").replace("</body>",script+"</body>")
+    marker = script.index("<script>")
+    controls_markup, code = script[:marker], script[marker:]
+    return (html.replace("</head>",style+"</head>")
+                .replace("</header>", "</header>"+controls_markup)
+                .replace("</body>",code+"</body>"))
 
 if __name__=="__main__":
     path=HERE/"satellite_epm_review_overlay.html"
