@@ -24,6 +24,17 @@ class AnnualSharedPVTests(unittest.TestCase):
         self.assertEqual(a["grid_export_kwh"],0)
         self.assertLess(a["grid_import_kwh"],a["load_kwh"])
         self.assertGreater(a["battery_discharge_kwh"],0)
+    def test_committed_annual_data_traceable(self):
+        import csv,json
+        from annual_screen import HERE
+        with (HERE/"outputs/annual_scenarios.csv").open(newline="",encoding="utf-8") as f:
+            saved=list(csv.DictReader(f))
+        m=json.loads((HERE/"outputs/manifest.json").read_text())
+        self.assertEqual(len(saved),386)
+        self.assertEqual(m["total_unique_candidates"],31)
+        self.assertTrue(all(r["lv_voltage_status"]=="NOT_SIMULATED" for r in saved))
+        base=next(r for r in saved if r["epm_node"]=="931076" and r["pv_panels"]=="0" and r["battery_modules"]=="0")
+        self.assertAlmostEqual(float(base["cost_annual_usd_mid_BOS"]),float(base["grid_import_kwh"])*.29,places=1)
     def test_study_scope_and_cost_uncertainty(self):
         a,m=study()
         self.assertGreater(len(a),200)
