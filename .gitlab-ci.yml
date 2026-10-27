@@ -157,3 +157,18 @@ case1_conditional_94022_pv_bess:
     when: always
     paths:
       - case1/studies/conditional_94022_pv_bess/outputs/
+
+
+# Annual 8760-hour shared PV/BESS energy and explicit BOS cost sensitivity,
+# independent from pandapower voltage and EPM verified LV topology.
+case1_annual_shared_pvbess:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - cd case1/studies/annual_shared_pvbess
+    - python -m unittest discover -p 'test_*.py' -v
+    - python annual_screen.py --outdir outputs
+  artifacts:
+    when: always
+    paths:
+      - case1/studies/annual_shared_pvbess/outputs/
