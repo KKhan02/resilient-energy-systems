@@ -178,7 +178,7 @@ def write_outputs(out, records, sites):
                     study_upper_edge_reached=bool(len(q) and q.houses.max()>=15),
                     upper_edge_note='15 is tested upper limit; increase to 20 before claiming MAXIMUM' if len(q) and q.houses.max()>=15 else ''))
         pd.DataFrame(result).to_csv(out/'conditional_hosting_envelope.csv',index=False)
-    manifest=dict(assumptions='Single stochastic realization; no LV AC power flow; no meter verification',
+    manifest=dict(perfect_foresight=True,operational_mode='FULL_YEAR_IDEALIZED_PLANNING_BENCHMARK',assumptions='Single stochastic realization; no LV AC power flow; no meter verification',
       area='User-digitized Site A polygon, 6m2/panel default illustrative allowance',
       optimization='MILP fixed panel counts, optimize battery modules, battery kW, inverter options and 8760h operation',
       reporting='Do not claim complete Pareto frontier; epsilon objectives are sampled',
@@ -302,7 +302,7 @@ def main(argv=None):
             raise FileNotFoundError('Site A original polygon is absent; provide --gross-area-m2 to document deliberate override')
     sites,houses,ratings,tasks=prepare(args)
     max_p=max(x['model_panel_bound'] for x in sites)
-    counts=dict(house_scenarios=len(houses),transformer_ratings=ratings,
+    counts=dict(perfect_foresight=True,operational_mode='FULL_YEAR_IDEALIZED_PLANNING_BENCHMARK',house_scenarios=len(houses),transformer_ratings=ratings,
         site_scenarios=sites,panel_counts_per_house_transformer=max_p+1,
         total_distinct_solver_tasks=len(tasks),hours_per_task=args.hours,
         solver='MILP' if not args.continuous else 'LP_RELAXATION',

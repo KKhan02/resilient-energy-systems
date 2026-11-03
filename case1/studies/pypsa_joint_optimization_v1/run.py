@@ -84,7 +84,7 @@ def save_run(out,case,tag,n,st,demand,ghi,src_path,repo,window_hours,profile_ids
                    'source_sha256':sha(src_path)})
     series.to_csv(target/'hourly_dispatch.csv',float_format='%.7f')
     monthly_table(series).to_csv(target/'monthly_energy_balance.csv',index=False,float_format='%.6f')
-    (target/'model_manifest.json').write_text(json.dumps({'settings':asdict(st),
+    (target/'model_manifest.json').write_text(json.dumps({'perfect_foresight':True, 'operational_mode':'IDEALIZED_YEAR_AHEAD_PLANNING_BENCHMARK', 'settings':asdict(st),
         'summary':summary,'source':str(src_path.relative_to(repo)),
         'solar':'NASA-2025 pvlib-derived DC profile from original v18/v5',
         'households':'Seed 20250913, independent stochastic profiles, each renormalized to 1898kWh/year; no meters',

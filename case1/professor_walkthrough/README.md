@@ -8,6 +8,8 @@ Open numbered folders 01 to 09 in order. The selected set contains **18 PNG figu
 
 We first identified the 35 candidate households, mapped EPM transformer assets and reconstructed the evidence available from NASA weather, synthetic electricity demand and utility GIS. PyPSA/Linopy then co-optimized discrete PV, BESS and inverter choices with 8,760 hourly battery charge, discharge and state-of-charge values. These runs use *perfect foresight*, meaning they know the entire modelled year in advance; interpret them as planning benchmarks, not proven causal controls. We independently replayed active power in pandapower. A representative feeder revealed voltage constraints, EPM GIS improved the backbone topology, and reactive power was optimized with transformer and voltage safeguards. One 106039 reference case passed an entire year's hourly AC screen but has negligible voltage margin. Other uncertainty cases and 94022 still fail. Next is SOC-consistent active-power redispatch, then resilience and adaptability.
 
+For a connected written explanation, read [the full research narrative](RESEARCH_NARRATIVE.md) alongside the figures.
+
 ## Folder sequence
 
 | Order | Story | Why it follows |

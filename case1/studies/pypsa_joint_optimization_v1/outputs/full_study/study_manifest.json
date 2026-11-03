@@ -7,5 +7,8 @@
   "status_counts": {
     "OPTIMAL_ENERGY_SCREEN_ONLY_NO_AC_FEEDER": 6820,
     "INFEASIBLE_MODEL": 20
-  }
+  },
+  "perfect_foresight": true,
+  "operational_mode": "FULL_YEAR_IDEALIZED_PLANNING_BENCHMARK",
+  "discrete_equipment_mode": "Check outputs/full_study/run_plan.json solver field (MILP in recorded campaign)"
 }

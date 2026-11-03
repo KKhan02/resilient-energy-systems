@@ -1,6 +1,6 @@
 # SEEDExchange | San Rafael PyPSA optimization: results interpretation
 
-Source: user-provided `complete_study_results.csv`, `conditional_hosting_envelope.csv`, `study_manifest.json`, and infeasibility log. This report summarizes numerical energy-model outputs only, not AC validation.
+Source: user-provided `complete_study_results.csv`, `conditional_hosting_envelope.csv`, `study_manifest.json`, and infeasibility log. This report summarizes numerical energy-model outputs only, not AC validation. **Perfect foresight: YES.** The joint MILP knows all 8,760 modelled hours in advance; its cost/self-sufficiency and hourly SOC schedules are idealized planning benchmarks, not a validated causal or forecast-driven battery controller. Separate earlier `discrete:false` LP runs with fractional equipment must not be presented as buildable MILP solutions.
 
 ## Campaign checks
 

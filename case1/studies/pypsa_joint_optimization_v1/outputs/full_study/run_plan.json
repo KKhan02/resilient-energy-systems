@@ -1,11 +1,11 @@
 {
   "house_scenarios": 12,
   "transformer_ratings": [
-    5.0,
-    10.0,
-    15.0,
-    20.0,
-    25.0
+    5,
+    10,
+    15,
+    20,
+    25
   ],
   "site_scenarios": [
     {
@@ -13,7 +13,7 @@
       "usable_fraction": 0.25,
       "gross_area_m2": 1759.26,
       "usable_area_m2": 439.815,
-      "installed_m2_per_panel": 6.0,
+      "installed_m2_per_panel": 6,
       "panel_face_m2": 1.9527479999999997,
       "geometric_panel_bound": 73,
       "geometric_pv_kwp": 31.755,
@@ -27,7 +27,7 @@
       "usable_fraction": 0.5,
       "gross_area_m2": 1759.26,
       "usable_area_m2": 879.63,
-      "installed_m2_per_panel": 6.0,
+      "installed_m2_per_panel": 6,
       "panel_face_m2": 1.9527479999999997,
       "geometric_panel_bound": 146,
       "geometric_pv_kwp": 63.51,
@@ -41,7 +41,7 @@
       "usable_fraction": 0.75,
       "gross_area_m2": 1759.26,
       "usable_area_m2": 1319.445,
-      "installed_m2_per_panel": 6.0,
+      "installed_m2_per_panel": 6,
       "panel_face_m2": 1.9527479999999997,
       "geometric_panel_bound": 219,
       "geometric_pv_kwp": 95.265,
@@ -56,5 +56,8 @@
   "hours_per_task": 8760,
   "solver": "MILP",
   "panel_step": 1,
-  "nonlinear_AC_network_validation": "NOT_INCLUDED"
+  "nonlinear_AC_network_validation": "NOT_INCLUDED",
+  "perfect_foresight": true,
+  "operational_mode": "FULL_YEAR_IDEALIZED_PLANNING_BENCHMARK",
+  "discrete_equipment": true
 }
