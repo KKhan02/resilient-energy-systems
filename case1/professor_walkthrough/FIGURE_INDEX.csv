@@ -1,5 +1,5 @@
 order,stage,filename,source_path,explanation
-"1","01_Community_and_Inputs","01_EPM_LV_house_connections.png","case1/studies/epm_gis_pandapower_v1/output_preview/epm_lv_house_connections.png","Mapped EPM LV backbone and assumed service drops"
+"1","01_Community_and_Inputs","01_provisional_household_territories.png","case1/studies/geographic_pandapower_v1/output_preview/candidate_topology.png","Provisional connection geometry used before EPM LV GIS topology, not as-built electrical routes"
 "2","01_Community_and_Inputs","02_NASA_2025_monthly_GHI.png","case1/studies/integrated_dispatch_v1/source_solar_figures/NASA_2025_monthly_GHI.png","NASA POWER monthly irradiation"
 "3","02_Joint_PV_BESS_Sizing","01_household_scaling_four_panel.png","case1/research_archive/past_review_packages/SEEDExchange_5kVA_Poster_Presentation_Figures/poster/5kva_four_figure_scaling_panel.png","Household count versus equipment size and economic cost"
 "4","02_Joint_PV_BESS_Sizing","02_12_houses_PV_cost_self_sufficiency.png","case1/research_archive/past_review_packages/SEEDExchange_Final_Figure_Review_2026-10-31/figures/main/12_homes_5kva_pv_sizing_cost_gradient.png","PV panel size versus self-sufficiency coloured by annual cost"
