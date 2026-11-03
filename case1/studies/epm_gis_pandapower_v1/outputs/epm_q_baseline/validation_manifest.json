@@ -1,0 +1,24 @@
+{
+  "method": "EPM LV GIS node graph + assumed household drops",
+  "matched_lv_nodes": "5 existing assets; 92395 absent from GIS LV export",
+  "house_assignment": "base",
+  "assumption": "nearest EPM LV geometry DOES NOT prove customer electrical supply",
+  "conductor_registry": "explicit screening proxies for loop R/X and ampacity, not measured EPM data",
+  "q_control": "HIL U1=.96 U2=.99 U3=1.01 U4=1.04; Qmax=q_ratio*P_inst bounded by inverter S circle",
+  "q_dynamics": "T95=10 s available in code; steady-state for hourly AC flow",
+  "pv_storage": "single combined inverter, fixed hourly active dispatch, no AC energy redispatch",
+  "source_impedance": "ideal upstream MV; 3-phase equivalent x3 one-phase power",
+  "mode": "critical",
+  "counts": {
+    "hypothesis_hours": 960,
+    "converged": 960,
+    "failed": 0
+  },
+  "pandapower_version": "3.4.0",
+  "inverter_nameplate_kva": {
+    "94022": 10.0,
+    "106039": 12.0
+  },
+  "installed_active_kw_overrides": {},
+  "skipped_cases": []
+}

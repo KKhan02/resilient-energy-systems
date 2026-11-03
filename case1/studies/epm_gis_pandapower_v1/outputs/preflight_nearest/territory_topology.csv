@@ -1,0 +1,6 @@
+trafo,epm_node,kva,houses,gis_lines,mapped_lv_m,assumed_service_m,longest_service_m,graph_connected,tree,assignment_policy
+94022,931076,5.0,7,6,288.01,1177.47,326.55,True,True,includes_nearest_mapped
+106039,923494,5.0,16,15,726.01,3643.23,891.24,True,True,includes_nearest_mapped
+113699,823002,3.0,7,6,429.49,555.42,213.47,True,True,includes_nearest_mapped
+85398,900607,5.0,4,1,85.0,948.74,465.72,True,True,includes_nearest_mapped
+98380,241054,3.0,1,2,360.0,152.3,152.3,True,True,includes_nearest_mapped

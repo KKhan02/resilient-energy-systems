@@ -1,0 +1,36 @@
+{
+  "status": "AC_POWERFLOW_EXECUTED",
+  "version": "v1",
+  "pandapower_version": "3.4.0",
+  "source": "pandapower v5 reference feeder translated to standalone driver",
+  "case_input": [
+    {
+      "households": 12,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\12_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 22776.000000699998,
+      "scheduled_import_kwh": 4319.0986469,
+      "scheduled_max_pcc_kva": 4.5
+    }
+  ],
+  "mode": "full",
+  "pf": [
+    0.9
+  ],
+  "load_allocation": [
+    "far_end_heavy"
+  ],
+  "inverter_siting": [
+    "lv_head"
+  ],
+  "powerflow_results": 8760,
+  "converged": 8760,
+  "network": "5 kVA 7.621kV/240V, 354.2m MV, 324.5m LV representative radial, two houses per tap",
+  "not_a_surveyed_network": true,
+  "full_annual_count_only_if_mode_full": true,
+  "transformer_parameters_and_lv_ampacity": "proxies from v5 notebook; not nameplate verified",
+  "pcc_energy_4p5_kva": "PyPSA pre-loss limit; AC PCC includes electrical losses, reactive power and transformer magnetizing current",
+  "voltage_097_103": "design screening band only",
+  "area_geographic_location": "not inferred from synthetic cable segments"
+}

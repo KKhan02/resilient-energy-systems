@@ -1,0 +1,7 @@
+transformer,node,kva,houses,gis_transformer_found,gis_transformer_lat,gis_transformer_lon,match_lv_segments,epm_recorded_length_m,geometry_length_m,nearest_all_lv_m,nearest_all_lv_node,conductor_groups
+94022,931076,5,10,True,6.246949759,-75.006208238,6,288.0,286.4,17.0,931076,AAC/2:4; AAC/1/0:2
+92395,923848,5,4,True,6.247057428,-75.001001911,0,0.0,0.0,428.4,820204,
+113699,823002,3,4,True,6.243433895,-75.008125368,6,429.5,427.1,5.4,823002,AAC/4:4; AAC/2:2
+106039,923494,5,12,True,6.242837817,-75.00480596,15,726.0,747.4,6.3,923494,AAC/2:8; AAC/4:7
+85398,900607,5,4,True,6.237779698,-75.00291883,1,85.0,85.0,6.7,900607,ACSR/2:1
+98380,241054,3,1,True,6.237093826,-75.012599551,2,360.0,358.1,1.4,241054,AAC/4:2

@@ -1,0 +1,7 @@
+transformer,trafo_lv_node,line_count,graph_node_count,components,all_segments_root_reachable,radial_graph,unresolved_terminal_zero
+94022,90943730,6,7,1,True,True,0
+106039,84340610,15,16,1,True,True,0
+113699,57591775,6,7,1,True,True,1
+85398,509649218,1,2,1,True,True,0
+98380,84343395,2,3,1,True,True,0
+92395,0,0,0,0,False,,0

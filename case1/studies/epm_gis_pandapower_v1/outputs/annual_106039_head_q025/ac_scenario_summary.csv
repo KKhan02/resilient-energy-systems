@@ -1,0 +1,2 @@
+trafo,houses,siting,service_factor,load_pf,allocation,q_ratio,policy,hours,converged_hours,failed_hours,feasible_hours,all_hours_feasible,min_v_pu,max_v_pu,max_trafo_pct,max_line_pct,voltage_low_hours,voltage_high_hours,trafo_over_hours,mean_loss_kw,max_abs_q_kvar,mean_abs_q_kvar,control_override_hours,no_ac_feasible_q_hours
+106039,12,head,1.0,0.98,equal,0.25,coordinated,8760,8760,0,8760,True,0.9700045717324118,0.998119076442447,97.18484350459788,8.807743334793763,0,0,0,0.051817497766308486,2.925,0.02913545575497465,108,0

@@ -1,0 +1,26 @@
+kva,ss_threshold_pct,max_conditional_house_count,status,study_upper_edge_reached,upper_edge_note
+5.0,0.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+5.0,70.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+5.0,80.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+5.0,90.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+5.0,95.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+10.0,0.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+10.0,70.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+10.0,80.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+10.0,90.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+10.0,95.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+15.0,0.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+15.0,70.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+15.0,80.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+15.0,90.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+15.0,95.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+20.0,0.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+20.0,70.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+20.0,80.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+20.0,90.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+20.0,95.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+25.0,0.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+25.0,70.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+25.0,80.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+25.0,90.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM
+25.0,95.0,15,PROXY_ENERGY_ONLY_NOT_AC_VALIDATED,True,15 is tested upper limit; increase to 20 before claiming MAXIMUM

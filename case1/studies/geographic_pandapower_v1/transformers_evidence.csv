@@ -1,0 +1,8 @@
+transformer_number,epm_node,latitude,longitude,kva,circuit,record_status
+94022,931076,6.246949759,-75.006208238,5,221-12,precision_coordinates_user_EPM_2026_10_29
+92395,923848,6.247057428,-75.001001911,5,221-12,precision_coordinates_user_EPM_2026_10_29
+113699,823002,6.243433895,-75.008125368,3,221-12,precision_coordinates_user_EPM_2026_10_29
+106039,923494,6.242837817,-75.004805960,5,221-12,precision_coordinates_user_EPM_2026_10_29
+85398,900607,6.237779698,-75.002918830,5,221-12,precision_coordinates_user_EPM_2026_10_29
+98380,241054,6.237093826,-75.012599551,3,221-13,precision_coordinates_user_EPM_2026_10_31
+NORTH_25KVA,UNCONFIRMED,6.249940251,-75.011914005,25,UNVERIFIED,prior_user_EPM_no_asset_id_2026_10_26

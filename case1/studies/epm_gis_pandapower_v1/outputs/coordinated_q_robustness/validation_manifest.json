@@ -1,0 +1,56 @@
+{
+  "model": "EPM GIS candidate LV service attachments, balanced 3-phase equivalent",
+  "controller": "Hourly steady-state HIL Q(U) reference, coordinated AC Vmin/Vmax/trafo/line checks",
+  "policies": [
+    "coordinated"
+  ],
+  "limits": {
+    "min_v": 0.97,
+    "max_v": 1.03,
+    "max_trafo_pct": 100.0,
+    "max_line_pct": 100.0
+  },
+  "q_ratios": [
+    0.2,
+    0.25,
+    0.35,
+    0.48
+  ],
+  "q_search": {
+    "grid_points": 21,
+    "refine": 2
+  },
+  "active_power_fixed": true,
+  "source_electricity": "PyPSA 8760-hour combined inverter dispatch",
+  "feeder_impedances": "screening proxies, NOT EPM measured",
+  "service_lengths": "uncertain drops, EPM backbone preserved",
+  "transformer_trafo_kva_label": "modelled ratings 3/5 kVA, 1-phase approximated x3 balanced equivalent",
+  "counts": {
+    "rows": 1280,
+    "converged": 1280,
+    "failed": 0,
+    "scenarios": 32
+  },
+  "pandapower_version": "3.4.0",
+  "parameters": {
+    "mode": "critical",
+    "power_factors": [
+      0.9
+    ],
+    "siting": [
+      "head",
+      "middle"
+    ],
+    "service_factors": [
+      1.3,
+      1.6
+    ],
+    "assignment": "base",
+    "inverter_ratings": {
+      "94022": 10.0,
+      "106039": 12.0
+    },
+    "p_installed": {}
+  },
+  "skipped": []
+}

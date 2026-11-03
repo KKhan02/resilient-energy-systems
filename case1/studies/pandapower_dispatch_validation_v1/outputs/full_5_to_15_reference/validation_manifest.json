@@ -1,0 +1,127 @@
+{
+  "status": "AC_POWERFLOW_EXECUTED",
+  "version": "v1",
+  "pandapower_version": "3.4.0",
+  "source": "pandapower v5 reference feeder translated to standalone driver",
+  "case_input": [
+    {
+      "households": 5,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\5_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 9489.999995000002,
+      "scheduled_import_kwh": 1994.9263062999999,
+      "scheduled_max_pcc_kva": 2.3520618
+    },
+    {
+      "households": 6,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\6_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 11388.0000047,
+      "scheduled_import_kwh": 2288.8880988,
+      "scheduled_max_pcc_kva": 2.707368
+    },
+    {
+      "households": 7,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\7_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 13286.0000029,
+      "scheduled_import_kwh": 1914.8105682999999,
+      "scheduled_max_pcc_kva": 3.3739993
+    },
+    {
+      "households": 8,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\8_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 15184.0000012,
+      "scheduled_import_kwh": 3104.5274498,
+      "scheduled_max_pcc_kva": 3.4955628
+    },
+    {
+      "households": 9,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\9_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 17082.0000017,
+      "scheduled_import_kwh": 2567.1688434,
+      "scheduled_max_pcc_kva": 3.8156348
+    },
+    {
+      "households": 10,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\10_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 18980.000001300003,
+      "scheduled_import_kwh": 3971.8072112,
+      "scheduled_max_pcc_kva": 4.3363647
+    },
+    {
+      "households": 11,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\11_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 20877.9999996,
+      "scheduled_import_kwh": 2921.6261256999996,
+      "scheduled_max_pcc_kva": 4.5
+    },
+    {
+      "households": 12,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\12_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 22776.000000699998,
+      "scheduled_import_kwh": 4319.0986469,
+      "scheduled_max_pcc_kva": 4.5
+    },
+    {
+      "households": 13,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\13_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 24673.999994900005,
+      "scheduled_import_kwh": 5843.799688900001,
+      "scheduled_max_pcc_kva": 4.5
+    },
+    {
+      "households": 14,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\14_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 26571.999999199998,
+      "scheduled_import_kwh": 7479.8650148,
+      "scheduled_max_pcc_kva": 4.5
+    },
+    {
+      "households": 15,
+      "path": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch\\15_homes_hourly_dispatch.csv",
+      "annual_hours": 8760,
+      "tested_hours": 8760,
+      "demand_kwh": 28469.9999979,
+      "scheduled_import_kwh": 2269.7892948,
+      "scheduled_max_pcc_kva": 4.5
+    }
+  ],
+  "mode": "full",
+  "pf": [
+    0.98
+  ],
+  "load_allocation": [
+    "equal"
+  ],
+  "inverter_siting": [
+    "lv_head"
+  ],
+  "siting_definition": "head=transformer LV; middle=nearest halfway tap; far_end=last tap; one combined PV+BESS AC inverter",
+  "powerflow_results": 96360,
+  "converged": 96360,
+  "network": "5 kVA 7.621kV/240V, 354.2m MV, 324.5m LV representative radial, two houses per tap",
+  "not_a_surveyed_network": true,
+  "full_annual_count_only_if_mode_full": true,
+  "transformer_parameters_and_lv_ampacity": "proxies from v5 notebook; not nameplate verified",
+  "pcc_energy_4p5_kva": "PyPSA pre-loss limit; AC PCC includes electrical losses, reactive power and transformer magnetizing current",
+  "voltage_097_103": "design screening band only",
+  "area_geographic_location": "not inferred from synthetic cable segments"
+}

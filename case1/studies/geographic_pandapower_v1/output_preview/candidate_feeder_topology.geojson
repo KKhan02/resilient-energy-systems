@@ -1,0 +1,1552 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.006208238,
+          6.246949759
+        ]
+      },
+      "properties": {
+        "type": "transformer",
+        "id": "94022",
+        "kva": 5.0,
+        "evidence": "USER_EPM_RECORD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.01088043,
+          6.24804546
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H01",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.008160816772,
+            6.24766959349
+          ],
+          [
+            -75.01088043,
+            6.24804546
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "H27",
+        "to": "H01",
+        "electrical_length_m": 303.84,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.008867333599,
+          6.246173400381
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H02",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.007592448472,
+            6.246362494594
+          ],
+          [
+            -75.008867333599,
+            6.246173400381
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "H26",
+        "to": "H02",
+        "electrical_length_m": 142.64,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.008929643061,
+          6.245735736555
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H03",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.008867333599,
+            6.246173400381
+          ],
+          [
+            -75.008929643061,
+            6.245735736555
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "H02",
+        "to": "H03",
+        "electrical_length_m": 49.21,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00971482,
+          6.24439032
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H06",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.008929643061,
+            6.245735736555
+          ],
+          [
+            -75.00971482,
+            6.24439032
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "H03",
+        "to": "H06",
+        "electrical_length_m": 173.15,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.007592448472,
+          6.246362494594
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H26",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.007544224612,
+            6.247490631568
+          ],
+          [
+            -75.007592448472,
+            6.246362494594
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "H28",
+        "to": "H26",
+        "electrical_length_m": 125.7,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.008160816772,
+          6.24766959349
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H27",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.007544224612,
+            6.247490631568
+          ],
+          [
+            -75.008160816772,
+            6.24766959349
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "H28",
+        "to": "H27",
+        "electrical_length_m": 71.08,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.007544224612,
+          6.247490631568
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H28",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.006208238,
+            6.246949759
+          ],
+          [
+            -75.007544224612,
+            6.247490631568
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "TRAFO",
+        "to": "H28",
+        "electrical_length_m": 159.63,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004239123928,
+          6.247587268263
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H29",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00428209,
+            6.2485127
+          ],
+          [
+            -75.004239123928,
+            6.247587268263
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "H35",
+        "to": "H29",
+        "electrical_length_m": 103.13,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00633035,
+          6.24862349
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H34",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.007544224612,
+            6.247490631568
+          ],
+          [
+            -75.00633035,
+            6.24862349
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "H28",
+        "to": "H34",
+        "electrical_length_m": 184.25,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00428209,
+          6.2485127
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H35",
+        "candidate_transformer": "94022",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00633035,
+            6.24862349
+          ],
+          [
+            -75.00428209,
+            6.2485127
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "94022",
+        "from": "H34",
+        "to": "H35",
+        "electrical_length_m": 226.99,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00480596,
+          6.242837817
+        ]
+      },
+      "properties": {
+        "type": "transformer",
+        "id": "106039",
+        "kva": 5.0,
+        "evidence": "USER_EPM_RECORD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00403598,
+          6.24052442
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H11",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.0022014,
+            6.24041525
+          ],
+          [
+            -75.00403598,
+            6.24052442
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "H13",
+        "to": "H11",
+        "electrical_length_m": 203.38,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0022014,
+          6.24041525
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H13",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.002348108136,
+            6.241922531926
+          ],
+          [
+            -75.0022014,
+            6.24041525
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "H16",
+        "to": "H13",
+        "electrical_length_m": 168.57,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.002348108136,
+          6.241922531926
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H16",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00321339,
+            6.2425261
+          ],
+          [
+            -75.002348108136,
+            6.241922531926
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "H18",
+        "to": "H16",
+        "electrical_length_m": 116.97,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004740611835,
+          6.242581054624
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H17",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00480596,
+            6.242837817
+          ],
+          [
+            -75.004740611835,
+            6.242581054624
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "TRAFO",
+        "to": "H17",
+        "electrical_length_m": 29.48,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00321339,
+          6.2425261
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H18",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.003318716614,
+            6.243647471521
+          ],
+          [
+            -75.00321339,
+            6.2425261
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "H21",
+        "to": "H18",
+        "electrical_length_m": 125.37,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00515218,
+          6.24332425
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H19",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00480596,
+            6.242837817
+          ],
+          [
+            -75.00515218,
+            6.24332425
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "TRAFO",
+        "to": "H19",
+        "electrical_length_m": 66.33,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00438192,
+          6.24325928
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H20",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00480596,
+            6.242837817
+          ],
+          [
+            -75.00438192,
+            6.24325928
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "TRAFO",
+        "to": "H20",
+        "electrical_length_m": 66.36,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.003318716614,
+          6.243647471521
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H21",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.004079151297,
+            6.244478426223
+          ],
+          [
+            -75.003318716614,
+            6.243647471521
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "H22",
+        "to": "H21",
+        "electrical_length_m": 125.05,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004079151297,
+          6.244478426223
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H22",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.004723642594,
+            6.243846203288
+          ],
+          [
+            -75.004079151297,
+            6.244478426223
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "H23",
+        "to": "H22",
+        "electrical_length_m": 100.2,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004723642594,
+          6.243846203288
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H23",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00515218,
+            6.24332425
+          ],
+          [
+            -75.004723642594,
+            6.243846203288
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "H19",
+        "to": "H23",
+        "electrical_length_m": 75.0,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00569515,
+          6.24401183
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H24",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00515218,
+            6.24332425
+          ],
+          [
+            -75.00569515,
+            6.24401183
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "H19",
+        "to": "H24",
+        "electrical_length_m": 97.31,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00523511,
+          6.24462939
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H25",
+        "candidate_transformer": "106039",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00569515,
+            6.24401183
+          ],
+          [
+            -75.00523511,
+            6.24462939
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "106039",
+        "from": "H24",
+        "to": "H25",
+        "electrical_length_m": 85.54,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.001001911,
+          6.247057428
+        ]
+      },
+      "properties": {
+        "type": "transformer",
+        "id": "92395",
+        "kva": 5.0,
+        "evidence": "USER_EPM_RECORD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.001083793867,
+          6.246940516261
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H30",
+        "candidate_transformer": "92395",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.001001911,
+            6.247057428
+          ],
+          [
+            -75.001083793867,
+            6.246940516261
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "92395",
+        "from": "TRAFO",
+        "to": "H30",
+        "electrical_length_m": 15.86,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.998470712963,
+          6.246872630058
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H31",
+        "candidate_transformer": "92395",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.001001911,
+            6.247057428
+          ],
+          [
+            -74.998470712963,
+            6.246872630058
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "92395",
+        "from": "TRAFO",
+        "to": "H31",
+        "electrical_length_m": 280.85,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.998008326345,
+          6.246946197186
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H32",
+        "candidate_transformer": "92395",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.998470712963,
+            6.246872630058
+          ],
+          [
+            -74.998008326345,
+            6.246946197186
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "92395",
+        "from": "H31",
+        "to": "H32",
+        "electrical_length_m": 51.82,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.996313925393,
+          6.246301879262
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H33",
+        "candidate_transformer": "92395",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.998008326345,
+            6.246946197186
+          ],
+          [
+            -74.996313925393,
+            6.246301879262
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "92395",
+        "from": "H32",
+        "to": "H33",
+        "electrical_length_m": 200.75,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00291883,
+          6.237779698
+        ]
+      },
+      "properties": {
+        "type": "transformer",
+        "id": "85398",
+        "kva": 5.0,
+        "evidence": "USER_EPM_RECORD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.004828762118,
+          6.236739165648
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H09",
+        "candidate_transformer": "85398",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00291883,
+            6.237779698
+          ],
+          [
+            -75.004828762118,
+            6.236739165648
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "85398",
+        "from": "TRAFO",
+        "to": "H09",
+        "electrical_length_m": 241.01,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00236866,
+          6.23828888
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H12",
+        "candidate_transformer": "85398",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00291883,
+            6.237779698
+          ],
+          [
+            -75.00236866,
+            6.23828888
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "85398",
+        "from": "TRAFO",
+        "to": "H12",
+        "electrical_length_m": 83.18,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.998742892459,
+          6.240455067323
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H14",
+        "candidate_transformer": "85398",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00094582,
+            6.24101857
+          ],
+          [
+            -74.998742892459,
+            6.240455067323
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "85398",
+        "from": "H15",
+        "to": "H14",
+        "electrical_length_m": 251.72,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00094582,
+          6.24101857
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H15",
+        "candidate_transformer": "85398",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00236866,
+            6.23828888
+          ],
+          [
+            -75.00094582,
+            6.24101857
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "85398",
+        "from": "H12",
+        "to": "H15",
+        "electrical_length_m": 342.24,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.008125368,
+          6.243433895
+        ]
+      },
+      "properties": {
+        "type": "transformer",
+        "id": "113699",
+        "kva": 3.0,
+        "evidence": "USER_EPM_RECORD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00788908,
+          6.24492436
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H04",
+        "candidate_transformer": "113699",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.00878304,
+            6.24465703
+          ],
+          [
+            -75.00788908,
+            6.24492436
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "113699",
+        "from": "H05",
+        "to": "H04",
+        "electrical_length_m": 103.3,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.00878304,
+          6.24465703
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H05",
+        "candidate_transformer": "113699",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.008125368,
+            6.243433895
+          ],
+          [
+            -75.00878304,
+            6.24465703
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "113699",
+        "from": "TRAFO",
+        "to": "H05",
+        "electrical_length_m": 154.39,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.009141986911,
+          6.242856437002
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H07",
+        "candidate_transformer": "113699",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.008125368,
+            6.243433895
+          ],
+          [
+            -75.009141986911,
+            6.242856437002
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "113699",
+        "from": "TRAFO",
+        "to": "H07",
+        "electrical_length_m": 129.57,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.0071865,
+          6.24169997
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H10",
+        "candidate_transformer": "113699",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.008125368,
+            6.243433895
+          ],
+          [
+            -75.0071865,
+            6.24169997
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "113699",
+        "from": "TRAFO",
+        "to": "H10",
+        "electrical_length_m": 219.2,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.012599551,
+          6.237093826
+        ]
+      },
+      "properties": {
+        "type": "transformer",
+        "id": "98380",
+        "kva": 3.0,
+        "evidence": "USER_EPM_RECORD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.009655882121,
+          6.238544617605
+        ]
+      },
+      "properties": {
+        "type": "house",
+        "id": "H08",
+        "candidate_transformer": "98380",
+        "verification": "UNCONFIRMED"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -75.012599551,
+            6.237093826
+          ],
+          [
+            -75.009655882121,
+            6.238544617605
+          ]
+        ]
+      },
+      "properties": {
+        "type": "HYPOTHETICAL_LV_LINK_NOT_AS_BUILT",
+        "transformer": "98380",
+        "from": "TRAFO",
+        "to": "H08",
+        "electrical_length_m": 363.59,
+        "geometry_length_multiplier": 1.0,
+        "routing": "mst"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.011914005,
+          6.249940251
+        ]
+      },
+      "properties": {
+        "type": "transformer",
+        "id": "NORTH_25KVA",
+        "kva": 25.0,
+        "evidence": "USER_EPM_RECORD"
+      }
+    }
+  ]
+}

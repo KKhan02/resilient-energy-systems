@@ -1,0 +1,2 @@
+period_start_lst,demand_requested_kwh,demand_served_kwh,unserved_load_kwh,pv_ac_generation_kwh,battery_charge_dc_kwh,battery_discharge_dc_kwh,grid_import_kwh,grid_export_kwh,curtailment_kwh,ghi_kwh_m2,battery_soc_start_kwh,battery_soc_end_kwh,self_sufficiency_pct,demand_adequacy_pct,locally_served_fraction_of_demand_pct,self_sufficiency_of_served_pct,pv_to_demand_pct,fully_grid_independent_and_served,max_pcc_s_kva
+2025-01-01,15184.0000002,15184.0000002,0.0,0.0,0.0,0.0,15184.0000002,0.0,0.0,1773.00935,0.0,0.0,0.0,100.0,0.0,0.0,0.0,False,4.26872401

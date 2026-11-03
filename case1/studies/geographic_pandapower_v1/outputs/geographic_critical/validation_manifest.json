@@ -1,0 +1,88 @@
+{
+  "status": "AC_EXECUTED_CONDITIONAL_TOPOLOGY",
+  "warning": "Not as-built. House-to-transformer assignments, links and equipment impedances unverified.",
+  "mode": "critical",
+  "time_coverage": "SUBSET_ONLY",
+  "source_dispatch_dir": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\pandapower_dispatch_validation_v1\\input\\dispatch",
+  "counts": {
+    "scenario_hours": 1776,
+    "converged": 1776,
+    "not_converged": 0
+  },
+  "transformer_names": [
+    "94022",
+    "106039",
+    "92395",
+    "85398",
+    "113699",
+    "98380",
+    "NORTH_25KVA"
+  ],
+  "assignment_modes": [
+    "base"
+  ],
+  "routing_hypotheses": [
+    "mst"
+  ],
+  "route_length_multipliers": [
+    1.3
+  ],
+  "pf_values": [
+    0.98,
+    0.9
+  ],
+  "design_variants": [
+    "gross",
+    "optimized"
+  ],
+  "siting": [
+    "head",
+    "middle",
+    "end"
+  ],
+  "lv_ohm_per_km": {
+    "loop_R": 1.312,
+    "loop_X": 0.16
+  },
+  "max_line_current_ka_proxy": 0.15,
+  "transformer_impedance_assumed": {
+    "vk_percent": 3.0,
+    "vkr_percent": 1.8
+  },
+  "model_equivalence": "balanced 3ph equivalent with sqrt(3) line voltage and x3 power of 240V 1ph single-phase",
+  "upstream": "ideal voltage source, MV feeder impedance excluded",
+  "load_allocation": "Equal or farthest 25% assigned 60% for stress; no measured meter profiles",
+  "inverter": "one combined AC-injecting PV+BESS, unity inverter reactive power, fixed PyPSA dispatch; no AC reoptimization",
+  "distinct_source_limit": "transformers modeled individually, no interconnection of their LV networks",
+  "pandapower_version": "3.4.0",
+  "skipped_cases": [
+    {
+      "assignment": "base",
+      "transformer": "92395",
+      "houses": 4,
+      "design": "optimized",
+      "reason": "NO_OPTIMIZED_SCHEDULE_FOR_4_HOUSES"
+    },
+    {
+      "assignment": "base",
+      "transformer": "85398",
+      "houses": 4,
+      "design": "optimized",
+      "reason": "NO_OPTIMIZED_SCHEDULE_FOR_4_HOUSES"
+    },
+    {
+      "assignment": "base",
+      "transformer": "113699",
+      "houses": 4,
+      "design": "optimized",
+      "reason": "NO_OPTIMIZED_SCHEDULE_FOR_4_HOUSES"
+    },
+    {
+      "assignment": "base",
+      "transformer": "98380",
+      "houses": 1,
+      "design": "optimized",
+      "reason": "NO_OPTIMIZED_SCHEDULE_FOR_1_HOUSES"
+    }
+  ]
+}

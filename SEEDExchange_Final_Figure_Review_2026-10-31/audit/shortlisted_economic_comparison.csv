@@ -1,0 +1,5 @@
+households,transformer_assumed_kva,pv_panels,pv_kwp,bess_usable_kwh,inverter_kva,annual_total_usd,self_sufficiency_pct,annual_grid_import_kwh,capex_usd
+7,5,26,11.31,21.625,7.6,2772.94,85.59,1914.81,19409.22
+9,5,34,14.79,25.95,9.999999999999998,3570.99,84.97,2567.17,24779.22
+12,5,41,17.835,34.6,12.0,4767.83,81.04,4319.1,30754.93
+15,5,67,29.145,47.575,20.0,6133.19,92.03,2269.79,48042.22

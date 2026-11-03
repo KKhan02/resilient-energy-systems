@@ -1,0 +1,6 @@
+trafo,epm_node,kva,houses,gis_lines,mapped_lv_m,assumed_service_m,longest_service_m,graph_connected,tree,assignment_policy
+94022,931076,5.0,10,6,288.01,1740.96,326.55,True,True,provisional_base
+106039,923494,5.0,12,15,726.01,831.8,230.03,True,True,provisional_base
+113699,823002,3.0,4,6,429.49,273.32,213.47,True,True,provisional_base
+85398,900607,5.0,4,1,85.0,1058.83,465.72,True,True,provisional_base
+98380,241054,3.0,1,2,360.0,152.3,152.3,True,True,provisional_base

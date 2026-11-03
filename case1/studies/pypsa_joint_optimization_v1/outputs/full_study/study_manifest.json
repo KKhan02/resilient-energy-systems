@@ -1,0 +1,11 @@
+{
+  "assumptions": "Single stochastic realization; no LV AC power flow; no meter verification",
+  "area": "User-digitized Site A polygon, 6m2/panel default illustrative allowance",
+  "optimization": "MILP fixed panel counts, optimize battery modules, battery kW, inverter options and 8760h operation",
+  "reporting": "Do not claim complete Pareto frontier; epsilon objectives are sampled",
+  "results": 6840,
+  "status_counts": {
+    "OPTIMAL_ENERGY_SCREEN_ONLY_NO_AC_FEEDER": 6820,
+    "INFEASIBLE_MODEL": 20
+  }
+}

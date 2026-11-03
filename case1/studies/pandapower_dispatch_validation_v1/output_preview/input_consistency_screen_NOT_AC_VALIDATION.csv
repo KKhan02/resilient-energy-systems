@@ -1,0 +1,4 @@
+houses,annual_demand_kwh,annual_grid_import_kwh,self_sufficiency_pct,max_gross_household_kw,max_inverter_ac_kw,max_scheduled_pcc_kva_proxy,hours_gross_load_gt_5kw,hours_gross_load_gt_4p5kw,hours_schedule_gt_4p5kva,selected_critical_hours
+7,13286.0000029,1914.8105682999999,85.58775727922591,3.7173983,3.7173983,3.3739993,0,0,0,44
+9,17082.0000017,2567.1688434,84.97149723015738,4.4174164,4.4174164,3.8156348,0,0,0,47
+12,22776.000000699998,4319.0986469,81.03662343358246,5.7528444,5.7528444,4.5,26,137,0,48

@@ -1,0 +1,21 @@
+case,houses,kva,task,panels,battery_modules,ss_target,budget,area_max_panels,status,reason
+9_homes,9,5.0,fixed_PV_economic,0.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+9_homes,9,5.0,fixed_BESS_economic,,0.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+10_homes,10,5.0,fixed_PV_economic,0.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+10_homes,10,5.0,fixed_BESS_economic,,0.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+11_homes,11,5.0,fixed_PV_economic,0.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+11_homes,11,5.0,fixed_BESS_economic,,0.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+12_homes,12,5.0,fixed_PV_economic,0.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+12_homes,12,5.0,fixed_BESS_economic,,0.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+13_homes,13,5.0,fixed_PV_economic,0.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+13_homes,13,5.0,fixed_BESS_economic,,0.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+13_homes,13,5.0,fixed_BESS_economic,,1.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+14_homes,14,5.0,fixed_PV_economic,0.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+14_homes,14,5.0,fixed_PV_economic,1.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+14_homes,14,5.0,fixed_BESS_economic,,0.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+14_homes,14,5.0,fixed_BESS_economic,,1.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+15_homes,15,5.0,fixed_PV_economic,0.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+15_homes,15,5.0,fixed_PV_economic,1.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+15_homes,15,5.0,fixed_PV_economic,2.0,,,,82,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+15_homes,15,5.0,fixed_BESS_economic,,0.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed
+15_homes,15,5.0,fixed_BESS_economic,,1.0,,,73,INFEASIBLE_MODEL,PyPSA solve was warning/infeasible; no feasible optimum claimed

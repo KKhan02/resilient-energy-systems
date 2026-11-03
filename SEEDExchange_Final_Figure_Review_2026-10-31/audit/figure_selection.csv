@@ -1,0 +1,11 @@
+order,group,figure,purpose
+1,main,07_homes_5kva_pv_sizing_cost_gradient.png,PV and cost for seven homes
+2,main,07_homes_5kva_bess_sizing_cost_gradient.png,BESS and cost for seven homes
+3,main,09_homes_5kva_pv_sizing_cost_gradient.png,PV and cost for nine homes
+4,main,09_homes_5kva_bess_sizing_cost_gradient.png,BESS and cost for nine homes
+5,main,12_homes_5kva_pv_sizing_cost_gradient.png,PV and cost for twelve homes
+6,main,12_homes_5kva_bess_sizing_cost_gradient.png,BESS and cost for twelve homes
+7,optional,15_homes_5kva_pv_sizing_cost_gradient.png,PV stress comparison at fifteen homes
+8,optional,15_homes_5kva_bess_sizing_cost_gradient.png,BESS stress comparison at fifteen homes
+9,optional,12_homes_transformer_rating_vs_annual_cost.png,Annual economic result versus rated transformer capacity with PCC colour
+10,optional,12_homes_monthly_SS_colored_by_grid_import.png,Seasonal operational performance

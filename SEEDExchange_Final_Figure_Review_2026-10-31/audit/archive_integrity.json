@@ -1,0 +1,34 @@
+{
+  "all_files": 513,
+  "png_verified": 252,
+  "svg_xml_verified": 252,
+  "main_png": 240,
+  "main_plot_families": {
+    "all_objectives_pareto": 60,
+    "battery_sweep": 60,
+    "cost_self_sufficiency": 60,
+    "pv_sizing_curve": 60
+  },
+  "household_cases": [
+    "10_homes",
+    "11_homes",
+    "12_homes",
+    "13_homes",
+    "14_homes",
+    "15_homes",
+    "5_homes",
+    "6_homes",
+    "7_homes",
+    "8_homes_H01",
+    "8_homes_H02",
+    "9_homes"
+  ],
+  "kva_scenarios": [
+    5,
+    10,
+    15,
+    20,
+    25
+  ],
+  "hourly_png_retained": 12
+}

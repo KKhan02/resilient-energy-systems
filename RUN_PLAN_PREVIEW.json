@@ -1,0 +1,60 @@
+{
+  "house_scenarios": 12,
+  "transformer_ratings": [
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0
+  ],
+  "site_scenarios": [
+    {
+      "site": "Site A",
+      "usable_fraction": 0.25,
+      "gross_area_m2": 1759.26,
+      "usable_area_m2": 439.815,
+      "installed_m2_per_panel": 6.0,
+      "panel_face_m2": 1.9527479999999997,
+      "geometric_panel_bound": 73,
+      "geometric_pv_kwp": 31.755,
+      "hardware_panel_bound": 82,
+      "model_panel_bound": 73,
+      "model_pv_kwp": 31.755,
+      "limitation": "ASSUMED SITE GEOMETRY AND EXISTING INVERTER CATALOGUE; NOT MAXIMUM PHYSICAL PV POTENTIAL"
+    },
+    {
+      "site": "Site A",
+      "usable_fraction": 0.5,
+      "gross_area_m2": 1759.26,
+      "usable_area_m2": 879.63,
+      "installed_m2_per_panel": 6.0,
+      "panel_face_m2": 1.9527479999999997,
+      "geometric_panel_bound": 146,
+      "geometric_pv_kwp": 63.51,
+      "hardware_panel_bound": 82,
+      "model_panel_bound": 82,
+      "model_pv_kwp": 35.67,
+      "limitation": "ASSUMED SITE GEOMETRY AND EXISTING INVERTER CATALOGUE; NOT MAXIMUM PHYSICAL PV POTENTIAL"
+    },
+    {
+      "site": "Site A",
+      "usable_fraction": 0.75,
+      "gross_area_m2": 1759.26,
+      "usable_area_m2": 1319.445,
+      "installed_m2_per_panel": 6.0,
+      "panel_face_m2": 1.9527479999999997,
+      "geometric_panel_bound": 219,
+      "geometric_pv_kwp": 95.265,
+      "hardware_panel_bound": 82,
+      "model_panel_bound": 82,
+      "model_pv_kwp": 35.67,
+      "limitation": "ASSUMED SITE GEOMETRY AND EXISTING INVERTER CATALOGUE; NOT MAXIMUM PHYSICAL PV POTENTIAL"
+    }
+  ],
+  "panel_counts_per_house_transformer": 83,
+  "total_distinct_solver_tasks": 6840,
+  "hours_per_task": 8760,
+  "solver": "MILP",
+  "panel_step": 1,
+  "nonlinear_AC_network_validation": "NOT_INCLUDED"
+}

@@ -1,0 +1,17 @@
+trafo,routing,pf,allocation,sum,count
+94022,mst,0.9,equal,0,9
+94022,mst,0.9,far_end_heavy,0,9
+94022,mst,0.98,equal,0,9
+94022,mst,0.98,far_end_heavy,0,9
+94022,star,0.9,equal,0,9
+94022,star,0.9,far_end_heavy,0,9
+94022,star,0.98,equal,5,9
+94022,star,0.98,far_end_heavy,0,9
+106039,mst,0.9,equal,0,9
+106039,mst,0.9,far_end_heavy,0,9
+106039,mst,0.98,equal,0,9
+106039,mst,0.98,far_end_heavy,0,9
+106039,star,0.9,equal,0,9
+106039,star,0.9,far_end_heavy,0,9
+106039,star,0.98,equal,6,9
+106039,star,0.98,far_end_heavy,1,9
