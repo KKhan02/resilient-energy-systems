@@ -1,3 +1,5 @@
+> **Updated 3 November 2026:** The 5–15-house critical-hour and full-year reference outputs are committed under `outputs/`. They are conditional checks on one **representative 324.5 m feeder** and are not EPM-network hosting-capacity certifications. The new GIS model and [numbered research walkthrough](../../professor_walkthrough/README.md) take precedence. Older code-authoring status statements below are historical.
+
 # SEEDExchange pandapower sweep extension v1.2
 
 This adds three inverter siting choices (`lv_head`, `middle`, `far_end`) to the existing representative radial feeder, and supports **5 through 15 households**. It is a scenario study, NOT reconstruction of the actual El Arenal service lines or transformer territories.

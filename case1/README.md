@@ -1,3 +1,5 @@
+> **Current navigation (3 November 2026):** This page documents the older Case 1 v3 model and its historical results. For the locally completed 6,840-task discrete PyPSA campaign and the EPM GIS full-year AC checks, use the [numbered professor walkthrough](professor_walkthrough/README.md) and [research-status audit](RESEARCH_STATUS_AND_AUDIT.md). The older v3 saved `results/RUN_MANIFEST.json` still labels its solar method unverified and its pandapower state NOT_RUN. Do not present that snapshot as the current verified result.
+
 # SEEDExchange El Arenal, WP1 Case Study 1 v3, complete source package
 
 **Scope:** Joint centralized PV/BESS/inverter and household expansion behind the 5 kVA EPM transformer 94022, with causal export and storage control and conditional islanded stress. **No forecasting or MPC in Case 1.** Do not treat this package as approval for installation or operation.

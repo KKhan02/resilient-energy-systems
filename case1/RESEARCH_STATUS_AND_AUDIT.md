@@ -36,3 +36,9 @@ The 24 October review's red-test-first B01/B11 correction and B02/B04 time/backl
 - Assess resilience and adaptability only after the network-constrained baseline is established.
 
 [Professor walkthrough](professor_walkthrough/README.md) provides the numbered figure narrative.
+
+## Repository curation applied after this review
+
+The current branch includes a numbered `case1/professor_walkthrough/` with **18 selected figures**, nine short stage READMEs, and a figure provenance index. Original figures from the 6,840-task `outputs/full_study/figures/` were moved to `case1/research_archive/legacy_joint_optimization_figures/` without changing model results. Historic v3 previews, duplicate upload ZIP files, root review bundles and two old hackathon notebooks were moved to labelled archive subfolders. The [archive relocation index](research_archive/RELOCATION_INDEX.csv) preserves their old and new paths. The models, source input files, validation output CSVs and tests were not moved.
+
+**CI condition:** Every repository curation commit was marked `[ci skip]` in accordance with the request. No new CI-validated numerical claims are added by this cleanup.

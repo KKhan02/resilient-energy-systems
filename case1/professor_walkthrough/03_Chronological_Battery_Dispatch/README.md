@@ -6,6 +6,7 @@ Rather than treating battery capacity as a static energy reserve, the optimizer 
 
 1. [01_12_houses_weekly_operation.png](01_12_houses_weekly_operation.png): Hourly charging discharge and SOC in one week.
 2. [02_12_houses_monthly_energy.png](02_12_houses_monthly_energy.png): Monthly energy balance and seasonality.
+3. [03_annual_grid_exchange.png](03_annual_grid_exchange.png): annual grid exchange across the optimized chronological schedule.
 
 ## Why the next stage followed
 

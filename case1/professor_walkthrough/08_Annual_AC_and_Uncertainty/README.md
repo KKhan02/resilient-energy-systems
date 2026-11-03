@@ -6,6 +6,7 @@ For transformer 106039, head-mounted coordinated Q control with ratio 0.25, load
 
 1. [01_annual_106039_voltage_loading.png](01_annual_106039_voltage_loading.png): 2025 full year 106039 voltage and transformer loading.
 2. [02_Q_uncertainty_heatmap.png](02_Q_uncertainty_heatmap.png): Effect of power factor service length and Q setting.
+3. [03_Q_ratio_vs_min_voltage_robustness.png](03_Q_ratio_vs_min_voltage_robustness.png): reactive capability and uncertain service length affect worst household voltage.
 
 ## Why the next stage followed
 

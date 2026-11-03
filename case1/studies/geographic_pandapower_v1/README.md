@@ -1,3 +1,5 @@
+> **Updated 3 November 2026:** The locally executed results for this hypothetical feeder have been committed under `outputs/`. They predate the EPM GIS conductor-backed reference. Their MST/star geometries are **supporting topology sensitivities**, not the primary network evidence. See [the EPM GIS study](../epm_gis_pandapower_v1/) and [walkthrough](../../professor_walkthrough/README.md). The initial authoring-time status below is retained for provenance.
+
 # SEEDExchange: geographically informed conditional pandapower screen (v1)
 
 **Status:** Source coordinates and provisional house assignments incorporated. **No AC power-flow executions included in this package.** The map is a hypothetical LV routing layer, not a verified EPM network. Use separate outputs from the earlier 324.5 m representative network.

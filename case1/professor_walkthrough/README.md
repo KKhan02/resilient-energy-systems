@@ -2,7 +2,7 @@
 
 **Current purpose:** A chronological progress review with figures, not the final poster.
 
-Open numbered folders 01 to 09 in order. Each folder contains an image sequence and a short explanation of the question, method, results and next step. Original numerical outputs and code remain in their source study folders. This directory is a curated copy, not a new numerical analysis.
+Open numbered folders 01 to 09 in order. The selected set contains **18 PNG figures** copied from the committed project outputs and technical reviews. Each folder contains an image sequence and a short explanation of the question, method, results and next step. Original numerical outputs and code remain in their source study folders. This directory is a curated copy, not a new numerical analysis.
 
 ## Research storyline
 
