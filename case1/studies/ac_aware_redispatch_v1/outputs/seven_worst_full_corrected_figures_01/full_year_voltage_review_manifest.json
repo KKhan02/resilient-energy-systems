@@ -1,0 +1,13 @@
+{
+  "status": "POSTPROCESS_ONLY",
+  "no_new_ac_or_pypsa_solve": true,
+  "source_mode": "full",
+  "full_year_hours_per_case": 8760,
+  "source_sha256": {
+    "sensitivity_ac_hours.csv": "c4c5ce114d997349a25293d7215ef796756225cdfcac85880ee234612b3bcc17",
+    "robustness_manifest.json": "0fa27f0af19d3388ed2dc89dc940778d5fbaebb0ae2a798f9962c0cae588a1bb",
+    "sensitivity_scenarios.csv": "956069225b9dbdc06bdc11a821c75d35da6467e66118701dc612b8c0dff9224e"
+  },
+  "voltage_bands": "magnitude_screen_only_not_compliance",
+  "summary_records": 4
+}

@@ -1,0 +1,3 @@
+hour_index,timestamp_lst,reference_p_kw,lo_kw,hi_kw,feasible_samples,extrapolated,continuous_interval_verified
+68,2025-01-03 20:00:00,-0.0,0.4673999667,2.8043998,6,False,False
+7988,2025-11-29 20:00:00,-0.0,1.6532597,3.3065194,4,False,False

@@ -1,0 +1,22 @@
+{
+  "status": "HISTORICAL_ENERGY_ONLY_SHORTLIST_NO_NEW_SOLVE",
+  "source_csv_sha256": "1cd657b84b0bbebe8ff55801ca40f8f93e469b15fc0f161e72ff6f19bb93ab7d",
+  "source_rows": 6840,
+  "eligible_energy_only_rows": 338,
+  "shortlisted_rows": 60,
+  "saved_sampled_frontier_rows": 87,
+  "cases": [
+    "7_homes",
+    "9_homes",
+    "12_homes"
+  ],
+  "assumed_transformer_kva": 5.0,
+  "status_gates": [
+    "manufacturer SOC reoptimization PENDING",
+    "physical battery-bank continuous current and inverter compatibility check PENDING",
+    "GIS-backed annual AC validation PENDING",
+    "stress/robustness PENDING",
+    "site-specific costs and PV land/roof constraints PENDING"
+  ],
+  "note": "A saved nondominated sample is not a complete Pareto frontier, and all rows are pre-AC economic estimates."
+}

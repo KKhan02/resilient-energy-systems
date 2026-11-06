@@ -1,0 +1,5 @@
+band,v_min_pu,v_max_pu,hours_evaluated,converged_hours,feasible_hours,failure_or_unconverged_hours,full_year_verified,note
+national_magnitude_reference,0.9,1.1,8760,8760,8729,31,False,Fixed P/Q operating points reclassified; no new power flow or control optimization
+historical_epm_nt13_magnitude_reference,0.9,1.05,8760,8760,8729,31,False,Fixed P/Q operating points reclassified; no new power flow or control optimization
+engineering_target,0.95,1.05,8760,8760,8728,32,False,Fixed P/Q operating points reclassified; no new power flow or control optimization
+original_strict_research,0.97,1.03,8760,8760,7943,817,False,Fixed P/Q operating points reclassified; no new power flow or control optimization

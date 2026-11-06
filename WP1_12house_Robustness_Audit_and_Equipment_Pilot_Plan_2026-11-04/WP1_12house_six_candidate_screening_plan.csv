@@ -1,0 +1,7 @@
+candidate,panels,pv_kwp,battery_modules,battery_nominal_kwh,battery_power_dc_kw,inverter_kva,original_energy_only_annual_usd,original_energy_only_self_suff_pct,battery_current_proxy_only,manufacturer_SOC_reoptimized,AC_validated_for_this_hardware,note
+Battery -1 module,41,17.835,7,35.84,9.7526,12.0,4777.86,78.667,True,False,False,"Source shortlist, same 12 synthetic households; no new solve"
+Saved reference,41,17.835,8,40.96,12.0,12.0,4767.83,81.037,True,False,False,"Source shortlist, same 12 synthetic households; no new solve"
+Battery +1 module,41,17.835,9,46.08,12.0,12.0,4828.53,82.335,True,False,False,"Source shortlist, same 12 synthetic households; no new solve"
+Smaller PV/inverter,34,14.79,6,30.72,10.4241,9.999999999999998,4900.57,68.599,True,False,False,"Source shortlist, same 12 synthetic households; no new solve"
+Higher solar/self-sufficiency,54,23.49,9,46.08,15.6511,20.0,5259.45,92.606,True,False,False,"Source shortlist, same 12 synthetic households; no new solve"
+High self-sufficiency target,56,24.36,10,51.2,21.12,20.0,5297.08,95.211,True,False,False,"Source shortlist, same 12 synthetic households; no new solve"

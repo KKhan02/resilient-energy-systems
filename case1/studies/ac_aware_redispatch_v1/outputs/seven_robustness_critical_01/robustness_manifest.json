@@ -1,0 +1,45 @@
+{
+  "label": "CONDITIONAL_GIS_LV_SENSITIVITY_NOT_FIELD_VALIDATED",
+  "case": "seven",
+  "transformer": "94022",
+  "mode": "critical",
+  "full_year_each_case": false,
+  "critical_screen_not_annual_evidence": true,
+  "hours_per_case": 77,
+  "number_of_sensitivity_cases": 9,
+  "requested_pf": [
+    0.9,
+    0.95,
+    0.98
+  ],
+  "requested_service_factors": [
+    1.0,
+    1.3,
+    1.6
+  ],
+  "critical_voltage_cutoff": 0.975,
+  "top_n": 15,
+  "thresholds": {
+    "min_v": 0.97,
+    "max_v": 1.03,
+    "max_trafo_pct": 100.0,
+    "max_line_pct": 100.0
+  },
+  "nighttime_q": "off",
+  "daylight_q_ratio": 0.25,
+  "dispatch_refreshed_after_changed_pf_and_service_length": false,
+  "base_dispatch_source_sha256": "6bdf93cba08e80db0614aff54263de7b6ec7d21373c187303a5e785bcf570b09",
+  "base_pilot_source_sha256": "d00a9b6bf15a99ad5f9bf9ddba597f4915b150db14a76442633410faa84da80e",
+  "reference_annual_summary_sha256": "76958885bd4819ac7e7a6d1b7885d7bbb9244dae92c1e3af4e2076f64d7405e7",
+  "reference_annual_ac_csv_sha256": "3414f4cc60fcd9809e34bad2d7502e3bbed4261cddd787d7cf69661639bcd95e",
+  "parent_git_revision": "e377e21d26db4bffd7a164d1257d5860bb01f325",
+  "elapsed_seconds": 58.75,
+  "assumptions": [
+    "provisional household attachments",
+    "balanced three-phase LV equivalent",
+    "proxy conductor resistance, reactance and ampacity",
+    "5 kVA sensitivity, not verified EPM nameplate for all territories",
+    "zero night-time Q even when battery supplies active power",
+    "unchanged dispatch, no AC losses in optimization and no revised economics"
+  ]
+}

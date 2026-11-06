@@ -1,0 +1,2 @@
+hours_checked,hours_expected,converged_hours,feasible_hours,violating_or_failed_hours,sample_all_feasible,min_v_pu,max_v_pu,max_trafo_loading_pct,max_line_loading_pct,min_voltage_margin_pu,conclusion,load_pf,service_factor,scenario,transformer,nighttime_q
+8760,8760,8760,8649,111,False,0.9609790221087308,0.9968033795419149,64.59902910667293,9.836180852224006,-0.00902097789126921,CONDITIONAL_FULL_YEAR_FAIL,0.9,1.6,seven,94022,off

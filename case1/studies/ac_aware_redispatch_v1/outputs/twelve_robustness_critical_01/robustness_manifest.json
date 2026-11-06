@@ -1,0 +1,24 @@
+{
+  "status": "CONDITIONAL_GIS_AC_SENSITIVITY",
+  "scenario": "twelve",
+  "transformer": "106039",
+  "mode": "critical",
+  "hours_per_scenario": 96,
+  "scenarios": 9,
+  "voltage_target": {
+    "min": 0.95,
+    "max": 1.05
+  },
+  "reference_annual_summary_sha256": "f4377bda553113d419057c3f31effb2303944ef2e68a017b14a672d970317784",
+  "reference_annual_csv_sha256": "b633a680b327e64fd50106ef84e53f160bccbe3e0925c385064091ad4381e2c4",
+  "source_manufacturer_trajectory_sha256": "ce38d26890b11fa8342fc5a663b479ebebaece219b5388cade1dc26c74ed78b3",
+  "source_manifest_sha256": "88d8d9572a2dc8251832546a0f15832086ac866691503dd4011b024d63ac2dd7",
+  "original_hourly_P_and_SOC_unchanged": true,
+  "reoptimized_for_PF_or_service_length": false,
+  "nighttime_Q_off": true,
+  "reactive_P_and_Q_coupling_evaluated_in_pandapower": true,
+  "feeder": "balanced EPM GIS proxy, household service drops/phase and conductor impedance assumed",
+  "runtime_seconds": 83.42,
+  "git_revision": "e377e21d26db4bffd7a164d1257d5860bb01f325",
+  "conclusion_scope": "Full-year only in --mode full; critical mode is preliminary, not a pass proof"
+}

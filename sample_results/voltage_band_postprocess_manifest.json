@@ -1,0 +1,48 @@
+{
+  "status": "POSTPROCESS_ONLY_NO_NEW_AC_OR_PYPSA_SOLVES",
+  "source_mode": "critical",
+  "source_hours_per_case": 77,
+  "source_case": "seven",
+  "source_transformer": "94022",
+  "source_dispatch": "UNCHANGED",
+  "source_manufacturer_soc": "UNCHANGED",
+  "source_sha256": {
+    "sensitivity_ac_hours.csv": "faa93ac2fd14f30c63663c7f6a7c1e0aec59320b5a6d85487720885113844912",
+    "sensitivity_scenarios.csv": "9eeb90a60cd55b7b7dfe1692dafecd4f39ae576390e5ab1b956d0a5aa04ebc2b",
+    "robustness_manifest.json": "08d41d1076dbd76cb7644cdc1499bbaf0bd71234490feb742be954e4608531d8"
+  },
+  "source_model_limit": {
+    "min_v": 0.97,
+    "max_v": 1.03,
+    "max_trafo_pct": 100.0,
+    "max_line_pct": 100.0
+  },
+  "bands": [
+    {
+      "name": "national_magnitude_reference",
+      "min_v": 0.9,
+      "max_v": 1.1,
+      "interpretation": "National voltage magnitude reference only; no duration/point-of-delivery compliance claim"
+    },
+    {
+      "name": "epm_nt13_2019_magnitude_reference",
+      "min_v": 0.9,
+      "max_v": 1.05,
+      "interpretation": "Historic EPM technical reference; current applicability unverified"
+    },
+    {
+      "name": "engineering_target",
+      "min_v": 0.95,
+      "max_v": 1.05,
+      "interpretation": "Proposed research engineering target, not a regulation"
+    },
+    {
+      "name": "original_strict_research",
+      "min_v": 0.97,
+      "max_v": 1.03,
+      "interpretation": "Original WP1 sensitivity only, not regulatory limit"
+    }
+  ],
+  "caveat": "Only voltage magnitudes at selected time points; no formal Colombian/EPM regulatory compliance claim. Old EPM NT13 applicability unconfirmed.",
+  "future_action": "Complete annual validation on shortlisted PF/route cases before claiming robustness; manufacturer SOC and P/Q coupling needed for sizing."
+}

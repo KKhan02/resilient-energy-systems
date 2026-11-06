@@ -1,0 +1,28 @@
+{
+  "archived_tasks": 6840,
+  "status_counts": {
+    "OPTIMAL_ENERGY_SCREEN_ONLY_NO_AC_FEEDER": 6820,
+    "INFEASIBLE_MODEL": 20
+  },
+  "archived_optimal_tasks": 6820,
+  "distinct_fixed_hardware_across_12_cases_and_5_ratings": 6339,
+  "GIS_mapped_energy_only_designs": 1584,
+  "ready_for_new_SOC_and_AC_work": 1214,
+  "unmapped_or_hardware_review_designs": 5125,
+  "historical_infeasible_preserved": 20,
+  "hours_per_archived_energy_solve": 8760,
+  "notes": [
+    "Original annual MILP results are READ ONLY and are never rerun by the indexer.",
+    "Different original objective tasks may yield the same hardware; their task-level results remain intact.",
+    "Economic fixed-hardware redispatch is a NEW study under manufacturer SOC constraints.",
+    "No archival energy-only row is labelled AC-feasible. GIS is provisional.",
+    "Unmapped household cases and transformer nameplate sensitivities require separate evidence."
+  ],
+  "source": "case1\\studies\\pypsa_joint_optimization_v1\\outputs\\full_study\\complete_study_results.csv",
+  "source_sha256": "1cd657b84b0bbebe8ff55801ca40f8f93e469b15fc0f161e72ff6f19bb93ab7d",
+  "source_manifest_sha256": "373f259046521425a8d50407bcaf9147aa93a608967b8eb2e4e648e75c799889",
+  "source_run_plan_sha256": "d71663e4d1e915e4968415164c39049b5e7be0378ce3b4cc3934c81f630aece4",
+  "old_results_preserved": true,
+  "new_solver_runs": 0,
+  "new_AC_runs": 0
+}
