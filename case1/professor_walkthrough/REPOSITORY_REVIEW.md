@@ -45,3 +45,10 @@ The 106039 full-year pass occurs at minimum voltage **0.970005 pu** under assume
 The user required **no CI/CD run** for this reorganization, and the commits were made with `[ci skip]`. The last previously green CI run predates the large new study drop. Local test and solver convergence evidence exists, but the new sources are not independently GitLab-CI verified. Do not create a GitHub Actions job just because GitLab has `.gitlab-ci.yml`: this project already uses GitLab.
 
 Next, implement SOC-consistent AC-aware battery active-power redispatch, verify that revised schedules remain physically and economically credible, and then test resilience and adaptability. Prefer a separate CI-gated verification stage only when the researcher explicitly authorizes it.
+
+
+## Update after local WP1 sync, 6 November 2026
+
+The pre-existing repository review above describes the **3 November** figure selection. It remains as an audit of that earlier state. The current walkthrough now includes **24 source-copied figures** and revised sections for manufacturer-SOC correction, the completed seven-house full-year AC-aware active-power feedback, the twelve-house manufacturer-SOC annual AC result and the full-campaign reuse plan. Sections 06 and 07 gained original source-figure copies for maximum voltage, losses and the Q-ratio voltage/transformer trade-off. Section 08 now separates old Q-only annual evidence from later conservative nighttime-Q-off annual results and separates engineering from historical regulatory-magnitude references.
+
+The new annual campaign is still in progress. No campaign-wide validated equipment frontier, unbalanced physical feeder certification or vendor-verified nighttime Q capability is claimed. Source study code, numerical outputs and original figure files were not modified by this walkthrough-only update.

@@ -1,45 +1,45 @@
 # SEEDExchange: professor research walkthrough
 
-**Current purpose:** A chronological progress review with figures, not the final poster.
-
-Open numbered folders 01 to 09 in order. The selected set contains **18 PNG figures** copied from the committed project outputs and technical reviews. Each folder contains an image sequence and a short explanation of the question, method, results and next step. Original numerical outputs and code remain in their source study folders. This directory is a curated copy, not a new numerical analysis.
+**Status: progress discussion updated 6 November 2026.** This folder curates **24 PNG figures** across the source studies, with 11 numbered stages. It is not a field-certification report or final poster. All figure copies retain links to original data and code; no original simulation outputs are moved or rewritten.
 
 ## Research storyline
 
-We first identified the 35 candidate households, mapped EPM transformer assets and reconstructed the evidence available from NASA weather, synthetic electricity demand and utility GIS. PyPSA/Linopy then co-optimized discrete PV, BESS and inverter choices with 8,760 hourly battery charge, discharge and state-of-charge values. These runs use *perfect foresight*, meaning they know the entire modelled year in advance; interpret them as planning benchmarks, not proven causal controls. We independently replayed active power in pandapower. A representative feeder revealed voltage constraints, EPM GIS improved the backbone topology, and reactive power was optimized with transformer and voltage safeguards. One 106039 reference case passed an entire year's hourly AC screen but has negligible voltage margin. Other uncertainty cases and 94022 still fail. Next is SOC-consistent active-power redispatch, then resilience and adaptability.
+The study begins with 35 provisional candidate properties, 2025 NASA POWER resource and synthetic household demand, and an EPM GIS-backed low-voltage skeleton with assumed service connections. A full 6,840-task PyPSA/Linopy campaign then optimizes integer PV/BESS/inverter choices and chronological 8,760-hour dispatch under **perfect foresight**.
 
-For a connected written explanation, read [the full research narrative](RESEARCH_NARRATIVE.md) alongside the figures.
+Independent pandapower tests show why aggregate energy/PCC feasibility does not establish household voltage or thermal feasibility. We examine inverter siting, local Volt-Var, transformer safeguards, coordinated reactive power and their effects on voltage and losses.
 
-## Folder sequence
+**New since the original 3 November walkthrough:** a manufacturer's 20% minimum battery-SOC restriction, successful **SOC-consistent 7-house active-power feedback** under the stricter original voltage research band, and a **12-house reference full-year 0.95–1.05 pu AC pass** with nighttime Q disabled. Full-year stress screening also demonstrates how the original 0.97 pu threshold can classify hours differently from a 0.95 pu engineering target. A reuse-first AC-validation campaign is assessing previously optimized equipment choices; no complete network-feasible economic frontier is claimed yet.
 
-| Order | Story | Why it follows |
+For the connected narrative see [RESEARCH_NARRATIVE.md](RESEARCH_NARRATIVE.md). For original source paths see [FIGURE_INDEX.csv](FIGURE_INDEX.csv).
+
+## Presentation order
+
+| Stage | Topic | Key purpose |
 |---|---|---|
-| 01 | [01_Community_and_Inputs](01_Community_and_Inputs/) | Why El Arenal, and what data can the models rely on? |
-| 02 | [02_Joint_PV_BESS_Sizing](02_Joint_PV_BESS_Sizing/) | Joint equipment sizing: PV, BESS, inverter and cost |
-| 03 | [03_Chronological_Battery_Dispatch](03_Chronological_Battery_Dispatch/) | How the optimized battery is used across time |
-| 04 | [04_Representative_Feeder_AC_Screen](04_Representative_Feeder_AC_Screen/) | First electrical falsification: aggregate feasibility is not AC feasibility |
-| 05 | [05_Geographic_EPM_Feeder_Evidence](05_Geographic_EPM_Feeder_Evidence/) | Moving from hypothetical feeders to EPM-mapped conductor sections |
-| 06 | [06_Inverter_Siting_and_VoltVar](06_Inverter_Siting_and_VoltVar/) | Why inverter siting and reactive control help, and where they fail |
-| 07 | [07_Coordinated_AC_Q_Optimization](07_Coordinated_AC_Q_Optimization/) | Coordinated Q control with thermal and voltage constraints |
-| 08 | [08_Annual_AC_and_Uncertainty](08_Annual_AC_and_Uncertainty/) | Annual AC validation and fragility to uncertain inputs |
-| 09 | [09_Next_Research_Decisions](09_Next_Research_Decisions/) | Research decisions, not completed results |
+| 01 | [Community and inputs](01_Community_and_Inputs/) | Geography, 35 provisional houses, EPM GIS and resource evidence |
+| 02 | [Joint PV/BESS sizing](02_Joint_PV_BESS_Sizing/) | Reuse the 6,840-task investment campaign and price/self-sufficiency trade-offs |
+| 03 | [Annual battery operation](03_Chronological_Battery_Dispatch/) | Optimized chronological battery charge/discharge and SOC |
+| 04 | [Representative feeder AC](04_Representative_Feeder_AC_Screen/) | Why economic screening is not household AC feasibility |
+| 05 | [EPM GIS network evidence](05_Geographic_EPM_Feeder_Evidence/) | Infrastructure-backed conductor graph and uncertain service attachments |
+| 06 | [Inverter siting and local Volt-Var](06_Inverter_Siting_and_VoltVar/) | Lower/upper voltage, thermal loading, guard behavior and feeder loss |
+| 07 | [Coordinated Q and capability](07_Coordinated_AC_Q_Optimization/) | Q-ratio feasibility versus voltage and transformer-loading trade-offs |
+| 08 | [Full-year AC and uncertainty](08_Annual_AC_and_Uncertainty/) | Revised voltage bands, 7- and 12-house annual AC and sensitivity limits |
+| 09 | [SOC-consistent AC-aware redispatch](09_AC_Aware_Redispatch/) | Four strict-screen 94022 failures resolved by changing annual active-power timing |
+| 10 | [Full-campaign equipment feasibility](10_Campaign_Equipment_Feasibility/) | Historical investment reuse, manufacturer SOC and annual AC queue, still in progress |
+| 11 | [Next research decisions](11_Next_Research_Decisions/) | Field evidence, loss-aware sizing, resilience and forecasting gaps |
 
-## Core scientific distinctions
+## Interpretation requirements
 
-**Planning optimality is not real-time control.** The MILP solves investment and the whole year's energy dispatch simultaneously. Its schedules are based on full-year information. Economic numbers are conditional on the stochastic reference demand, prices and source data.
+- **Voltage bands are separate:** 0.97–1.03 pu is the old strict model sensitivity; 0.95–1.05 pu is the proposed engineering magnitude target. Reference to Colombia's national 0.90–1.10 pu or historical EPM 0.90–1.05 pu does **not** make hourly balanced-proxy simulations regulatory certification.
+- **AC and energy models are distinct:** PyPSA optimizes fixed-hardware operation with SOC; pandapower independently replays AC voltage and currents. Active-power feedback for **one seven-house reference** was completed, not yet generalized to the archived campaign.
+- **Old Q-control plots differ:** earlier sampled coordinated-Q studies used different nighttime Q and SOC assumptions. Preserve them as historic controller comparisons, not direct manufacturer-supported annual dispatch.
+- **Costs and grid data are conditional:** demand is synthetic, conductor/service data and some transformer nameplates are provisional or hypothetical, and pandapower losses are not integrated into equipment-cost optimization. Do not claim commercially verified designs.
+- **No duplication or invalid completion claims:** the campaign uses the archived 6,840 optimized energy tasks; unvalidated or partial annual-AC output folders remain pending.
 
-**Battery SOC was optimized already.** The later pandapower runs fix the previously optimized active-power trajectory and adjust Q. They have not re-optimized battery charge/discharge with network feedback or a changed SOC trajectory.
+## Original studies
 
-**AC passing does not verify as-built EPM compliance.** Feeder sections come from EPM GIS, while household service assignment, conductor impedance/ampacity and balanced equivalent phase treatment are assumptions. The 106039 annual result is 8,760/8,760 conditional passes at 0.970005 pu minimum voltage.
-
-**Costs are annualized economic equivalents.** Upfront CAPEX differs from equipment annuity/O&M/replacement plus annual net grid energy; cost per house is the annual total divided by participants. Historical quotes omit substantial site-specific network costs.
-
-## Source and review pointers
-
-- [Current research status and audit](../RESEARCH_STATUS_AND_AUDIT.md)
-- [Main mixed-integer optimization](../studies/pypsa_joint_optimization_v1/)
-- [EPM GIS and coordinated AC control](../studies/epm_gis_pandapower_v1/)
-- [Archived figures and upload bundles](../research_archive/)
-- [Numerical provenance index](FIGURE_INDEX.csv)
-
-The older source READMEs may still reflect package-authoring status before locally completed runs. Read the latest manifests and this progress index for current state.
+- [Current numerical AC and campaign work](../studies/ac_aware_redispatch_v1/)
+- [Original PyPSA full study](../studies/pypsa_joint_optimization_v1/)
+- [EPM GIS and coordinated Q](../studies/epm_gis_pandapower_v1/)
+- [Research status audit](../RESEARCH_STATUS_AND_AUDIT.md) (older document; later progress appears here)
+- [Figure provenance index](FIGURE_INDEX.csv)
