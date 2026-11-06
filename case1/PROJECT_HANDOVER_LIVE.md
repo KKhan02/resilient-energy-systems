@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 6 November 2026.**
+**Last audit: 6 November 2026. Scope and sequencing reconfirmed by user on 6 November.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -11,6 +11,9 @@
 Read this file first, then check the live GitLab HEAD and relevant output manifests. **After every substantive reply**, revise this SAME file with decisions, completed actions, results, failures, uncertainties, and next steps. Commit documentation changes with [ci skip] and retain an exportable Markdown copy. Do not recreate a new handover filename. Mark reported, source-verified, planned, running and unverified results distinctly. Preserve all historical numerical results and test evidence. Do not change new topology, equipment ratings, cost assumptions, models or tariffs without discussing substantive design choices with the user. Do not start a new historical optimization sweep simply to reproduce saved outputs.
 
 ## 1. Project purpose and boundary
+
+**Overriding study-design decision:** The entire 5-to-15-household sweep, including both 8-house synthetic cases, is the **primary design space regardless of where households ultimately connect**. The existing EPM GIS network and proposed new LV feeder are **two parallel electrical comparison scenarios** using archived equipment designs. The proposed-feeder topology is a gate only for AC validation of that specific new feeder; it must not block archived frontier analysis, fixed-hardware dispatch preparation, or continued existing-EPM AC checks. The main study is not restricted to current EPM transformer territories.
+
 
 Research a shared, grid-connected community PV+BESS energy system for El Arenal, San Rafael, Antioquia, Colombia. Compare investment cost, 8,760-hour energy self-sufficiency and physical grid capability, accounting for transformer kVA, LV voltage, conductor ampacity, losses and battery SOC. Keep two distinct network questions:
 
@@ -51,9 +54,12 @@ The primary investment engine is PyPSA/Linopy, with a perfect-foresight annual e
 - Keep full original 6,840-task investment results, the 35-property spatial evidence, existing source paths, historical figures and tests intact. New network topologies must be labelled hypothetical until real design inputs exist.
 - Use manufacturer battery/current, inverter-string and PV constraints before procurement recommendation. Original economic model omits full site cost, physical feeder losses, actual EPM tariff, verified service reconnection cost and some hardware cost increments.
 
-## 4. Unfinished work, in order
+## 4. Unfinished work, organized by dependency (parallel tracks)
 
-### Gate A: Define a defensible new proposed LV topology, NOT YET SIMULATED
+**Execution order clarified 6 Nov:** Advance (A) proposed feeder topology specification, (B) 5-to-15-house equipment candidate preparation and manufacturer-SOC annual dispatch, and (C) reuse/reconciliation of existing EPM GIS annual AC evidence **in parallel**. New-feeder AC must wait for A, but neither B nor existing-EPM work must wait for A. The selection does not impose an arbitrary cap: 50 first economic anchors, then sampled nondominated and hardware-transition candidates when AC results justify. Do not claim all 50 require immediate runs. No new historical investment sweep.
+
+
+### Parallel track A: Define a defensible proposed LV topology, NOT YET SIMULATED
 
 Study protocol exists: studies/household_frontier_reuse_v1/PROPOSED_LV_NETWORK_PROTOCOL.md.
 
@@ -62,20 +68,20 @@ Study protocol exists: studies/household_frontier_reuse_v1/PROPOSED_LV_NETWORK_P
 - Define whether one supplied solar inverter at the shared PCC or a separately documented arrangement applies. Make zero-export logic, source voltage, protection and 5 kVA sensitivity explicit.
 - First run **load-only baseline** and representative worst-hour voltage, transformer and branch-current checks; document basic plausibility before launching selected PV+BESS AC.
 
-### Gate B: Reuse archived investment choices without rerunning MILP
+### Parallel track B: Reuse archived investment choices without rerunning MILP
 
 - Read stage A 50 anchors and Stage B/C from studies/household_frontier_reuse_v1/outputs/archived_hardware_pool_5kva.csv; retain **all** household counts.
 - Reconstruct full 8,760-hour fixed-hardware operation with manufacturer SOC and realistic power constraints; preserve original source hash and initial objective.
 - Verify Deye SE-G5.1 current, 20% SOC, battery DC power sizing, inverter/PV string constraints and zero/incomplete cost proxies.
 
-### Gate C: Network-specific annual AC and equipment frontier
+### Network-specific AC: resume existing GIS checks now; proposed network after track A
 
 - Reuse prior annual 94022/106039 AC and partial campaign results. Run **independent** full-year AC for the proposed new LV network and each relevant selected PF, voltage and route assumption.
 - Store convergence, Vmin/Vmax, line and transformer loading, losses, ENS, self-sufficiency and lifecycle-cost impacts; distinguish fixed-energy schedules from true AC-constrained redispatch.
 - When AC fails, resample feasible P/Q regions for the same network/PF/topology, reoptimize **all 8,760 chronological SOC hours**, then independently AC-revalidate. Never transfer existing seven-house P constraints to another network.
 - Only after validated AC runs form an AC-feasible cost/self-sufficiency Pareto. Targeted finalist PF/route stress must run all 8,760 hours before an annual claim. Do not turn a 77/96 critical-hour sample into annual certification.
 
-### Gate D: Field validity and extensions
+### Later gate: Field validity and extensions
 
 - Verify customer meter and actual transformer associations, nameplates (especially 106039), conductor impedances/current ratings, service routes, actual LV phase/split-phase and neutral, household PF, inverter night Q support, manufacturer battery power, actual tariffs, battery replacement and local civil/permit costs.
 - Include AC losses and site/interconnection expenses in economics, and test uncertainty. Then move toward resilience/outage, practical forecasting/causal control, and household hosting/reassignment as independent, costed options.
@@ -101,6 +107,8 @@ Study protocol exists: studies/household_frontier_reuse_v1/PROPOSED_LV_NETWORK_P
 | 5 Nov 2026 | Original campaign reuse index | 6,840 original tasks retained, 1,214 index-ready for further SOC+AC; no presumption of passing |
 | 6 Nov 2026 | ZIP cleanup and 5–15-house frontier | 12 versioned ZIPs moved; 1,255 distinct 5-kVA hardware options, 387 sampled frontier hardware, 50 initial anchors, 296 hardware transitions; no new AC |
 | **6 Nov 2026** | **Recovered project after chat context limit** | Located live private GitLab.com repo, verified latest commit and exact sources/manifest values, established this rolling handover. NEXT: define proposed feeder geometry, then baseline AC |
+
+| **6 Nov 2026** | **User reconfirmed original methodology** | Primary research space remains 5–15 households (12 synthetic scenarios). Existing EPM connections and proposed LV network are two separate validations, not sequential alternative scopes. Proceed with economic/SOC selection and existing EPM AC work while defining proposed LV topology. Earlier summary incorrectly implied the topology was an overall research gate. No new numerical calculations executed. NEXT: dependency-aware parallel execution, then adaptive full-year AC. |
 
 ## 7. Working routine to avoid another context loss
 
