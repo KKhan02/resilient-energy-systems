@@ -1,6 +1,6 @@
 # Per-household economic frontier and equipment transitions: original 5 kVA screen
 
-**Source:** [complete archived 6,840-task annual PyPSA study](../../pypsa_joint_optimization_v1/outputs/full_study/complete_study_results.csv). This report uses existing saved costs and 8,760-hour perfect-foresight energy-screen solutions. **No investment solver or new AC calculation was run.**
+**Source:** [complete archived 6,840-task annual PyPSA study](../pypsa_joint_optimization_v1/outputs/full_study/complete_study_results.csv). This report uses existing saved costs and 8,760-hour perfect-foresight energy-screen solutions. **No investment solver or new AC calculation was run.**
 
 ## How the first candidate pool was derived
 
@@ -39,6 +39,10 @@ Total: **1348** successful archived 5 kVA tasks, **1255** distinct hardware comb
 - From nine to ten houses the minimum-cost choice stays at 34 panels, 6 battery modules and 10 kVA inverter, while annual cost rises. From 11 through 14 houses it stays at 41 panels, 8 modules and 12 kVA inverter. These are recorded **energy-economic transitions**, not AC-feasible design conclusions.
 - The economic minimum at 15 houses increases to 67 panels, 11 battery modules and 20 kVA inverter. PV rooftop/site and inverter-string compatibility remain source-dependent.
 - Nondominated sampled points are **not the complete mathematical Pareto frontier**. Their costs and self-sufficiency are before manufacturer SOC correction, verified feeder losses and site cost corrections. The initial-anchor list is **not yet a feasible equipment shortlist**.
+
+## Figure
+
+[View the 12-panel sampled economic frontier](figures/archived_cost_self_sufficiency_facets_5kva.svg). Gray points are saved equipment choices, black points are task-level sampled Pareto solutions, and outlined circles are the data-driven initial anchors. Each panel has its own annual cost axis and the same 0 to 100% self-sufficiency axis. This is original **energy-only** evidence, not AC feasibility.
 
 ## Files
 
