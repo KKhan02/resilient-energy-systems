@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 6 November 2026. Frontier provenance and third Site A network scenario clarified.**
+**Last audit: 6 November 2026. Locally tested audit package ready; 50-design cap explicitly rejected.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -133,7 +133,23 @@ Study protocol exists: studies/household_frontier_reuse_v1/PROPOSED_LV_NETWORK_P
 - The previous straight-line nearest-15-house exercise is **geographic screening only** and remains an optional input for C, not an approved existing EPM feeder map, no frozen nested membership. H25 may be nonresidential; H23 is a possible alternative. Existing mapped transformer locations and evidence already exist; **do not restart transformer georeferencing**. No new physical site/network parameters approved at this turn.
 - **Coding and GitLab boundary reconfirmed:** After discussion and agreement, deliver local packages; user runs and supplies results; iterative debugging stays local; synchronize model/code only after sufficient locally verified progress and explicit user instruction. The standing exception is this rolling GitLab handover: update it after every response. **No other GitLab modifications without specific authorization.**
 
-| **6 Nov 2026** | **Clarified 50-design provenance, Site A scenario, GitLab boundaries** | 50 was criteria-derived from archived 5–15-household cases in commit 8184fb0b, not a hard run cap nor a single-house design count. Accepted Site A clearing as third *proposed* location-specific PV+BESS/nearby-house comparison, no new transformer implied. Local-first code iterations; only this handover may be committed after every response. No project code or study files modified. |\n\n## 7. Working routine to avoid another context loss
+| **6 Nov 2026** | **Clarified 50-design provenance, Site A scenario, GitLab boundaries** | 50 was criteria-derived from archived 5–15-household cases in commit 8184fb0b, not a hard run cap nor a single-house design count. Accepted Site A clearing as third *proposed* location-specific PV+BESS/nearby-house comparison, no new transformer implied. Local-first code iterations; only this handover may be committed after every response. No project code or study files modified. |\n\n## Local-first execution checkpoint, 6 November 2026: no arbitrary 50-design AC cap
+
+**User decision:** The 50 criterion-selected Stage A designs are **neither a minimum nor a maximum nor a fixed required count**. We may validate all 50 in annual AC, and then as many more of the remaining archived 1,255 5-kVA designs as are informative and computationally warranted. The user specifically objects to over-rigid statements implying we should not run all 50. Preserve every 5–15-household variant, both synthetic 8-house alternatives and all historical 6,840 PyPSA investment tasks. Reuse annual AC results where provenance matches; do not mistake simple annual output similarity for matching hardware trajectories. The constraint is correct network membership/topology, not an arbitrary run count.
+
+**Prepared during this assistant turn, LOCAL PACKAGE ONLY:**
+- `SEEDExchange_Local_Validation_Audit_v1.zip` with stand-alone Python source `review_validation_queue.py`, README and four local regression tests.
+- Default `--scope anchors` audits **all 50** Stage A designs. `--scope all` audits **all 1,255** distinct archived 5-kVA hardware designs, including B/C/D. Neither mode runs energy optimization nor pandapower.
+- Verifies exact historical task-key to candidate-ID matching, active GIS runner eligibility, SHA256/8,760-row manufacturer-SOC local trajectory, saved full-year PF0.98/service1.0 AC summary and hourly count with matching energy-source SHA. Missing local manufacturer trajectories remain explicitly unverified.
+- Writes a candidate-by-network validation ledger, source status summary, and existing-GIS dry-run commands to a **new output directory outside the checkout**. No source code, remote data or existing simulation folder is modified. Future user-launched annual PyPSA fixed-hardware dispatch and AC is a separate explicit `--execute` action through the existing source runner.
+- Offline fixture tests were executed: **4 passed**, then Python bytecode compilation verified. These are validation-*audit* tests, not proof the full GIS/PyPSA numerical runtime works. **No new annual AC calculations have been executed**.
+- Three comparison configurations remain: A, existing EPM GIS; B, physically specified generic proposed LV for 5–15; C, Site A clearing-based PV+BESS and proposed nearby connections. No new B/C physical feeder, new EPM customer mapping, transformer installation, ratings or cable routing has been approved or implemented.
+
+**NEXT LOCAL ACTION:** User runs `python review_validation_queue.py --repo-root <local checkout> --output-dir <fresh path> --scope anchors` after extracting the ZIP, then returns `validation_audit_summary.json` and `candidate_validation_ledger.csv`. With those, verify local historical `campaign_manufacturer_01/` chronologies, resume eligible existing-GIS jobs without overwriting, and develop the B/C network choices through discussion before their AC simulations. The full 1,255-design audit can be run whenever useful, without an artificial selection ceiling.
+
+**GitLab permissions this turn:** the user authorizes committing **only** this rolling handover after each response. No repository code, model, simulation or other file may be edited on GitLab without a specific user instruction. This update is documentation only, `[ci skip]`. Local audit ZIP has **not** been pushed to GitLab.
+
+## 7. Working routine to avoid another context loss
 
 Each substantive chat response should append a log entry and revise this file, committing with [ci skip] and without changing simulation outputs. Before modifying models, check live repository changes, read relevant source manifests and discuss any material new scenario/engineering assumption. If GitLab is unavailable, update a downloadable Markdown copy and explicitly mark remote sync as pending. Continue from verified results, not from old chat fragments.
 
