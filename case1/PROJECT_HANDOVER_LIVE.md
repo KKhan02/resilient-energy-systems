@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 6 November 2026. Scope and sequencing reconfirmed by user on 6 November.**
+**Last audit: 6 November 2026. Selection and executable validation routing prepared.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -110,7 +110,7 @@ Study protocol exists: studies/household_frontier_reuse_v1/PROPOSED_LV_NETWORK_P
 
 | **6 Nov 2026** | **User reconfirmed original methodology** | Primary research space remains 5–15 households (12 synthetic scenarios). Existing EPM connections and proposed LV network are two separate validations, not sequential alternative scopes. Proceed with economic/SOC selection and existing EPM AC work while defining proposed LV topology. Earlier summary incorrectly implied the topology was an overall research gate. No new numerical calculations executed. NEXT: dependency-aware parallel execution, then adaptive full-year AC. |
 
-## 7. Working routine to avoid another context loss
+| **6 Nov 2026** | **Implemented agreed Stage A validation routing** | Reconciled 50 economic anchors with original 6,820 task-key index; all 50 exactly matched. 10 existing-GIS-runner eligible (4 seven, 3 nine, 3 twelve); 40 need an explicit new-LV network. One Stage A archive ID has saved AC evidence. Retained 337 B, 247 C, 621 D disjoint tiers and 296 overlapping transition designs. Wrote Stage A routing CSV, manifest, EPM dry-run manual and empty proposed-LV input contract. Extended existing AC batch tool with principal PF 0.98/0.95/1.0, preserving legacy 0.9 stress; new regression assertions added. No new AC or energy runs. Existing GitLab lacks campaign_manufacturer_01/ although campaign_AC_01/ has 4 candidate folders: before claiming reproducibility inspect local source trajectory hashes. NEXT: verify local simulation state, execute pending 9 eligible Stage A fixed-hardware energy/AC batches as resources allow; define nested 15-site geometry in parallel. |\n\n## 7. Working routine to avoid another context loss
 
 Each substantive chat response should append a log entry and revise this file, committing with [ci skip] and without changing simulation outputs. Before modifying models, check live repository changes, read relevant source manifests and discuss any material new scenario/engineering assumption. If GitLab is unavailable, update a downloadable Markdown copy and explicitly mark remote sync as pending. Continue from verified results, not from old chat fragments.
 

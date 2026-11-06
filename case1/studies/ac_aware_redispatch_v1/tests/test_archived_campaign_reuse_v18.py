@@ -68,3 +68,11 @@ def test_resume_rejects_duplicate_or_missing_hours(tmp_path):
 def test_shortlist_snapshot_is_not_full_campaign():
     # The supplied 60-row earlier shortlist must never substitute for a 6840-row manifest.
     assert len({7,9,12})==3
+
+
+def test_all_principal_pf_scenarios_preserve_optional_pf090():
+    assert scenarios('principal') == [(0.98, 1.0), (0.95, 1.0), (1.0, 1.0)]
+    assert len(scenarios('principal_nine')) == 9
+    assert set(scenarios('principal_nine')) == {(pf, fac) for pf in (0.98, 0.95, 1.0) for fac in (1.0, 1.3, 1.6)}
+    assert (0.90, 1.6) in scenarios('nine')
+    assert all(pf != 0.90 for pf, _ in scenarios('principal'))

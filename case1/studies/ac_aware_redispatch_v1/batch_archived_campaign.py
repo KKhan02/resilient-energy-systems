@@ -30,6 +30,8 @@ def enumerate_candidates(plan_dir:Path,case:str|None=None,kva:float|None=None):
 
 def scenarios(choice:str):
     if choice=='reference':return [(0.98,1.0)]
+    if choice=='principal':return [(pf,1.0) for pf in (.98,.95,1.0)]
+    if choice=='principal_nine':return [(pf,factor) for pf in (.98,.95,1.0) for factor in (1.,1.3,1.6)]
     if choice=='nine':return [(pf,factor) for pf in (.98,.95,.90) for factor in (1.,1.3,1.6)]
     raise ValueError('Unrecognized AC scenario matrix')
 
@@ -63,7 +65,7 @@ def main(argv=None):
     ap.add_argument('--case',help='seven, nine, twelve, or original 7_homes etc; omitted means all GIS-supported cases')
     ap.add_argument('--kva',type=float,help='Optional rating filter, e.g. 5 (assumption for 106039)')
     ap.add_argument('--candidate-id',help='Optional exact candidate ID')
-    ap.add_argument('--scenario-set',choices=['reference','nine'],default='reference')
+    ap.add_argument('--scenario-set',choices=['reference','principal','principal_nine','nine'],default='reference')
     ap.add_argument('--max-candidates',type=int,default=0,
                     help='0=all eligible, N=first N candidates; no six-design limit')
     ap.add_argument('--execute',action='store_true',help='Without this flag only prints a dry-run work plan')

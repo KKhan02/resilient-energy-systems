@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-06",
+  "type": "ARCHIVED_ECONOMIC_SELECTION_ROUTING__NOT_NEW_PYPSA_OR_AC_RESULTS",
+  "source_pool": "case1/studies/household_frontier_reuse_v1/outputs/archived_hardware_pool_5kva.csv",
+  "source_registry": "case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01/all_distinct_equipment_candidates.csv",
+  "source_canonical_study": "case1/studies/pypsa_joint_optimization_v1/outputs/full_study/complete_study_results.csv",
+  "source_canonical_study_sha256": "1cd657b84b0bbebe8ff55801ca40f8f93e469b15fc0f161e72ff6f19bb93ab7d",
+  "archived_tasks": 6840,
+  "hardware_rows_at_5kva": 1255,
+  "all_archive_equipment_index_rows": 6339,
+  "source_task_keys_indexed": 6820,
+  "first_tier_anchors": 50,
+  "existing_GIS_runner_eligible_anchors": 10,
+  "no_existing_GIS_runner": 40,
+  "exact_anchor_matches_with_saved_AC": 1,
+  "assumptions": {
+    "PF_main": [
+      0.95,
+      0.98,
+      1
+    ],
+    "PF_optional_stress": 0.9,
+    "voltage_screen_pu": [
+      0.95,
+      1.05
+    ],
+    "base_service_length_factor": 1,
+    "legacy_optional_service_factors": [
+      1,
+      1.3,
+      1.6
+    ],
+    "night_q": "off",
+    "SOC_floor": "20pct_physical",
+    "new_transformer_kva": "hypothesis_5_not_confirmed"
+  },
+  "source_status": "READ_ONLY_ARCHIVED_DATA",
+  "AC_executed_during_routing": 0,
+  "remote_dependency_gap": "campaign_manufacturer_01 chronological energy trajectories are NOT present under checked-in ac_aware_redispatch_v1/outputs; check local copies and hashes before interpreting or resuming 4 existing candidate AC groups.",
+  "network_validation_scope": "Existing GIS and proposed new LV are separate conditional networks; no mapping invented for non-GIS counts."
+}

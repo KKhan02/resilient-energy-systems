@@ -1,0 +1,60 @@
+{
+  "status": "UNPOPULATED_NETWORK_INPUT_CONTRACT__NOT_A_VALIDATED_TOPOLOGY",
+  "label": "Proposed grid-connected shared PV BESS LV community",
+  "archived_household_cases": [
+    "5_homes",
+    "6_homes",
+    "7_homes",
+    "8_homes_H01",
+    "8_homes_H02",
+    "9_homes",
+    "10_homes",
+    "11_homes",
+    "12_homes",
+    "13_homes",
+    "14_homes",
+    "15_homes"
+  ],
+  "consistent_site_count_required": 15,
+  "nested_membership_order": [],
+  "candidate_sites": [],
+  "proposed_transformer": {
+    "location": null,
+    "planning_kva_hypothesis": 5,
+    "installed_nameplate_confirmed": false,
+    "nominal_LV_volts": null,
+    "impedance_pu": null,
+    "phase_configuration": null
+  },
+  "LV_segments": [],
+  "service_drops": [],
+  "conductor_catalog": [],
+  "pv_bess_connection": {
+    "node_id": null,
+    "inverter_grid_mode": null,
+    "nighttime_reactive_support": "assume_off",
+    "zero_export_policy": "source_energy_model"
+  },
+  "reference": {
+    "voltage_band_pu": [
+      0.95,
+      1.05
+    ],
+    "thermal_max_percent": 100,
+    "PF_principal": [
+      0.95,
+      0.98,
+      1
+    ],
+    "PF_optional_stress": 0.9,
+    "service_factor_reference": 1
+  },
+  "preflight_required": [
+    "Identify 15 nested candidate household site positions",
+    "Validate proposed transformer placement and LV voltage/phase configuration",
+    "Provide conductor R/X/ampacity and service/feeder routes",
+    "Check each 5..15 load-only annual or worst-hour baseline",
+    "Preserve unchanged 2025 synthetic household profile mapping across variants"
+  ],
+  "AC_simulations_run_on_this_topology": 0
+}
