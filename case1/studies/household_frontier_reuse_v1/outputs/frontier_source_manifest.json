@@ -1,0 +1,23 @@
+{
+  "source_path": "case1/studies/pypsa_joint_optimization_v1/outputs/full_study/complete_study_results.csv",
+  "source_commit_sha": "92239bd84285bb31478ba764e2391bffa6e6fe0e",
+  "study_case_count": 12,
+  "archived_total_tasks": 6840,
+  "source_energy_optimal_at_5kVA": 1348,
+  "distinct_hardware_at_5kVA": 1255,
+  "archived_pareto_task_points": 452,
+  "archived_pareto_distinct_hardware": 387,
+  "defined_target_initial_anchors": 50,
+  "hardware_transition_boundary_distinct": 296,
+  "original_self_sufficiency_targets_pct": [
+    70,
+    80,
+    90,
+    95
+  ],
+  "pareto_definition": "Task-level cost minimize / annual operational self-sufficiency maximize, dominance with USD tolerance 1e-5 and percentage-point tolerance 1e-6. Equal-value points are retained.",
+  "status": "ARCHIVED_ENERGY_SCREEN_ONLY_NO_NEW_SOLVER_OR_AC_RUNS",
+  "transformer_scope": "5kVA planning reference only; not physically verified for new transformer/territory",
+  "new_ac_validation": "NOT_RUN",
+  "historical_archives_preserved": true
+}
