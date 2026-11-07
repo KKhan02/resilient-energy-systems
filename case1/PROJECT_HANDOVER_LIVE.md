@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 7 November 2026. Battery utilization explicitly approved as cross-cutting A/B/C analysis for all selected configurations, not a single 12-house design.**
+**Last audit: 7 November 2026. Provided selective nine-house annual PyPSA/AC ZIP command; awaiting user results.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -598,6 +598,10 @@ After these, study x1.3/x1.6 line/service uncertainty and PF0.95/0.98/1.00 for m
 - Current strict zero grid export and no grid-to-battery charging remain the approved operating baseline. Existing marginal USD0.29/kWh imports already discourage buying grid energy; optimum may curtail PV while low SOC due to perfect foresight scheduling. Better use of surplus PV should be tested with controls and realistic battery throughput costs, not assumed to arise by arbitrarily penalizing all curtailment.
 
 **No modelling code or simulation files changed in this assistant turn.** Update this GitLab handover only with `[ci skip]`. Continue local-first modelling and GitLab source changes only with explicit user permission.
+
+## 7 November 2026: nine-house annual results packaging for user upload
+
+**User request:** "how do i zip up the nine house study to share?" Provided Windows PowerShell code to run from full repo checkout. It archives all existing files for three **GIS-eligible nine-house** source-derived candidate IDs `EC-3cc99d4429a15487a083` (34/6/10), `EC-b091c626114a2d74884f` (40/7/12), `EC-9df8c68834f7f6faa3` (41/8/12) under BOTH `case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/<ID>` and `.../campaign_AC_01/<ID>`. Includes source equipment index `campaign_reuse_index_v18_01/all_distinct_equipment_candidates.csv` if available, leaves missing inputs labelled with PowerShell warnings and uses Windows built-in `tar.exe -a -c -f` to preserve repository-relative paths. Result: `case1/studies/ac_aware_redispatch_v1/outputs/annual_exports/SEEDExchange_9house_annual_results.zip`. Does not run any simulator, does not rewrite source files, and deliberately avoids bundling all unrelated 12-house campaigns. User has NOT yet uploaded nine-house results in this turn; do not assert outcomes. On upload, verify manifests/hash/provenance, annual 8760-hour AC, SOC, PF, zero export, cost and electrical feasibility for each candidate before comparing. Study A approved scope remains unchanged, and cross-study battery utilization remains part of A/B/C.
 
 ## 7. Working routine to avoid another context loss
 
