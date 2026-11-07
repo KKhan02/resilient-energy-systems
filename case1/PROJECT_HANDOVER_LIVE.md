@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 7 November 2026. Local audit dependency correction recorded; source-only handover update.**
+**Last audit: 7 November 2026. Local main/origin-main distinction and missing CSV target directory clarified.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -17,7 +17,7 @@ Read this file first, then check the live GitLab HEAD and relevant output manife
 1. **Research/audit before coding.** Inspect existing results, source data, GIS geometry, repository history and tests. Use read-only comparisons for unresolved choices.
 2. **Discuss substantive choices with the user before implementation.** Present alternatives, physical assumptions, evidence level, advantages/tradeoffs and a recommended choice. Explicitly settle equipment ratings, topology, nested membership, new transformer placement/rating, operating control, PF/voltage limits, costs, tariff, site or protection choices **before encoding them**. Do not infer approval from broad permission to continue.
 3. **Once the engineering design is agreed**, implement and test without needless requests for approval of ordinary programming details. Clear bug fixes preserving agreed assumptions can follow a test-first process.
-4. **LOCAL-FIRST IMPLEMENTATION (user-corrected 6 Nov).** After an engineering decision is agreed, prepare downloadable code and test files. User executes them locally and returns results/logs. Review, debug and iterate locally as necessary. **Sync substantial, locally validated batches to GitLab only when the user expressly authorizes synchronization**, choosing a suitable versioned branch/MR where appropriate. Do not push/merge experimental code at each iteration. Never modify code, models, results, site data, or other GitLab files without the user's specific authorization.
+4. **LOCAL-FIRST IMPLEMENTATION, MAIN ONLY (user reaffirmed 7 Nov).** After engineering agreement, prepare downloadable code and test files for the user to run locally. User returns logs/results and iterations remain local. Once changes are substantial and validated, **only after explicit user authorization** synchronize them directly to the existing GitLab **main** branch. Do not create feature branches or merge requests as the default workflow. Never modify code, models, results, site data, or other GitLab files without the user's specific authorization. Documentation-only updates to this handover on main after every reply are the standing exception.
 5. Distinguish **approved/implemented/passed/conditional/proposed/open** decisions in all reports. Never invent EPM poles, customer service topology, transformer nameplates, physical connection routes, phase systems, or software-supported reactive/backup capabilities. Park critical/deferrable demand fractions unless separately reapproved.
 6. The 5–15-house **main design space**, the two EPM-vs-proposed-LV electrical studies, 50 first-stage economic anchors, and principal PF 0.95/0.98/1.00 were already discussed and agreed. **Still open**: exact proposed nested 15-site membership and supply-point geometry, topology and conductor choice, and matching source trajectories for remote AC results. No new physical network created in this turn.
 7. **Earlier exception to MR discipline**: commit `3e9f526` directly changed `batch_archived_campaign.py` and added its regression assertions without the usual MR. It retained the agreed PF choices but has **not been shown to pass local tests**. Treat as pending independent review, not CI-verified. Do not silently overwrite or roll back.
@@ -168,6 +168,25 @@ git show origin/main:case1/studies/household_frontier_reuse_v1/outputs/stage_a_5
 This fetches current remote Git objects and writes only the missing local CSV without pulling/updating user code or switching branches. Then rerun `python review_validation_queue.py --repo-root "<repo root>" --output-dir "D:\\SEEDExchange_Validation_Review_01" --scope anchors`. If the output folder already exists, use a new one. **Next user evidence:** returned `validation_audit_summary.json` and `candidate_validation_ledger.csv`, or new error/output text. Need inspect hashes and existing manufacturer source trajectories before proposing expensive annual AC reruns.
 
 **Standing remote-write policy:** update ONLY `case1/PROJECT_HANDOVER_LIVE.md` after each substantive assistant reply. All model/source changes and numerical work remain local-first and require user's explicit authorization before GitLab synchronization. No other GitLab file or CI action performed in this turn.
+
+## 7 November 2026: clarify local main vs origin/main and missing destination folder
+
+**User log:** Local audit tests passed 4/4 in prior turn. In local Windows CMD, running `git fetch origin main` succeeded and updated local remote-tracking reference `origin/main` from `1ac4d5d` to `ac17158` at that fetch. Then `git show origin/main:case1/studies/household_frontier_reuse_v1/outputs/stage_a_50_network_routing.csv > "case1\\studies\\household_frontier_reuse_v1\\outputs\\stage_a_50_network_routing.csv"` failed with **"The system cannot find the path specified."**
+
+**Diagnosis:** `main` is the user's local checked-out branch; `origin/main` is a remote-tracking ref for the same GitLab main. Fetch alone does not update checked-out local files. Windows redirection cannot create a target file when parent directories are missing. This error indicates the destination parent path is missing or inaccessible locally, not evidence of two separately created development branches and not evidence the GitLab source file is absent. GitLab main still contains the exact routing CSV at the expected path.
+
+**User command / standing policy (7 Nov):** **All authorized project pushes on the existing main branch only**, after enough local code and simulation work and explicit instruction from the user. No default feature branch or MR workflow. Continue committing only this rolling handover after each substantive reply with [ci skip]; never modify any other repository file on GitLab without user direction. Existing past commits and local branches (if any) are not to be altered or deleted merely because of this preference.
+
+**Safe local check, not executed by assistant:**
+```bat
+cd /d "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems"
+git branch --show-current
+git status --short
+git log -1 --oneline
+```
+If checked out on `main`, no uncommitted or untracked conflicts, and no active simulations: `git pull --ff-only origin main` incorporates the missing CSV and other committed files without creating a feature branch. If there are local changes, do not pull blindly; inspect status. For isolated CSV recovery when avoiding a pull, create the parent directory `mkdir "case1\\studies\\household_frontier_reuse_v1\\outputs"` and then repeat the `git show origin/main:... > ...` operation; this only reconstructs a missing local CSV after parent directory exists. Verify CSV and rerun original audit from `SEEDExchange_Local_Validation_Audit`, with a fresh output directory if necessary.
+
+No project code or numerical models were updated this turn; GitLab write scope: only this handover.
 
 ## 7. Working routine to avoid another context loss
 
