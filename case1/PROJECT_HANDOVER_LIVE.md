@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 7 November 2026. PV-first zero-export/storage rationale confirmed; identified perfect-foresight curtailment at low SOC and controlled battery-sizing sensitivity.**
+**Last audit: 7 November 2026. Existing battery sweep confirmed in source; corrected PV-curtailment penalty and cost/dispatch interpretation.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -558,6 +558,30 @@ After these, study x1.3/x1.6 line/service uncertainty and PF0.95/0.98/1.00 for m
 5. Keep strict no export/no grid charging approved baseline. Do not invent EPM export tariff, new capacity limits, or assured continuous device parallel ratings.
 
 **Work performed this assistant turn:** Read-only source code inspection and independent statistical analysis from ZIP; no optimizer/pandapower new simulation, no user local source changes. Document-only GitLab update to this handover with `[ci skip]` is authorized; all further code changes must follow local-first engineering approval.
+
+## 7 November 2026: existing battery sweep verified, curtailment dispatch clarification
+
+**New user correction and approved dispatch goal:** User asks whether proposed battery-capacity / annualized-cost vs self-sufficiency sweep ALREADY EXISTS in original household sweep (yes), and explicitly recommends prioritizing useful PV surplus charging over curtailment. Grid import should have greater marginal cost than battery energy cycling; currently energy model import cost is significant but curtailment is unpenalized. Retain strict no-export/no-grid-charge PV-first physical system.
+
+**Source-verified prior economic work, DO NOT RE-RUN:** `case1/studies/pypsa_joint_optimization_v1/full_study.py` ALREADY executes `fixed_BESS_economic` tasks for each household case and transformer rating, 0 to 16 modules in archived campaign, and generates `*_battery_sweep.png/svg` plots; the documented `household_frontier_reuse_v1/README.md` already plots sampled multi-objective cost versus self-sufficiency. Parsed `outputs/full_study/complete_study_results.csv` (6,840 tasks) with correct quoted CSV fields. For 12_homes, kVA=5, `fixed_BESS_economic`, actual source:
+- 0 modules infeasible; 1,2,...,16 modules: 16 original 8760h perfect-foresight energy-screen optima.
+- Examples modules / optimized PV panels / inverter kVA / annual cost USD/year / self-sufficiency percentage:
+  - 6 / 41 / 12 / 4876.9194 / 74.9505
+  - 7 / 41 / 12 / 4777.8638 / 78.6675
+  - **8 / 41 / 12 / 4767.8333 / 81.0366 (historical minimum cost across fixed-BESS rows)**
+  - 9 / 41 / 12 / 4828.5262 / 82.3350
+  - 10 / 41 / 12 / 4933.6699 / 82.9604
+  - 12 / 41 / 12 / 5189.6275 / 83.5198
+  - 16 / 41 / 12 / 5738.7704 / 84.0749.
+- **Nuance:** fixed-BESS series holds module count but optimizer is free to change PV panels, inverter kVA, battery DC power within bounds; other points in full curve DO change. Thus this does **not** isolate module count for a fixed 56-panel/20-kVA reference, nor use manufacturer corrected SOC, AC losses, or pandapower constraints. Do not claim a new 'battery-vs-SS plot' is novel; reuse source figures and tabulated values and, when needed, controlled fixed-hardware slices for the new operational question only.
+
+**Economic/dispatch clarification from source:**
+- `model.py` has `GRID_IMPORT` marginal cost **0.29 USD/kWh** (historical cost proxy, NOT verified actual EPM tariff); charge and discharge `Link` each have tiny `marginal_cost = 0.00001` (source's tie-breaking/placeholder), eta_ch=eta_dis=sqrt(.95), annualized battery hardware costs and time-based replacements but no explicit validated per-cycle degradation/wear penalty. Curtailment is represented by non-dispatching `PV_DC` and is not separately penalized.
+- Existing objective **already financially penalizes imported energy** far more than per-link marginal throughput, and thus has incentive to store PV *when doing so avoids later imports*. A morning PV surplus curtailed at low battery SOC may occur because the model knows afternoon PV remains abundant and can charge later without additional imports. It is a perfect-foresight indifference / multi-solution effect, not proof battery must be bigger, and not proof existing model prefers grid import to chargeable PV at $0.29.
+- Physical efficiency losses mean unnecessary charging/discharging and high sustained SOC can add wear and losses. Blanket punitive curtailment penalty large enough to alter original sizing may overbuild storage/PV or cause gratuitous cycling. **Recommendation for research, not yet code change:** first hold hardware and 8760h profiles fixed; stage 1 solve original **minimum cost including import and legitimate throughput wear**; stage 2 among near-equal cost solutions apply a small/lexicographic PV-utilization preference that prioritizes charging during otherwise-curtailed PV when SOC headroom exists while forbidding excess cycling (battery throughput bound/tie-breaker), and compare a causal PV-first charging controller that cannot see future PV. Keep new dispatch labels distinct from historical perfect-foresight series; preserve energy/PV conservation, 20% manufacturer SOC, bank current, P limits, no import-to-charge, zero export. Quantify actual reduction in grid imports/curtailment, battery throughput/ageing and changes to resilience readiness, and AC recheck where injections change.
+- Once this operational question resolved, **optional targeted** fixed-PV/20kVA/constant bank kW battery module sensitivity can isolate the capacity effect, using archived points whenever matched before calculating new fixed hardware cases. This must not sidetrack A nine-house annual equipment feasibility and 7/9/12 existing-GIS PF/line-length robustness.
+
+**Work this turn:** read-only inspection of source model and archived 6,840 record CSV; no new solver, model edit, or historical sweep. This file only [ci skip] update permitted.
 
 ## 7. Working routine to avoid another context loss
 
