@@ -1,10 +1,80 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 7 November 2026. Scope-restatement awaiting explicit user verification; no new modelling.**
+**Last audit: 7 November 2026. User-approved A/B/C research scope LOCKED at top; local approved scope and annual-output ZIP exporter prepared.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
 **Purpose:** Enable exact continuation after context limits. This is a living technical record, not final design certification.
+
+## APPROVED AND LOCKED RESEARCH SCOPE | 7 November 2026
+
+**AUTHORITATIVE scope. Explicitly approved and refined by user on 7 November 2026. This section OVERRIDES all older draft interpretations in the historical handover, including old N1/N2/N3 nomenclature and any statement suggesting Study A is already completed.** Only explicit later user corrections can change this contract. It is distinct from the physical modelling assumptions that still need selection. Local export: `case1/RESEARCH_SCOPE_APPROVED_2026-11-07.md` in downloadable `SEEDExchange_ProjectScope_And_AnnualExport_v1.zip` (not yet pushed to GitLab, per local-first rule).
+
+### The question
+
+How can 5–15-house communities in San Rafael, Colombia be supplied economically and electrically with shared PV, battery energy/power and inverter capacity, considering existing EPM LV networks, purpose-designed clustered LV networks and a site-specific shared central installation? Determine self-sufficiency, cost, grid import, transformer/line loading, voltage, losses, AC-constrained active and reactive dispatch, siting, sensitivity and possible benefits of several multi-home shared clusters. The final answers must be compared on controlled household/demand/resource/equipment assumptions, with individually documented source uncertainty. Keep existing historical energy-economic and electrical research intact.
+
+### Study A: existing EPM transformer/LV territory study. FIRST, NOT COMPLETE
+
+Use the **already mapped** EPM asset geometry and explicitly **provisional** household service attachments. The existing `scenario_membership.py` defines (a) a **7-house** cohort on transformer **94022**, (b) a **9-house** cohort on the SAME **94022**, and (c) a **12-house** cohort on transformer **106039**. The broader 94022 GIS territory has **10** provisional houses in the earlier 40-hour study; this is NOT the same profile/customer cohort as the 7- or 9-house cases. Do not call these three separate transformers, and do not assume every 5–15-house economic scenario has an actual mapped EPM LV group. Other mapped territories can be studied where evidence and matching profiles justify it. **Transformer 106039 is modelled as 5 kVA** by explicit user choice; 94022 has archived 5 kVA evidence. Actual asset/nameplate/service-phase precision remains evidence-dependent.
+
+A is the detailed **existing-grid** engineering study. For each physically and source-aligned cohort, compare archive-selected PV panel, BESS module/power and inverter equipment (initial source-defined hardware anchors, expand into non-dominated/transition pool if electrical boundaries require). First reproduce/retain original manufacturer-SOC-constrained 8,760h energy dispatch, then use **existing pandapower GIS and Q-control** to check min/max house voltage, voltage-violation hour counts, line and transformer loading and overload duration, power-flow convergence, losses, grid import/export, zero ENS, self-sufficiency and costs. Perform **line/service-length x1.0/x1.3/x1.6** sensitivities (the exact physical service routes are provisional, preserve true GIS section lengths as independent source evidence), load-PF sensitivity 0.95/0.98/1.00, optional 0.90 stress, reactive Q-capability ratios, voltage-control policies, active-power redispatch, and credible inverter-placement alternatives, with manufacturer minimum physical SOC 20%, real battery/inverter limits, and full-year chronology. Assess AC-constrained control and sizing only where the previously optimal economic equipment fails or near uncertainty margins. **DO NOT rerun the 6,840 investment tasks** or declare absent 8,760h output equivalent to an electrical failure.
+
+The **old 40-critical-hour** head/middle/end/Q-placement work is actual saved evidence, not an annual result. The user is currently finishing **two 12-house equipment annual validations** (54 panels/9 battery modules/20 kVA and 56/10/20; one reported finished, the other planned at time of confirmation). Other saved 7- and 12-house annual passes are conditional models, not entire Study A completion. Only conduct selected annual inverter-placement matched-comparison if it answers a meaningful remaining question **after the primary A cohort/equipment AC validation**, not as the automatic next task.
+
+### Study B: proposed physically coherent 5–15-household community network. SECOND
+
+Use the **existing 35 georeferenced mapped candidate houses**, select spatially compact groups of N=5 to 15 houses and potentially multiple coherent groupings for each N; preserve actual geographical identity and latitude/longitude, document membership per scenario, and keep matched memberships fixed within each controlled comparison. **Do not impose one arbitrary fixed 15-house list for all N**; source-backed spatial clustering and growth scenarios may select different adjacent sets when transparently declared.
+
+**Load diversity:** Each house must have an independent **existing 2025 synthetic stochastic hourly household profile**, not a copy/paste aggregate or one identical trace for all loads. Map and preserve distinct source profile indices and random seeds to house IDs; if new synthetic diversity experiments are needed, retain original baseline and label variations separately with comparable total energy. The `8_homes_H01/H02` economic variants are synthetic profile variants, NOT the mapped physical H01/H02 properties.
+
+Choose a **proposed transformer placement near the group based on an electrically and physically meaningful optimization**, not automatically the geometric centroid. Evaluate transformer kVA adequacy, site/access, construction route length and costs, min voltage and peak loading. **5 kVA is initial hypothetical planning rating**, not guaranteed to supply N=15. Compare **STAR** (individually branched connections from common node) versus **branched MST** (minimum spanning tree, with shared portions carrying downstream demand) topologies. Both are radial in graph theory; the distinction is star versus a minimum-length *branched radial tree*, not radial versus MST as contradictory categories. Straight-line MST is a schematic candidate, not a surveyed viable route or proof of protection/thermal adequacy. Use documented conductor R/X/ampacity/phase/neutral assumptions and explicit uncertainties.
+
+Apply **the same type of analysis used in A** to B once geometry is defined: energy-economic source equipment portfolio, manufacturer-SOC dispatch, baseline power flow, Q ratio and control, inverter placement where informative, active redispatch, annual AC, x1.0/x1.3/x1.6 line length, PF scenarios, voltage and thermal violations, line/trafo loading and network losses, lifetime economic updates. REUSE the existing EPM/pandapower/PyPSA engine components; only new physical geometry/grouping and connection definitions should be developed.
+
+### Study C: Site A shared PV+BESS clearing and connection. THIRD
+
+Use Site A `(6.248376671296207, -75.00932156861505)`, current user-digitized ~1759m² *gross* clearing polygon and existing NASA/pvlib solar/obstruction sensitivity. First investigate **PV+BESS physically at Site A connected by a new proposed line to existing 94022 LV**, optionally using the closest mapped GIS section `G3E_FID=47053144` as a *candidate* endpoint. The ~192m site-to-section map distance is **geometric**, not routed cable length and not evidence that a connection currently exists. Test inverter P/Q, PF, cable current, transformer kVA and spare headroom, voltage min/max, power-flow losses, control, energy dispatch, connection/approval and total costs, and exact nearby-house service mapping. No invented existing wire.
+
+**If C's 94022 option is electrically or economically unsuitable**, assess a **new transformer at Site A** with physically proposed star or MST feeders to appropriately nearby homes. The user's earlier explicit baseline is a **new 5 kVA transformer**, with possible 10/15 kVA sensitivity if actually needed. Their latest spoken 'new 5–15 transformer' phrase is ambiguous whether referring to a 5–15 kVA rating range; do not silently assume such ratings are approved without discussion. Include transformer upstream electrical connection, costs, protection, phase and physical routing. Do not assume a 5 kVA nameplate is sufficient at 15 homes.
+
+**EXCLUDE THE NORTHERN 25 kVA TRANSFORMER AND ALL ITS CONNECTION PROPOSALS** unconditionally from A/B/C. It was explicitly ruled out by the user even though it appears in old GIS records. Prior mentions are provenance/history only.
+
+### Cross-study architecture: central vs multiple shared multi-home clusters
+
+This is an **additional dimension applied to A/B/C when those network results are usable**, not a separate model that invalidates existing work. Compare (1) a single central shared PV+BESS serving the study households, (2) two or more **shared multi-home clusters** with PV/BESS units located at defensible connection nodes, and optionally (3) hybrid central-plus-satellite shared installations. One system per individual home is a **secondary benchmark**, not the primary scenario. **A's existing 7/9/10/12-house transformer-based geographical groups are useful cluster evidence**, but do not treat 7 and 9 on 94022 as independent utility transformers.
+
+Two distinct comparisons: first **matched total hardware and the same customer/time series**, keeping aggregate PV, battery energy, battery power and inverter AC capability comparable to isolate placement and clustering; second **architecture-specific feasible hardware** to see if savings in network losses/feeder sizes/line headroom justify extra inverters, batteries, control, protection, meters and cables. Second step does NOT require re-solving 6,840 tasks; use archived candidates and targeted optimization only for genuinely new constraints/new separate cluster investments. Investigate potential **inter-cluster benefits**, with strict separation of independent LV territories, commercial energy sharing versus real physical interconnection. Never casually parallel transformer secondaries, pretend cluster transformers have spare headroom or double-count households; a physical tie requires documented feeder/protection/metering and EPM authorization. Existing `case1/studies/annual_shared_pvbess` and `architecture_comparison` prototypes are reusable source work.
+
+### Shared engineering parameters (APPROVED as planning screens, not regulatory certification)
+
+- 2025 gridded NASA weather and **distinct** stochastic annual household profiles, reproducible seeds and profile IDs; not individually metered actual household demand.
+- Model **106039=5 kVA**. Load PF 0.98 reference, principal PF 0.95/0.98/1.00, PF 0.90 optional inductive stress only; user report on Colombian PF1 convention is a modelling rationale, **not verified universal grid code or actual household PF measurement**.
+- Proposed engineering voltage band **0.95–1.05 pu**, prior **0.97–1.03 pu** as strict sensitivity; transformer and cable <=100% model thermal limits (with uncertainty), separate from local statutory duration rules.
+- Manufacturer battery DoD assumption corresponds to **20% minimum physical SOC**; full chronological battery charge/discharge and inverter power constraints. Night reactive Q **off** until manufacturer supports verified auxiliary VAR service.
+- PV/BESS options and control, actual LV phases/protection, selected conductor parameters, tariff, site costs and customer-service routing remain source/assumption sensitive; historic 25-year/6%-discount HOMER/quote lifecycle basis is conditional, explicitly price new cables, meters, protection, switching, civil, utility transformer and connection where plausible. Unknown costs are **unknown**, never zero.
+- Do not reintroduce invented critical/deferrable-load fractions. Any resilience/islanding analysis is separate from ordinary grid-connected self-sufficiency and requires credible inverter/protection assumptions.
+
+### Required order and safeguards
+
+**A first:** systematically complete equipment selection vs EPM-backed customer-group voltage, loading, line-length, control, PF and SOC-consistent annual feasibility; consolidate user's finished annual candidate jobs and historical source. Existing Q/inverter-location critical-hour studies are inputs.
+
+**B second:** proximity-based 5–15-house spatial grouping, transformer siting, star and MST, independent stochastic house profiles and A's electrical/energy/control workflow, extending stored hardware pool as necessary.
+
+**C third:** Site A-to-94022, then new 5 kVA transformer star/MST fallback and alternate rating sensitivity if needed, with no northern transformer.
+
+**Architecture:** compare central versus two-plus shared clusters and possible interconnection on physically defensible A/B/C cases with matched-hardware controls then separate feasible-equipment cost improvement.
+
+**Code/output discipline:** keep all work under project root, separate versioned scenario inputs/results/figures/manifests, immutable historical output; use available original PyPSA/pandapower/GIS/solar/AC-aware solvers and results. Assist via downloadable LOCAL code/tests then user's local execution/feedback. Synchronize any new code or data **directly to main only after explicit user permission**. Only this rolling handover may be updated on GitLab on each assistant reply with [ci skip]. Don't add tools or fixed 50-run ceilings.
+
+**Implementation-specific choices still open:** B grouping algorithm and candidate groups per N, transformer siting cost/feasibility rules, line routes/conductors, actual service phase/protection and connection permissions, exact technology-to-architecture assignment, Site A tie-cable routing, additional 10/15 kVA rating conditions, and real physical vs accounting-only inter-cluster linkage. Each must be resolved before it is encoded, but they do NOT reopen the approved overall A/B/C study purpose.
+
+### Recovery of user's prior ZIP export request
+
+User requested aggregation and a ZIP of the **two local 12-house annual candidate AC outputs**. Prepared **read-only LOCAL** `case1/studies/ac_aware_redispatch_v1/export_selected_annual_results.py` plus four standard-library passing regression tests, bundled with `case1/RESEARCH_SCOPE_APPROVED_2026-11-07.md` in downloadable `SEEDExchange_ProjectScope_And_AnnualExport_v1.zip`. Script captures source hourly trajectories, annual AC data, signed manifests and summaries, emits comparison.csv/export_manifest.json/ZIP in a fresh **project-contained** folder, reports missing/inconsistent results without falsely claiming a pass and runs no simulation. This package is **not synced to GitLab** without user authorization.
+
+---
+
 
 ## 0. Instructions for every future assistant turn
 
