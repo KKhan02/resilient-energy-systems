@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 7 November 2026. Local main/origin-main distinction and missing CSV target directory clarified.**
+**Last audit: 7 November 2026. First successful local Stage A 50-design provenance audit reported.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -187,6 +187,40 @@ git log -1 --oneline
 If checked out on `main`, no uncommitted or untracked conflicts, and no active simulations: `git pull --ff-only origin main` incorporates the missing CSV and other committed files without creating a feature branch. If there are local changes, do not pull blindly; inspect status. For isolated CSV recovery when avoiding a pull, create the parent directory `mkdir "case1\\studies\\household_frontier_reuse_v1\\outputs"` and then repeat the `git show origin/main:... > ...` operation; this only reconstructs a missing local CSV after parent directory exists. Verify CSV and rerun original audit from `SEEDExchange_Local_Validation_Audit`, with a fresh output directory if necessary.
 
 No project code or numerical models were updated this turn; GitLab write scope: only this handover.
+
+## 7 November 2026: first successful LOCAL Stage A validation audit
+
+**User ran the local ZIP auditor (no change to GitLab code).** In the local Windows Conda base environment from `SEEDExchange_Local_Validation_Audit`:
+- `python -m pytest -q tests` => **4 passed in 0.28s**.
+- `python review_validation_queue.py --repo-root "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems" --output-dir "D:\\SEEDExchange_Validation_Review_01" --scope anchors` => **successful**, wrote new read-only provenance audit results.
+
+Exact user-reported summary:
+```json
+{
+  "written_to": "D:\\SEEDExchange_Validation_Review_01",
+  "status": "READ_ONLY_LOCAL_PROVENANCE_AUDIT_NO_NEW_OPTIMIZATION_OR_AC",
+  "scope": "anchors",
+  "candidate_count": 50,
+  "tier_counts": {"A_DEFINED_TARGET_ANCHOR": 50},
+  "GIS_eligible_count": 10,
+  "manufacturer_SOC_status_counts": {
+    "NOT_IN_LOCAL_CHECKOUT": 47,
+    "LOCAL_TRAJECTORY_HASH_VERIFIED_8760": 3
+  },
+  "existing_EPM_reference_AC_status_counts": {
+    "NOT_APPLICABLE_NO_GIS_MEMBERSHIP": 40,
+    "NOT_IN_LOCAL_CHECKOUT": 9,
+    "CONDITIONAL_ANNUAL_AC_PASS_PROVENANCE_MATCHED": 1
+  },
+  "source_plant_sizing_recomputed": 0,
+  "AC_simulations_performed": 0
+}
+```
+All 12 household-case variants (5..15, both 8-house variants) remain represented. GIS-eligible first-stage designs: **7-house 4, 9-house 3, 12-house 3**; remaining 40 lack membership for the current GIS runner. Principal PF 0.95, 0.98, 1.0; optional stress PF 0.90. Three network comparisons: A existing EPM; B hypothetical generic new LV; C Site A clearing-based proposed PV/BESS with nearby households.
+
+**Interpretation:** 47 'NOT_IN_LOCAL_CHECKOUT' means no manufacturer-SOC trajectory at expected folder, NOT infeasible or solver failure. 9 'NOT_IN_LOCAL_CHECKOUT' AC likewise NOT failures. The 1 matching full-year AC pass is conditional on provisional GIS/screen assumptions; no new calculations are claimed. User provided only printed aggregate audit output, **not the candidate-by-candidate CSV**; do not guess the exact three SOC-verified IDs or nine missing cases. Need `D:\\SEEDExchange_Validation_Review_01\\candidate_validation_ledger.csv` to prioritize 8,760-hour AC and cost corrections, preserve exact checkpoint hashes, and avoid duplicating prior results. Also distinguish the 4 archived 12-house AC candidate folders on GitLab from 1 locally provenance-matched Stage A candidate.
+
+**Next local-first action:** review user-generated candidate ledger (upload into chat, or print selected fields); confirm local checked-out runner version since `git fetch` does NOT update working files and the new principal PF mode may not be in the local checkout. Only after matching source trajectories and confirming network-specific model integrity should we issue targeted manufacturer-SOC/fixed-hardware and annual pandapower AC commands. Do not turn 50 into a rigid ceiling or a mandatory number; all 1,255 distinct 5-kVA equipment choices remain eligible for adaptive expansion. No extra GitLab files may be modified. Only this handover gets a documentation commit with [ci skip].
 
 ## 7. Working routine to avoid another context loss
 
