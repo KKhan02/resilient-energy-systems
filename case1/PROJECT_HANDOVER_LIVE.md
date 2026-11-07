@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 7 November 2026. Provided selective nine-house annual PyPSA/AC ZIP command; awaiting user results.**
+**Last audit: 7 November 2026. All three nine-house 94022 annual AC reference results verified pass; identified strict-band, PV-first and equal-spatial-load caveats.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -602,6 +602,44 @@ After these, study x1.3/x1.6 line/service uncertainty and PF0.95/0.98/1.00 for m
 ## 7 November 2026: nine-house annual results packaging for user upload
 
 **User request:** "how do i zip up the nine house study to share?" Provided Windows PowerShell code to run from full repo checkout. It archives all existing files for three **GIS-eligible nine-house** source-derived candidate IDs `EC-3cc99d4429a15487a083` (34/6/10), `EC-b091c626114a2d74884f` (40/7/12), `EC-9df8c68834f7f6faa3` (41/8/12) under BOTH `case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/<ID>` and `.../campaign_AC_01/<ID>`. Includes source equipment index `campaign_reuse_index_v18_01/all_distinct_equipment_candidates.csv` if available, leaves missing inputs labelled with PowerShell warnings and uses Windows built-in `tar.exe -a -c -f` to preserve repository-relative paths. Result: `case1/studies/ac_aware_redispatch_v1/outputs/annual_exports/SEEDExchange_9house_annual_results.zip`. Does not run any simulator, does not rewrite source files, and deliberately avoids bundling all unrelated 12-house campaigns. User has NOT yet uploaded nine-house results in this turn; do not assert outcomes. On upload, verify manifests/hash/provenance, annual 8760-hour AC, SOC, PF, zero export, cost and electrical feasibility for each candidate before comparing. Study A approved scope remains unchanged, and cross-study battery utilization remains part of A/B/C.
+
+## 7 November 2026: nine-house Study A annual AC outputs independently verified
+
+**New user-uploaded evidence:** `/mnt/data/nine_house_results.zip` (27 archived source files, 3 manufacturer-SOC corrected fixed-hardware energy solutions, 3 full-year annual AC results for existing EPM **94022 9-house** cohort). User uploaded after running the previously prepared 9-house case. **All three nine-house selected candidates are now COMPLETED as conditional reference annual AC passes**, not pending. User's existing archived 7-house/12-house and larger 5–15 economic sweep remain unchanged. Do not rerun these nine-case 8,760h reference checks.
+
+**Independent local verification:** ZIP CRC test passed; 3 × 8760 hourly source trajectories and 3 × 8760 annual AC CSVs cover all hours 2025-01-01 00:00 to 2025-12-31 23:00, chronological. All three `pilot_manifest.json` declared source-trajectory SHA256 hashes equal zipped source CSV bytes; all 3 `ac_checkpoint.json` annual AC hourly SHA256 match saved CSV; all 3 `annual_ac_summary.json` source-pilot manifest SHA256 match saved corresponding manifest. No user input source or repository code modified; no new solver. Derived local report `/mnt/data/SEEDExchange_StudyA_9house_AnnualAC_Review.md` exported (not committed to GitLab).
+
+**Reference assumptions:** EPM 94022 modelled 5 kVA, exact 9 GIS-provisional houses `H01,H02,H03,H06,H26,H27,H28,H34,H35`; 2025 annual total demand **17082 kWh**, PF 0.98, service-factor 1.0 (scales **assumed customer drops**, not GIS backbone), head inverter, coordinated Q daylight ratio0.25/night off, 20% physical minimum battery SOC, zero grid export and no grid-to-battery charging, modelled balanced three-phase GIS network with **equal** spatial disaggregation of the *aggregate* synthetic demand, source perfect-foresight battery operation. Primary voltage band0.95..1.05 pu / ≤100% thermal. These are not field-certified service/phase/impedance/actual customer connections.
+
+| Hardware candidate | 34PV/6BESS/10kVA `EC-3cc99d4429a15487a083` | 40PV/7BESS/12kVA `EC-b091c626114a2d74884f` | 41PV/8BESS/12kVA `EC-9df8c68834f7c7f6faa3` |
+|---|---:|---:|---:|
+| Manufacturer-SOC annualized equipment+imports USD/year | **3628.4402027** | **3735.5284443** | **3774.4290353** |
+| Grid import kWh/year | 2765.281009 | 1373.444439 | 893.566807 |
+| Grid export kWh/year | 0 | 0 | 0 |
+| Self-sufficiency % | 83.811726 | 91.959698 | 94.768957 |
+| PV available DC kWh/year | 17959.6648 | 21129.0174 | 21657.2428 |
+| PV curtailed DC kWh/year | 2488.4727 | 4124.2123 | 4121.9078 |
+| PV curtailment recorded while Store at floor, DC kWh | 1898.1063 | 3257.3989 | 3284.5408 |
+| Annual AC converged / feasible in 0.95..1.05 pu hours | **8760/8760** | **8760/8760** | **8760/8760** |
+| Worst AC min voltage pu | **0.9533918944** | **0.9554227466** | **0.9533918944** |
+| Max transformer loading % | 79.988861 | 76.547832 | 79.988861 |
+| Max line loading % | 10.709662 | 10.709662 | 10.709662 |
+| Annual modelled AC losses kWh | 458.428694 | 449.314500 | 446.307346 |
+| SAVED strict 0.97..1.03 pu reclassification violation hours | **203** | **148** | **133** |
+
+**Important numerical caution:** Direct naïve `min_v_pu < .97` hourly counting gives 204/149/134 because one recorded voltage `0.969999...` is within the original reclassification tolerance; preserve the actual source `voltage_band_comparison.csv` values **203/148/133** in official summaries. Strict values are reclassifications of fixed operating points, not freshly optimized Q/P runs.
+
+**Comparisons:** Relative to source 34/6, 41/8 has **-1,871.7142kWh/y grid import**, **+10.9572 percentage points self-sufficiency** and **+$145.9888/y** annual modelled cost, plus **-12.1213kWh/y** AC line losses. All 3 are non-dominated among these particular validated options on cost/self-sufficiency, but **NOT** necessarily the full 9-house economic/AC Pareto frontier. Their battery, PV, inverter and DC power *change together*: these comparisons are not isolated storage sensitivity. Among three options 34/6 cheapest, 41/8 best self-sufficiency, 40/7 intermediate. No unserved energy, no exports.
+
+**Critical evening network behavior:** 34/6 and 41/8 share worst hour `2025-11-27 20:00`, demand3.727265kW, inverter output0, nighttime Q off, min v0.95339189, transformer79.98886%. 40/7 worst `2025-11-28 21:00`, demand3.570352kW, inverter output0, minv0.95542275, transformer76.54783%. Therefore near-low-voltage margins do not automatically improve with larger nominal PV/BESS when battery discharge schedule differs.
+
+**Battery-analysis insight:** ~76.3%/~79.0%/~79.7% of candidate annual PV curtailment occurs while source Store energy is at the minimum modelled SOC. This reinforces the approved **cross-cutting A/B/C battery utilization/causal PV-first dispatch study**; it does not imply all this energy can be stored or that current investment module count is insufficient. Perfect foresight may postpone charging without grid-import cost, so distinguish a physically causal PV-first strategy from historical optimal dispatch.
+
+**Genuinely new AC modelling limitation recognized:** `case1/studies/ac_aware_redispatch_v1/validate_archived_candidate_ac.py` line 193 calls `run_hour(...,'equal','head',...)`, so the **nine-house spatial AC node loads are equally allocated at each hour**, despite aggregated PyPSA load being a sum of distinct 2025 stochastic house profiles. Need a controlled spatial-load-allocation comparison with unique house time series and estimated phase arrangement; do NOT present 8760-hour equal-load results as household-specific feeder diversity validation. Similarly 1.3/1.6 service-factor multiplies **assumed house-drop length**, not mapped LV backbone length in `epm_topology.py` lines126..132.
+
+**Next Study A priority:** Retain 7-house 94022 reference with saved stricter-band AC-aware P feedback pass, 9-house 94022 three new main-AC annual passes, 12-house 106039 existing 41/8/12 and 54/9/20 +56/10/20 main passes. Build evolving source-proven candidate ledger, keeping unrun economic alternatives labelled NOT_RUN and not claiming broad robustness. Screen worst/near-limit hours for service-drop factors1.0/1.3/1.6 and PF1.0/.98/.95, conditional daytime Q and alternative siting, then escalate only informative cases to 8760h. Test unique spatial stochastic load allocation rather than assuming equal distribution; preserve original scenario outputs. Include PV-first causal dispatch and battery utilization analysis for relevant validated cases across Studies A, B, C without rerunning original 6840 task sweep. No study B/C geometry construction yet. WP2–4 formal briefs still unverified; GFM/GFL blackout resilience concept remains proposed.
+
+**Write discipline:** The assistant updated ONLY `case1/PROJECT_HANDOVER_LIVE.md` [ci skip] this turn; no GitLab source, data or AC results changed, no new simulation was run.
 
 ## 7. Working routine to avoid another context loss
 
