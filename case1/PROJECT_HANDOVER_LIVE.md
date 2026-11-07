@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 7 November 2026. First successful local Stage A 50-design provenance audit reported.**
+**Last audit: 7 November 2026. Project-contained output policy and exact local candidate provenance recorded.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -221,6 +221,28 @@ All 12 household-case variants (5..15, both 8-house variants) remain represented
 **Interpretation:** 47 'NOT_IN_LOCAL_CHECKOUT' means no manufacturer-SOC trajectory at expected folder, NOT infeasible or solver failure. 9 'NOT_IN_LOCAL_CHECKOUT' AC likewise NOT failures. The 1 matching full-year AC pass is conditional on provisional GIS/screen assumptions; no new calculations are claimed. User provided only printed aggregate audit output, **not the candidate-by-candidate CSV**; do not guess the exact three SOC-verified IDs or nine missing cases. Need `D:\\SEEDExchange_Validation_Review_01\\candidate_validation_ledger.csv` to prioritize 8,760-hour AC and cost corrections, preserve exact checkpoint hashes, and avoid duplicating prior results. Also distinguish the 4 archived 12-house AC candidate folders on GitLab from 1 locally provenance-matched Stage A candidate.
 
 **Next local-first action:** review user-generated candidate ledger (upload into chat, or print selected fields); confirm local checked-out runner version since `git fetch` does NOT update working files and the new principal PF mode may not be in the local checkout. Only after matching source trajectories and confirming network-specific model integrity should we issue targeted manufacturer-SOC/fixed-hardware and annual pandapower AC commands. Do not turn 50 into a rigid ceiling or a mandatory number; all 1,255 distinct 5-kVA equipment choices remain eligible for adaptive expansion. No extra GitLab files may be modified. Only this handover gets a documentation commit with [ci skip].
+
+## 7 November 2026: project-contained outputs only, user correction
+
+**User correction:** The prior assistant instructed `--output-dir "D:\\SEEDExchange_Validation_Review_01"`, which scattered research outputs outside the repository. This was an assistant path choice, not a requirement of the auditor. **All future SEEDExchange source, working files, input datasets, reports, logs, numerical results, figures, and local audit outputs must remain beneath the existing repository root** `D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems`, under the relevant `case1/studies/<study>/...` directory. No absolute `D:\\SEEDExchange_...` sibling output folders in future instructions. Scripts may create a **new** internal study output directory; do not overwrite the historical archives.
+
+**One-time user-local move instruction (not executed by assistant):** run from repository root:
+```bat
+move "D:\\SEEDExchange_Validation_Review_01" "case1\\studies\\household_frontier_reuse_v1\\outputs\\validation_review_01"
+```
+The parent `.../outputs` is an existing directory in the checkout; check whether destination exists before moving and avoid overwrite. Future full-archive read-only audit can be run from repo root:
+```bat
+python SEEDExchange_Local_Validation_Audit\\review_validation_queue.py --repo-root . --output-dir "case1\\studies\\household_frontier_reuse_v1\\outputs\\validation_review_02" --scope all
+```
+The output target should be a fresh study-local folder for each run, with relative path appropriate to the script invocation.
+
+**User uploaded 3 actual local outputs** from the successful `--scope anchors` audit: `candidate_validation_ledger.csv` (50 candidate rows), `existing_GIS_dry_run_commands.txt`, and `validation_audit_summary.json`. Their contents were inspected in this turn. The three `LOCAL_TRAJECTORY_HASH_VERIFIED_8760` Stage A candidates are **ALL 12-house 106039 cases**:
+- `EC-84f6a468f79bf545e863`: 41 PV panels, 8 batteries, 12 kVA inverter, historical $4767.8333/y and 81.0366% self sufficiency, source trajectory SHA256 `ce38d26890b11fa8342fc5a663b479ebebaece219b5388cade1dc26c74ed78b3`; **only candidate** with locally provenance-matched 8760-hour conditional annual EPM AC pass, zero failed hours for reference PF0.98, service factor1.0.
+- `EC-ae0eed011a95698df0af`: 54 panels, 9 batteries, 20 kVA inverter, historical $5259.4462/y and 92.6061% self sufficiency, source trajectory hash `d178239b3f4d29a09c7ef4da833e8b472ccc0d7cd262ff7a61ef6a2c45a4309c`; annual EPM reference AC **not present in local expected folder**, not a failure.
+- `EC-70d86432647ba0b77603`: 56 panels, 10 batteries, 20 kVA inverter, historical $5297.0754/y and 95.2109% self sufficiency, source trajectory hash `be0998cce99b094c19ab3925ff04d10aa4d024ff3eb368203dfa65490e0d648e`; annual EPM reference AC **not present locally**, not a failure.
+The remaining seven 7-/9-house GIS-eligible anchors have **no locally verified SOC trajectory in their expected folders**, so they need local review or fixed-hardware SOC dispatch before AC; all 40 other anchors lack existing GIS membership, awaiting hypothetical B/C site/network definition.
+
+**No source/code pushed, no numerical runs started, only this rolling handover updated on GitLab with [ci skip].** User's main-only GitLab synchronization requirement is unchanged.
 
 ## 7. Working routine to avoid another context loss
 
