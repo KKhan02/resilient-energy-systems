@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 6 November 2026. Locally tested audit package ready; 50-design cap explicitly rejected.**
+**Last audit: 7 November 2026. Local audit dependency correction recorded; source-only handover update.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -148,6 +148,26 @@ Study protocol exists: studies/household_frontier_reuse_v1/PROPOSED_LV_NETWORK_P
 **NEXT LOCAL ACTION:** User runs `python review_validation_queue.py --repo-root <local checkout> --output-dir <fresh path> --scope anchors` after extracting the ZIP, then returns `validation_audit_summary.json` and `candidate_validation_ledger.csv`. With those, verify local historical `campaign_manufacturer_01/` chronologies, resume eligible existing-GIS jobs without overwriting, and develop the B/C network choices through discussion before their AC simulations. The full 1,255-design audit can be run whenever useful, without an artificial selection ceiling.
 
 **GitLab permissions this turn:** the user authorizes committing **only** this rolling handover after each response. No repository code, model, simulation or other file may be edited on GitLab without a specific user instruction. This update is documentation only, `[ci skip]`. Local audit ZIP has **not** been pushed to GitLab.
+
+## 7 November 2026: user local audit run and missing GitLab routing CSV
+
+**User executed the delivered `SEEDExchange_Local_Validation_Audit_v1.zip` locally** under `D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\SEEDExchange_Local_Validation_Audit`. `python -m pytest -q tests` returned **4 passed in 0.47 s**. The follow-up `python review_validation_queue.py --repo-root ... --output-dir D:\\SEEDExchange_Validation_Review_01 --scope anchors` failed during source preflight, before producing any ledger or running any PyPSA/AC calculations:
+
+```
+review_validation_queue.py: error: Required source not found:
+D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\household_frontier_reuse_v1\\outputs\\stage_a_50_network_routing.csv
+```
+
+**Diagnosis source-verified:** the missing source exists on GitLab main as of 7 Nov, exact path `case1/studies/household_frontier_reuse_v1/outputs/stage_a_50_network_routing.csv`, introduced in commit `3e9f526536c5d383ee7e0133b2022374f9e3e383`. Since the script reads `all_distinct_equipment_candidates.csv` *before* this routing file, it apparently found the equipment index locally. Local repository is likely missing recent direct-GitLab file commits. The four standalone unit tests did not exercise full repo data availability; no new solver or AC run was attempted.
+
+**Minimal proposed local fix, not executed by assistant:** from the local repository root:
+```bat
+git fetch origin main
+git show origin/main:case1/studies/household_frontier_reuse_v1/outputs/stage_a_50_network_routing.csv > "case1\\studies\\household_frontier_reuse_v1\\outputs\\stage_a_50_network_routing.csv"
+```
+This fetches current remote Git objects and writes only the missing local CSV without pulling/updating user code or switching branches. Then rerun `python review_validation_queue.py --repo-root "<repo root>" --output-dir "D:\\SEEDExchange_Validation_Review_01" --scope anchors`. If the output folder already exists, use a new one. **Next user evidence:** returned `validation_audit_summary.json` and `candidate_validation_ledger.csv`, or new error/output text. Need inspect hashes and existing manufacturer source trajectories before proposing expensive annual AC reruns.
+
+**Standing remote-write policy:** update ONLY `case1/PROJECT_HANDOVER_LIVE.md` after each substantive assistant reply. All model/source changes and numerical work remain local-first and require user's explicit authorization before GitLab synchronization. No other GitLab file or CI action performed in this turn.
 
 ## 7. Working routine to avoid another context loss
 
