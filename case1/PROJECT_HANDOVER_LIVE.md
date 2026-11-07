@@ -1,6 +1,6 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
-**Last audit: 7 November 2026. Project-contained output policy and exact local candidate provenance recorded.**
+**Last audit: 7 November 2026. Corrected audit subfolder-relative move failure and prepared existing-GIS AC dry-run commands.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
 **Original public collaboration repository (separate):** https://gitlab.gwdg.de/open-energy-modelling/energy-community. Direct GWDG access failed during this audit. Do not assume it matches the private GitLab.com research repository.
@@ -243,6 +243,26 @@ The output target should be a fresh study-local folder for each run, with relati
 The remaining seven 7-/9-house GIS-eligible anchors have **no locally verified SOC trajectory in their expected folders**, so they need local review or fixed-hardware SOC dispatch before AC; all 40 other anchors lack existing GIS membership, awaiting hypothetical B/C site/network definition.
 
 **No source/code pushed, no numerical runs started, only this rolling handover updated on GitLab with [ci skip].** User's main-only GitLab synchronization requirement is unchanged.
+
+## 7 November 2026: incorrect relative destination while inside audit subfolder
+
+**User reported failure** running from `D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\SEEDExchange_Local_Validation_Audit`:
+```bat
+move "D:\\SEEDExchange_Validation_Review_01" "case1\\studies\\household_frontier_reuse_v1\\outputs\\validation_review_01"
+```
+returned `The system cannot find the path specified. 0 dir(s) moved.`
+
+**Cause and correction:** Destination was **relative to the active working directory** (the audit-tool subfolder), not to repository root. This was a mistaken instruction from assistant; prior audit output was reported as written to `D:\\SEEDExchange_Validation_Review_01`. Correct from current prompt:
+```bat
+cd ..
+move "D:\\SEEDExchange_Validation_Review_01" "case1\\studies\\household_frontier_reuse_v1\\outputs\\validation_review_01"
+dir "case1\\studies\\household_frontier_reuse_v1\\outputs\\validation_review_01"
+```
+If still absent, verify source with `dir "D:\\SEEDExchange_Validation_Review_01"` before any other attempt. This is a **user-local file move only**, not yet confirmed successful; do not claim it was executed.
+
+**Read-only next AC work plan grounded in user-provided 50-design ledger:** 12-house EPM 106039 Stage A candidate `EC-84f6a468f79bf545e863` already has provenance-matched 8760h PF.98 reference AC. Two other 12-house Stage A candidates have verified manufacturer-SOC dispatch and no matching local PF.98 annual AC: `EC-ae0eed011a95698df0af` (54 panels/9 BESS/20 kVA) and `EC-70d86432647ba0b77603` (56/10/20). First perform **dry-run** of the existing `batch_archived_campaign.py --stage ac --scenario-set reference --candidate-id ...` from repo root using original study-local plan, energy, AC directories; confirm each job's outputs/manifest. Then the user may run with `--execute` on their machine. No investment PyPSA campaign rerun. Do not overwrite prior manufacturer or AC folders. PF 0.95 and 1.0 optional next principal sweep once reference validated, and retain 7- and 9-house remaining queued work. Annual AC output folders remain inside `case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/`.
+
+**Read-only source verification this turn:** Live GitLab main `batch_archived_campaign.py` supports `reference` and `principal` PF sets; user-local checkout may lag remote because previous `git fetch` does not update working tree. Runner requires signed source trajectory and checks checkpoint hashes; do not blindly pull with uncommitted local data or re-run existing completed jobs. No numerical runs, fixes, or non-handover GitLab code/data changes performed this turn.
 
 ## 7. Working routine to avoid another context loss
 
