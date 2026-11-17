@@ -20,3 +20,8 @@ A1 transformer 106039 provides an 11-household example with **20,878 kWh/year** 
 ## Source-verified figure generator, 17 November 2026
 
 The three **new** Stage 14 PNGs are generated locally, not already committed as validated figures. The GitLab script `generate_stage14_figures.py` uses the original annual + monthly 2025 review CSVs, enforces source SHA-256, checks 8 cases and monthly reconciliation, then writes a non-overwriting `figures/` folder with a manifest. The user may review and push these results to the same synchronized branch. See `case1/studies/SEEDExchange_Continuation_2026-11-17/README.md` for full commands. Maintain ENERGY-ONLY and the known B9 AC-overload distinction.
+
+
+## Next electrical gate, 17 November 2026
+
+For changed nine-battery hardware (`SS_B9`, `MC_B9`), GitLab now contains a separate **exploratory SOC-neutral stress-case repair script** at `case1/studies/SEEDExchange_StudyA_B9_SOC_Trial_v1/b9_soc_trial.py`. It preserves signed 2025 energy and AC results and tests three proposed same-day discharge moves against the exact original AC solver at PF 0.95 and length x1.6. The script is not an optimized policy, and **no user-run physical AC correction result is yet available**. All-nine factors and any final hardware selection remain pending. Three pure synthetic tests passed locally, but do not substitute for source AC replay.
