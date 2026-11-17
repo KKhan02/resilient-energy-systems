@@ -777,3 +777,16 @@ At PF0.95: 94022 1->0, 106039 50->12, 113699 0->3. At PF1.0: 94022 0->0, 106039 
 **Battery optimization: confirmed across Study A, B and C** with imported archived fixed-BESS 0–16-module sweep, source-checked PV available/curtailed and charging/power constraints, battery SOC and utilization, causal PV-first vs original perfect-foresight scheduling, battery energy vs power vs inverter capacity, cycling/replacements and lifetime costs, and grid AC validation. Compare matched hardware before optimized hardware across central vs shared multi-house clusters; do not claim less curtailment necessarily means lower cost. Do not rerun original 6840 investments. Zero export, no grid charging, night Q off until evidence and manufacturer SOC minimum stay in force. B and C remain separately defined and unsimulated new physical layouts.
 
 **Permissions:** This GitLab update changes **only** the canonical rolling handover in main with `[ci skip]`, per standing exception. User-run, project-contained local-first work remains required for all numerical execution, unless user explicitly requests another mode.
+
+---
+
+## 17 November 2026: User-approved direct GitLab updates and complete Miniforge command workflow
+
+**New user instruction overrides the former blanket local-only GitLab restriction for code/documentation updates.** Commit implementation directly to GitLab and let the user pull locally. User runs the original-source scripts, verifies generated outputs, and commits/pushes these results back to the **same working branch**. Always give all Miniforge Prompt/Anaconda Prompt commands inline, including checkout, pull, Python execution, status, selective stage, commit and push. Do not tell user merely to read README.
+
+The synchronized branch contains 17 November source research and 2 organization commits; protected `main` remains 8 November and is **not** the proper checkout for this Stage 14 plotting code. New source scripts and documentation were committed to `sync/seedexchange-local-2026-11-17` without merging or modifying main.
+
+- Plot source: `case1/studies/SEEDExchange_StudyA_Utilization_Pilot_Review_2026-11-17/{ALL_8_DESIGNS_COST_IMPORT_FRONTIER.csv,MONTHLY_96_CASE_MONTH_RECORDS.csv}`.
+- Plot script: `case1/professor_walkthrough/14_PVBESS_Sizing_and_Utilization/generate_stage14_figures.py`. Three energy-only figures output under new `figures/`, with SHA checks and non-overwrite.
+- Archive script: `case1/studies/SEEDExchange_Continuation_2026-11-17/audit_repository_archives.py`. Reads local Git checkout and writes reports under new `case1/repository_audits/archive_audit_2026-11-17/`. No archive deletion, rearrangement or main merge.
+- Scope remains Study A first, Study B second, Study C third; hydropower and northern 25 kVA trafo excluded. B9 1/2 stress overload hours remain unresolved. The source-only commit does not claim three PNGs or local 57-ZIP audit have already been reproduced and pushed by the user.

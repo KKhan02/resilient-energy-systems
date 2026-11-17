@@ -15,3 +15,8 @@ A1 transformer 106039 provides an 11-household example with **20,878 kWh/year** 
 **Visual plan:** Add one uncluttered 8-design cost-versus-grid-import frontier, explicitly labelled `ENERGY-ONLY`, and one monthly energy/curtailment plot only after the underlying annual values and plot source are checked. Retain the historical Stage 02 and 03 figures rather than replacing them.
 
 **Sources:** `case1/studies/SEEDExchange_StudyA_Utilization_Pilot_Review_2026-11-17/`; new stress-run evidence `StudyA_A1_106039_Frontier_AC_v1/` on this sync branch. No installed site CAPEX, AC losses integrated into investment objective, Colombian approved export tariff or resilience claim.
+
+
+## Source-verified figure generator, 17 November 2026
+
+The three **new** Stage 14 PNGs are generated locally, not already committed as validated figures. The GitLab script `generate_stage14_figures.py` uses the original annual + monthly 2025 review CSVs, enforces source SHA-256, checks 8 cases and monthly reconciliation, then writes a non-overwriting `figures/` folder with a manifest. The user may review and push these results to the same synchronized branch. See `case1/studies/SEEDExchange_Continuation_2026-11-17/README.md` for full commands. Maintain ENERGY-ONLY and the known B9 AC-overload distinction.
