@@ -38,3 +38,10 @@ The local audit is a disclosure of the current tracked checkout; the manual push
 ## Next research gate
 
 B9 (SS_B9 and MC_B9) has 1 / 2 transformer-overload hours under the PF=0.95 and length=1.6 stress case. Resolve by chronological SOC-neutral event-hour dispatch changes, independent changed-hour pandapower tests, and then all-nine PF/length checks. New hardware is not AC-certified.
+
+
+## Verify before running plots
+
+    python -m unittest discover -s "case1\studies\SEEDExchange_Continuation_2026-11-17" -p "test_*.py" -v
+
+Two regression gates check the original eight-case SHA-verified sources and test read-only ZIP duplicate detection in an isolated temporary Git fixture.

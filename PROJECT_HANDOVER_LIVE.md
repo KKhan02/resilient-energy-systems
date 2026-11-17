@@ -1,5 +1,7 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
+**CURRENT GITLAB WORKFLOW CHECKPOINT | 17 November 2026:** User authorized direct GitLab updates and requested complete inline Miniforge/Anaconda commands for pull, run, stage, commit and push. Latest research lives on `sync/seedexchange-local-2026-11-17` (GitLab commits `50521c8f`, `837779bc`); protected `main` is still at `9aaca547`. Stage 14 source-checked plot generator and read-only ZIP audit are committed. User has NOT yet run and pushed the new PNGs/checkout audit. Existing 376/432 original-network and conditional 408/432 five-edge results unchanged; B9 AC overloads unresolved. Do not auto-stage historical 57 ZIP archives.
+
 **Last audit: 7 November 2026. All three nine-house 94022 annual AC reference results verified pass; identified strict-band, PV-first and equal-spatial-load caveats.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
