@@ -1,6 +1,6 @@
 # SEEDExchange: professor research walkthrough
 
-**Status: progress discussion updated 6 November 2026.** This folder curates **24 PNG figures** across the source studies, with 11 numbered stages. It is not a field-certification report or final poster. All figure copies retain links to original data and code; no original simulation outputs are moved or rewritten.
+**Status: research storyline updated 17 November 2026.** This folder curates **29 PNG figures** across the source studies, with 14 numbered stages. It is not a field-certification report or final poster. All figure copies retain links to original data and code; no original simulation outputs are moved or rewritten.
 
 ## Research storyline
 
@@ -10,7 +10,7 @@ Independent pandapower tests show why aggregate energy/PCC feasibility does not 
 
 **New since the original 3 November walkthrough:** a manufacturer's 20% minimum battery-SOC restriction, successful **SOC-consistent 7-house active-power feedback** under the stricter original voltage research band, and a **12-house reference full-year 0.95–1.05 pu AC pass** with nighttime Q disabled. Full-year stress screening also demonstrates how the original 0.97 pu threshold can classify hours differently from a 0.95 pu engineering target. A reuse-first AC-validation campaign is assessing previously optimized equipment choices; no complete network-feasible economic frontier is claimed yet.
 
-For the connected narrative see [RESEARCH_NARRATIVE.md](RESEARCH_NARRATIVE.md). For original source paths see [FIGURE_INDEX.csv](FIGURE_INDEX.csv).
+For the historical connected narrative see [RESEARCH_NARRATIVE.md](RESEARCH_NARRATIVE.md). For the explicit continuation of the research story after Stage 11, see [RESEARCH_STORY_AFTER_STAGE11.md](RESEARCH_STORY_AFTER_STAGE11.md). For original source paths see [FIGURE_INDEX.csv](FIGURE_INDEX.csv).
 
 ## Presentation order
 
@@ -27,6 +27,11 @@ For the connected narrative see [RESEARCH_NARRATIVE.md](RESEARCH_NARRATIVE.md). 
 | 09 | [SOC-consistent AC-aware redispatch](09_AC_Aware_Redispatch/) | Four strict-screen 94022 failures resolved by changing annual active-power timing |
 | 10 | [Full-campaign equipment feasibility](10_Campaign_Equipment_Feasibility/) | Historical investment reuse, manufacturer SOC and annual AC queue, still in progress |
 | 11 | [Next research decisions](11_Next_Research_Decisions/) | Field evidence, loss-aware sizing, resilience and forecasting gaps |
+| 12 | [Geographic assignment and routing](12_Geographic_Assignment_and_Routing/) | A0/A1 spatial evidence, 92395 proposed STAR/MST electrical trade-off |
+| 13 | [Annual AC corrections and conditional retrofit](13_Annual_AC_Corrections_and_Conditional_Retrofit/) | Original versus corrected 432-case results; strictly hypothetical A0 five-edge network sensitivity |
+| 14 | [PV/BESS sizing and utilization](14_PVBESS_Sizing_and_Utilization/) | Marginal storage value, curtailment, cost and new hardware AC-validation gap |
+
+**As of 17 November 2026:** the original-network corrected portfolio is 376/432 AC feasible, while 408/432 is a conditional total only if the hypothetical five-edge 94022 retrofit is substituted. New nine-battery designs have 2025 optimized energy results but retain isolated stress-case transformer overloads. Hydropower is excluded from the project.
 
 ## Interpretation requirements
 
