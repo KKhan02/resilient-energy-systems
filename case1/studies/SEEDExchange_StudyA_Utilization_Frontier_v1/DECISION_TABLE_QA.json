@@ -1,0 +1,8 @@
+{
+  "equal_population_4_scenarios": true,
+  "studyb_cases": 72,
+  "mst_failures": 24,
+  "star_failures": 0,
+  "loss_cost_proxy_USD_per_kWh": 0.29,
+  "note": "No physical retrofits or price quotes available"
+}

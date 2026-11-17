@@ -1,0 +1,43 @@
+{
+  "case": "A0_94022_ss90_ref",
+  "dispatch": "causal",
+  "pf": 0.98,
+  "length_factor": 1.3,
+  "bundle": "five",
+  "branch_indices": [
+    7,
+    4,
+    14,
+    11,
+    16
+  ],
+  "r_multiplier": 0.5,
+  "input_candidate_sha256": "594603b03463d118a4d4795e9fa642b9db3cc76633acbb1d3b40c7c692438722",
+  "input_annual_manifest_sha256": "a334a62df483943c6891aecd9b117d6db16372f9f0dc3e1dce9be7b68e430f02",
+  "original_AC_summary_sha256": "fdba9b48e147d99255ca7f79cf8a2a904f5f46dab96a021231a69fde0415d1cd",
+  "original_AC_hourly_sha256": "c3d2488a5b52b48b551b32695b8f8d52a7dcace7cd4d142678a4a023b0134049",
+  "source_target_zip_sha256": "d94c960eb657ac866f8ea70849adc1633a52ccd5c16d656653733ef24126cc2d",
+  "source_A0_trial_manifest_sha256": "2faa3077fd1569253396b1a11dfda2bd388dcfe0f7545388ba359ac8e2f0eec3",
+  "annual_8760_AC_validated": true,
+  "physical_cable_selection_validated": false,
+  "status": "ANNUAL_AC_RESEARCH_NETWORK_R050",
+  "scope": "Full-year 2025 AC power-flow with unchanged A0 94022 battery dispatch and hypothetical 50% R branch reduction",
+  "hours": 8760,
+  "converged_hours": 8760,
+  "AC_infeasible_hours": 0,
+  "min_v_pu": 0.9578880257966721,
+  "max_v_pu": 0.9985188263650417,
+  "max_transformer_pct": 90.35809252457248,
+  "max_line_pct": 11.467626148674793,
+  "annual_line_loss_kwh": 134.29334598005767,
+  "annual_transformer_loss_kwh": 283.5059741016353,
+  "selected_hour_numerical_reproduction": {
+    "min_v_pu": 1.1102230246251565e-16,
+    "max_v_pu": 1.1102230246251565e-16,
+    "max_trafo_pct": 3.552713678800501e-15,
+    "max_line_pct": 1.7763568394002505e-15
+  },
+  "number_of_selected_hour_controls": 9,
+  "assumptions": "R*0.5 on selected model edges only; X/ampacity/transformer unchanged; household services and GIS taps provisional; balanced AC proxy.",
+  "hourly_sha256": "7e14bf80ea2547794af875536b652f332ca65d3504e80e4767494c46406e9977"
+}

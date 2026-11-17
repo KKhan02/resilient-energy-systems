@@ -1,0 +1,5 @@
+case,dispatch,pf,length_factor,timestamp_lst,option,changed_line_count,status,minimum_voltage_pu,maximum_voltage_pu,transformer_loading_pct,line_loading_pct,limiting_house,inverter_ac_kw,original_event_key,ac_feasible
+A0_94022_min_cost_ref,causal,0.95,1.6,2025-11-29 20:00:00,svc007_gis014_011_R050,3,CONVERGED,0.9467973601668948,0.969768369790864,97.64851485532252,11.14638470928796,H06,0.0,True,False
+A0_94022_min_cost_ref,causal,0.95,1.6,2025-11-29 20:00:00,svc007_gis_top9_R050,10,CONVERGED,0.9488230673801918,0.9698188480391304,97.3937146394078,11.116691959818514,H06,0.0,True,False
+A0_94022_min_cost_ref,optimized,0.95,1.6,2025-11-29 20:00:00,svc007_gis014_011_R050,3,CONVERGED,0.9467973601668948,0.969768369790864,97.64851485532252,11.14638470928796,H06,-0.0,True,False
+A0_94022_min_cost_ref,optimized,0.95,1.6,2025-11-29 20:00:00,svc007_gis_top9_R050,10,CONVERGED,0.9488230673801918,0.9698188480391304,97.3937146394078,11.116691959818514,H06,-0.0,True,False

@@ -1,0 +1,39 @@
+{
+  "status": "FULL_8760H_CAUSAL_NONCYCLIC_CONTROLS_SENSITIVITY",
+  "transformer": "92395",
+  "scenario": "A0",
+  "selected_houses": [
+    "H30",
+    "H31",
+    "H32",
+    "H33"
+  ],
+  "source_energy_manifest_sha256": "3578572b498283508b973874090488756ec0752cdbc3d553b768e573a8d265a8",
+  "input_manifest_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+  "output_sha256": "921e0e5f8026e5529a2781f578a90cb7a508945211d5fd8ec0c1b2b7cedff27a",
+  "metrics": {
+    "demand_kwh": 7591.9999999985,
+    "grid_import_kwh": 524.0952925494753,
+    "grid_export_kwh": 0.0,
+    "unmet_load_kwh": 0.0,
+    "self_sufficiency_pct": 93.0967427219497,
+    "available_pv_dc_kwh": 8979.8323818346,
+    "generated_pv_dc_kwh": 7654.605600420324,
+    "curtailed_pv_dc_kwh": 1325.226781414276,
+    "curtailed_pv_fraction": 0.14757812006548046,
+    "battery_charge_dc_kwh": 4294.118167374434,
+    "battery_discharge_dc_kwh": 4079.412259005716,
+    "battery_charge_active_hours": 2761,
+    "battery_discharge_active_hours": 4699,
+    "max_battery_charge_dc_kw": 5.759999999999999,
+    "max_battery_discharge_dc_kw": 2.1382292422105267,
+    "approx_equivalent_full_discharge_cycles": 248.98756463657932,
+    "battery_soc_usable_min_kwh": 0.9160000000000003,
+    "battery_soc_usable_max_kwh": 17.3,
+    "effective_physical_SOC_window_kwh": 16.384,
+    "interpretation": "Perfect foresight source PyPSA baseline, not causal controller, not AC feasibility; no transfer of historic costs"
+  },
+  "initial_soc_kwh": 9.9491512873,
+  "terminal_soc_delta_kwh": -3.664624159682717e-12,
+  "comparison_caveat": "Not cyclic unless terminal SOC delta is zero; annual grid import is not a like-for-like optimal-dispatch comparison when it differs."
+}

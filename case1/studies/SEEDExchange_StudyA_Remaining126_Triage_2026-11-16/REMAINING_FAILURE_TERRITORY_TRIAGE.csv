@@ -1,0 +1,7 @@
+scenario,transformer,topology,distinct_design_hour_events,failing_sensitivity_case_hour_rows,distinct_design_dispatch_groups,distinct_calendar_hours,voltage_only_events,transformer_only_events,voltage_and_transformer_events,minimum_voltage_pu,peak_transformer_loading_pct,near_operational_soc_floor_case_hour_rows,zero_grid_import_case_hour_rows,recommended_gate
+A0,92395,mst,411,938,4,116,411,0,0,0.9316063169,41.5940568208,46,787,"B/network: compare STAR vs MST, conductor sections, remote-node voltage; behind-PCC feeder drop even with net zero import"
+A0,94022,mapped,112,310,4,42,112,0,0,0.9372781141,98.2047758724,273,34,A/dispatch-first for evening SOC floor; subsequent conductor and placement sensitivity if necessary
+A0,106039,mapped,44,234,4,23,7,14,23,0.941223409,119.37910373,225,0,A/dispatch plus transformer thermal headroom; assess energy availability and actual nameplate
+A1,94022,mapped,12,12,4,5,12,0,0,0.9479925721,71.2829051204,12,0,A/short evening reserve trial first; voltage magnitude deficit ~0.0004–0.0020 pu
+A1,113699,mapped,4,16,2,2,2,0,2,0.9477112506,104.3578689967,16,0,"A/short evening reserve trial, but verify 3kVA nameplate and voltage/thermal constraints"
+A1,106039,mapped,3,21,2,2,0,3,0,0.9542357057,107.4311690706,21,0,A/causal EMS-only correction; optimized tier already validated across all nine cases

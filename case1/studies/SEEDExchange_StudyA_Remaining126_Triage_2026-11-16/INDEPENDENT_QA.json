@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-16",
+  "source_zip_sha256": "cee6f6d538caf950fd21133ca79b55f2eb24dfb54e5192e4518c874ed07b5cda",
+  "expected_failing_case_count": 126,
+  "independent_case_count": 126,
+  "case_hour_rows": 1531,
+  "deduplicated_design_hour_events": 586,
+  "full_year_pv_curtailed_profiles": 44,
+  "event_types_case_hour": {
+    "(False, True)": 179,
+    "(True, False)": 1276,
+    "(True, True)": 76
+  },
+  "event_types_deduplicated": {
+    "(False, True)": 17,
+    "(True, False)": 544,
+    "(True, True)": 25
+  },
+  "all_events_nighttime_no_pv": true,
+  "no_line_overloads_in_uploaded_remaining_events": true,
+  "mST_low_voltage_event_rows": 938,
+  "mst_event_rows_zero_grid_import": 787,
+  "near_soc_floor_case_hour_rows": 593,
+  "curtailment_full_soc_hour_counts_by_dispatch": {
+    "causal": 18964,
+    "optimized": 23
+  },
+  "curtailment_hour_counts_by_dispatch": {
+    "causal": 18988,
+    "optimized": 19629
+  },
+  "curtailment_inverter_at_nameplate_hours_by_dispatch": {
+    "causal": 0,
+    "optimized": 0
+  },
+  "origin_extractor_qa": {
+    "expected_remaining_failing_ac_cases": 126,
+    "verified_failing_ac_cases": 126,
+    "violation_event_records": 1531,
+    "distinct_design_timestamp_events": 586,
+    "dispatch_family_summaries": 44,
+    "issues": [],
+    "note": "Curtailed-PV coincidence flags overlap, they do not prove the cause of curtailment. No automatic intervention is performed."
+  },
+  "interpretation": "Causal PV-first vs optimized perfect-foresight SOC coincidence flags cannot be interpreted as proof of hardware bottleneck. All electrical constraints conditional on proposed network parameters."
+}

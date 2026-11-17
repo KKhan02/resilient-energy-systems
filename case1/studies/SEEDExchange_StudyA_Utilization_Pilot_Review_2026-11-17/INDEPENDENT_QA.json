@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "source_archive_sha256": "bae74218fd0b0ca60da26cfb3625e28638820ef588498df7d7afa36132a3282d",
+  "zip_crc": "PASS",
+  "source_models_count": 1,
+  "sources_count": 1,
+  "solar_source_count": 1,
+  "new_8760hour_cases": 6,
+  "signed_reference_rows": 2,
+  "monthly_records": 96,
+  "hourly_rows_independently_checked": 52560,
+  "AC_validation": "NOT_PERFORMED",
+  "numerical_solves_by_auditor": 0,
+  "reference_energy_sha": {
+    "MC_REF": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+    "SS_REF": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257"
+  }
+}

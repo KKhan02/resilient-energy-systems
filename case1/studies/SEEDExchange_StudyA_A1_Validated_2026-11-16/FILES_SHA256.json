@@ -1,0 +1,65 @@
+{
+  "created": "2026-11-16",
+  "files": {
+    "A0_A1_36_AGGREGATES_WITH_ACAWARE.csv": {
+      "sha256": "e69a1eda743844aa041f484fc5068a500f807ce534dfabbfa93cf86bf5b67500",
+      "bytes": 4523
+    },
+    "A1_19_DISCHARGE_TRANSFERS.csv": {
+      "sha256": "41c2bb249f9de92afd170173891e4a03564fb933e29dba0f1217936b39aafd2b",
+      "bytes": 1708
+    },
+    "A1_342_CHANGED_AC_AUDITED.csv": {
+      "sha256": "5ba5694fd41cd543b36b32da5ee9a08c4b8194cbbd775cc0f674256243d60e5e",
+      "bytes": 34441
+    },
+    "A1_72_SENSITIVITY_AC_AUDITED.csv": {
+      "sha256": "c1d0fe06339fea5bd20264716cf20f1c0caa14b8d88881aed51738c8a727bab6",
+      "bytes": 8315
+    },
+    "A1_8_SCHEDULE_ENERGY_AUDIT.csv": {
+      "sha256": "5c8258c045329beebce34242a7c2c1cf80a9362fddc51d6252f43389d77d0453",
+      "bytes": 2752
+    },
+    "INDEPENDENT_QA.json": {
+      "sha256": "5b4f910b0d52ec5c774e89b6e146ee62317400853e4e126c956b3393c4d6c162",
+      "bytes": 1324
+    },
+    "INDEPENDENT_RESEARCH_REVIEW.md": {
+      "sha256": "bbad4ef43ca933b2c1eddab30a982dede11e29f99d96a1bc8bfe216aa4ffc0d6",
+      "bytes": 7531
+    },
+    "PORTFOLIO_432_POST_A1_CORRECTIONS.csv": {
+      "sha256": "b277e7dff40c017d135fff2ee82bbf641c0b7d4428bc26906cbbad9dd17d0001",
+      "bytes": 185224
+    },
+    "README.md": {
+      "sha256": "90535f14c3961017aaea41b1971ccf57414f04a883559304b1c11d53ea39763e",
+      "bytes": 1247
+    },
+    "REMAINING_12_A0_FAILURE_GROUPS.csv": {
+      "sha256": "a00f4b71597c8a47b3d625a67bfafb6317a880e2ee53f74090abe139b955fd41",
+      "bytes": 814
+    },
+    "figures/P1_updated_A0_A1_gross_PVBESS_ACaware.png": {
+      "sha256": "64722e7b0bbf8f59f608c25495a30d87681d2f855a4bfd6a91facab48d0b8032",
+      "bytes": 216747
+    },
+    "figures/P1_updated_A0_A1_gross_PVBESS_ACaware.svg": {
+      "sha256": "70f77880789e57738bbf69a4b46e71bcfd8691fdc4b91af10c161a871654dda3",
+      "bytes": 19722
+    },
+    "figures/P2_updated_A0_A1_ACaware_robustness.png": {
+      "sha256": "399ab24f47fb69835b30f64cdc8c1f4695437c8bbe02bdb04ae233b833e3205a",
+      "bytes": 173313
+    },
+    "figures/P2_updated_A0_A1_ACaware_robustness.svg": {
+      "sha256": "43e9cc630119fd7cd26363a684c9052c29522e474f7eb4e7bd0d20bc9787b57f",
+      "bytes": 34457
+    },
+    "plot_a1_acaware_progression.py": {
+      "sha256": "4ee2193f9056f1dd08b02455cd37d609c179a19e14cab8bc4943baf86c3b5034",
+      "bytes": 5527
+    }
+  }
+}

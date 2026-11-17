@@ -1,0 +1,32 @@
+{
+  "status": "ANNUAL_PVBESS_AC",
+  "model": "fixed_active_power_replay_with_daylight_q_not_ac_constrained_energy_reoptimization",
+  "scenario": "A0",
+  "transformer": "113699",
+  "topology": "mapped",
+  "tier": "ss90",
+  "dispatch": "optimized",
+  "selected_house_ids": [
+    "H04",
+    "H05",
+    "H07",
+    "H10"
+  ],
+  "hours": 8760,
+  "converged_hours": 8760,
+  "nonconverged_hours": 0,
+  "AC_infeasible_hours": 0,
+  "voltage_below_095_hours": 0,
+  "transformer_overload_hours": 0,
+  "min_voltage_pu": 0.9728316047634397,
+  "max_transformer_loading_pct": 58.64800620248227,
+  "annual_or_sample_losses_kwh": 200.95613035875238,
+  "pf": 0.95,
+  "length_factor": 1.3,
+  "q_ratio_daylight": 0.25,
+  "night_q_disabled": true,
+  "energy_manifest_sha256": "9414fcaae58b8c139c8ee32890811908b7d9893861e1650120d1d50435e38121",
+  "input_manifest_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+  "ac_hourly_sha256": "7ca43fd98400562fa5e884e76232fd088ebabd133584be682c7221c6ebb030c9",
+  "evidence": "PROPOSED_GEOGRAPHIC_BALANCED_AC_ONLY"
+}

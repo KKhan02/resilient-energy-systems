@@ -1,0 +1,804 @@
+<?xml version="1.0"?>
+<!--system components-->
+<homerml version="1">
+	<system_description>
+		<document_information>
+			<author></author>
+			<notes></notes>
+		</document_information>
+		<pv>
+			<size>5.220</size>
+			<capital_cost>3856</capital_cost>
+			<replacement_cost>3856</replacement_cost>
+			<om_cost>0</om_cost>
+			<lifetime>25</lifetime>
+			<derating_factor>80</derating_factor>
+			<tracking_system>0</tracking_system>
+			<slope>5.0</slope>
+			<azimuth>0.0</azimuth>
+			<ground_reflectance>20</ground_reflectance>
+			<current_type>DC</current_type>
+			<consider_temperature_effect>yes</consider_temperature_effect>
+			<temperature_coeff_power>-0.300</temperature_coeff_power>
+			<noct>45.0</noct>
+			<efficiency_at_noct>22.3</efficiency_at_noct>
+		</pv>
+		<converter>
+			<inverter_size>5.00</inverter_size>
+			<rectifier_size>5.00</rectifier_size>
+			<capital_cost>3330</capital_cost>
+			<replacement_cost>3330</replacement_cost>
+			<om_cost>0</om_cost>
+			<lifetime>15</lifetime>
+			<inverter_efficiency>95.0</inverter_efficiency>
+			<able_to_parallel>yes</able_to_parallel>
+			<rectifier_efficiency>85.0</rectifier_efficiency>
+		</converter>
+		<battery number="1">
+			<battery_properties>
+				<description>Deye 5.12 kWh</description>
+				<abbreviation>SE-G5.1</abbreviation>
+				<manufacturer>Deye</manufacturer>
+				<website>www.deye.com</website>
+				<notes>www.deye.com</notes>
+				<flow_battery>0</flow_battery>
+				<nominal_capacity>100</nominal_capacity>
+				<nominal_voltage>48.0</nominal_voltage>
+				<roundtrip_efficiency>95.0</roundtrip_efficiency>
+				<min_state_of_charge>10.0</min_state_of_charge>
+				<float_life>20.0</float_life>
+				<max_charge_rate>1.00</max_charge_rate>
+				<max_charge_current>100</max_charge_current>
+				<lifetime_throughput>23660</lifetime_throughput>
+				<suggested_value>23660</suggested_value>
+				<maximum_capacity>103</maximum_capacity>
+				<capacity_ratio>0.757</capacity_ratio>
+				<rate_constant>1.99</rate_constant>
+				<capacity_table>
+					<row>
+						<current>20.000</current>
+						<capacity>100.000</capacity>
+					</row>
+					<row>
+						<current>50.000</current>
+						<capacity>95.000</capacity>
+					</row>
+					<row>
+						<current>100.000</current>
+						<capacity>90.000</capacity>
+					</row>
+				</capacity_table>
+				<lifetime_table>
+					<row>
+						<depth_of_discharge>20.000</depth_of_discharge>
+						<cycles_to_failure>24000.000</cycles_to_failure>
+					</row>
+					<row>
+						<depth_of_discharge>30.000</depth_of_discharge>
+						<cycles_to_failure>16000.000</cycles_to_failure>
+					</row>
+					<row>
+						<depth_of_discharge>40.000</depth_of_discharge>
+						<cycles_to_failure>12000.000</cycles_to_failure>
+					</row>
+					<row>
+						<depth_of_discharge>50.000</depth_of_discharge>
+						<cycles_to_failure>9600.000</cycles_to_failure>
+					</row>
+					<row>
+						<depth_of_discharge>60.000</depth_of_discharge>
+						<cycles_to_failure>8000.000</cycles_to_failure>
+					</row>
+					<row>
+						<depth_of_discharge>70.000</depth_of_discharge>
+						<cycles_to_failure>6857.000</cycles_to_failure>
+					</row>
+					<row>
+						<depth_of_discharge>80.000</depth_of_discharge>
+						<cycles_to_failure>6000.000</cycles_to_failure>
+					</row>
+					<row>
+						<depth_of_discharge>90.000</depth_of_discharge>
+						<cycles_to_failure>5333.000</cycles_to_failure>
+					</row>
+					<row>
+						<depth_of_discharge>100.000</depth_of_discharge>
+						<cycles_to_failure>4800.000</cycles_to_failure>
+					</row>
+				</lifetime_table>
+			</battery_properties>
+			<cell_battery>
+				<quantity>4</quantity>
+				<capital_cost>4770</capital_cost>
+				<replacement_cost>4770</replacement_cost>
+				<om_cost>0.00</om_cost>
+			</cell_battery>
+			<specify_min_battery_life>yes</specify_min_battery_life>
+			<min_battery_life>15.0</min_battery_life>
+		</battery>
+		<grid>
+			<grid_connection>
+				<rates>
+					<rate>
+						<label>Rate 1</label>
+						<grid_power_price>0.290</grid_power_price>
+						<sellback_rate>0.275</sellback_rate>
+						<demand_rate>0.000</demand_rate>
+					</rate>
+				</rates>
+				<time_period_schedule>
+					<weekdays>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+					</weekdays>
+					<weekends>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+						<int_array>
+						0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+					</int_array>
+					</weekends>
+				</time_period_schedule>
+				<net_metering>yes</net_metering>
+				<net_metering_period>monthly</net_metering_period>
+				<interconnection_charge>0</interconnection_charge>
+				<standby_charge>0</standby_charge>
+				<purchase_capacity>1000.000</purchase_capacity>
+				<sale_capacity>1000.0</sale_capacity>
+				<co2_emissions_factor>220.000</co2_emissions_factor>
+				<co_emissions_factor>0.000</co_emissions_factor>
+				<uhc_emissions_factor>0.000</uhc_emissions_factor>
+				<pm_emissions_factor>0.000</pm_emissions_factor>
+				<so2_emissions_factor>0.000</so2_emissions_factor>
+				<nox_emissions_factor>0.000</nox_emissions_factor>
+			</grid_connection>
+		</grid>
+		<locale>
+			<latitude>
+				<hemisphere>N</hemisphere>
+				<degrees>6</degrees>
+				<minutes>14</minutes>
+			</latitude>
+			<longitude>
+				<hemisphere>W</hemisphere>
+				<degrees>75</degrees>
+				<minutes>0</minutes>
+			</longitude>
+			<time_zone>-5.00</time_zone>
+		</locale>
+		<solar_resource>
+			<data>
+				<monthly>
+					<monthly_average_radiation>
+						<float>4.740</float>
+						<float>4.740</float>
+						<float>4.660</float>
+						<float>4.660</float>
+						<float>4.920</float>
+						<float>5.180</float>
+						<float>5.490</float>
+						<float>5.490</float>
+						<float>5.270</float>
+						<float>4.710</float>
+						<float>4.430</float>
+						<float>4.490</float>
+					</monthly_average_radiation>
+				</monthly>
+				<notes>Data retrieved from NREL website on January 25, 2017 at 12:56 PM
+
+Data set: NREL
+Cell number: 205416
+Cell dimensions: 40km x 40km
+Cell midpoint: 22° 15' N, 97° 54' W
+
+Description: National Solar Radiation Database
+</notes>
+			</data>
+			<scaled_annual_average>
+				<values>
+					<float>4.900</float>
+				</values>
+			</scaled_annual_average>
+		</solar_resource>
+		<ambient_temperature>
+			<data>
+				<monthly>
+					<monthly_average_temperature>
+						<float>20.119</float>
+						<float>20.757</float>
+						<float>20.989</float>
+						<float>20.714</float>
+						<float>20.592</float>
+						<float>20.515</float>
+						<float>20.585</float>
+						<float>20.733</float>
+						<float>20.529</float>
+						<float>19.909</float>
+						<float>19.749</float>
+						<float>19.838</float>
+					</monthly_average_temperature>
+				</monthly>
+			</data>
+			<scaled_annual_average>20.4</scaled_annual_average>
+		</ambient_temperature>
+		<primary_load number="1">
+			<data>
+				<label>Primary Load 1</label>
+				<current_type>AC</current_type>
+				<monthly>
+					<daily_profiles>
+						<jan>
+							<weekday>
+								<float_array>
+								0.635 0.575 0.559 0.575 0.656 0.784 0.847 0.812 0.784 0.802 0.834 0.862 0.864 0.828 0.792 0.797 0.843 0.979 1.181 1.300 1.271 1.154 0.971 0.783
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.635 0.575 0.559 0.575 0.656 0.784 0.847 0.812 0.784 0.802 0.834 0.862 0.864 0.828 0.792 0.797 0.843 0.979 1.181 1.300 1.271 1.154 0.971 0.783
+							</float_array>
+							</weekend>
+						</jan>
+						<feb>
+							<weekday>
+								<float_array>
+								0.635 0.575 0.559 0.575 0.656 0.784 0.847 0.812 0.784 0.802 0.834 0.862 0.864 0.828 0.792 0.797 0.843 0.979 1.181 1.300 1.271 1.154 0.971 0.783
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.635 0.575 0.559 0.575 0.656 0.784 0.847 0.812 0.784 0.802 0.834 0.862 0.864 0.828 0.792 0.797 0.843 0.979 1.181 1.300 1.271 1.154 0.971 0.783
+							</float_array>
+							</weekend>
+						</feb>
+						<mar>
+							<weekday>
+								<float_array>
+								0.683 0.619 0.601 0.619 0.706 0.844 0.911 0.874 0.844 0.863 0.898 0.928 0.930 0.891 0.852 0.857 0.908 1.054 1.270 1.399 1.368 1.242 1.045 0.843
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.683 0.619 0.601 0.619 0.706 0.844 0.911 0.874 0.844 0.863 0.898 0.928 0.930 0.891 0.852 0.857 0.908 1.054 1.270 1.399 1.368 1.242 1.045 0.843
+							</float_array>
+							</weekend>
+						</mar>
+						<apr>
+							<weekday>
+								<float_array>
+								0.683 0.619 0.601 0.619 0.706 0.844 0.911 0.874 0.844 0.863 0.898 0.928 0.930 0.891 0.852 0.857 0.908 1.054 1.270 1.399 1.368 1.242 1.045 0.843
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.683 0.619 0.601 0.619 0.706 0.844 0.911 0.874 0.844 0.863 0.898 0.928 0.930 0.891 0.852 0.857 0.908 1.054 1.270 1.399 1.368 1.242 1.045 0.843
+							</float_array>
+							</weekend>
+						</apr>
+						<may>
+							<weekday>
+								<float_array>
+								0.683 0.619 0.601 0.619 0.706 0.844 0.911 0.874 0.844 0.863 0.898 0.928 0.930 0.891 0.852 0.857 0.908 1.054 1.270 1.399 1.368 1.242 1.045 0.843
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.683 0.619 0.601 0.619 0.706 0.844 0.911 0.874 0.844 0.863 0.898 0.928 0.930 0.891 0.852 0.857 0.908 1.054 1.270 1.399 1.368 1.242 1.045 0.843
+							</float_array>
+							</weekend>
+						</may>
+						<jun>
+							<weekday>
+								<float_array>
+								0.548 0.497 0.482 0.496 0.566 0.677 0.731 0.701 0.677 0.692 0.720 0.744 0.746 0.714 0.683 0.688 0.728 0.846 1.019 1.123 1.097 0.996 0.838 0.676
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.548 0.497 0.482 0.496 0.566 0.677 0.731 0.701 0.677 0.692 0.720 0.744 0.746 0.714 0.683 0.688 0.728 0.846 1.019 1.123 1.097 0.996 0.838 0.676
+							</float_array>
+							</weekend>
+						</jun>
+						<jul>
+							<weekday>
+								<float_array>
+								0.548 0.497 0.482 0.496 0.566 0.677 0.731 0.701 0.677 0.692 0.720 0.744 0.746 0.714 0.683 0.688 0.728 0.846 1.019 1.123 1.097 0.996 0.838 0.676
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.548 0.497 0.482 0.496 0.566 0.677 0.731 0.701 0.677 0.692 0.720 0.744 0.746 0.714 0.683 0.688 0.728 0.846 1.019 1.123 1.097 0.996 0.838 0.676
+							</float_array>
+							</weekend>
+						</jul>
+						<aug>
+							<weekday>
+								<float_array>
+								0.548 0.497 0.482 0.496 0.566 0.677 0.731 0.701 0.677 0.692 0.720 0.744 0.746 0.714 0.683 0.688 0.728 0.846 1.019 1.123 1.097 0.996 0.838 0.676
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.548 0.497 0.482 0.496 0.566 0.677 0.731 0.701 0.677 0.692 0.720 0.744 0.746 0.714 0.683 0.688 0.728 0.846 1.019 1.123 1.097 0.996 0.838 0.676
+							</float_array>
+							</weekend>
+						</aug>
+						<sep>
+							<weekday>
+								<float_array>
+								0.738 0.669 0.649 0.668 0.762 0.911 0.984 0.944 0.911 0.932 0.969 1.002 1.005 0.962 0.920 0.926 0.980 1.138 1.372 1.511 1.477 1.341 1.128 0.911
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.738 0.669 0.649 0.668 0.762 0.911 0.984 0.944 0.911 0.932 0.969 1.002 1.005 0.962 0.920 0.926 0.980 1.138 1.372 1.511 1.477 1.341 1.128 0.911
+							</float_array>
+							</weekend>
+						</sep>
+						<oct>
+							<weekday>
+								<float_array>
+								0.738 0.669 0.649 0.668 0.762 0.911 0.984 0.944 0.911 0.932 0.969 1.002 1.005 0.962 0.920 0.926 0.980 1.138 1.372 1.511 1.477 1.341 1.128 0.911
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.738 0.669 0.649 0.668 0.762 0.911 0.984 0.944 0.911 0.932 0.969 1.002 1.005 0.962 0.920 0.926 0.980 1.138 1.372 1.511 1.477 1.341 1.128 0.911
+							</float_array>
+							</weekend>
+						</oct>
+						<nov>
+							<weekday>
+								<float_array>
+								0.738 0.669 0.649 0.668 0.762 0.911 0.984 0.944 0.911 0.932 0.969 1.002 1.005 0.962 0.920 0.926 0.980 1.138 1.372 1.511 1.477 1.341 1.128 0.911
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.738 0.669 0.649 0.668 0.762 0.911 0.984 0.944 0.911 0.932 0.969 1.002 1.005 0.962 0.920 0.926 0.980 1.138 1.372 1.511 1.477 1.341 1.128 0.911
+							</float_array>
+							</weekend>
+						</nov>
+						<dec>
+							<weekday>
+								<float_array>
+								0.635 0.575 0.559 0.575 0.656 0.784 0.847 0.812 0.784 0.802 0.834 0.862 0.864 0.828 0.792 0.797 0.843 0.979 1.181 1.300 1.271 1.154 0.971 0.783
+							</float_array>
+							</weekday>
+							<weekend>
+								<float_array>
+								0.635 0.575 0.559 0.575 0.656 0.784 0.847 0.812 0.784 0.802 0.834 0.862 0.864 0.828 0.792 0.797 0.843 0.979 1.181 1.300 1.271 1.154 0.971 0.783
+							</float_array>
+							</weekend>
+						</dec>
+					</daily_profiles>
+					<daily_noise>20.000</daily_noise>
+					<hourly_noise>25.000</hourly_noise>
+				</monthly>
+			</data>
+			<scaled_annual_average>20.800</scaled_annual_average>
+			<perform_efficiency_analysis>no</perform_efficiency_analysis>
+			<efficiency_multiplier>1.000</efficiency_multiplier>
+			<efficiency_cost>0.000</efficiency_cost>
+			<efficiency_lifetime>10.000</efficiency_lifetime>
+		</primary_load>
+		<economics>
+			<annual_real_interest_rate>6.0</annual_real_interest_rate>
+			<project_lifetime>25</project_lifetime>
+			<system_fixed_capital_cost>0</system_fixed_capital_cost>
+			<system_fixed_om_cost>0</system_fixed_om_cost>
+			<capacity_shortage_penalty>0.00</capacity_shortage_penalty>
+		</economics>
+		<control>
+			<simulation_time_step>60</simulation_time_step>
+			<dispatch_strategy>Cycle Charging</dispatch_strategy>
+			<setpoint_state_of_charge>80</setpoint_state_of_charge>
+			<allow_multiple_generators>yes</allow_multiple_generators>
+			<allow_parallel_generators>yes</allow_parallel_generators>
+			<allow_undersized_generators>yes</allow_undersized_generators>
+			<allow_multiple_wind_turbine_types>no</allow_multiple_wind_turbine_types>
+			<excess_electricity_serves_thermal_load>no</excess_electricity_serves_thermal_load>
+			<limit_excess_thermal_production>no</limit_excess_thermal_production>
+			<max_excess_thermal_production>10.0</max_excess_thermal_production>
+		</control>
+		<emissions>
+			<co2_emissions_penalty>0.00</co2_emissions_penalty>
+			<co_emissions_penalty>0.00</co_emissions_penalty>
+			<uhc_emissions_penalty>0.00</uhc_emissions_penalty>
+			<pm_emissions_penalty>0.00</pm_emissions_penalty>
+			<so2_emissions_penalty>0.00</so2_emissions_penalty>
+			<nox_emissions_penalty>0.00</nox_emissions_penalty>
+		</emissions>
+		<constraints>
+			<maximum_annual_capacity_shortage>0.0</maximum_annual_capacity_shortage>
+			<minimum_renewable_fraction>0</minimum_renewable_fraction>
+			<operating_reserve_hourly_load>10</operating_reserve_hourly_load>
+			<operating_reserve_peak_load>0</operating_reserve_peak_load>
+			<operating_reserve_solar>25</operating_reserve_solar>
+			<operating_reserve_wind>50</operating_reserve_wind>
+			<enforce_min_primary_energy_savings>no</enforce_min_primary_energy_savings>
+			<min_primary_energy_savings>10.0</min_primary_energy_savings>
+			<pes_reference_electrical_efficiency>33.0</pes_reference_electrical_efficiency>
+			<pes_reference_thermal_efficiency>75.0</pes_reference_thermal_efficiency>
+		</constraints>
+	</system_description>
+	<simulation_results>
+		<system_architecture>
+			<pv units="kW">5.22</pv>
+			<grid units="kW">1,000</grid>
+			<battery>4</battery>
+			<inverter units="kW">5</inverter>
+			<rectifier units="kW">5</rectifier>
+		</system_architecture>
+		<cost_summary>
+			<total_net_present_cost units="$">16142</total_net_present_cost>
+			<levelized_coe units="$/kWh">0.16633</levelized_coe>
+		</cost_summary>
+		<cost_breakdown>
+			<pv>
+				<capital_cost units="$">3856</capital_cost>
+				<annualized_capital_cost units="$/yr">301.64</annualized_capital_cost>
+				<annualized_replacement_cost units="$/yr">0.000000089407</annualized_replacement_cost>
+				<om_cost units="$/yr">0</om_cost>
+				<fuel_cost units="$/yr">0</fuel_cost>
+				<annualized_cost units="$/yr">301.64</annualized_cost>
+			</pv>
+			<grid>
+				<capital_cost units="$">0</capital_cost>
+				<annualized_capital_cost units="$/yr">0</annualized_capital_cost>
+				<annualized_replacement_cost units="$/yr">0</annualized_replacement_cost>
+				<om_cost units="$/yr">0</om_cost>
+				<fuel_cost units="$/yr">0</fuel_cost>
+				<annualized_cost units="$/yr">0</annualized_cost>
+			</grid>
+			<battery>
+				<capital_cost units="$">4770</capital_cost>
+				<annualized_capital_cost units="$/yr">373.14</annualized_capital_cost>
+				<annualized_replacement_cost units="$/yr">51.141</annualized_replacement_cost>
+				<om_cost units="$/yr">0</om_cost>
+				<fuel_cost units="$/yr">0</fuel_cost>
+				<annualized_cost units="$/yr">424.28</annualized_cost>
+			</battery>
+			<converter>
+				<capital_cost units="$">3330</capital_cost>
+				<annualized_capital_cost units="$/yr">260.49</annualized_capital_cost>
+				<annualized_replacement_cost units="$/yr">88.464</annualized_replacement_cost>
+				<om_cost units="$/yr">0</om_cost>
+				<fuel_cost units="$/yr">0</fuel_cost>
+				<annualized_cost units="$/yr">348.96</annualized_cost>
+			</converter>
+			<total>
+				<capital_cost units="$">11956</capital_cost>
+				<annualized_capital_cost units="$/yr">935.28</annualized_capital_cost>
+				<annualized_replacement_cost units="$/yr">139.6</annualized_replacement_cost>
+				<om_cost units="$/yr">187.89</om_cost>
+				<fuel_cost units="$/yr">0</fuel_cost>
+				<annualized_cost units="$/yr">1262.8</annualized_cost>
+			</total>
+		</cost_breakdown>
+		<annual_electric_production>
+			<pv units="kWh/yr">7326.3</pv>
+			<grid_purchases units="kWh/yr">4667.4</grid_purchases>
+			<total units="kWh/yr">11994</total>
+			<image>SimulacionTampico1k_images\MonthlyAverageElectricProduction.png</image>
+		</annual_electric_production>
+		<annual_electric_consumption>
+			<ac_primary_load_served units="kWh/yr">7592</ac_primary_load_served>
+			<grid_sales units="kWh/yr">4030.9</grid_sales>
+			<total units="kWh/yr">11623</total>
+		</annual_electric_consumption>
+		<annual_statistics>
+			<renewable_fraction>0.61085</renewable_fraction>
+			<excess_electricity units="kWh/yr">0.0000073995</excess_electricity>
+			<excess_electricity_fraction>0.000000000617</excess_electricity_fraction>
+			<unmet_load units="kWh/yr">0</unmet_load>
+			<unmet_load_fraction>0</unmet_load_fraction>
+			<capacity_shortage units="kWh/yr">0</capacity_shortage>
+			<capacity_shortage_fraction>0</capacity_shortage_fraction>
+		</annual_statistics>
+		<pv>
+			<mean_output units=" kWh/d">20.072</mean_output>
+			<min_output units="kW">0</min_output>
+			<max_output units="kW">4.6915</max_output>
+			<solar_penetration units="%">96.5</solar_penetration>
+			<capacity_factor units="%">16.022</capacity_factor>
+			<hours_of_operation units="hrs/yr">4380</hours_of_operation>
+			<image>SimulacionTampico1k_images\PVOutput.png</image>
+		</pv>
+		<battery>
+			<throughput units="kWh/yr">17.745</throughput>
+			<lifetime units="yr">20</lifetime>
+			<autonomy units="hr">19.938</autonomy>
+			<image>SimulacionTampico1k_images\BatterySOCPDF.png</image>
+			<image>SimulacionTampico1k_images\BatterySOCMonthly.png</image>
+			<image>SimulacionTampico1k_images\BatterySOCDMap.png</image>
+		</battery>
+		<grid>
+			<rate label="Rate 1">
+				<jan>
+					<energy_purchased units="kWh">411.02</energy_purchased>
+					<energy_sold units="kWh">377.89</energy_sold>
+					<net_energy_purchased units="kWh">33.131</net_energy_purchased>
+					<peak_demand units="kW">7.2337</peak_demand>
+					<energy_charge units="$">9.6079</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</jan>
+				<feb>
+					<energy_purchased units="kWh">330.57</energy_purchased>
+					<energy_sold units="kWh">316.63</energy_sold>
+					<net_energy_purchased units="kWh">13.931</net_energy_purchased>
+					<peak_demand units="kW">2.0691</peak_demand>
+					<energy_charge units="$">4.0399</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</feb>
+				<mar>
+					<energy_purchased units="kWh">440.51</energy_purchased>
+					<energy_sold units="kWh">298.66</energy_sold>
+					<net_energy_purchased units="kWh">141.85</net_energy_purchased>
+					<peak_demand units="kW">2.4731</peak_demand>
+					<energy_charge units="$">41.136</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</mar>
+				<apr>
+					<energy_purchased units="kWh">410.34</energy_purchased>
+					<energy_sold units="kWh">286.51</energy_sold>
+					<net_energy_purchased units="kWh">123.83</net_energy_purchased>
+					<peak_demand units="kW">2.615</peak_demand>
+					<energy_charge units="$">35.91</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</apr>
+				<may>
+					<energy_purchased units="kWh">392.88</energy_purchased>
+					<energy_sold units="kWh">321.31</energy_sold>
+					<net_energy_purchased units="kWh">71.568</net_energy_purchased>
+					<peak_demand units="kW">2.6202</peak_demand>
+					<energy_charge units="$">20.755</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</may>
+				<jun>
+					<energy_purchased units="kWh">313.87</energy_purchased>
+					<energy_sold units="kWh">362.92</energy_sold>
+					<net_energy_purchased units="kWh">-49.05</net_energy_purchased>
+					<peak_demand units="kW">2.2253</peak_demand>
+					<energy_charge units="$">-13.489</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</jun>
+				<jul>
+					<energy_purchased units="kWh">307.73</energy_purchased>
+					<energy_sold units="kWh">412.8</energy_sold>
+					<net_energy_purchased units="kWh">-105.07</net_energy_purchased>
+					<peak_demand units="kW">1.8393</peak_demand>
+					<energy_charge units="$">-28.895</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</jul>
+				<aug>
+					<energy_purchased units="kWh">338.18</energy_purchased>
+					<energy_sold units="kWh">404.52</energy_sold>
+					<net_energy_purchased units="kWh">-66.334</net_energy_purchased>
+					<peak_demand units="kW">1.8404</peak_demand>
+					<energy_charge units="$">-18.242</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</aug>
+				<sep>
+					<energy_purchased units="kWh">445.86</energy_purchased>
+					<energy_sold units="kWh">335.71</energy_sold>
+					<net_energy_purchased units="kWh">110.15</net_energy_purchased>
+					<peak_demand units="kW">2.6639</peak_demand>
+					<energy_charge units="$">31.943</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</sep>
+				<oct>
+					<energy_purchased units="kWh">446.23</energy_purchased>
+					<energy_sold units="kWh">297.93</energy_sold>
+					<net_energy_purchased units="kWh">148.3</net_energy_purchased>
+					<peak_demand units="kW">2.4004</peak_demand>
+					<energy_charge units="$">43.008</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</oct>
+				<nov>
+					<energy_purchased units="kWh">441.78</energy_purchased>
+					<energy_sold units="kWh">290.98</energy_sold>
+					<net_energy_purchased units="kWh">150.8</net_energy_purchased>
+					<peak_demand units="kW">2.6145</peak_demand>
+					<energy_charge units="$">43.732</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</nov>
+				<dec>
+					<energy_purchased units="kWh">388.4</energy_purchased>
+					<energy_sold units="kWh">325</energy_sold>
+					<net_energy_purchased units="kWh">63.397</net_energy_purchased>
+					<peak_demand units="kW">2.5392</peak_demand>
+					<energy_charge units="$">18.385</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</dec>
+				<annual>
+					<energy_purchased units="kWh">4667.4</energy_purchased>
+					<energy_sold units="kWh">4030.9</energy_sold>
+					<net_energy_purchased units="kWh">636.49</net_energy_purchased>
+					<peak_demand units="kW">7.2337</peak_demand>
+					<energy_charge units="$">187.89</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</annual>
+			</rate>
+			<all_rates>
+				<jan>
+					<energy_purchased units="kWh">411.02</energy_purchased>
+					<energy_sold units="kWh">377.89</energy_sold>
+					<net_energy_purchased units="kWh">33.131</net_energy_purchased>
+					<peak_demand units="kW">7.2337</peak_demand>
+					<energy_charge units="$">9.6079</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</jan>
+				<feb>
+					<energy_purchased units="kWh">330.57</energy_purchased>
+					<energy_sold units="kWh">316.63</energy_sold>
+					<net_energy_purchased units="kWh">13.931</net_energy_purchased>
+					<peak_demand units="kW">2.0691</peak_demand>
+					<energy_charge units="$">4.0399</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</feb>
+				<mar>
+					<energy_purchased units="kWh">440.51</energy_purchased>
+					<energy_sold units="kWh">298.66</energy_sold>
+					<net_energy_purchased units="kWh">141.85</net_energy_purchased>
+					<peak_demand units="kW">2.4731</peak_demand>
+					<energy_charge units="$">41.136</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</mar>
+				<apr>
+					<energy_purchased units="kWh">410.34</energy_purchased>
+					<energy_sold units="kWh">286.51</energy_sold>
+					<net_energy_purchased units="kWh">123.83</net_energy_purchased>
+					<peak_demand units="kW">2.615</peak_demand>
+					<energy_charge units="$">35.91</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</apr>
+				<may>
+					<energy_purchased units="kWh">392.88</energy_purchased>
+					<energy_sold units="kWh">321.31</energy_sold>
+					<net_energy_purchased units="kWh">71.568</net_energy_purchased>
+					<peak_demand units="kW">2.6202</peak_demand>
+					<energy_charge units="$">20.755</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</may>
+				<jun>
+					<energy_purchased units="kWh">313.87</energy_purchased>
+					<energy_sold units="kWh">362.92</energy_sold>
+					<net_energy_purchased units="kWh">-49.05</net_energy_purchased>
+					<peak_demand units="kW">2.2253</peak_demand>
+					<energy_charge units="$">-13.489</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</jun>
+				<jul>
+					<energy_purchased units="kWh">307.73</energy_purchased>
+					<energy_sold units="kWh">412.8</energy_sold>
+					<net_energy_purchased units="kWh">-105.07</net_energy_purchased>
+					<peak_demand units="kW">1.8393</peak_demand>
+					<energy_charge units="$">-28.895</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</jul>
+				<aug>
+					<energy_purchased units="kWh">338.18</energy_purchased>
+					<energy_sold units="kWh">404.52</energy_sold>
+					<net_energy_purchased units="kWh">-66.334</net_energy_purchased>
+					<peak_demand units="kW">1.8404</peak_demand>
+					<energy_charge units="$">-18.242</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</aug>
+				<sep>
+					<energy_purchased units="kWh">445.86</energy_purchased>
+					<energy_sold units="kWh">335.71</energy_sold>
+					<net_energy_purchased units="kWh">110.15</net_energy_purchased>
+					<peak_demand units="kW">2.6639</peak_demand>
+					<energy_charge units="$">31.943</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</sep>
+				<oct>
+					<energy_purchased units="kWh">446.23</energy_purchased>
+					<energy_sold units="kWh">297.93</energy_sold>
+					<net_energy_purchased units="kWh">148.3</net_energy_purchased>
+					<peak_demand units="kW">2.4004</peak_demand>
+					<energy_charge units="$">43.008</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</oct>
+				<nov>
+					<energy_purchased units="kWh">441.78</energy_purchased>
+					<energy_sold units="kWh">290.98</energy_sold>
+					<net_energy_purchased units="kWh">150.8</net_energy_purchased>
+					<peak_demand units="kW">2.6145</peak_demand>
+					<energy_charge units="$">43.732</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</nov>
+				<dec>
+					<energy_purchased units="kWh">388.4</energy_purchased>
+					<energy_sold units="kWh">325</energy_sold>
+					<net_energy_purchased units="kWh">63.397</net_energy_purchased>
+					<peak_demand units="kW">2.5392</peak_demand>
+					<energy_charge units="$">18.385</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</dec>
+				<annual>
+					<energy_purchased units="kWh">4667.4</energy_purchased>
+					<energy_sold units="kWh">4030.9</energy_sold>
+					<net_energy_purchased units="kWh">636.49</net_energy_purchased>
+					<peak_demand units="kW">7.2337</peak_demand>
+					<energy_charge units="$">187.89</energy_charge>
+					<demand_charge units="$">0</demand_charge>
+				</annual>
+			</all_rates>
+		</grid>
+		<emissions>
+			<co2_emissions units="kg/yr">140.03</co2_emissions>
+			<co_emissions units="kg/yr">0</co_emissions>
+			<uhc_emissions units="kg/yr">0</uhc_emissions>
+			<pm_emissions units="kg/yr">0</pm_emissions>
+			<so2_emissions units="kg/yr">0</so2_emissions>
+			<nox_emissions units="kg/yr">0</nox_emissions>
+		</emissions>
+	</simulation_results>
+</homerml>

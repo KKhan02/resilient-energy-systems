@@ -1,0 +1,31 @@
+{
+  "source_trial_zip_sha256": "558e2dd4bfcbc173f07b0f8e7d997794878f489ed15eb77c804c4257b6e163bd",
+  "source_trial_status": "ALL_SELECTED_A1_PASSED",
+  "signed_source_files_independent_sha_unavailable_in_this_sandbox": true,
+  "new_pandapower_solver_not_reexecuted_in_sandbox": true,
+  "candidate_energy_schedule_files": 8,
+  "candidate_full_year_rows_each": 8760,
+  "checked_changed_hour_pf_length_combinations": 342,
+  "changed_hours_all_pass": true,
+  "nine_factor_annual_results": 72,
+  "nine_factor_all_pass": true,
+  "a1_pretrial_failing_sensitivity_runs": 52,
+  "newly_repaired_failing_runs": 34,
+  "original_portfolio_failing_runs": 144,
+  "post_106039_optimized_failing_runs": 126,
+  "after_both_a1_trials_failing_runs": 92,
+  "after_both_a1_trials_failing_groups": 12,
+  "a1_remaining_failing_runs": 0,
+  "minimum_changed_hour_voltage_pu": 0.9500613354269138,
+  "minimum_changed_hour_voltage_margin_pu": 6.133542691388882e-05,
+  "maximum_changed_hour_transformer_loading_pct": 98.53645779362094,
+  "changed_hour_minimum_voltage_at": {
+    "case": "A1_94022_min_cost_ref",
+    "dispatch": "causal",
+    "pf": 0.95,
+    "length_factor": 1.6,
+    "timestamp_lst": "2025-03-25 20:00:00"
+  },
+  "annual_import_and_curtailment_unchanged": true,
+  "status": "AUDIT_PASS_CONDITIONAL_ON_ORIGINAL_LOCAL_AC_SOLVER_RESULTS"
+}

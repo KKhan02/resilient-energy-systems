@@ -1,0 +1,7 @@
+tier,date_time_LST,role,gross_demand_kw,old_inverter_ac_kw,candidate_inverter_ac_kw,old_grid_import_kw,candidate_grid_import_kw,old_battery_dc_discharge_kw,candidate_battery_dc_discharge_kw,old_after_hour_usable_SOC_kwh,candidate_after_hour_usable_SOC_kwh,battery_discharge_shift_kw,network_powerflow_verified
+min_cost_ref,2025-10-13 17:00:00,source,3.217897966,3.217897966,2.647897966,-0.000000000,0.570000000,2.830174239,2.230174239,12.673316248,13.288903259,0.600000000,NO: awaiting original signed EPM local AC solve
+min_cost_ref,2025-10-13 20:00:00,target,4.889356905,0.256077734,0.826077734,4.633279171,4.063279171,0.269555510,0.869555510,1.832000000,1.832000000,0.600000000,NO: awaiting original signed EPM local AC solve
+min_cost_ref,2025-11-27 18:00:00,source,3.979375417,1.772273070,1.012273070,2.207102347,2.967102347,1.865550600,1.065550600,1.832000000,2.652782682,0.800000000,NO: awaiting original signed EPM local AC solve
+min_cost_ref,2025-11-27 20:00:00,target,4.843887401,-0.000000000,0.760000000,4.843887401,4.083887401,-0.000000000,0.800000000,1.832000000,1.832000000,0.800000000,NO: awaiting original signed EPM local AC solve
+ss90_ref,2025-11-27 18:00:00,source,3.979375417,3.979375417,3.219375417,-0.000000000,0.760000000,4.188816229,3.388816229,1.832000000,2.652782682,0.800000000,NO: awaiting original signed EPM local AC solve
+ss90_ref,2025-11-27 20:00:00,target,4.843887401,-0.000000000,0.760000000,4.843887401,4.083887401,-0.000000000,0.800000000,1.832000000,1.832000000,0.800000000,NO: awaiting original signed EPM local AC solve

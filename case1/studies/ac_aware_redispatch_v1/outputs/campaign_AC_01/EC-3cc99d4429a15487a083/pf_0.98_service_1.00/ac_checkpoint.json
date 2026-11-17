@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETE",
+  "signature": {
+    "candidate_id": "EC-3cc99d4429a15487a083",
+    "scenario": "nine",
+    "transformer": "94022",
+    "assumed_transformer_kva": 5.0,
+    "trajectory_sha256": "26f24c4920eefd13759e3a9fe2011ebe7d521a6e828d1b51acd8e4eeb450927b",
+    "pilot_manifest_sha256": "062c7d03e0a7f06c5b32c7f85818a1b99011fcbc6f83e130aa48c3166dcd6a94",
+    "epm_coordinated_q_source_sha256": "5dcce8c58ab104408d1fa11b896835d11fc6cabdd2a1402231dede0f63a4bd15",
+    "pf": 0.98,
+    "service_factor": 1.0,
+    "voltage_min": 0.95,
+    "voltage_max": 1.05,
+    "q_grid_points": 9,
+    "q_refine": 0,
+    "nighttime_q": "off",
+    "study_is_full_year": true
+  },
+  "hours_saved": 8760,
+  "annual_ac_hours_sha256": "86d710a8d2b2a84ad534769f55dc2760bca065b2d393fffcd4c6f5545f74a3ff"
+}

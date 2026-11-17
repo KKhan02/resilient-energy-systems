@@ -1,0 +1,63 @@
+{
+  "uploaded_file": "StudyA_94022_DualService_Trial_v1_Results.zip",
+  "uploaded_sha256": "c0985268efa29d621273812ccefca23f24a3b57ad619359d476fc6d6bf670879",
+  "zip_crc_pass": true,
+  "manifest_status": "TARGETED_DUAL_SERVICE_SENSITIVITY_NOT_ANNUAL",
+  "annual_8760_validated": false,
+  "ac_rows": 1152,
+  "unique_scenario_ids": true,
+  "options": 16,
+  "cases": 4,
+  "timestamps": 9,
+  "pf_length_pairs": 2,
+  "all_powerflows_converged": true,
+  "all_measured_values_finite": true,
+  "ac_feasibility_flags_recomputed_match": true,
+  "independent_controls": [
+    "GIS_only_R050",
+    "all_LV_R050",
+    "head_reference",
+    "service_only_R050",
+    "svc007_gis014_011_R050",
+    "svc007_gis_top9_R050"
+  ],
+  "matching_control_rows": 432,
+  "source_control_max_error": {
+    "minimum_voltage_pu": 0.0,
+    "maximum_voltage_pu": 0.0,
+    "transformer_loading_pct": 0.0,
+    "line_loading_pct": 0.0
+  },
+  "source_control_feasibility_flags_match": true,
+  "passing_sparse_options": [
+    "svc007_004_gis014_011_R050",
+    "svc007_004_gis014_011_016_R050",
+    "svc007_004_gis014_011_016_018_R050",
+    "svc007_004_gis_top9_R050"
+  ],
+  "least_branch_pass": {
+    "option": "svc007_004_gis014_011_R050",
+    "changed_branch_count": 4,
+    "affected_original_length_m": 791.99,
+    "passing": 72,
+    "failing": 0,
+    "minimum_voltage_pu": 0.9512679251380948,
+    "maximum_voltage_pu": 0.9950105205484192,
+    "peak_transformer_pct": 97.51304925150036,
+    "peak_line_pct": 11.700367361366112
+  },
+  "limiting_ac_point": {
+    "case": "A0_94022_min_cost_ref",
+    "dispatch": "causal",
+    "pf": 0.95,
+    "length_factor": 1.6,
+    "timestamp_lst": "2025-11-27 20:00:00",
+    "option": "svc007_004_gis014_011_R050",
+    "minimum_voltage_pu": 0.9512679251380948,
+    "limiting_house": "H01",
+    "transformer_loading_pct": 93.94314557047826,
+    "line_loading_pct": 10.71741245007538
+  },
+  "new_electrical_studies_performed_here": 0,
+  "yearlong_A0_portfolio_status": "376 passing / 56 failing before any network correction, unchanged"
+}

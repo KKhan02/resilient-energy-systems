@@ -1,0 +1,9 @@
+{
+  "expected_remaining_failing_ac_cases": 126,
+  "verified_failing_ac_cases": 126,
+  "violation_event_records": 1531,
+  "distinct_design_timestamp_events": 586,
+  "dispatch_family_summaries": 44,
+  "issues": [],
+  "note": "Curtailed-PV coincidence flags overlap, they do not prove the cause of curtailment. No automatic intervention is performed."
+}

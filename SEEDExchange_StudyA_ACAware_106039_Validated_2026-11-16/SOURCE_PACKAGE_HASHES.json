@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-16",
+  "files_sha256": {
+    "RESEARCH_REVIEW.md": "8ea8f665153a87a3ebaac6b9be44c9c35247477d52bc7fdf4f7c165a3bac9a8d",
+    "PORTFOLIO_432_STATUS_WITH_TRIAL_OVERLAY.csv": "e49f80542f77f1e0cf28a5431695142a9a93cfa8195f107548178a4f8d9c0daf",
+    "extract_remaining_events_and_pv.py": "66a082a85f6bad5d695733a006529875a427181ced32e8330b9c7cf7cc6ab94d",
+    "test_event_extractor.py": "2bd4efd283cc00d4e889e2e70802b4fc859e7be560fb7f7086063d56e86470a5",
+    "TRIAL_18_AC_RESULTS.csv": "3eae522eda5dc2e7bbcb58395dc45f3f0b8f9966566bddebe58729a59dd44554",
+    "INDEPENDENT_QA.json": "09be510c3928d0be8b629a63f4987dd48ab1cdf487ab5a427c30d2ff164978e5",
+    "independent_trial_audit.py": "e3da1cb5f72356204d586d7365838f952e1e60d2159438201f06fa4bcbb44c56",
+    "REMAINING_20_DESIGN_DISPATCH_GROUPS.csv": "cccc94c308c52d33975884d2ebd62fd0474a20493b640699ed48de1195f01a08",
+    "README.md": "0bc7dcc4a044043d1a9305d9ef00787bd5c9bfc31e43ae3577f70ed7d327c4c8"
+  }
+}

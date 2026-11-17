@@ -1,0 +1,25 @@
+{
+  "created": "2026-11-16",
+  "files": {
+    "A0_109_DAY_GROUP_EVIDENCE.csv": {
+      "sha256": "2bdd28e10b72f25fc59bb847b55425efc0e2ca43658873f28db8bccafe8b3d45",
+      "bytes": 10485
+    },
+    "README.md": {
+      "sha256": "e1d12dc22138716a785ff4f7e8bd4ecb01b6918d300fa8cda344837cd801d0e1",
+      "bytes": 4844
+    },
+    "StudyA_Mapped_SOC_Windows_for_Redispatch.zip": {
+      "sha256": "571ab9deba6b16fce357868b8848762a975c5761d218ba5e9544b409133e0a66",
+      "bytes": 134992
+    },
+    "a0_sequenced_trial.py": {
+      "sha256": "27b26d0f346c0d26cf35bf557659af31584fc75a3a80d6349de68da8f4621edd",
+      "bytes": 25813
+    },
+    "tests/test_a0_sequenced.py": {
+      "sha256": "73ae5e0c4fd3f5ebd0e1235b09d6e2c80872c9becfda9927c93c342aff768763",
+      "bytes": 3714
+    }
+  }
+}

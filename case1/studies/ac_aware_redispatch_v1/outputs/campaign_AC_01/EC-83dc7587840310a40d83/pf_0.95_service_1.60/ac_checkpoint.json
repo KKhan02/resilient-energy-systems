@@ -1,5 +1,5 @@
 {
-  "status": "RUNNING",
+  "status": "COMPLETE",
   "signature": {
     "candidate_id": "EC-83dc7587840310a40d83",
     "scenario": "twelve",
@@ -17,5 +17,6 @@
     "nighttime_q": "off",
     "study_is_full_year": true
   },
-  "hours_saved": 2000
+  "hours_saved": 8760,
+  "annual_ac_hours_sha256": "727a6594035de322d774c92e2f423a94dec671ae184e3326fd300bb591cbe4b2"
 }

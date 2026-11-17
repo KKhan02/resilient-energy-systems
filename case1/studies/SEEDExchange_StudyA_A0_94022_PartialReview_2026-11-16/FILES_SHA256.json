@@ -1,0 +1,17 @@
+{
+  "purpose": "Independent partial A0 94022 study evidence and optional network probe",
+  "files": {
+    "A0_94022_32_UNRESOLVED_CASE_EVENTS.csv": "4c03bfb8253e5de619e1918d88b7c5da701db8390abd5d020f66077771e76549",
+    "A0_94022_9_DISTINCT_RESIDUAL_HOURS.csv": "10c713779b27dcdf5db1519fbdf7faac29e194ef21925030a99896f044cccd38",
+    "A0_94022_ALL_36_FACTOR_RESULTS.csv": "bf24e2544d34e57611b53f34f151581ced087cbecd172786ed6060da35687a6e",
+    "A0_94022_FOUR_CANDIDATE_ENERGY_AUDIT.csv": "cd499ee17ed6424124c34eef806d5f6d9452f70d44db26c5e91adda323e40300",
+    "INDEPENDENT_QA.json": "e55375fc7d64957ab01ed8a36684e646237cb5fff5f7ddaa6afa1755fae98ad0",
+    "README.md": "f34d6e37f03b916f46593266ba87bbea70eb0fe1406bac01fbe7c258f5c118ad",
+    "RESEARCH_REVIEW.md": "3453796e85999161d249cd00aec3c8d859bc720d66881de428bc289e8d88b31b",
+    "STUDYA_432_POST_A0_94022_PARTIAL_OVERLAY.csv": "dc974864d3bedc6653210a249c9faf23fbcf5cd7cc369e62385ddc7e6f9e771f",
+    "build_independent_review.py": "263c3227c72c532955e1f8e32a1e450b9f084fb5d2d97740b65dc6d5572a6e91",
+    "independent_a0_94022_audit_reference.py": "ea05a68083f2690d776183c30f0d47e6060c740f2ea3e175a45ce17d9b4b6ebf",
+    "probe_94022_network_options.py": "ceaa9acee9053eb3dd4b2e72807e052054fb45ea7c8466ddd4e335decf6febb5",
+    "tests/test_probe_94022.py": "e01d01cb8f30e03a1e5afe8918d8db217e3a0c29786b0e3fcc94d66cd5d42255"
+  }
+}

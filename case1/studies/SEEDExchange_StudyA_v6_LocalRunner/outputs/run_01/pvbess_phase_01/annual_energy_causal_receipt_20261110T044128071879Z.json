@@ -1,0 +1,10 @@
+{
+  "stage": "both",
+  "annual_jobs_requested": 44,
+  "new_complete": 0,
+  "verified_reused": 44,
+  "failures": 0,
+  "failure_details": [],
+  "source_manifest_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+  "status": "ALL_COMPLETE_SIGNED_OR_REUSED"
+}

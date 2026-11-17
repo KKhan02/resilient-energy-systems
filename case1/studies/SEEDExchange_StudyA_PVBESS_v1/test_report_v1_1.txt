@@ -1,0 +1,32 @@
+test_92395_only_dedicated_milps (test_batch.Batch.test_92395_only_dedicated_milps) ... ok
+test_all_causal (test_batch.Batch.test_all_causal) ... ok
+test_all_energy (test_batch.Batch.test_all_energy) ... ok
+test_no_mixing_output_dirs (test_batch.Batch.test_no_mixing_output_dirs) ... ok
+test_single_106039 (test_batch.Batch.test_single_106039) ... ok
+test_dry_run_creates_nothing (test_parent_dir_regression.ParentDirRegression.test_dry_run_creates_nothing) ... ok
+test_failed_source_validation_never_creates_parent (test_parent_dir_regression.ParentDirRegression.test_failed_source_validation_never_creates_parent) ... ok
+test_reject_outside_destination (test_parent_dir_regression.ParentDirRegression.test_reject_outside_destination) ... DRY RUN ONLY. Planned jobs: 1
+1 mapped_energy A0 106039 min_cost -> /tmp/tmp82iks67j/nested/pvbess_phase_01/energy_A0_106039_min_cost_ref
+No simulations run, no outputs written.
+CASE 1/1: mapped_energy A0 106039 min_cost
+ok
+test_run_creates_parent_after_validation_before_subprocess (test_parent_dir_regression.ParentDirRegression.test_run_creates_parent_after_validation_before_subprocess) ... CASE 1/1: mapped_energy A0 106039 min_cost
+ok
+test_exact_portfolio (test_planning.Plan.test_exact_portfolio) ... ok
+test_frozen_92395_membership (test_planning.Plan.test_frozen_92395_membership) ... ok
+test_new_four_cohort_whitelist (test_planning.Plan.test_new_four_cohort_whitelist) ... ok
+test_no_overwrite (test_planning.Plan.test_no_overwrite) ... ok
+test_reject_under_four (test_planning.Plan.test_reject_under_four) ... ok
+test_six_new_four_home_milp (test_planning.Plan.test_six_new_four_home_milp) ... ok
+test_unique_case_slugs (test_planning.Plan.test_unique_case_slugs) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.009s
+
+OK
+{
+  "status": "ALL_REQUESTED_JOBS_SIGNED_OR_REUSED",
+  "number_jobs": 1,
+  "new_jobs": 1,
+  "unchanged_reused": 0
+}

@@ -1,0 +1,30 @@
+{
+  "status": "SOURCE_RECONCILIATION_COMPLETE_NUMERICAL_PILOT_NOT_RUN",
+  "date": "2026-11-17",
+  "test_results": "10 local non-solver unittest passed",
+  "source_data_files": {
+    "ENERGY_22_RECONCILED_COSTS.csv": "2a18601ed5382ad639c63f7e6a8b5c4af04fd19f2af1484ad394eeacb78096e5",
+    "FIVE_TERRITORY_STAR_AGGREGATE_COMPARISON_36.csv": "8e9627850eee8f7175bcade4eff04fd626bc2aaeda21dfafc65b5959600fa985",
+    "PORTFOLIO_432_ORIGINAL_PLUS_CONDITIONAL_FIVE_EDGE_OVERLAY.csv": "8d8ee325a5de374294492b3349d1c283694ca8a700b8a9542ccab970c8f7b5c0"
+  },
+  "source_materials": {
+    "historical_energy_cases": "22 signed cases, including two read-only A1 106039 references",
+    "ac_cases": "432 annual original cases + separately labelled A0 94022 five-edge overlay",
+    "studyb_92395": "Proposed STAR/MST annual cases for 4-house cohort"
+  },
+  "new_annual_solvers_executed_in_assistant_environment": 0,
+  "package_files_sha256": {
+    "A0_A1_EQUAL_POPULATION_ENERGY_COST_SCREEN.csv": "cd91da205c5be3391b9f0e16f363e03d002b2b70190fd37ca7517c60b27b177d",
+    "DECISION_TABLE_QA.json": "1bc4d711ba948597d7a86d726eca1a9be47b61690549cb6851c3837f518ce774",
+    "FRONTIER_HARDWARE_PLAN.csv": "2ce249cf16597055f7dffb054ffa118b1b40e9d55c50644dc3de032e3f444f6f",
+    "README.md": "2565b727be04d98b2606b8dc5e2e6e99b0f0628e1943d1ee7c059250d785002e",
+    "RESEARCH_SCOPE_AND_DECISIONS.md": "78324fb0651ddf47bda69b6163df725030cefd5df98794873762cff89b8b0093",
+    "STUDYB_92395_EXISTING_ANNUAL_SCREEN.csv": "54d185825a1595aa90cfcd60476596d1524bf927d4f942c0edcaad8f02d95bc6",
+    "build_existing_decision_tables.py": "3102330f62b7a21005feb98495163205a1286f940c72a925728ecf8c5fe65391",
+    "inputs/ENERGY_22_RECONCILED_COSTS.csv": "2a18601ed5382ad639c63f7e6a8b5c4af04fd19f2af1484ad394eeacb78096e5",
+    "inputs/FIVE_TERRITORY_STAR_AGGREGATE_COMPARISON_36.csv": "8e9627850eee8f7175bcade4eff04fd626bc2aaeda21dfafc65b5959600fa985",
+    "inputs/PORTFOLIO_432_ORIGINAL_PLUS_CONDITIONAL_FIVE_EDGE_OVERLAY.csv": "8d8ee325a5de374294492b3349d1c283694ca8a700b8a9542ccab970c8f7b5c0",
+    "run_a1_106039_frontier.py": "37690b74ce02869fb1b4ca8744731e421147a9428becd0b3bf6f5db46eda28ae",
+    "tests/test_frontier.py": "cdbbfcac13b45086110e28e78caf858f6667c3dfed2bbff45134c4aebcb0f89b"
+  }
+}

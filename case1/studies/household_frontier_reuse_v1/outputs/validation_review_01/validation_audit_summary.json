@@ -1,0 +1,85 @@
+{
+  "status": "READ_ONLY_LOCAL_PROVENANCE_AUDIT_NO_NEW_OPTIMIZATION_OR_AC",
+  "scope": "anchors",
+  "candidate_count": 50,
+  "tier_counts": {
+    "A_DEFINED_TARGET_ANCHOR": 50
+  },
+  "GIS_eligible_count": 10,
+  "manufacturer_SOC_status_counts": {
+    "NOT_IN_LOCAL_CHECKOUT": 47,
+    "LOCAL_TRAJECTORY_HASH_VERIFIED_8760": 3
+  },
+  "existing_EPM_reference_AC_status_counts": {
+    "NOT_APPLICABLE_NO_GIS_MEMBERSHIP": 40,
+    "NOT_IN_LOCAL_CHECKOUT": 9,
+    "CONDITIONAL_ANNUAL_AC_PASS_PROVENANCE_MATCHED": 1
+  },
+  "by_household_case": {
+    "5_homes": {
+      "designs": 5,
+      "GIS_eligible": 0
+    },
+    "6_homes": {
+      "designs": 5,
+      "GIS_eligible": 0
+    },
+    "7_homes": {
+      "designs": 4,
+      "GIS_eligible": 4
+    },
+    "8_homes_H01": {
+      "designs": 4,
+      "GIS_eligible": 0
+    },
+    "8_homes_H02": {
+      "designs": 4,
+      "GIS_eligible": 0
+    },
+    "9_homes": {
+      "designs": 4,
+      "GIS_eligible": 3
+    },
+    "10_homes": {
+      "designs": 5,
+      "GIS_eligible": 0
+    },
+    "11_homes": {
+      "designs": 4,
+      "GIS_eligible": 0
+    },
+    "12_homes": {
+      "designs": 4,
+      "GIS_eligible": 3
+    },
+    "13_homes": {
+      "designs": 4,
+      "GIS_eligible": 0
+    },
+    "14_homes": {
+      "designs": 4,
+      "GIS_eligible": 0
+    },
+    "15_homes": {
+      "designs": 3,
+      "GIS_eligible": 0
+    }
+  },
+  "source_files_sha256": {
+    "case1\\studies\\ac_aware_redispatch_v1\\outputs\\campaign_reuse_index_v18_01\\all_distinct_equipment_candidates.csv": "37e938aa6d3cff723386662ff3c87b51d71ff2782f21b214c3041ac89dc1ffe9",
+    "case1\\studies\\household_frontier_reuse_v1\\outputs\\stage_a_50_network_routing.csv": "7565bb97f8b700a22ba5e3773ae9953a95a6c9b92d109acee99c4b856b97975c"
+  },
+  "network_comparisons": {
+    "A_existing_EPM_GIS": "Only cases with eligible provisional GIS memberships; preserve other cases",
+    "B_new_generic_LV": "Topology, phase and feeder geometry unresolved. No AC results claimed",
+    "C_Site_A": "Separate shared PV BESS clearing-based connection study. No new transformer presumed"
+  },
+  "fixed_PF_references": [
+    0.95,
+    0.98,
+    1.0
+  ],
+  "optional_stress_PF": 0.9,
+  "source_plant_sizing_recomputed": 0,
+  "AC_simulations_performed": 0
+}

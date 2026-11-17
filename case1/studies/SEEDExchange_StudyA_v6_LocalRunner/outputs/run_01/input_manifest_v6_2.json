@@ -1,0 +1,1112 @@
+{
+  "status": "PREPARED_INPUTS_NO_ANNUAL_ENERGY_OR_AC_RUN",
+  "study": "A",
+  "source_assumptions": "A0 original associations; A1 closest transformer positions among six source EPM territories. LV geometry used ONLY for provisional AC taps; 113306 separate sensitivity.",
+  "repo_root": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems",
+  "v4_run_dir": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\case1\\studies\\SEEDExchange_StudyA_LocalPreflight_v4\\outputs\\run_02",
+  "mapping_sha256": "6a158461213a834247eaf9fc351a41708cd883e981536a71f997c3707d1363ac",
+  "profiles_sha256": "0c55b8dbe534c083d1ffeb39d41c52dd95a2c1f8013d72eb284e5ffa91ccbfd3",
+  "gis_geojson_sha256": "adfa33a8a01b0b33ee449c69924515fed05ad49665868e8c1ae8ba5d047c1bab",
+  "gis_house_sha256": "ad830d00739180d41755605b79d3091abbd9d4e3804779d526f8b33012cf50b9",
+  "script_sha256": "7c0ecb05230807c4ed206f0fea36fc6af68b9d4744cec7adb18f3ce6109f95c8",
+  "model_source_hashes": {
+    "case1/studies/ac_aware_redispatch_v1/fixed_hardware.py": "126ecaf3127814abde12ec287f280af3e653c1f22bfd096b9c39c6d48afeebd4",
+    "case1/studies/pypsa_joint_optimization_v1/model.py": "4f04a7b6c94bdb3f40f2f09074b6896f13eb543598af18291ae9b10e31606eab",
+    "case1/studies/epm_gis_pandapower_v1/run_epm_validation.py": "f7358f23de8d5c499e6c89efd40edccdff2ed2c64463273de8e522f29c66356e",
+    "case1/studies/epm_gis_pandapower_v1/epm_topology.py": "0f25b37dd5cfba71c872701ab6c301da636805b303ed9744dec5e2dbcd0821d7",
+    "case1/studies/epm_gis_pandapower_v1/hil_voltvar.py": "9a63bd182b7c1ac29e15afdfbe7fe6f67d5402a9ad655b6dcd8a4bddefe70b5c",
+    "case1/studies/epm_gis_pandapower_v1/coordinated_q_control.py": "10560af0fedfa9a92f72621ac775273be59eca0493fdf2eed4b4ec8d26504325"
+  },
+  "2025_hours": 8760,
+  "population_houses": 35,
+  "population_annual_kwh": 66429.99999999999,
+  "transformer_selection_policy": {
+    "A0": "source_association",
+    "A1": "nearest_transformer_position_six_territories"
+  },
+  "source_transformer_proximity_m": {
+    "H01": [
+      {
+        "transformer": "94022",
+        "distance_m": 530.83
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 593.93
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 884.82
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 1098.19
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1225.47
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1436.47
+      }
+    ],
+    "H02": [
+      {
+        "transformer": "94022",
+        "distance_m": 306.41
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 313.76
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 581.2
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 875.53
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1085.28
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1137.51
+      }
+    ],
+    "H03": [
+      {
+        "transformer": "113699",
+        "distance_m": 269.56
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 329.6
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 557.41
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 889.04
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1037.99
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1102.55
+      }
+    ],
+    "H04": [
+      {
+        "transformer": "113699",
+        "distance_m": 166.82
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 291.03
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 411.73
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 797.51
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 962.32
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1010.35
+      }
+    ],
+    "H05": [
+      {
+        "transformer": "113699",
+        "distance_m": 153.54
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 381.26
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 483.73
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 900.71
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 936.61
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 999.39
+      }
+    ],
+    "H06": [
+      {
+        "transformer": "113699",
+        "distance_m": 205.16
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 480.12
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 569.49
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 867.41
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 1007.9
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1048.41
+      }
+    ],
+    "H07": [
+      {
+        "transformer": "113699",
+        "distance_m": 129.31
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 479.65
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 556.83
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 743.02
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 888.17
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 1013.15
+      }
+    ],
+    "H08": [
+      {
+        "transformer": "98380",
+        "distance_m": 362.98
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 566.37
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 716.28
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 750.04
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 1004.36
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 1342.37
+      }
+    ],
+    "H09": [
+      {
+        "transformer": "85398",
+        "distance_m": 240.56
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 674.17
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 825.03
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 860.5
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 1138.98
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 1216.64
+      }
+    ],
+    "H10": [
+      {
+        "transformer": "113699",
+        "distance_m": 218.0
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 291.83
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 590.33
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 640.83
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 786.01
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 904.86
+      }
+    ],
+    "H11": [
+      {
+        "transformer": "106039",
+        "distance_m": 269.54
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 327.61
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 555.05
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 749.82
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 796.36
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1020.39
+      }
+    ],
+    "H12": [
+      {
+        "transformer": "85398",
+        "distance_m": 82.9
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 570.57
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 853.81
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 981.02
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 1047.38
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1139.43
+      }
+    ],
+    "H13": [
+      {
+        "transformer": "85398",
+        "distance_m": 301.96
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 393.35
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 735.38
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 746.14
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 847.49
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1207.42
+      }
+    ],
+    "H14": [
+      {
+        "transformer": "85398",
+        "distance_m": 548.5
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 720.56
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 771.44
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 1088.87
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 1094.26
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1577.22
+      }
+    ],
+    "H15": [
+      {
+        "transformer": "85398",
+        "distance_m": 419.31
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 471.99
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 667.58
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 837.88
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 876.78
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1360.19
+      }
+    ],
+    "H16": [
+      {
+        "transformer": "106039",
+        "distance_m": 290.1
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 462.29
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 586.84
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 660.56
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 700.83
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1253.36
+      }
+    ],
+    "H17": [
+      {
+        "transformer": "106039",
+        "distance_m": 29.29
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 386.11
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 509.49
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 567.73
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 644.9
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1060.05
+      }
+    ],
+    "H18": [
+      {
+        "transformer": "106039",
+        "distance_m": 179.51
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 525.69
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 552.55
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 557.45
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 590.66
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1199.44
+      }
+    ],
+    "H19": [
+      {
+        "transformer": "106039",
+        "distance_m": 66.02
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 329.12
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 417.45
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 617.31
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 660.83
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1073.8
+      }
+    ],
+    "H20": [
+      {
+        "transformer": "106039",
+        "distance_m": 66.11
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 414.55
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 455.24
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 562.21
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 626.98
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1136.16
+      }
+    ],
+    "H21": [
+      {
+        "transformer": "106039",
+        "distance_m": 187.29
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 455.82
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 485.21
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 532.23
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 650.15
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1256.52
+      }
+    ],
+    "H22": [
+      {
+        "transformer": "106039",
+        "distance_m": 198.38
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 360.69
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 444.02
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 462.24
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 751.54
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1246.89
+      }
+    ],
+    "H23": [
+      {
+        "transformer": "106039",
+        "distance_m": 111.84
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 379.05
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 380.36
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 543.6
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 699.7
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1147.26
+      }
+    ],
+    "H24": [
+      {
+        "transformer": "106039",
+        "distance_m": 162.84
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 276.32
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 329.69
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 618.77
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 754.27
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1080.81
+      }
+    ],
+    "H25": [
+      {
+        "transformer": "106039",
+        "distance_m": 203.66
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 278.17
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 345.95
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 539.74
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 799.36
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1165.14
+      }
+    ],
+    "H26": [
+      {
+        "transformer": "94022",
+        "distance_m": 166.31
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 329.06
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 496.81
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 733.07
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1080.48
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1164.72
+      }
+    ],
+    "H27": [
+      {
+        "transformer": "94022",
+        "distance_m": 230.18
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 468.24
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 650.39
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 794.79
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1237.52
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1268.01
+      }
+    ],
+    "H28": [
+      {
+        "transformer": "94022",
+        "distance_m": 159.42
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 453.03
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 596.9
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 725.28
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1189.18
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1278.13
+      }
+    ],
+    "H29": [
+      {
+        "transformer": "94022",
+        "distance_m": 228.94
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 362.85
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 528.75
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 628.97
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1093.95
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1483.53
+      }
+    ],
+    "H30": [
+      {
+        "transformer": "92395",
+        "distance_m": 15.78
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 566.86
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 612.55
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 870.05
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1032.81
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1675.57
+      }
+    ],
+    "H31": [
+      {
+        "transformer": "92395",
+        "distance_m": 280.74
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 830.69
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 855.96
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1119.13
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 1133.62
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1900.33
+      }
+    ],
+    "H32": [
+      {
+        "transformer": "92395",
+        "distance_m": 331.37
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 878.45
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 907.06
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1149.71
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 1184.57
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1947.15
+      }
+    ],
+    "H33": [
+      {
+        "transformer": "92395",
+        "distance_m": 525.26
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 1014.43
+      },
+      {
+        "transformer": "94022",
+        "distance_m": 1096.84
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1192.19
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 1344.48
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 2069.19
+      }
+    ],
+    "H34": [
+      {
+        "transformer": "94022",
+        "distance_m": 185.51
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 607.07
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 614.32
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 661.42
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1256.71
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1450.98
+      }
+    ],
+    "H35": [
+      {
+        "transformer": "94022",
+        "distance_m": 274.31
+      },
+      {
+        "transformer": "92395",
+        "distance_m": 396.91
+      },
+      {
+        "transformer": "106039",
+        "distance_m": 629.99
+      },
+      {
+        "transformer": "113699",
+        "distance_m": 704.23
+      },
+      {
+        "transformer": "85398",
+        "distance_m": 1196.01
+      },
+      {
+        "transformer": "98380",
+        "distance_m": 1562.01
+      }
+    ]
+  },
+  "mapping": {
+    "H01": 8,
+    "H02": 9,
+    "H03": 1,
+    "H04": 22,
+    "H05": 23,
+    "H06": 2,
+    "H07": 24,
+    "H08": 25,
+    "H09": 26,
+    "H10": 27,
+    "H11": 10,
+    "H12": 28,
+    "H13": 11,
+    "H14": 29,
+    "H15": 30,
+    "H16": 12,
+    "H17": 13,
+    "H18": 14,
+    "H19": 15,
+    "H20": 16,
+    "H21": 17,
+    "H22": 18,
+    "H23": 19,
+    "H24": 20,
+    "H25": 21,
+    "H26": 3,
+    "H27": 4,
+    "H28": 5,
+    "H29": 31,
+    "H30": 32,
+    "H31": 33,
+    "H32": 34,
+    "H33": 35,
+    "H34": 6,
+    "H35": 7
+  },
+  "groups": {
+    "A0": {
+      "94022": [
+        "H01",
+        "H02",
+        "H03",
+        "H06",
+        "H26",
+        "H27",
+        "H28",
+        "H29",
+        "H34",
+        "H35"
+      ],
+      "106039": [
+        "H11",
+        "H13",
+        "H16",
+        "H17",
+        "H18",
+        "H19",
+        "H20",
+        "H21",
+        "H22",
+        "H23",
+        "H24",
+        "H25"
+      ],
+      "113699": [
+        "H04",
+        "H05",
+        "H07",
+        "H10"
+      ],
+      "85398": [
+        "H09",
+        "H12",
+        "H14",
+        "H15"
+      ],
+      "92395": [
+        "H30",
+        "H31",
+        "H32",
+        "H33"
+      ],
+      "98380": [
+        "H08"
+      ]
+    },
+    "A1": {
+      "94022": [
+        "H01",
+        "H02",
+        "H26",
+        "H27",
+        "H28",
+        "H29",
+        "H34",
+        "H35"
+      ],
+      "106039": [
+        "H11",
+        "H16",
+        "H17",
+        "H18",
+        "H19",
+        "H20",
+        "H21",
+        "H22",
+        "H23",
+        "H24",
+        "H25"
+      ],
+      "113699": [
+        "H03",
+        "H04",
+        "H05",
+        "H06",
+        "H07",
+        "H10"
+      ],
+      "85398": [
+        "H09",
+        "H12",
+        "H13",
+        "H14",
+        "H15"
+      ],
+      "92395": [
+        "H30",
+        "H31",
+        "H32",
+        "H33"
+      ],
+      "98380": [
+        "H08"
+      ]
+    }
+  },
+  "changed_houses": {
+    "H03": {
+      "from": "94022",
+      "to": "113699",
+      "target_segment_id": "39974487",
+      "target_service_straight_line_m": 57.76,
+      "evidence": "v4 provisional cohort move; not a field-verified cable"
+    },
+    "H06": {
+      "from": "94022",
+      "to": "113699",
+      "target_segment_id": "13360817",
+      "target_service_straight_line_m": 131.38,
+      "evidence": "v4 provisional cohort move; not a field-verified cable"
+    },
+    "H13": {
+      "from": "106039",
+      "to": "85398",
+      "target_segment_id": "357818861",
+      "target_service_straight_line_m": 218.52,
+      "evidence": "v4 provisional cohort move; not a field-verified cable"
+    }
+  },
+  "AC_graph_blocked_transformer_missing_extracted_LV_sections_not_service_absent": "92395",
+  "support_only_transformer": "98380",
+  "technology_basis": "archived hardware anchor for NEW cohort, economic results not transferable",
+  "nameplate_assumptions_kva": {
+    "94022": 5.0,
+    "106039": 5.0,
+    "113699": 3.0,
+    "85398": 5.0,
+    "92395": 5.0,
+    "98380": 3.0
+  },
+  "physical_service_status": "PROVISIONAL_UNSURVEYED",
+  "git_head_local": "9c75856b2a88dd2293ef7265e5e01a1cd4de92ad"
+}

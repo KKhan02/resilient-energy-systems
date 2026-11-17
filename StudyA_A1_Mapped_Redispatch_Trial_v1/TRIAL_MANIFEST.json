@@ -1,0 +1,188 @@
+{
+  "status": "ALL_SELECTED_A1_PASSED",
+  "mode": "A1_GREEDY_FIXED_HARDWARE_AC_AWARE_SHIFTS_NOT_PYPSA_OPTIMUM",
+  "windows_zip_sha256": "571ab9deba6b16fce357868b8848762a975c5761d218ba5e9544b409133e0a66",
+  "selected_event_count": 19,
+  "source_group_count": 8,
+  "adopted_shift_count": 19,
+  "unresolved_event_count": 0,
+  "annual_factor_comparisons": 72,
+  "changed_hour_replays": 342,
+  "candidate_files": [
+    {
+      "case": "A1_106039_min_cost_ref",
+      "dispatch": "causal",
+      "candidate_file": "A1_106039_min_cost_ref_causal_candidate_8760.csv",
+      "sha256": "9b4d34a3cc24cdf5df6d389dd5d43e752745fadb8e1583484266d67b96bf9742",
+      "input_energy_sha256": "f960a9e843b24aea6217bab8dfe21e56c64c7cbe13b8b42d6f429b71d03ee469",
+      "energy_original": {
+        "annual_import_kwh": 3107.4851226324,
+        "annual_pv_curtailment_dc_kwh": 2443.6042689552,
+        "min_soc_kwh": 1.832,
+        "max_soc_kwh": 34.6,
+        "end_soc_kwh": 14.3821543547
+      },
+      "energy_candidate": {
+        "annual_import_kwh": 3107.4851226324,
+        "annual_pv_curtailment_dc_kwh": 2443.6042689552,
+        "min_soc_kwh": 1.832,
+        "max_soc_kwh": 34.6,
+        "end_soc_kwh": 14.3821543547
+      }
+    },
+    {
+      "case": "A1_106039_ss90_ref",
+      "dispatch": "causal",
+      "candidate_file": "A1_106039_ss90_ref_causal_candidate_8760.csv",
+      "sha256": "f4358b5014aa2b857726752597c952bbd0ce7b59ef22b6f2d1cb15c0ca48d6a7",
+      "input_energy_sha256": "51135ebb20afbb686966e2bae10616ac0144936336cd6dd3d97628f33f0e89be",
+      "energy_original": {
+        "annual_import_kwh": 2034.5962028702997,
+        "annual_pv_curtailment_dc_kwh": 5492.2322574001,
+        "min_soc_kwh": 1.832,
+        "max_soc_kwh": 34.6,
+        "end_soc_kwh": 14.5698082069
+      },
+      "energy_candidate": {
+        "annual_import_kwh": 2034.5962028702997,
+        "annual_pv_curtailment_dc_kwh": 5492.2322574001,
+        "min_soc_kwh": 1.832,
+        "max_soc_kwh": 34.6,
+        "end_soc_kwh": 14.5698082069
+      }
+    },
+    {
+      "case": "A1_113699_min_cost_ref",
+      "dispatch": "causal",
+      "candidate_file": "A1_113699_min_cost_ref_causal_candidate_8760.csv",
+      "sha256": "ca64fc89ec21b4876b202fe53d0477798ea58a14caefdf9537df04497f8ff880",
+      "input_energy_sha256": "669668da7ab7f48770983253f9106a5a3851c5790dc48ac303d6762c9cd3b081",
+      "energy_original": {
+        "annual_import_kwh": 2393.7279357670996,
+        "annual_pv_curtailment_dc_kwh": 854.0009101544,
+        "min_soc_kwh": 0.916,
+        "max_soc_kwh": 17.3,
+        "end_soc_kwh": 5.6948677638
+      },
+      "energy_candidate": {
+        "annual_import_kwh": 2393.7279357670996,
+        "annual_pv_curtailment_dc_kwh": 854.0009101544,
+        "min_soc_kwh": 0.916,
+        "max_soc_kwh": 17.3,
+        "end_soc_kwh": 5.6948677638
+      }
+    },
+    {
+      "case": "A1_113699_min_cost_ref",
+      "dispatch": "optimized",
+      "candidate_file": "A1_113699_min_cost_ref_optimized_candidate_8760.csv",
+      "sha256": "417a1221c460d2749cef33f2bcea9c04287946fe0f41dd48f28416c5f193dc0c",
+      "input_energy_sha256": "ce9493033a7c58775e5528a6e2809143746e3469019a1085891aa4348668c28a",
+      "energy_original": {
+        "annual_import_kwh": 2393.7279357666,
+        "annual_pv_curtailment_dc_kwh": 854.0009101544,
+        "min_soc_kwh": 0.916,
+        "max_soc_kwh": 17.3,
+        "end_soc_kwh": 5.6948677637
+      },
+      "energy_candidate": {
+        "annual_import_kwh": 2393.7279357666,
+        "annual_pv_curtailment_dc_kwh": 854.0009101544,
+        "min_soc_kwh": 0.916,
+        "max_soc_kwh": 17.3,
+        "end_soc_kwh": 5.6948677637
+      }
+    },
+    {
+      "case": "A1_94022_min_cost_ref",
+      "dispatch": "causal",
+      "candidate_file": "A1_94022_min_cost_ref_causal_candidate_8760.csv",
+      "sha256": "a060d03f6a3abee93a3356d444b741636c01d097c4571f3ebb8ab6a360e8afa4",
+      "input_energy_sha256": "6b276627addd7611214e0cdae769c26e259d2e190ced0e71cb1c6b4347596fbf",
+      "energy_original": {
+        "annual_import_kwh": 3275.1461519622,
+        "annual_pv_curtailment_dc_kwh": 1409.0428586221,
+        "min_soc_kwh": 1.145,
+        "max_soc_kwh": 21.625,
+        "end_soc_kwh": 5.5044230024
+      },
+      "energy_candidate": {
+        "annual_import_kwh": 3275.1461519622,
+        "annual_pv_curtailment_dc_kwh": 1409.0428586221,
+        "min_soc_kwh": 1.145,
+        "max_soc_kwh": 21.625,
+        "end_soc_kwh": 5.5044230024
+      }
+    },
+    {
+      "case": "A1_94022_min_cost_ref",
+      "dispatch": "optimized",
+      "candidate_file": "A1_94022_min_cost_ref_optimized_candidate_8760.csv",
+      "sha256": "1c9163f24cb1b3cd1c9e97e437f12e66b0c7e00fdb6c23a40fdee6239daffa1d",
+      "input_energy_sha256": "120edc90e5e9b18a88b5361266ca3f7f7e9000b8fa8b0d0b0abb5a3924c672ae",
+      "energy_original": {
+        "annual_import_kwh": 3275.1461519599998,
+        "annual_pv_curtailment_dc_kwh": 1409.0428586225999,
+        "min_soc_kwh": 1.145,
+        "max_soc_kwh": 21.625,
+        "end_soc_kwh": 5.5044230024
+      },
+      "energy_candidate": {
+        "annual_import_kwh": 3275.1461519599998,
+        "annual_pv_curtailment_dc_kwh": 1409.0428586225999,
+        "min_soc_kwh": 1.145,
+        "max_soc_kwh": 21.625,
+        "end_soc_kwh": 5.5044230024
+      }
+    },
+    {
+      "case": "A1_94022_ss90_ref",
+      "dispatch": "causal",
+      "candidate_file": "A1_94022_ss90_ref_causal_candidate_8760.csv",
+      "sha256": "dba9dbcba530461bc62c36ffb37a3e4439f3b945b6ff0d2b043cb6254aa34182",
+      "input_energy_sha256": "7c2f375fd1d9252a520c572ad844ce3e43649eab2f1ec4bfcb62c25a2f70aefa",
+      "energy_original": {
+        "annual_import_kwh": 1519.8010622231,
+        "annual_pv_curtailment_dc_kwh": 3173.4184958893,
+        "min_soc_kwh": 1.374,
+        "max_soc_kwh": 25.95,
+        "end_soc_kwh": 9.993620123
+      },
+      "energy_candidate": {
+        "annual_import_kwh": 1519.8010622231,
+        "annual_pv_curtailment_dc_kwh": 3173.4184958893,
+        "min_soc_kwh": 1.374,
+        "max_soc_kwh": 25.95,
+        "end_soc_kwh": 9.993620123
+      }
+    },
+    {
+      "case": "A1_94022_ss90_ref",
+      "dispatch": "optimized",
+      "candidate_file": "A1_94022_ss90_ref_optimized_candidate_8760.csv",
+      "sha256": "cfecb8b68e15f6112eca8f7e88c9e98aa13e56beb914aca8e3cddf729ce5773c",
+      "input_energy_sha256": "90367bab85b649462d3b7178f5e65d1d954d7650b59241b8052bab66e6183f4e",
+      "energy_original": {
+        "annual_import_kwh": 1519.8010622242,
+        "annual_pv_curtailment_dc_kwh": 3173.4184958908,
+        "min_soc_kwh": 1.374,
+        "max_soc_kwh": 25.95,
+        "end_soc_kwh": 9.9936201231
+      },
+      "energy_candidate": {
+        "annual_import_kwh": 1519.8010622242,
+        "annual_pv_curtailment_dc_kwh": 3173.4184958908,
+        "min_soc_kwh": 1.374,
+        "max_soc_kwh": 25.95,
+        "end_soc_kwh": 9.9936201231
+      }
+    }
+  ],
+  "note": [
+    "Signed original annual energy/AC files unmodified",
+    "Changed hours newly solved; unchanged hours verified and reused",
+    "No site field certification, battery dynamic control or full-year new PyPSA optimization",
+    "Causal schedules retain their original noncyclic SOC boundary when applicable",
+    "This stage addresses A1 only; A0 multi-hour events and proposed 92395 MST remain open"
+  ]
+}

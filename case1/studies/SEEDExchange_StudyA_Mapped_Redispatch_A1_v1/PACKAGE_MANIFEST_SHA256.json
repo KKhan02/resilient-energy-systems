@@ -1,0 +1,50 @@
+{
+  "source_uploaded_window_zip_sha256": "571ab9deba6b16fce357868b8848762a975c5761d218ba5e9544b409133e0a66",
+  "files": [
+    {
+      "relative_path": "16_MAPPED_SCHEDULE_TRIAGE.csv",
+      "sha256": "141e1f63fa7306b78091e92f801c75112ad42c81d904d363e54cd2f2bc4e4d6b",
+      "size_bytes": 1280
+    },
+    {
+      "relative_path": "A1_19_EVENT_CANDIDATE_REGISTER.csv",
+      "sha256": "cf8cc209572deabb89cab62d49d0e46983e1913917190117125d4aa471194341",
+      "size_bytes": 3561
+    },
+    {
+      "relative_path": "ALL_175_ENERGY_DONOR_PRECHECK.csv",
+      "sha256": "b166e2fed7ca1fbb0b6751724f9862e81cafb09baec7a451fdd925b1c27aba0a",
+      "size_bytes": 30117
+    },
+    {
+      "relative_path": "ENGINEERING_FINDINGS.md",
+      "sha256": "1409ffd5ffe6a026b12ab1ebaa05e8007fc18c4e4eecc13db1a781f94fbe1ad4",
+      "size_bytes": 4788
+    },
+    {
+      "relative_path": "INDEPENDENT_WINDOW_QA.json",
+      "sha256": "a47ab1bab14db92aff57215f995dda0164a9408084116109187072d833410485",
+      "size_bytes": 540
+    },
+    {
+      "relative_path": "README.md",
+      "sha256": "0b3b3b8f3a87e4b5e8502cf800c1fd49d3a1b498ec804ac07c4f963bfe6fa13a",
+      "size_bytes": 5422
+    },
+    {
+      "relative_path": "StudyA_Mapped_SOC_Windows_for_Redispatch.zip",
+      "sha256": "571ab9deba6b16fce357868b8848762a975c5761d218ba5e9544b409133e0a66",
+      "size_bytes": 134992
+    },
+    {
+      "relative_path": "a1_repair_trial.py",
+      "sha256": "e72e1f1c9a3669c3f202d1b9ca0c6ac6e42ce745d64eb85ebcd1550ca2a230d9",
+      "size_bytes": 25068
+    },
+    {
+      "relative_path": "tests/test_a1_repair.py",
+      "sha256": "d86b7320a54858b22fb1c2b312e552be16d3a3441724cd7a38daa71cffbad251",
+      "size_bytes": 2954
+    }
+  ]
+}

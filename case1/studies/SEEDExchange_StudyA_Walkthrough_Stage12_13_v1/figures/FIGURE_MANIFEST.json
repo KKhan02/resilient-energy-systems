@@ -1,0 +1,66 @@
+{
+  "status": "FIGURE_ONLY_READ_ONLY_NO_NUMERIC_SIMULATIONS",
+  "derived_source": "16-Nov-2026 independently reviewed Study A 476-case compact ZIP + gross 90-case evidence",
+  "figure_names": [
+    "G4_epm_mapped_lv_A0_vs_A1.png",
+    "P1_gross_vs_pvbess_ac_violations.png",
+    "P2_higher_ss_pf_length_robustness.png",
+    "P3_92395_star_mst_pvbess.png",
+    "P4_cost_self_sufficiency_ac_tradeoff.png"
+  ],
+  "economic_architecture_points": [
+    {
+      "scenario": "A0",
+      "tier": "min_cost",
+      "annual_cost_usd": 13783.147573057473,
+      "self_sufficiency_pct": 82.89230931425477,
+      "violation_territory_hours": 15
+    },
+    {
+      "scenario": "A0",
+      "tier": "ss90",
+      "annual_cost_usd": 14952.73943508167,
+      "self_sufficiency_pct": 92.89272579281416,
+      "violation_territory_hours": 3
+    },
+    {
+      "scenario": "A1",
+      "tier": "min_cost",
+      "annual_cost_usd": 13750.910330779763,
+      "self_sufficiency_pct": 81.92240657211627,
+      "violation_territory_hours": 2
+    },
+    {
+      "scenario": "A1",
+      "tier": "ss90",
+      "annual_cost_usd": 14647.018590940883,
+      "self_sufficiency_pct": 90.97850913752634,
+      "violation_territory_hours": 1
+    }
+  ],
+  "topology": {
+    "source": "Rounded read-only GitLab GIS coordinate extract (2026-11-16 preview)",
+    "changed_houses": {
+      "H03": [
+        "94022",
+        "113699"
+      ],
+      "H06": [
+        "94022",
+        "113699"
+      ],
+      "H13": [
+        "106039",
+        "85398"
+      ]
+    },
+    "n_households": 35,
+    "n_lv_segments": 30
+  },
+  "known_gates": [
+    "A1 106039 annual overload remains",
+    "Causal year-end SOC drift two borrowed four-house cases",
+    "Missing hourly data prevents monthly-energy figure and exact violation-hour diagnosis",
+    "Daylight Q 0.25 assumed; as-built topology and equipment not verified"
+  ]
+}

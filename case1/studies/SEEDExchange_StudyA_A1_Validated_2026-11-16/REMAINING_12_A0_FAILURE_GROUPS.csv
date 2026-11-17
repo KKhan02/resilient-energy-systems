@@ -1,0 +1,13 @@
+scenario,transformer,topology,tier,hardware_family,dispatch,failing_pf_length,summed_violation_hours,worst_annual_violation_hours
+A0,92395,mst,min_cost,four_house_new,optimized,6,256,110
+A0,92395,mst,ss90,four_house_new,optimized,6,239,105
+A0,92395,mst,min_cost,four_house_new,causal,6,222,98
+A0,92395,mst,ss90,four_house_new,causal,6,221,98
+A0,94022,mapped,min_cost,archived_reference,causal,8,120,42
+A0,94022,mapped,min_cost,archived_reference,optimized,8,119,41
+A0,106039,mapped,min_cost,archived_reference,causal,9,113,21
+A0,106039,mapped,min_cost,archived_reference,optimized,9,103,21
+A0,94022,mapped,ss90,archived_reference,optimized,8,37,15
+A0,94022,mapped,ss90,archived_reference,causal,8,34,14
+A0,106039,mapped,ss90,archived_reference,causal,9,9,1
+A0,106039,mapped,ss90,archived_reference,optimized,9,9,1

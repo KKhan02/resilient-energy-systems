@@ -1,0 +1,3 @@
+case_id,pf,length_factor,converged_hours,AC_infeasible_hours,min_voltage_pu,max_trafo_pct,execution
+SS_B9,0.95,1.6,8760,1,0.9542357057049781,107.43116907056816,NEW
+MC_B9,0.95,1.6,8760,2,0.9542357057049781,107.43116907056816,NEW

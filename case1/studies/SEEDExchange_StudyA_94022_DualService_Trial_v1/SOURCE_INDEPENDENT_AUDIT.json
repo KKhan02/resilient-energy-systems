@@ -1,0 +1,48 @@
+{
+  "source_zip": "StudyA_94022_Sparse_Bundle_Trial_v1_Results.zip",
+  "source_sha256": "7c6f9921b83060b83f564e654dbb7f5e381f71002a343f26d3b0f4cdbd9fb0f7",
+  "source_crc_pass": true,
+  "ac_rows": 1080,
+  "option_count": 15,
+  "case_dispatch_groups": 4,
+  "timestamps": 9,
+  "pf_length_pairs": [
+    [
+      0.98,
+      1.0
+    ],
+    [
+      0.95,
+      1.6
+    ]
+  ],
+  "all_converged": true,
+  "no_duplicates": true,
+  "all_flags_recomputed_match": true,
+  "controls_compared_to_prior_branch_isolation": 288,
+  "max_control_numerical_abs_error": 3.552713678800501e-15,
+  "controls_exact_feasibility_match": true,
+  "options_72_of_72": [
+    "all_LV_R050"
+  ],
+  "sparse_options_72_of_72": [],
+  "last_failure_count_per_best_sparse_option": 2,
+  "H01_service_edge": {
+    "line_index": 7,
+    "house": "H01",
+    "length_m": 326.55273416436705
+  },
+  "H06_service_edge": {
+    "line_index": 4,
+    "house": "H06",
+    "length_m": 315.2667818740385
+  },
+  "original_432_portfolio_status_unchanged": {
+    "passing": 376,
+    "failing": 56
+  },
+  "annual_validation": false,
+  "source_modified": false,
+  "gitlab_modified": false,
+  "interpretation": "Targeted 9-clock-hour sensitivity only; not physical cable selection, no annual changes."
+}

@@ -1,0 +1,4 @@
+from,to,added_equipment_annualized_usd_per_year,avoided_import_kwh_per_year,saved_grid_bill_usd_per_year_at_0_29,change_total_annual_usd_per_year,breakeven_grid_tariff_usd_per_kwh,change_curtailment_dc_kwh_per_year,change_self_sufficiency_points
+MC_REF,MC_B9,146.45198029,314.55645654,91.22137240,55.23060789,0.46558250,-348.53901001,1.50664075
+SS_REF,SS_B9,146.45198029,556.36835696,161.34682352,-14.89484322,0.26322845,-616.47463375,2.66485467
+SS_B9,SS_B10,146.45198029,293.71756172,85.17809290,61.27388739,0.49861499,-325.44882185,1.40682806

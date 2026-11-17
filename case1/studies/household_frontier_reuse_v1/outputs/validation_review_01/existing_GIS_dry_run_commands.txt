@@ -1,0 +1,45 @@
+# Existing GIS annual run commands: REVIEW BEFORE EXECUTION
+# Default commands dry-run. They do NOT execute simulation without --execute.
+# These are only eligible provisional GIS scenarios. No new LV feeder is assumed.
+# Check git status, active local jobs and existing immutable outputs first.
+
+# 7_homes, 26 PV, 5 batteries, 7.6 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-e47a168bfdbf7ea91f20 --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-e47a168bfdbf7ea91f20 --stage ac --scenario-set principal
+
+# 7_homes, 31 PV, 5 batteries, 9.999999999999998 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-0252b6817adf27438d89 --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-0252b6817adf27438d89 --stage ac --scenario-set principal
+
+# 7_homes, 32 PV, 6 batteries, 10 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-11ecc482ea0d6fcb445e --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-11ecc482ea0d6fcb445e --stage ac --scenario-set principal
+
+# 7_homes, 38 PV, 8 batteries, 12 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-be65c1a3a370d852e651 --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-be65c1a3a370d852e651 --stage ac --scenario-set principal
+
+# 9_homes, 34 PV, 6 batteries, 9.999999999999998 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-3cc99d4429a15487a083 --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-3cc99d4429a15487a083 --stage ac --scenario-set principal
+
+# 9_homes, 40 PV, 7 batteries, 12 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-b091c626114a2d74884f --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-b091c626114a2d74884f --stage ac --scenario-set principal
+
+# 9_homes, 41 PV, 8 batteries, 12 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-9df8c68834f7c7f6faa3 --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-9df8c68834f7c7f6faa3 --stage ac --scenario-set principal
+
+# 12_homes, 41 PV, 8 batteries, 12 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-84f6a468f79bf545e863 --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-84f6a468f79bf545e863 --stage ac --scenario-set principal
+
+# 12_homes, 54 PV, 9 batteries, 20 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-ae0eed011a95698df0af --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-ae0eed011a95698df0af --stage ac --scenario-set principal
+
+# 12_homes, 56 PV, 10 batteries, 19.999999999999996 kVA inverter
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-70d86432647ba0b77603 --stage energy
+python case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py --repo-root . --plan-dir case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01 --energy-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01 --ac-root case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01 --candidate-id EC-70d86432647ba0b77603 --stage ac --scenario-set principal
+

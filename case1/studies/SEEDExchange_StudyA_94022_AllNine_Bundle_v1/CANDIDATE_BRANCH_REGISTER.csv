@@ -1,0 +1,16 @@
+option,line_index,kind,line_name,from_model_bus,to_model_bus,original_length_m,original_r_ohm_per_km,record_status,upgrade_specified
+svc007_004_gis014_011_R050,7,ASSUMED_SERVICE,assumed_service_47053144,T_47053144_0,HOUSE_H01,326.55273416436705,3.3,model_assumption_house_connection,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_R050,4,ASSUMED_SERVICE,assumed_service_47053100,T_47053100_0,HOUSE_H06,315.2667818740385,3.3,model_assumption_house_connection,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_R050,14,EPM_GIS_LV,gis_lv_47053086,N91732693,T_47053086_0,83.17276169946147,1.312,mapped_EPM_line_piece_synthetic_tap_split,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_R050,11,EPM_GIS_LV,gis_lv_47053070,N91732693,T_47053070_2,67.0,1.312,mapped_EPM_line_piece_synthetic_tap_split,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_R050,7,ASSUMED_SERVICE,assumed_service_47053144,T_47053144_0,HOUSE_H01,326.55273416436705,3.3,model_assumption_house_connection,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_R050,4,ASSUMED_SERVICE,assumed_service_47053100,T_47053100_0,HOUSE_H06,315.2667818740385,3.3,model_assumption_house_connection,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_R050,14,EPM_GIS_LV,gis_lv_47053086,N91732693,T_47053086_0,83.17276169946147,1.312,mapped_EPM_line_piece_synthetic_tap_split,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_R050,11,EPM_GIS_LV,gis_lv_47053070,N91732693,T_47053070_2,67.0,1.312,mapped_EPM_line_piece_synthetic_tap_split,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_R050,16,EPM_GIS_LV,gis_lv_47053100,N91732698,T_47053100_0,34.65580851813741,2.1,mapped_EPM_line_piece_synthetic_tap_split,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_018_R050,7,ASSUMED_SERVICE,assumed_service_47053144,T_47053144_0,HOUSE_H01,326.55273416436705,3.3,model_assumption_house_connection,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_018_R050,4,ASSUMED_SERVICE,assumed_service_47053100,T_47053100_0,HOUSE_H06,315.2667818740385,3.3,model_assumption_house_connection,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_018_R050,14,EPM_GIS_LV,gis_lv_47053086,N91732693,T_47053086_0,83.17276169946147,1.312,mapped_EPM_line_piece_synthetic_tap_split,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_018_R050,11,EPM_GIS_LV,gis_lv_47053070,N91732693,T_47053070_2,67.0,1.312,mapped_EPM_line_piece_synthetic_tap_split,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_018_R050,16,EPM_GIS_LV,gis_lv_47053100,N91732698,T_47053100_0,34.65580851813741,2.1,mapped_EPM_line_piece_synthetic_tap_split,NO - R*0.5 hypothetical only
+svc007_004_gis014_011_016_018_R050,18,EPM_GIS_LV,gis_lv_47053118,N91732704,T_47053118_0,27.70848447777377,2.1,mapped_EPM_line_piece_synthetic_tap_split,NO - R*0.5 hypothetical only

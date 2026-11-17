@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-16",
+  "source_sha256": "d94c960eb657ac866f8ea70849adc1633a52ccd5c16d656653733ef24126cc2d",
+  "zip_crc_passed": true,
+  "unique_rows": 1620,
+  "distinct_cases": 4,
+  "hours": 9,
+  "factors": 9,
+  "options": 5,
+  "nonconverged": 0,
+  "nonfinite_metrics": 0,
+  "duplicate_scenario_keys": 0,
+  "feasibility_flags_disagree": 0,
+  "verified_old_control_rows": 360,
+  "max_abs_control_deviation": 3.552713678800501e-15,
+  "annual_validation_complete": false,
+  "signatures_from_user_local_runs": true,
+  "original_AC_portfolio_passing": 376,
+  "original_AC_portfolio_failing": 56,
+  "signed_source_files_modified": false,
+  "gitlab_modified": false
+}

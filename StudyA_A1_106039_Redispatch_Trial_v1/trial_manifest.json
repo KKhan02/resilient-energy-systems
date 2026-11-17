@@ -1,0 +1,375 @@
+{
+  "status": "ALL_NINE_PF_LENGTH_CASES_FEASIBLE",
+  "not_new_pypsa_optimum": true,
+  "mode": "SOC_CONSISTENT_FIXED_SCHEDULE_SHIFT",
+  "revalidation": "Changed hours independently AC solved, unchanged hours reused from signed annual results",
+  "year": 2025,
+  "territory": "A1_106039",
+  "households": [
+    "H11",
+    "H16",
+    "H17",
+    "H18",
+    "H19",
+    "H20",
+    "H21",
+    "H22",
+    "H23",
+    "H24",
+    "H25"
+  ],
+  "device_reference": {
+    "min_cost_ref": {
+      "pv_panels": 41,
+      "battery_modules": 8,
+      "battery_power_dc_kw": 12.0,
+      "inverter_kva": 12.0,
+      "transformer_kva_assumed_or_evidenced": 5.0
+    },
+    "ss90_ref": {
+      "pv_panels": 49,
+      "battery_modules": 8,
+      "battery_power_dc_kw": 14.11017378393042,
+      "inverter_kva": 20.0,
+      "transformer_kva_assumed_or_evidenced": 5.0
+    }
+  },
+  "source_annual_signatures": {
+    "min_cost_ref": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+    "ss90_ref": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257"
+  },
+  "candidate_annual_files": {
+    "min_cost_ref": {
+      "path": "A1_106039_min_cost_ref_candidate_8760.csv",
+      "sha256": "f0bbda0d7183e15ae019c82bf29cf41c46d43d49159cda66d50ea04f0b3a4c8f"
+    },
+    "ss90_ref": {
+      "path": "A1_106039_ss90_ref_candidate_8760.csv",
+      "sha256": "942d7ff67ddde09b8bef0452896f92cf0944dd2cdb012cbfc4d766bc44c2dc74"
+    }
+  },
+  "energy_comparison": [
+    {
+      "tier": "min_cost_ref",
+      "original": {
+        "soc_min_kwh": 1.832,
+        "soc_max_kwh": 34.6,
+        "soc_end_kwh": 14.3821544,
+        "grid_import_kwh": 3107.48512263,
+        "dc_battery_discharge_kwh": 9648.83460433
+      },
+      "candidate": {
+        "soc_min_kwh": 1.832,
+        "soc_max_kwh": 34.6,
+        "soc_end_kwh": 14.3821544,
+        "grid_import_kwh": 3107.48512263,
+        "dc_battery_discharge_kwh": 9648.83460433
+      },
+      "original_energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125"
+    },
+    {
+      "tier": "ss90_ref",
+      "original": {
+        "soc_min_kwh": 1.832,
+        "soc_max_kwh": 34.6,
+        "soc_end_kwh": 14.5698082,
+        "grid_import_kwh": 2034.59620287,
+        "dc_battery_discharge_kwh": 10557.39043089
+      },
+      "candidate": {
+        "soc_min_kwh": 1.832,
+        "soc_max_kwh": 34.6,
+        "soc_end_kwh": 14.5698082,
+        "grid_import_kwh": 2034.59620287,
+        "dc_battery_discharge_kwh": 10557.39043089
+      },
+      "original_energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257"
+    }
+  ],
+  "shifts": [
+    {
+      "tier": "min_cost_ref",
+      "source_hour": "2025-10-13 17:00:00",
+      "target_hour": "2025-10-13 20:00:00",
+      "moved_dc_kw": 0.6,
+      "added_target_ac_kw": 0.57,
+      "retained_soc_kwh": 0.6155870112510925
+    },
+    {
+      "tier": "min_cost_ref",
+      "source_hour": "2025-11-27 18:00:00",
+      "target_hour": "2025-11-27 20:00:00",
+      "moved_dc_kw": 0.8,
+      "added_target_ac_kw": 0.76,
+      "retained_soc_kwh": 0.8207826816681234
+    },
+    {
+      "tier": "ss90_ref",
+      "source_hour": "2025-11-27 18:00:00",
+      "target_hour": "2025-11-27 20:00:00",
+      "moved_dc_kw": 0.8,
+      "added_target_ac_kw": 0.76,
+      "retained_soc_kwh": 0.8207826816681234
+    }
+  ],
+  "screens": [
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "baseline_bad_hours": 2,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 107.3136659017,
+      "candidate_max_trafo_pct": 99.3516178284,
+      "min_v_pu": 0.959508389188601,
+      "changed_hours": 4,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "0bdacc95078bd1fc2377868bcfb870951c890424da499a90dafaebe6c836cde4"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "baseline_bad_hours": 2,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 107.3722847241,
+      "candidate_max_trafo_pct": 99.3916539521,
+      "min_v_pu": 0.9583754576559168,
+      "changed_hours": 4,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "d6bb4daa52a8765f0dbf06fac56e0f98fa2d9067cddc5d2db0ac7e6c45d40ab4"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "baseline_bad_hours": 2,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 107.4311690706,
+      "candidate_max_trafo_pct": 99.4318148586,
+      "min_v_pu": 0.9572396590244653,
+      "changed_hours": 4,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "3fc81bcc8f742df83b4a21d22a5e991adfcccc3a0b71ffc29cf6ff834692303c"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 103.4916719489,
+      "candidate_max_trafo_pct": 95.8233858183,
+      "min_v_pu": 0.9627156175134872,
+      "changed_hours": 4,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "fedac250c8e4f009aea68c7116ce730df693b19e687b9898bf4887ea111c5dfb"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 103.5475855215,
+      "candidate_max_trafo_pct": 95.8616240951,
+      "min_v_pu": 0.961595194615666,
+      "changed_hours": 4,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "d17f10ddc8a0297d2e3203b21df90cc4175a2d37097f4e4de3442308cdc8db6d"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 103.6037470248,
+      "candidate_max_trafo_pct": 95.8999790704,
+      "min_v_pu": 0.9604720470541108,
+      "changed_hours": 4,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "76364def9bcac2bf556b021d64d21c682e5aae598fb9442bc382e6c6165d9a09"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 100.4749757125,
+      "candidate_max_trafo_pct": 93.0362211686,
+      "min_v_pu": 0.9678225830364041,
+      "changed_hours": 4,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "88ff678ee97e8ac71dc7ad5678ae94d7a94bd4965fd16a8ad44720fe98e806a2"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 100.5285424599,
+      "candidate_max_trafo_pct": 93.0729238483,
+      "min_v_pu": 0.9667201603825005,
+      "changed_hours": 4,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "6dd897421addc8633dbcb0e6ce5fcc36997b4a971cab18649fac86c8abc9a2c4"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 100.5823407849,
+      "candidate_max_trafo_pct": 93.1097358173,
+      "min_v_pu": 0.9652225266,
+      "changed_hours": 4,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "45093ca1f41b3c9757c44adcc31ae35c2d36a40179a8c5c0ccdd97bd10c62b67"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 107.3136659017,
+      "candidate_max_trafo_pct": 99.3516178284,
+      "min_v_pu": 0.959508389188601,
+      "changed_hours": 2,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "0120679a03f92f856088639c21be59018faa3ef38308955b70aac6d91a9ec8ca"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 107.3722847241,
+      "candidate_max_trafo_pct": 99.3916539521,
+      "min_v_pu": 0.9583754576559168,
+      "changed_hours": 2,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "ea03f428bc2baab8c12d536f47abdfcd1c4033f73f83222bc6368027c61fdfab"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 107.4311690706,
+      "candidate_max_trafo_pct": 99.4318148586,
+      "min_v_pu": 0.9572396590244653,
+      "changed_hours": 2,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "b239d82e7ecec2688ca229cdf8aa35a69f84a64f3b637beec9b784d36c820abc"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 103.4916719489,
+      "candidate_max_trafo_pct": 95.8233858183,
+      "min_v_pu": 0.9627156175134872,
+      "changed_hours": 2,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "091f26183afde1d179d515c056acd75e8110711c6b766d4f806fde273e34d181"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 103.5475855215,
+      "candidate_max_trafo_pct": 95.8616240951,
+      "min_v_pu": 0.961595194615666,
+      "changed_hours": 2,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "dd506ea27af5c47767f3591a5793a2ebee1921d8352049555c3f61c68831d2ac"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 103.6037470248,
+      "candidate_max_trafo_pct": 95.8999790704,
+      "min_v_pu": 0.9604720470541108,
+      "changed_hours": 2,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "8deb7a88832cd51e9a08c86e8b9f467d478abe86d5f66d59ac60c014efc8d096"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 100.4749757125,
+      "candidate_max_trafo_pct": 93.0362211686,
+      "min_v_pu": 0.9678225830364041,
+      "changed_hours": 2,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "3382ab3f3f1f95faca04571634955a53f689163c768d4a9fc496de6ebe8472be"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 100.5285424599,
+      "candidate_max_trafo_pct": 93.0729238483,
+      "min_v_pu": 0.9667201603825005,
+      "changed_hours": 2,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "cb3eabd6bf7aa5d7f074d67ab9e5fb5026c239b7893951303da4ed27f6de013b"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "baseline_bad_hours": 1,
+      "candidate_bad_hours": 0,
+      "baseline_max_trafo_pct": 100.5823407849,
+      "candidate_max_trafo_pct": 93.1097358173,
+      "min_v_pu": 0.9656151421955632,
+      "changed_hours": 2,
+      "all_8760_hours_accounted_for": true,
+      "remaining_violations": "",
+      "original_ac_sha256": "0f958671208fa4eadec75f6766a672ad1ce0c66c6e7832a85f8ae05493a73c16"
+    }
+  ],
+  "notes": [
+    "All source annual files unchanged",
+    "Nighttime Q disabled exactly as original AC solver",
+    "Loss-aware annual economics and causal implementation remain separate issues",
+    "Conditionally modelled EPM 5 kVA at 106039, not a verified transformer nameplate"
+  ]
+}

@@ -1,0 +1,5 @@
+case,dispatch,nine_pf_length_cases,original_violating_case_hours,trial_violating_case_hours,shift_count,changed_hour_ac_checks,min_voltage_changed_hour_pu,max_trafo_changed_hour_pct
+A0_106039_min_cost_ref,causal,9,113,0,21,333,0.9500049718830542,99.9443928123273
+A0_106039_min_cost_ref,optimized,9,103,0,21,351,0.9500077895224552,99.74373801004316
+A0_106039_ss90_ref,causal,9,9,0,1,18,0.9504489289819203,96.7272321701534
+A0_106039_ss90_ref,optimized,9,9,0,1,18,0.9503163126102356,97.3727587335338

@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "checks": {
+    "min_cost_ref_sha256": true,
+    "min_cost_ref_2025_hourly": true,
+    "min_cost_ref_finite": true,
+    "min_cost_ref_dc_balance": true,
+    "min_cost_ref_ac_balance": true,
+    "min_cost_ref_curtailment_balance": true,
+    "min_cost_ref_soc_floor_ceiling": true,
+    "min_cost_ref_power_and_no_simultaneous_charge_discharge": true,
+    "min_cost_ref_zero_export_unserved": true,
+    "min_cost_ref_soc_hourly_and_cyclic": true,
+    "min_cost_ref_annual_import_matches_manifest": true,
+    "min_cost_ref_yearend_soc_matches_manifest": true,
+    "ss90_ref_sha256": true,
+    "ss90_ref_2025_hourly": true,
+    "ss90_ref_finite": true,
+    "ss90_ref_dc_balance": true,
+    "ss90_ref_ac_balance": true,
+    "ss90_ref_curtailment_balance": true,
+    "ss90_ref_soc_floor_ceiling": true,
+    "ss90_ref_power_and_no_simultaneous_charge_discharge": true,
+    "ss90_ref_zero_export_unserved": true,
+    "ss90_ref_soc_hourly_and_cyclic": true,
+    "ss90_ref_annual_import_matches_manifest": true,
+    "ss90_ref_yearend_soc_matches_manifest": true,
+    "three_planned_shifts": true,
+    "18_pf_length_results": true,
+    "108_changed_hour_records": true,
+    "all_changed_ac_converged": true,
+    "candidate_changed_ac_feasible": true,
+    "all_18_candidate_annual_feasible": true,
+    "baseline_positive_violations": true,
+    "candidate_voltage_and_trafo_limits": true,
+    "changed_original_bad_hours_match_annual": true,
+    "changed_candidate_bad_hours_match_annual": true
+  },
+  "energy": [
+    {
+      "tier": "min_cost_ref",
+      "annual_demand_kwh": 20878.0,
+      "grid_import_kwh": 3107.485123,
+      "self_sufficiency_pct": 85.11598,
+      "pv_available_dc_kwh": 21657.242803,
+      "pv_curtailed_dc_kwh": 2443.604269,
+      "pv_curtailment_pct": 11.2831,
+      "min_soc_kwh": 1.832,
+      "end_soc_kwh": 14.3821543547
+    },
+    {
+      "tier": "ss90_ref",
+      "annual_demand_kwh": 20878.0,
+      "grid_import_kwh": 2034.596203,
+      "self_sufficiency_pct": 90.25483,
+      "pv_available_dc_kwh": 25883.046277,
+      "pv_curtailed_dc_kwh": 5492.232257,
+      "pv_curtailment_pct": 21.2194,
+      "min_soc_kwh": 1.832,
+      "end_soc_kwh": 14.5698082069
+    }
+  ],
+  "status_summary": {
+    "all_18_annual_sensitivity_cases_pass": true,
+    "model_context": "changed-hour re-solve plus verified unchanged-hour reuse"
+  }
+}

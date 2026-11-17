@@ -1,0 +1,35 @@
+{
+  "status": "INDEPENDENT_FILE_LEVEL_AUDIT_PASS",
+  "source_zip": "StudyA_A0_94022_Network_Probe_v1.zip",
+  "source_zip_sha256": "b9e5764d425c0dd1472234eaf4b545e6784fc8cb413eed6af1d84d464f94fb4b",
+  "rows": 360,
+  "probed_hours": 9,
+  "four_case_dispatch_groups": 4,
+  "two_factor_pairs": [
+    [
+      0.98,
+      1.0
+    ],
+    [
+      0.95,
+      1.6
+    ]
+  ],
+  "checked_72_matching_case_hour_factor_combinations": 72,
+  "all_converged": true,
+  "uniqueness_pass": true,
+  "all_ac_flags_independently_recomputed": true,
+  "PV_available_at_all_selected_hours_kw": 0,
+  "source_manifest_baseline_reproduced_locally_by_user_runner": true,
+  "source_manifest_sha256": "b260efb44f559eb42901d52b26b644d12e2c690fa7496fbea922485be25b21b4",
+  "limit_of_validation": "Files independently audited against the modelled AC thresholds; physical AC solver not re-executed on assistant machine.",
+  "option_pass_counts": {
+    "end_siting_proxy": 6,
+    "head_R_050_proxy": 72,
+    "head_R_075_proxy": 60,
+    "head_reference": 28,
+    "middle_siting_proxy": 50
+  },
+  "max_voltage_end_siting_pu": 1.1127266829479212,
+  "minimum_voltage_R050_pu": 0.956955294864524
+}

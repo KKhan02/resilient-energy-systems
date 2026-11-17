@@ -1,0 +1,15 @@
+{
+  "uploaded_zip_sha256": "571ab9deba6b16fce357868b8848762a975c5761d218ba5e9544b409133e0a66",
+  "verified_counts": {
+    "event_records": 175,
+    "a1_event_records": 19,
+    "a0_event_records": 156,
+    "source_schedules": 16,
+    "window_rows": 5075
+  },
+  "pre_screen": {
+    "with_prior_8h_discharge": 175,
+    "a1_at_end_hour_soc_floor": 19
+  },
+  "boundary": "Earlier discharge is necessary but not sufficient for electrical feasibility; all changes require signed original-file validation, SOC chronology and pandapower solution"
+}

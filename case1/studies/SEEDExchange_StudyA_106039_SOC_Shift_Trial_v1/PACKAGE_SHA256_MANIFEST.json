@@ -1,0 +1,13 @@
+{
+  "source_archive": "StudyA_A1_106039_Event_Hour_SOC_Evidence.zip",
+  "source_zip_sha256": "a5c527b94e5a670c205177ca581f42e48ff5545aa1b99fdb2f9c24d4f689c357",
+  "date": "2026-11-16",
+  "status": "candidate_SOC_algebra_passed_local_excerpt; AC_NEEDS_LOCAL_VALIDATION",
+  "files": {
+    "EVIDENCE_REVIEW.md": "3aad2ef3985e482aadad2c3c85afe2b8f078b74fdc1eeaed2c1c6781606af2e7",
+    "README.md": "7d9fbccd69653972a60a5e5c271d07ab53caaf561bb022d4c6435dc4e60bc118",
+    "SOURCE_DERIVED_CANDIDATE_HOUR_PREVIEW.csv": "be639933c9b4ea9eeebe703996d67ff77c9ea63a812f34c4c8384955c85efb19",
+    "studya_106039_soc_shift_trial.py": "e70d916b3283e0872524fcf0958603748ede2f15895f43ee132274eb01c19899",
+    "tests/test_soc_shift.py": "84b65f535683a5d9770c93eb85cd7ba7e1a216d13ba0fe8723223e3e67536e2e"
+  }
+}

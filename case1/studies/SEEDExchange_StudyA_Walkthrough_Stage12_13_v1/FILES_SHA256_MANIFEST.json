@@ -1,0 +1,119 @@
+{
+  "created_date": "2026-11-16",
+  "source_gitlab_head": "9aaca5473838b69de442cb238ba40a0e97405844",
+  "data_sources": "16-Nov 2026 independently audited Study A derived tables, signed v6.2 input mapping, GIS data from GitLab read-only",
+  "files": {
+    "FIGURE_INDEX_APPEND_PROPOSAL.csv": {
+      "sha256": "806a45717fa4ceb3a1c7d72b75272708a6fb562092910083d5113b9c1b8c4f5c",
+      "bytes": 1304
+    },
+    "README.md": {
+      "sha256": "7b6e4ca958629b7e13ffd9553f2f825b7a0332a3e7575c67f440b81bf2f1b65a",
+      "bytes": 5077
+    },
+    "WALKTHROUGH_NARRATIVE_EXTENSION.md": {
+      "sha256": "485a108cf1dad416b759bab2c81d7f1bd933d7f1ef0e9f8c8cb27e5ff7fcde7a",
+      "bytes": 6316
+    },
+    "__pycache__/extract_monthly_and_residual.cpython-313.pyc": {
+      "sha256": "e5f1e172d67bb20c9b3376ee097e1739b1975214997e3ca0d72e206ef8561aca",
+      "bytes": 15915
+    },
+    "__pycache__/plot_studya_walkthrough.cpython-313.pyc": {
+      "sha256": "2316af6d51dca7b50d41207f7949e481b17c0e60cc19a3bf678e46a22cb181f2",
+      "bytes": 35961
+    },
+    "evidence/AC_432_CORRECTED_UNIQUE_CASES.csv": {
+      "sha256": "27e9eedd7533f7e3c368bd292a58735b9ca4cafab4322e2d05c111f89071a6cf",
+      "bytes": 180972
+    },
+    "evidence/ENERGY_22_RECONCILED_COSTS.csv": {
+      "sha256": "2a18601ed5382ad639c63f7e6a8b5c4af04fd19f2af1484ad394eeacb78096e5",
+      "bytes": 7408
+    },
+    "evidence/FIVE_TERRITORY_STAR_AGGREGATE_COMPARISON_36.csv": {
+      "sha256": "8e9627850eee8f7175bcade4eff04fd626bc2aaeda21dfafc65b5959600fa985",
+      "bytes": 4417
+    },
+    "evidence/GROSS_90_CASE_REFERENCE.csv": {
+      "sha256": "03fb3d5da3b4b7a1dff7446881bb8fee560c5c24dd4fb58df84b71276b548772",
+      "bytes": 31900
+    },
+    "evidence/input_manifest_v6_2.json": {
+      "sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+      "bytes": 23482
+    },
+    "extract_monthly_and_residual.py": {
+      "sha256": "e5c0d9a3dff69d0c38833ec593d8f8971655534f975acf6e6fe59a82e02da0bd",
+      "bytes": 8813
+    },
+    "figures/FIGURE_MANIFEST.json": {
+      "sha256": "5cd074cc3484dbc4075a4b8c32b55c7c71965c3fdc95151ee0c27a274e08b8f9",
+      "bytes": 1872
+    },
+    "figures/G4_epm_mapped_lv_A0_vs_A1.png": {
+      "sha256": "fc32923336986caccdc0a850c4b42c7c3c8d2f4cef3b0f61bcbbeefcf69d592f",
+      "bytes": 448057
+    },
+    "figures/G4_epm_mapped_lv_A0_vs_A1.svg": {
+      "sha256": "5ae85831ca7bf7d6d9d76a91f17dca89ef788b9a9a9e87dfff41f57ca46cac23",
+      "bytes": 79473
+    },
+    "figures/P1_gross_vs_pvbess_ac_violations.png": {
+      "sha256": "2e3e01a25401f6d2dc7aefe25cd178a217e8c525e5ffeaa640a260b8612fd27a",
+      "bytes": 160139
+    },
+    "figures/P1_gross_vs_pvbess_ac_violations.svg": {
+      "sha256": "57b16daf035156c95891d7649a90b864a7059269bc9f02c64a53d2654c350a48",
+      "bytes": 16042
+    },
+    "figures/P2_higher_ss_pf_length_robustness.png": {
+      "sha256": "85dbf2b40e10098e2aba654c8f7ae623c834e770ab19b8a0d0d9936376939a23",
+      "bytes": 180595
+    },
+    "figures/P2_higher_ss_pf_length_robustness.svg": {
+      "sha256": "5f77b3f9fde88e8c979e5d12d3d005f62d05542a9049b9ca26c3cd6fa084dd39",
+      "bytes": 35735
+    },
+    "figures/P3_92395_star_mst_pvbess.png": {
+      "sha256": "e8058ffa5c1a7757b66c34a88c86e6bafce719ac7174590df9bece02b9b3c824",
+      "bytes": 241518
+    },
+    "figures/P3_92395_star_mst_pvbess.svg": {
+      "sha256": "76b8d148ac91a9016a6dc74da182b3acc70557cf3f95213bace9cc3c82f99608",
+      "bytes": 14834
+    },
+    "figures/P4_cost_self_sufficiency_ac_tradeoff.png": {
+      "sha256": "d89b657c1dfa247ac737f4fa71e75629763b10f9dcc92c215f9ac63034b626be",
+      "bytes": 236075
+    },
+    "figures/P4_cost_self_sufficiency_ac_tradeoff.svg": {
+      "sha256": "9282c58dc4e12c343259085b4e326a9b9698496609a1560ac1c60eccb8dd7e41",
+      "bytes": 14428
+    },
+    "plot_studya_walkthrough.py": {
+      "sha256": "bca05c353d9e919a34799b8429da505bfec2ce598b754d27f48a859d57b03fc7",
+      "bytes": 21153
+    },
+    "source_geometry/epm_lv_segments_compact.csv": {
+      "sha256": "d0a1e9570273e7965fea99079b4f3bbdcdda375e1e6cc957cfc418280be25078",
+      "bytes": 1950
+    },
+    "source_geometry/houses_candidate_associations.csv": {
+      "sha256": "ef900a62684f12661977e80e88358f9e80306fb71865e30061934ea388de3e63",
+      "bytes": 1400
+    },
+    "source_geometry/transformers_evidence.csv": {
+      "sha256": "f65b0dce27e052438e3b2fd74ac3fe783fd2d5a45830c766e64d9405ada12a1b",
+      "bytes": 299
+    },
+    "tests/__pycache__/test_walkthrough.cpython-313.pyc": {
+      "sha256": "9765d1851586953fccb80963bac2f5c08f4eea4f76788d1aa145582c9b665155",
+      "bytes": 6303
+    },
+    "tests/test_walkthrough.py": {
+      "sha256": "4482f2c41836ef2ddc2a3acf20bff078fe2a7780b08ca4e1449cd096662782ea",
+      "bytes": 2522
+    }
+  }
+}

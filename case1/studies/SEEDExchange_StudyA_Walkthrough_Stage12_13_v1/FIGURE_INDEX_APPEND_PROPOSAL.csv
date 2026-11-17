@@ -1,0 +1,7 @@
+proposed_order,stage,new_figure,comparison,status,presentation_priority,source_or_gate
+25,12_Geographic_StudyA,G4_epm_mapped_lv_A0_vs_A1.png,A0 vs A1 35 households EPM-mapped LV and assumed house taps,GEOGRAPHIC_PREVIEW_RENDERED,high,signed input_manifest_v6_2 + original GIS coordinate extract; re-render via local checkout
+26,12_Geographic_StudyA,P3_92395_star_mst_pvbess.png,92395 four houses STAR vs MST gross/min/higher under PF0.95 length stress,AUDITED_SUMMARY_RENDERED,high,AC 432 + gross 90 case source
+27,13_Annual_PVBESS_AC,P1_gross_vs_pvbess_ac_violations.png,34 houses A0/A1 gross/min/higher nominal AC violation territory-hours,AUDITED_SUMMARY_RENDERED,high,five-territory aggregate 36
+28,13_Annual_PVBESS_AC,P2_higher_ss_pf_length_robustness.png,Higher-SS PV+BESS 9 PF by length sensitivities for A0/A1,AUDITED_SUMMARY_RENDERED,medium,five-territory aggregate 36
+29,13_Annual_PVBESS_AC,P4_cost_self_sufficiency_ac_tradeoff.png,4 aggregated five-installation design costs vs self sufficiency and violations,AUDITED_SUMMARY_RENDERED,optional,22 energy + five-territory aggregate 36
+30,13_Annual_PVBESS_AC,MONTHLY_OPERATION_NOT_YET_RENDERED,Geographic 106039 and four-house monthly energy and battery utilization,WAITING_FOR_SIGNED_HOURLY,optional,run extract_monthly_and_residual.py locally

@@ -1,0 +1,13 @@
+case_id,pilot,source_reused,panels,pv_kwp,battery_modules,battery_nominal_kwh,battery_modelled_usable_kwh,battery_operational_usable_kwh,battery_power_dc_kw,inverter_kva,comparison_reason
+MC_REF,False,True,41,17.835,8,40.96,34.6,32.768,12.0,12.0,"Signed minimum-cost reference, no rerun"
+SS_REF,False,True,49,21.315,8,40.96,34.6,32.768,14.11017378393042,20.0,"Signed higher-self-sufficiency reference, no rerun"
+SS_B9,True,False,49,21.315,9,46.08,38.925000000000004,36.864000000000004,14.11017378393042,20.0,"One extra storage module, same charge/discharge power"
+SS_B10,True,False,49,21.315,10,51.2,43.25,40.96,14.11017378393042,20.0,"Two extra modules, same battery power"
+SS_P45,True,False,45,19.575,8,40.96,34.6,32.768,14.11017378393042,20.0,"Four fewer PV panels, same battery and inverter"
+SS_P41_KEEP20,True,False,41,17.835,8,40.96,34.6,32.768,14.11017378393042,20.0,"Eight fewer panels, retain 20kVA inverter to isolate PV change"
+MC_B9,True,False,41,17.835,9,46.08,38.925000000000004,36.864000000000004,12.0,12.0,Add one module to minimum-cost reference
+MC_P37,True,False,37,16.095,8,40.96,34.6,32.768,12.0,12.0,Reduce minimum-cost PV by four panels
+SS_B9_POWER16,False,False,49,21.315,9,46.08,38.925000000000004,36.864000000000004,16.35,20.0,Test battery power separately from battery energy capacity
+SS_P45_B9,False,False,45,19.575,9,46.08,38.925000000000004,36.864000000000004,14.11017378393042,20.0,Combine smaller PV with one extra battery module
+MC_B10,False,False,41,17.835,10,51.2,43.25,40.96,12.0,12.0,Test two extra battery modules
+MC_P33,False,False,33,14.355,8,40.96,34.6,32.768,12.0,12.0,"More aggressive PV downsize, may be infeasible"
