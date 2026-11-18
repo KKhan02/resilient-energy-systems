@@ -1,0 +1,190 @@
+{
+  "status": "NEW_AC_PILOT_COMPLETE_WITH_EXPLICIT_FAILURES",
+  "items": [
+    {
+      "case_id": "SS_B9",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9565121669067184,
+      "max_trafo_pct": 107.31366590167603,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "SS_B9",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9553753844256563,
+      "max_trafo_pct": 107.37228472412819,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "SS_B9",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9542357057049781,
+      "max_trafo_pct": 107.43116907056816,
+      "execution": "REUSED_VERIFIED"
+    },
+    {
+      "case_id": "SS_B9",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9597307680794462,
+      "max_trafo_pct": 103.4916719488882,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "SS_B9",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9586065813589987,
+      "max_trafo_pct": 103.54758552148229,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "SS_B9",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9574796425445874,
+      "max_trafo_pct": 103.60374702484843,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "SS_B9",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9648552291453492,
+      "max_trafo_pct": 100.4749757124762,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "SS_B9",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9637491550662449,
+      "max_trafo_pct": 100.52854245987825,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "SS_B9",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9626404596630161,
+      "max_trafo_pct": 100.58234078492656,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 2,
+      "min_voltage_pu": 0.9565121669067184,
+      "max_trafo_pct": 107.31366590167603,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 2,
+      "min_voltage_pu": 0.9553753844256563,
+      "max_trafo_pct": 107.37228472412819,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 2,
+      "min_voltage_pu": 0.9542357057049781,
+      "max_trafo_pct": 107.43116907056816,
+      "execution": "REUSED_VERIFIED"
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9597307680794462,
+      "max_trafo_pct": 103.4916719488882,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9586065813589987,
+      "max_trafo_pct": 103.54758552148229,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9574796425445874,
+      "max_trafo_pct": 103.60374702484843,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9648552291453492,
+      "max_trafo_pct": 100.4749757124762,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9637491550662449,
+      "max_trafo_pct": 100.52854245987825,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9626404596630161,
+      "max_trafo_pct": 100.58234078492656,
+      "execution": "NEW"
+    }
+  ],
+  "job_count": 18,
+  "reused": 2,
+  "blocked": 0,
+  "AC_failed_cases": 18,
+  "scope": "NEW_FRONTIER_DISPATCH_AC_ONLY_NOT_EQUIPMENT_OR_NETWORK_CERTIFICATION"
+}
