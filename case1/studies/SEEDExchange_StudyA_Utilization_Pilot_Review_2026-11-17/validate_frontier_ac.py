@@ -174,8 +174,11 @@ def main(argv=None):
     ap.add_argument('--zip-out',type=Path,default=Path('StudyA_A1_106039_Utilization_AC_stress_v1.zip'))
     ap.add_argument('--cases',default='SS_B9,MC_B9')
     ap.add_argument('--mode',choices=tuple(FACTORS),default='stress')
+    ap.add_argument('--receipt-stem',default='PORTFOLIO_AC_RECEIPT',help='New summary filename stem, preserving earlier signed receipts')
     ap.add_argument('--preflight',action='store_true')
     args=ap.parse_args(argv)
+    if not args.receipt_stem.startswith('PORTFOLIO_AC_') or not args.receipt_stem.replace('_','').isalnum():
+        raise ValueError('Receipt stem must be a safe PORTFOLIO_AC_* filename')
     repo=args.repo_root.resolve();root=args.energy_root.resolve();out=args.out.resolve()
     plan=case_plan(args.cases,args.mode)
     st,ctx=make_context(repo)
@@ -198,12 +201,12 @@ def main(argv=None):
         doc,state=run_case(repo,root,out,case,pf,lf,st,ctx,pp,build_net)
         items.append({**{k:doc[k] for k in ('case_id','pf','length_factor','converged_hours','AC_infeasible_hours','min_voltage_pu','max_trafo_pct')},
            'execution':state})
-    pd.DataFrame(items).to_csv(xp(out/'PORTFOLIO_AC_RECEIPT.csv'),index=False)
+    pd.DataFrame(items).to_csv(xp(out/(args.receipt_stem+'.csv')),index=False)
     summary=dict(status='NEW_AC_PILOT_COMPLETE_WITH_EXPLICIT_FAILURES',items=items,
        job_count=len(items),reused=sum(x['execution']=='REUSED_VERIFIED' for x in items),
        blocked=0,AC_failed_cases=sum(x['AC_infeasible_hours']>0 for x in items),
        scope='NEW_FRONTIER_DISPATCH_AC_ONLY_NOT_EQUIPMENT_OR_NETWORK_CERTIFICATION')
-    save_json(out/'PORTFOLIO_AC_RECEIPT.json',summary)
+    save_json(out/(args.receipt_stem+'.json'),summary)
     export_zip(out,args.zip_out.resolve())
     print(json.dumps(summary,indent=2))
 
