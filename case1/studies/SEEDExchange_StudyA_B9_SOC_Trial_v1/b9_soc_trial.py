@@ -171,6 +171,42 @@ def prepare(repo, oct_dc, nov_dc):
     return frontier, ctx, results
 
 
+def overlay_ac_hour(frame, timestamp, record):
+    """Overlay solver fields on an indexed annual AC table without dtype coercion.
+
+    The signed CSV's all-empty 'error' column is often parsed as float64.
+    Converted to object before inserting solver-returned empty-string errors.
+    """
+    if timestamp not in frame.index:
+        raise ValueError(f'Changed AC timestamp is absent: {timestamp}')
+    if 'error' in frame.columns and pd.api.types.is_numeric_dtype(frame['error']):
+        frame['error'] = frame['error'].astype(object)
+    for key, value in record.items():
+        if key in frame.columns:
+            frame.at[timestamp, key] = value
+
+
+def validated_ac_mask(frontier, frame):
+    """Validate a time-indexed AC replay using the original validator contract.
+
+    frontier.valid_ac requires timestamp_lst as a COLUMN, but source_ac()
+    indexed it via set_index. A temporary assign keeps the exact DatetimeIndex
+    and avoids reset_index alignment mistakes.
+    """
+    if not isinstance(frame.index, pd.DatetimeIndex) or frame.index.name != 'timestamp_lst':
+        raise ValueError('AC overlay must have timestamp_lst as a DatetimeIndex')
+    if 'timestamp_lst' in frame.columns:
+        raise ValueError('Unexpected duplicate timestamp_lst column in AC overlay')
+    computed = frontier.valid_ac(frame.assign(timestamp_lst=frame.index))
+    signed_flags = frame.ac_feasible.astype(bool)
+    if not computed.index.equals(frame.index):
+        raise ValueError('AC validation changed the hourly index')
+    if not computed.equals(signed_flags):
+        mismatch = computed.index[computed != signed_flags]
+        raise ValueError(f'Corrected AC violation flags inconsistent at {list(map(str, mismatch[:5]))}')
+    return computed
+
+
 def solve_changed(repo, frontier, ctx, results):
     ctx['v6'].repo_modules(repo)
     from run_epm_validation import build_net
@@ -198,9 +234,7 @@ def solve_changed(repo, frontier, ctx, results):
                         if abs(float(record[metric]) - float(prior[metric])) > 2e-4:
                             raise ValueError(f'Original AC reproduction failed: {case}/{t}/{metric}')
                 else:
-                    for key, val in record.items():
-                        if key in new_ac.columns:
-                            new_ac.loc[t, key] = val
+                    overlay_ac_hour(new_ac, t, record)
                 checks.append(dict(case_id=case, phase=label, timestamp_lst=str(t),
                                    min_v_pu=float(record['min_v_pu']), max_v_pu=float(record['max_v_pu']),
                                    max_trafo_pct=float(record['max_trafo_pct']),
@@ -208,9 +242,7 @@ def solve_changed(repo, frontier, ctx, results):
                                    converged=record['status'] == 'CONVERGED',
                                    ac_feasible=bool(record['ac_feasible']),
                                    inverter_ac_kw=float(frame.loc[t, 'inverter_ac_kw'])))
-        corrected_feasible = frontier.valid_ac(new_ac)
-        if not corrected_feasible.equals(new_ac.ac_feasible.astype(bool)):
-            raise ValueError('Corrected AC violation flags inconsistent')
+        corrected_feasible = validated_ac_mask(frontier, new_ac)
         bad = new_ac.index[~corrected_feasible]
         summary.append({'case_id': case, 'pf': .95, 'length_factor': 1.6,
                         'original_fail_hours': len(FAIL_HOURS[case]),

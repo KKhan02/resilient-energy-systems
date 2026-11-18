@@ -29,3 +29,11 @@ git status --short
 If the output directory already exists, do not overwrite it. Use a fresh suffix after preserving the previous result. If preflight/source checks fail, do not run or stage a result. If stress fails, still preserve and commit the truthful failure evidence, but do not claim success. Later all-nine annual candidate AC validation is a separate study gate.
 
 Source references: `StudyA_A1_106039_Utilization_v1/energy_{SS_B9,MC_B9}` and `StudyA_A1_106039_Frontier_AC_v1/{SS_B9,MC_B9}_pf095_l16` on the synchronized branch.
+
+## 18 November 2026: pandas and timestamp-index regression fix
+
+The original user-run AC trial reached `solve_changed` but raised `ValueError: Missing AC result columns`. Cause: the signed AC loader converts `timestamp_lst` to a DatetimeIndex, whereas `validate_frontier_ac.valid_ac` requires the same field as a column. The corrected trial supplies a temporary column without changing the DatetimeIndex, checks that computed feasibility equals stored corrected flags, and maintains the signed 8,760-hour alignment.
+
+A separate `FutureWarning` occurred because the all-empty `error` column was inferred as float64 before receiving an empty string. The overlay now converts it to object dtype before changed-row assignment. These are **code-level corrections**, not a change in transformer assumptions, limits, profiles or setpoints.
+
+The script creates its output directory only after successful AC processing, so the reported exception should not itself have written partial trial output. Inspect the result path before rerunning. The actual corrected 2025 stress outcome is still pending user execution.
