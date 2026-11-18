@@ -41,3 +41,7 @@ The script creates its output directory only after successful AC processing, so 
 ## Conditional second-stage screening
 
 The synchronized branch also includes `b9_nine_factor_changed_hours.py` and `test_b9_nine_factor_changed_hours.py`. It strictly requires both B9 stress cases to pass and checks the candidate SHA-256 before screening only the six distinct changed case-hours across the nine PF and length combinations. Results do **not** validate all annual hours at those additional factors. Full commands must be given directly to the user. See `NINE_FACTOR_SCREENING_WORKFLOW.md` for exact command syntax.
+
+## 18 November 2026, full-year corrected AC and network losses
+
+The nine-factor changed-hour screening passed for both B9 cases (108/108 AC evaluations). The next committed scripts preserve old stress receipts and independently reconstruct full-year corrected AC cases from verified original per-factor 8,760-hour AC sources and six changed case-hours, accounting for revised AC network losses. Commands and engineering gates are given in `B9_FULL_ANNUAL_AC_WORKFLOW.md`. These results are not yet run and do not yet establish all-nine annual compliance.
