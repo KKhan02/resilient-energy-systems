@@ -1,0 +1,21 @@
+{
+  "kind": "ENERGY_ONLY",
+  "case": "A1 106039 (11 houses)",
+  "year": 2025,
+  "source_files": {
+    "ALL_8_DESIGNS_COST_IMPORT_FRONTIER.csv": "18717d0fc598c6ec0561e7bbd5c9d1d48a56116f0a4b2c4ada3535e710d89a10",
+    "MONTHLY_96_CASE_MONTH_RECORDS.csv": "4a3fb6e99f0edc69cdcae1da65f063923c8d9210dc5e74d98543fc3a76420861"
+  },
+  "non_dominated_in_eight": [
+    "MC_B9",
+    "MC_REF",
+    "SS_B10",
+    "SS_B9"
+  ],
+  "figures": [
+    "01_stage14_energy_only_cost_import_frontier.png",
+    "02_stage14_monthly_solar_utilization.png",
+    "03_stage14_battery_utilization.png"
+  ],
+  "ac_limit": "B9 designs have transformer overload hours at PF 0.95 and length 1.6; no AC certification"
+}

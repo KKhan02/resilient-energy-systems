@@ -1,0 +1,3 @@
+case_id,pf,length_factor,original_fail_hours,candidate_fail_hours,candidate_fail_timestamps,original_max_trafo_pct,candidate_max_trafo_pct,candidate_min_v_pu,candidate_max_line_pct,changed_hours_replayed,baseline_ac_sha256,all_8760_snapshots_accounted_for
+SS_B9,0.95,1.6,1,0,,107.4311690706,99.4318148586,0.9572396590244653,7.909676735,2,7cb22db5ad58e76972f066179e989b9e9c5e70eee59f2a106a1bbc58321f3e9b,True
+MC_B9,0.95,1.6,2,0,,107.4311690706,99.4318148586,0.9572396590244653,7.909676735,4,127e97629130a34c3ffbf017e414e1bc98818fe7748267777c053d078d25a00f,True

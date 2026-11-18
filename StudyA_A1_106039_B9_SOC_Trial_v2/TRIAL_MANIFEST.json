@@ -1,0 +1,134 @@
+{
+  "study": "A1 106039 nine-module fixed-hardware B9 AC trial",
+  "status": "STRESS_PASS_ONLY_ALL_NINE_PENDING",
+  "baseline": "2025 signed stress AC and new fixed-hardware annual energy",
+  "year_hours": 8760,
+  "factor_grid_tested": [
+    [
+      0.95,
+      1.6
+    ]
+  ],
+  "all_nine_factors_validated": false,
+  "cases": {
+    "SS_B9": {
+      "energy_manifest_sha256": "4aec32b33bf3136a2593a5e6047362e18adc55899745f0f4e3b5e6bd42e31aee",
+      "baseline_ac_sha256": "7cb22db5ad58e76972f066179e989b9e9c5e70eee59f2a106a1bbc58321f3e9b",
+      "hardware": {
+        "pv_panels": 49,
+        "battery_modules": 9,
+        "battery_power_dc_kw": 14.11017378393042,
+        "inverter_kva": 20.0,
+        "transformer_kva_assumed_or_evidenced": 5.0
+      },
+      "energy": {
+        "original": {
+          "min_usable_soc_kwh": 2.061,
+          "max_usable_soc_kwh": 38.925,
+          "annual_grid_import_kwh": 1478.2278459142,
+          "annual_discharge_dc_kwh": 11143.0413329513,
+          "year_end_usable_soc_kwh": 18.8948082069
+        },
+        "candidate": {
+          "min_usable_soc_kwh": 2.061,
+          "max_usable_soc_kwh": 38.925,
+          "annual_grid_import_kwh": 1478.2278459142,
+          "annual_discharge_dc_kwh": 11143.0413329513,
+          "year_end_usable_soc_kwh": 18.8948082069
+        }
+      },
+      "proposed_transfers": [
+        {
+          "case_id": "SS_B9",
+          "donor_timestamp": "2025-11-27 18:00:00",
+          "target_timestamp": "2025-11-27 20:00:00",
+          "dc_transfer_kw": 0.8,
+          "target_added_ac_kw": 0.76,
+          "temporary_soc_increase_kwh": 0.8207826816681234
+        }
+      ],
+      "candidate_energy_file": "SS_B9_candidate_energy_8760.csv",
+      "candidate_energy_sha256": "55fd31443a3ecd4315e61f6de55c60d39b544a2d4f3d82b68c26d52081594dc2"
+    },
+    "MC_B9": {
+      "energy_manifest_sha256": "2f2a8b7902f7f7580ce66b048e05a33d3ecdc7d315763fe459f68ed0e3294e36",
+      "baseline_ac_sha256": "127e97629130a34c3ffbf017e414e1bc98818fe7748267777c053d078d25a00f",
+      "hardware": {
+        "pv_panels": 41,
+        "battery_modules": 9,
+        "battery_power_dc_kw": 12.0,
+        "inverter_kva": 12.0,
+        "transformer_kva_assumed_or_evidenced": 5.0
+      },
+      "energy": {
+        "original": {
+          "min_usable_soc_kwh": 2.061,
+          "max_usable_soc_kwh": 38.925,
+          "annual_grid_import_kwh": 2792.9286660939,
+          "annual_discharge_dc_kwh": 9979.9466638447,
+          "year_end_usable_soc_kwh": 18.7071543547
+        },
+        "candidate": {
+          "min_usable_soc_kwh": 2.061,
+          "max_usable_soc_kwh": 38.925,
+          "annual_grid_import_kwh": 2792.9286660939,
+          "annual_discharge_dc_kwh": 9979.9466638447,
+          "year_end_usable_soc_kwh": 18.7071543547
+        }
+      },
+      "proposed_transfers": [
+        {
+          "case_id": "MC_B9",
+          "donor_timestamp": "2025-10-13 17:00:00",
+          "target_timestamp": "2025-10-13 20:00:00",
+          "dc_transfer_kw": 0.6,
+          "target_added_ac_kw": 0.57,
+          "temporary_soc_increase_kwh": 0.6155870112510925
+        },
+        {
+          "case_id": "MC_B9",
+          "donor_timestamp": "2025-11-27 18:00:00",
+          "target_timestamp": "2025-11-27 20:00:00",
+          "dc_transfer_kw": 0.8,
+          "target_added_ac_kw": 0.76,
+          "temporary_soc_increase_kwh": 0.8207826816681234
+        }
+      ],
+      "candidate_energy_file": "MC_B9_candidate_energy_8760.csv",
+      "candidate_energy_sha256": "a93fe0d2ab8095ff933d8fc7e8dd49a1307952d45376fe624197537d44881717"
+    }
+  },
+  "scope": "Research-only stress trial. No new optimum, policy approval or field certification",
+  "stress_ac_comparison": [
+    {
+      "case_id": "SS_B9",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "original_fail_hours": 1,
+      "candidate_fail_hours": 0,
+      "candidate_fail_timestamps": "",
+      "original_max_trafo_pct": 107.4311690706,
+      "candidate_max_trafo_pct": 99.4318148586,
+      "candidate_min_v_pu": 0.9572396590244653,
+      "candidate_max_line_pct": 7.909676735,
+      "changed_hours_replayed": 2,
+      "baseline_ac_sha256": "7cb22db5ad58e76972f066179e989b9e9c5e70eee59f2a106a1bbc58321f3e9b",
+      "all_8760_snapshots_accounted_for": true
+    },
+    {
+      "case_id": "MC_B9",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "original_fail_hours": 2,
+      "candidate_fail_hours": 0,
+      "candidate_fail_timestamps": "",
+      "original_max_trafo_pct": 107.4311690706,
+      "candidate_max_trafo_pct": 99.4318148586,
+      "candidate_min_v_pu": 0.9572396590244653,
+      "candidate_max_line_pct": 7.909676735,
+      "changed_hours_replayed": 4,
+      "baseline_ac_sha256": "127e97629130a34c3ffbf017e414e1bc98818fe7748267777c053d078d25a00f",
+      "all_8760_snapshots_accounted_for": true
+    }
+  ]
+}

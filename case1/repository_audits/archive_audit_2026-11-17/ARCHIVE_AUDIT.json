@@ -1,0 +1,1150 @@
+{
+  "tracked_files": 4410,
+  "tracked_zip_files": 57,
+  "available_zip_bytes": 70705551,
+  "duplicate_groups": 7,
+  "extra_identical_archives": 8,
+  "extra_identical_bytes": 1943056,
+  "missing_zip_paths": [],
+  "archives": [
+    {
+      "path": "SEEDExchange_StudyA_106039_SOC_Shift_Trial_v1.zip",
+      "bytes": 12069,
+      "sha256": "fbdf61a1831f252113df3dd389c67939c387e1f3d1b5ca8797c17d77755e250a",
+      "valid_zip": true,
+      "member_count": 6,
+      "sample_members": [
+        "SEEDExchange_StudyA_106039_SOC_Shift_Trial_v1/EVIDENCE_REVIEW.md",
+        "SEEDExchange_StudyA_106039_SOC_Shift_Trial_v1/PACKAGE_SHA256_MANIFEST.json",
+        "SEEDExchange_StudyA_106039_SOC_Shift_Trial_v1/README.md",
+        "SEEDExchange_StudyA_106039_SOC_Shift_Trial_v1/SOURCE_DERIVED_CANDIDATE_HOUR_PREVIEW.csv",
+        "SEEDExchange_StudyA_106039_SOC_Shift_Trial_v1/studya_106039_soc_shift_trial.py",
+        "SEEDExchange_StudyA_106039_SOC_Shift_Trial_v1/tests/test_soc_shift.py"
+      ]
+    },
+    {
+      "path": "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16.zip",
+      "bytes": 34375,
+      "sha256": "02b464a59f2798c14940e70d4815c7aba76f2c059e73f41fe3f6debdff8ea098",
+      "valid_zip": true,
+      "member_count": 10,
+      "sample_members": [
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/INDEPENDENT_QA.json",
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/PORTFOLIO_432_STATUS_WITH_TRIAL_OVERLAY.csv",
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/README.md",
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/REMAINING_20_DESIGN_DISPATCH_GROUPS.csv",
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/RESEARCH_REVIEW.md",
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/SOURCE_PACKAGE_HASHES.json",
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/TRIAL_18_AC_RESULTS.csv",
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/extract_remaining_events_and_pv.py",
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/independent_trial_audit.py",
+        "SEEDExchange_StudyA_ACAware_106039_Validated_2026-11-16/test_event_extractor.py"
+      ]
+    },
+    {
+      "path": "SEEDExchange_StudyA_AnnualFinalAudit_v2.zip",
+      "bytes": 9857,
+      "sha256": "4f6fa10bd5f96a59393e87a153ce93a83292db40eb3edd2b9c8b08b1b4ab783d",
+      "valid_zip": true,
+      "member_count": 4,
+      "sample_members": [
+        "SEEDExchange_StudyA_AnnualFinalAudit_v2/README.md",
+        "SEEDExchange_StudyA_AnnualFinalAudit_v2/RECEIPT_CHECKPOINT.md",
+        "SEEDExchange_StudyA_AnnualFinalAudit_v2/collect_studya_pvbess_results_v2.py",
+        "SEEDExchange_StudyA_AnnualFinalAudit_v2/tests/test_collector.py"
+      ]
+    },
+    {
+      "path": "SEEDExchange_StudyA_FinalIndependentReview_2026-11-16.zip",
+      "bytes": 76741,
+      "sha256": "cc248d30ff63af231f865d2be8c90e028f122f20bcbc9098f5270546800bf58b",
+      "valid_zip": true,
+      "member_count": 13,
+      "sample_members": [
+        "collect_selected_hourly_evidence.py",
+        "RESEARCH_REVIEW.md",
+        "studya_final_analysis.py",
+        "PACKAGE_MANIFEST.json",
+        "FIVE_TERRITORY_STAR_AGGREGATE_COMPARISON_36.csv",
+        "AC_432_CORRECTED_UNIQUE_CASES.csv",
+        "GROSS_90_CASE_REFERENCE.csv",
+        "MAIN_AC_GROSS_VS_PVBESS_PF098_L10_20_DESIGNS.csv",
+        "ENERGY_22_RECONCILED_COSTS.csv",
+        "ENERGY_OPTIMIZED_VS_CAUSAL_22.csv",
+        "QA_CORRECTED_REPORT.json",
+        "README.md",
+        "AC_GROSS_PVBESS_PAIRED_432.csv"
+      ]
+    },
+    {
+      "path": "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1.zip",
+      "bytes": 15231,
+      "sha256": "8cd429db053954cd19134ad125942a1f0b7f9b866824cdcfa1729225f8359e09",
+      "valid_zip": true,
+      "member_count": 9,
+      "sample_members": [
+        "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1/ARCHIVE_REVIEW_2026-11-09.md",
+        "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1/README.md",
+        "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1/run_all_2025_AC_baseline.cmd",
+        "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1/run_all_2025_AC_sensitivities.cmd",
+        "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1/run_all_2025_energy_and_causal.cmd",
+        "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1/run_all_StudyA_2025.cmd",
+        "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1/run_all_energy_causal.py",
+        "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1/run_annual_replays.py",
+        "SEEDExchange_StudyA_PVBESS_AnnualPortfolio_v1/tests/test_portfolio.py"
+      ]
+    },
+    {
+      "path": "SEEDExchange_StudyA_Stage12_13_Figure_Package_v1.zip",
+      "bytes": 1190122,
+      "sha256": "57df39a49612201f93a90d8d19b4181de35da980c10dbce8e9c9df22704809fa",
+      "valid_zip": true,
+      "member_count": 26,
+      "sample_members": [
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/FIGURE_INDEX_APPEND_PROPOSAL.csv",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/FILES_SHA256_MANIFEST.json",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/README.md",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/WALKTHROUGH_NARRATIVE_EXTENSION.md",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/evidence/AC_432_CORRECTED_UNIQUE_CASES.csv",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/evidence/ENERGY_22_RECONCILED_COSTS.csv",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/evidence/FIVE_TERRITORY_STAR_AGGREGATE_COMPARISON_36.csv",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/evidence/GROSS_90_CASE_REFERENCE.csv",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/evidence/input_manifest_v6_2.json",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/extract_monthly_and_residual.py",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/FIGURE_MANIFEST.json",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/G4_epm_mapped_lv_A0_vs_A1.png",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/G4_epm_mapped_lv_A0_vs_A1.svg",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/P1_gross_vs_pvbess_ac_violations.png",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/P1_gross_vs_pvbess_ac_violations.svg",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/P2_higher_ss_pf_length_robustness.png",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/P2_higher_ss_pf_length_robustness.svg",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/P3_92395_star_mst_pvbess.png",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/P3_92395_star_mst_pvbess.svg",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/P4_cost_self_sufficiency_ac_tradeoff.png",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/figures/P4_cost_self_sufficiency_ac_tradeoff.svg",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/plot_studya_walkthrough.py",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/source_geometry/epm_lv_segments_compact.csv",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/source_geometry/houses_candidate_associations.csv",
+        "SEEDExchange_StudyA_Walkthrough_Stage12_13_v1/source_geometry/transformers_evidence.csv"
+      ]
+    },
+    {
+      "path": "StudyA_94022_Branch_Isolation_v1_Results.zip",
+      "bytes": 84877,
+      "sha256": "7b89a8c859cc26c661498d81882baa11fa839d75d4c4cca924014dc47385bad1",
+      "valid_zip": true,
+      "member_count": 4,
+      "sample_members": [
+        "BRANCH_SCREEN_AC_HOURLY.csv",
+        "BRANCH_SCREEN_OPTION_SUMMARY.csv",
+        "94022_LV_BRANCH_REGISTER.csv",
+        "BRANCH_SCREEN_MANIFEST.json"
+      ]
+    },
+    {
+      "path": "StudyA_94022_DualService_Trial_v1_Results.zip",
+      "bytes": 52633,
+      "sha256": "c0985268efa29d621273812ccefca23f24a3b57ad619359d476fc6d6bf670879",
+      "valid_zip": true,
+      "member_count": 5,
+      "sample_members": [
+        "DUAL_SERVICE_AC_72_CASES_EACH.csv",
+        "DUAL_SERVICE_OPTIONS_RANKED.csv",
+        "DUAL_SERVICE_BRANCH_MEMBERSHIP.csv",
+        "DUAL_SERVICE_MODEL_BRANCH_ENDPOINTS.csv",
+        "DUAL_SERVICE_MANIFEST.json"
+      ]
+    },
+    {
+      "path": "StudyA_94022_Sparse_Bundle_Trial_v1_Results.zip",
+      "bytes": 49120,
+      "sha256": "7c6f9921b83060b83f564e654dbb7f5e381f71002a343f26d3b0f4cdbd9fb0f7",
+      "valid_zip": true,
+      "member_count": 5,
+      "sample_members": [
+        "BUNDLE_AC_72_SCENARIOS_EACH.csv",
+        "BUNDLE_OPTION_SUMMARY.csv",
+        "BUNDLE_BRANCH_MEMBERSHIP.csv",
+        "MODEL_BRANCH_ENDPOINTS.csv",
+        "BUNDLE_MANIFEST.json"
+      ]
+    },
+    {
+      "path": "StudyA_A0_106039_Sequenced_Trial_v1.zip",
+      "bytes": 1405573,
+      "sha256": "e72012848c9152e3a3ec004831b4654472b52b6ab02d6554ae25306aac89ca30",
+      "valid_zip": true,
+      "member_count": 9,
+      "sample_members": [
+        "A0_106039_min_cost_ref_causal_candidate_8760.csv",
+        "A0_106039_min_cost_ref_optimized_candidate_8760.csv",
+        "A0_106039_ss90_ref_causal_candidate_8760.csv",
+        "A0_106039_ss90_ref_optimized_candidate_8760.csv",
+        "ADOPTED_SHIFT_EVENTS.csv",
+        "CHANGED_HOURS_FINAL_AC.csv",
+        "NINE_FACTOR_ANNUAL_REUSE.csv",
+        "TRIAL_MANIFEST.json",
+        "UNRESOLVED_EVENTS.csv"
+      ]
+    },
+    {
+      "path": "StudyA_A0_94022_AllNine_Bundle_v1_Results.zip",
+      "bytes": 70977,
+      "sha256": "d94c960eb657ac866f8ea70849adc1633a52ccd5c16d656653733ef24126cc2d",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "ALL_NINE_SELECTED_AC_ROWS.csv",
+        "ALL_NINE_OPTION_SUMMARY.csv",
+        "ALL_NINE_SOURCE_AND_SCOPE.json"
+      ]
+    },
+    {
+      "path": "StudyA_A0_94022_Annual_five_allnine_Results_v1.zip",
+      "bytes": 20454955,
+      "sha256": "28712658b465d55d6879f8118acf5ebda936748d5ed7f11175ec12649ddfb229",
+      "valid_zip": true,
+      "member_count": 73,
+      "sample_members": [
+        "five_A0_94022_min_cost_ref_causal_pf095_l10/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf095_l10/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_causal_pf095_l13/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf095_l13/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_causal_pf095_l16/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf095_l16/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_causal_pf098_l10/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf098_l10/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_causal_pf098_l13/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf098_l13/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_causal_pf098_l16/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf098_l16/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_causal_pf100_l10/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf100_l10/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_causal_pf100_l13/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf100_l13/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_causal_pf100_l16/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf100_l16/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_optimized_pf095_l10/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_optimized_pf095_l10/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_optimized_pf095_l13/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_optimized_pf095_l13/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_optimized_pf095_l16/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_optimized_pf095_l16/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_optimized_pf098_l10/annual_network_ac_hourly.csv"
+      ]
+    },
+    {
+      "path": "StudyA_A0_94022_Annual_five_pilot_Results_v1.zip",
+      "bytes": 2290098,
+      "sha256": "632f61b48f2bde80ea5cdc964de7eef302f5052f6efea7d24297d3a9bf9d6cfa",
+      "valid_zip": true,
+      "member_count": 9,
+      "sample_members": [
+        "five_A0_94022_min_cost_ref_causal_pf095_l16/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_causal_pf095_l16/annual_network_ac_summary.json",
+        "five_A0_94022_min_cost_ref_optimized_pf095_l16/annual_network_ac_hourly.csv",
+        "five_A0_94022_min_cost_ref_optimized_pf095_l16/annual_network_ac_summary.json",
+        "five_A0_94022_ss90_ref_causal_pf095_l16/annual_network_ac_hourly.csv",
+        "five_A0_94022_ss90_ref_causal_pf095_l16/annual_network_ac_summary.json",
+        "five_A0_94022_ss90_ref_optimized_pf095_l16/annual_network_ac_hourly.csv",
+        "five_A0_94022_ss90_ref_optimized_pf095_l16/annual_network_ac_summary.json",
+        "ANNUAL_RUN_SUMMARY.json"
+      ]
+    },
+    {
+      "path": "StudyA_A0_94022_Network_Probe_v1.zip",
+      "bytes": 9892,
+      "sha256": "b9e5764d425c0dd1472234eaf4b545e6784fc8cb413eed6af1d84d464f94fb4b",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "A0_94022_NETWORK_OPTION_PROBES.csv",
+        "A0_94022_NINE_RESIDUAL_TIMESTAMPS.csv",
+        "PROBE_MANIFEST.json"
+      ]
+    },
+    {
+      "path": "StudyA_A0_94022_Sequenced_Trial_v1.zip",
+      "bytes": 1409700,
+      "sha256": "88fa44a46fd67234b39d281b2dde341116bdab0af6ae6d5dbad2ee67a6b551d0",
+      "valid_zip": true,
+      "member_count": 9,
+      "sample_members": [
+        "A0_94022_min_cost_ref_causal_candidate_8760.csv",
+        "A0_94022_min_cost_ref_optimized_candidate_8760.csv",
+        "A0_94022_ss90_ref_causal_candidate_8760.csv",
+        "A0_94022_ss90_ref_optimized_candidate_8760.csv",
+        "ADOPTED_SHIFT_EVENTS.csv",
+        "CHANGED_HOURS_FINAL_AC.csv",
+        "NINE_FACTOR_ANNUAL_REUSE.csv",
+        "TRIAL_MANIFEST.json",
+        "UNRESOLVED_EVENTS.csv"
+      ]
+    },
+    {
+      "path": "StudyA_A1_106039_Event_Hour_SOC_Evidence.zip",
+      "bytes": 143142,
+      "sha256": "a5c527b94e5a670c205177ca581f42e48ff5545aa1b99fdb2f9c24d4f689c357",
+      "valid_zip": true,
+      "member_count": 5,
+      "sample_members": [
+        "A1_106039_14DAYS_ENERGY_4CASES.csv",
+        "A1_106039_14DAYS_AC_5CASES.csv",
+        "A1_106039_EVENT_HOUR_SOC.csv",
+        "SOURCE_SIGNATURES.json",
+        "EXTRACTION_STATUS.json"
+      ]
+    },
+    {
+      "path": "StudyA_A1_106039_Frontier_AC_stress_v1.zip",
+      "bytes": 923194,
+      "sha256": "d687c5a44f9e00282b5e5430fdad2cb63fa194361aee1bc5048ba4b35ffe8ea3",
+      "valid_zip": true,
+      "member_count": 6,
+      "sample_members": [
+        "StudyA_A1_106039_Frontier_AC_v1/MC_B9_pf095_l16/ac_hourly.csv",
+        "StudyA_A1_106039_Frontier_AC_v1/MC_B9_pf095_l16/ac_summary.json",
+        "StudyA_A1_106039_Frontier_AC_v1/PORTFOLIO_AC_RECEIPT.csv",
+        "StudyA_A1_106039_Frontier_AC_v1/PORTFOLIO_AC_RECEIPT.json",
+        "StudyA_A1_106039_Frontier_AC_v1/SS_B9_pf095_l16/ac_hourly.csv",
+        "StudyA_A1_106039_Frontier_AC_v1/SS_B9_pf095_l16/ac_summary.json"
+      ]
+    },
+    {
+      "path": "StudyA_A1_106039_Utilization_Pilot_v1.zip",
+      "bytes": 2341945,
+      "sha256": "bae74218fd0b0ca60da26cfb3625e28638820ef588498df7d7afa36132a3282d",
+      "valid_zip": true,
+      "member_count": 15,
+      "sample_members": [
+        "StudyA_A1_106039_Utilization_v1/energy_MC_B9/energy_hourly_2025.csv",
+        "StudyA_A1_106039_Utilization_v1/energy_MC_B9/energy_manifest.json",
+        "StudyA_A1_106039_Utilization_v1/energy_MC_P37/energy_hourly_2025.csv",
+        "StudyA_A1_106039_Utilization_v1/energy_MC_P37/energy_manifest.json",
+        "StudyA_A1_106039_Utilization_v1/energy_SS_B10/energy_hourly_2025.csv",
+        "StudyA_A1_106039_Utilization_v1/energy_SS_B10/energy_manifest.json",
+        "StudyA_A1_106039_Utilization_v1/energy_SS_B9/energy_hourly_2025.csv",
+        "StudyA_A1_106039_Utilization_v1/energy_SS_B9/energy_manifest.json",
+        "StudyA_A1_106039_Utilization_v1/energy_SS_P41_KEEP20/energy_hourly_2025.csv",
+        "StudyA_A1_106039_Utilization_v1/energy_SS_P41_KEEP20/energy_manifest.json",
+        "StudyA_A1_106039_Utilization_v1/energy_SS_P45/energy_hourly_2025.csv",
+        "StudyA_A1_106039_Utilization_v1/energy_SS_P45/energy_manifest.json",
+        "StudyA_A1_106039_Utilization_v1/FRONTIER_ANNUAL_SUMMARY_PILOT.csv",
+        "StudyA_A1_106039_Utilization_v1/FRONTIER_MONTHLY_ENERGY_PILOT.csv",
+        "StudyA_A1_106039_Utilization_v1/FRONTIER_RECEIPT_PILOT.json"
+      ]
+    },
+    {
+      "path": "StudyA_A1_Mapped_Redispatch_Trial_v1.zip",
+      "bytes": 2667606,
+      "sha256": "558e2dd4bfcbc173f07b0f8e7d997794878f489ed15eb77c804c4257b6e163bd",
+      "valid_zip": true,
+      "member_count": 13,
+      "sample_members": [
+        "A1_106039_min_cost_ref_causal_candidate_8760.csv",
+        "A1_106039_ss90_ref_causal_candidate_8760.csv",
+        "A1_113699_min_cost_ref_causal_candidate_8760.csv",
+        "A1_113699_min_cost_ref_optimized_candidate_8760.csv",
+        "A1_94022_min_cost_ref_causal_candidate_8760.csv",
+        "A1_94022_min_cost_ref_optimized_candidate_8760.csv",
+        "A1_94022_ss90_ref_causal_candidate_8760.csv",
+        "A1_94022_ss90_ref_optimized_candidate_8760.csv",
+        "ADOPTED_SHIFT_EVENTS.csv",
+        "CHANGED_HOURS_FINAL_AC.csv",
+        "NINE_FACTOR_ANNUAL_REUSE.csv",
+        "TRIAL_MANIFEST.json",
+        "UNRESOLVED_EVENTS.csv"
+      ]
+    },
+    {
+      "path": "StudyA_Mapped_SOC_Windows_for_Redispatch.zip",
+      "bytes": 134992,
+      "sha256": "571ab9deba6b16fce357868b8848762a975c5761d218ba5e9544b409133e0a66",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "MAPPED_EVENT_SOC_WINDOWS.csv",
+        "MAPPED_EVENT_SELECTION.csv",
+        "SOURCE_VERIFICATION.json"
+      ]
+    },
+    {
+      "path": "StudyA_Monthly_And_Residual_Evidence.zip",
+      "bytes": 28483,
+      "sha256": "f249ea64864e17ce73a4aaa20d04b7691e840855a13f6c29da726f118b7da58a",
+      "valid_zip": true,
+      "member_count": 4,
+      "sample_members": [
+        "MONTHLY_ALL_COHORTS_ENERGY.csv",
+        "RESIDUAL_106039_SELECTED_AC_HOURS.csv",
+        "SIGNED_44_CASE_INVENTORY.json",
+        "EXTRACTION_STATUS.json"
+      ]
+    },
+    {
+      "path": "StudyA_PVBESS_Annual_Result_Summary.zip",
+      "bytes": 131544,
+      "sha256": "cf780bab847144af864a02a4785cff609b0d1d55d176446497e66f00d977d43e",
+      "valid_zip": true,
+      "member_count": 92,
+      "sample_members": [
+        "COLLECTION_REPORT.json",
+        "CASE_INVENTORY.csv",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_106039_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_106039_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_113699_min_cost_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_113699_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_113699_ss90_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_113699_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_85398_min_cost_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_85398_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_85398_ss90_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_85398_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_92395_min_cost_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_92395_ss90_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_94022_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_94022_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_106039_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_106039_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_113699_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_113699_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_85398_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_85398_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_94022_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_94022_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/causal_A0_106039_min_cost_ref/causal_summary.json"
+      ]
+    },
+    {
+      "path": "StudyA_PVBESS_Annual_Result_Summary_FINAL.zip",
+      "bytes": 582144,
+      "sha256": "fc0b6135c3ec986b6521c9f38f3019d059e46eb40a11b81aa95999e71babe994",
+      "valid_zip": true,
+      "member_count": 488,
+      "sample_members": [
+        "COLLECTION_REPORT.json",
+        "CASE_INVENTORY.csv",
+        "AC_432_CASE_METRICS.csv",
+        "ENERGY_22_CASE_METRICS.csv",
+        "CAUSAL_22_CASE_METRICS.csv",
+        "AC_48_DESIGN_COVERAGE.csv",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_106039_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_106039_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_113699_min_cost_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_113699_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_113699_ss90_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_113699_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_85398_min_cost_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_85398_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_85398_ss90_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_85398_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_92395_min_cost_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_92395_ss90_four/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_94022_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_94022_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_106039_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_106039_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_113699_min_cost_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_113699_ss90_ref/energy_manifest.json",
+        "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_85398_min_cost_ref/energy_manifest.json"
+      ]
+    },
+    {
+      "path": "StudyA_Remaining_AC_And_PV_Diagnostics.zip",
+      "bytes": 76996,
+      "sha256": "cee6f6d538caf950fd21133ca79b55f2eb24dfb54e5192e4518c874ed07b5cda",
+      "valid_zip": true,
+      "member_count": 4,
+      "sample_members": [
+        "REMAINING_AC_VIOLATION_EVENTS.csv",
+        "DEDUPLICATED_CONSTRAINT_EVENTS.csv",
+        "PV_CURTAILMENT_DIAGNOSTICS.csv",
+        "EXTRACTION_QA.json"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/EPM_Annual_Robustness_Review.zip",
+      "bytes": 928805,
+      "sha256": "b7922470ae6e8857784563c1b3d6d314205a70fedb6f304d753898d174c043e2",
+      "valid_zip": true,
+      "member_count": 10,
+      "sample_members": [
+        "TECHNICAL_REVIEW.md",
+        "annual_106039_daily_metrics.csv",
+        "annual_106039_scenario_summary.csv",
+        "figures/01_critical_hour_robustness_heatmap.png",
+        "figures/01_critical_hour_robustness_heatmap.svg",
+        "figures/02_annual_106039_daily_voltage_loading.png",
+        "figures/02_annual_106039_daily_voltage_loading.svg",
+        "figures/03_Q_ratio_vs_min_voltage_robustness.png",
+        "figures/03_Q_ratio_vs_min_voltage_robustness.svg",
+        "robustness_all_32_scenarios.csv"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/epm_gis/EPM_Q_Robustness_and_Annual_Results.zip",
+      "bytes": 895212,
+      "sha256": "b4fb0d91ea5c359a1a57a0c4272ccd151724db73e0e933821eea1bf553837534",
+      "valid_zip": true,
+      "member_count": 18,
+      "sample_members": [
+        "outputs/coordinated_q_robustness/ac_hours.csv",
+        "outputs/coordinated_q_robustness/ac_scenario_summary.csv",
+        "outputs/coordinated_q_robustness/house_assignments.csv",
+        "outputs/coordinated_q_robustness/house_service_assumptions.csv",
+        "outputs/coordinated_q_robustness/missing_topologies.csv",
+        "outputs/coordinated_q_robustness/network_edges.csv",
+        "outputs/coordinated_q_robustness/skipped_cases.csv",
+        "outputs/coordinated_q_robustness/territory_topology.csv",
+        "outputs/coordinated_q_robustness/validation_manifest.json",
+        "outputs/annual_106039_head_q025/ac_hours.csv",
+        "outputs/annual_106039_head_q025/ac_scenario_summary.csv",
+        "outputs/annual_106039_head_q025/house_assignments.csv",
+        "outputs/annual_106039_head_q025/house_service_assumptions.csv",
+        "outputs/annual_106039_head_q025/missing_topologies.csv",
+        "outputs/annual_106039_head_q025/network_edges.csv",
+        "outputs/annual_106039_head_q025/skipped_cases.csv",
+        "outputs/annual_106039_head_q025/territory_topology.csv",
+        "outputs/annual_106039_head_q025/validation_manifest.json"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/epm_gis/coordinated_q_results.zip",
+      "bytes": 942947,
+      "sha256": "10247aab2a2462ae168b8fc69ede7b0fa9313259d64cd3204320582940f8f611",
+      "valid_zip": true,
+      "member_count": 19,
+      "sample_members": [
+        "figures/",
+        "ac_hours.csv",
+        "ac_scenario_summary.csv",
+        "house_assignments.csv",
+        "house_service_assumptions.csv",
+        "missing_topologies.csv",
+        "network_edges.csv",
+        "skipped_cases.csv",
+        "territory_topology.csv",
+        "validation_manifest.json",
+        "figures/all_sampled_hours_feasible.csv",
+        "figures/Q_sweep_106039_head_pf0p98_service1.png",
+        "figures/Q_sweep_106039_head_pf0p98_service1.svg",
+        "figures/Q_sweep_106039_middle_pf0p98_service1.png",
+        "figures/Q_sweep_106039_middle_pf0p98_service1.svg",
+        "figures/Q_sweep_94022_head_pf0p98_service1.png",
+        "figures/Q_sweep_94022_head_pf0p98_service1.svg",
+        "figures/Q_sweep_94022_middle_pf0p98_service1.png",
+        "figures/Q_sweep_94022_middle_pf0p98_service1.svg"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/epm_gis/epm_gis_q_results.zip",
+      "bytes": 87576,
+      "sha256": "d9f73d23f65b7148af6098ac6cb81d128cb01c6baa1e55f466106f07b92b6300",
+      "valid_zip": true,
+      "member_count": 9,
+      "sample_members": [
+        "ac_hours.csv",
+        "ac_scenario_summary.csv",
+        "house_assignments.csv",
+        "house_service_assumptions.csv",
+        "missing_topologies.csv",
+        "network_edges.csv",
+        "skipped_cases.csv",
+        "territory_topology.csv",
+        "validation_manifest.json"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/epm_gis/trafo_guard_critical_results.zip",
+      "bytes": 418892,
+      "sha256": "e8e782d76d85954e358cf6f9f8f975a48ff551c2757b68f5df52521ffbf74a3b",
+      "valid_zip": true,
+      "member_count": 15,
+      "sample_members": [
+        "figures/",
+        "ac_hours.csv",
+        "ac_scenario_summary.csv",
+        "house_assignments.csv",
+        "house_service_assumptions.csv",
+        "missing_topologies.csv",
+        "network_edges.csv",
+        "skipped_cases.csv",
+        "territory_topology.csv",
+        "validation_manifest.json",
+        "figures/106039_q_guard_scatter.png",
+        "figures/106039_q_guard_scatter.svg",
+        "figures/94022_q_guard_scatter.png",
+        "figures/94022_q_guard_scatter.svg",
+        "figures/filtered_guard_comparisons.csv"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/epm_gis/trafo_guard_end_stress.zip",
+      "bytes": 707903,
+      "sha256": "ad17a2a1e5e3aee47f729ad21af8f370acebe59234d0ceb8044d9441203ecc4b",
+      "valid_zip": true,
+      "member_count": 22,
+      "sample_members": [
+        "figures/",
+        "ac_hours.csv",
+        "ac_scenario_summary.csv",
+        "house_assignments.csv",
+        "house_service_assumptions.csv",
+        "missing_topologies.csv",
+        "network_edges.csv",
+        "skipped_cases.csv",
+        "territory_topology.csv",
+        "validation_manifest.json",
+        "figures/pf090/",
+        "figures/pf098/",
+        "figures/pf090/106039_q_guard_scatter.png",
+        "figures/pf090/106039_q_guard_scatter.svg",
+        "figures/pf090/94022_q_guard_scatter.png",
+        "figures/pf090/94022_q_guard_scatter.svg",
+        "figures/pf090/filtered_guard_comparisons.csv",
+        "figures/pf098/106039_q_guard_scatter.png",
+        "figures/pf098/106039_q_guard_scatter.svg",
+        "figures/pf098/94022_q_guard_scatter.png",
+        "figures/pf098/94022_q_guard_scatter.svg",
+        "figures/pf098/filtered_guard_comparisons.csv"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/geographic_sensitivity/geographic_pandapower_results.zip",
+      "bytes": 306150,
+      "sha256": "74b1bb9e0be32e9899fe0d851684feb508c3f8dc81441d8f91c3db177e5d2c86",
+      "valid_zip": true,
+      "member_count": 12,
+      "sample_members": [
+        "figures/",
+        "ac_hourly_or_critical.csv",
+        "ac_scenario_summary.csv",
+        "candidate_territory_summary.csv",
+        "skipped_optimized_cases.csv",
+        "validation_manifest.json",
+        "figures/01_worst_house_voltage.png",
+        "figures/01_worst_house_voltage.svg",
+        "figures/02_transformer_loading.png",
+        "figures/02_transformer_loading.svg",
+        "figures/03_lv_line_loading.png",
+        "figures/03_lv_line_loading.svg"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/geographic_sensitivity/geographic_sensitivity_results.zip",
+      "bytes": 509630,
+      "sha256": "c01b6c25c289108d1df44709ca383fea544486609e970fce0b4194334bb6ebb4",
+      "valid_zip": true,
+      "member_count": 5,
+      "sample_members": [
+        "ac_hourly_or_critical.csv",
+        "ac_scenario_summary.csv",
+        "candidate_territory_summary.csv",
+        "skipped_optimized_cases.csv",
+        "validation_manifest.json"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/representative_ac/pandapower_5_to_15_review.zip",
+      "bytes": 19461625,
+      "sha256": "f69bb706d2624efde3f9943b992ce5c9ee48ff5fd19d379911ccd60645bcea84",
+      "valid_zip": true,
+      "member_count": 36,
+      "sample_members": [
+        "outputs/critical_5_to_15_all_sitings/powerflow_hourly_or_critical.csv",
+        "outputs/critical_5_to_15_all_sitings/scenario_summary.csv",
+        "outputs/critical_5_to_15_all_sitings/tap_voltage_profiles.csv",
+        "outputs/critical_5_to_15_all_sitings/validation_manifest.json",
+        "outputs/critical_5_to_15_all_sitings/figures/10_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/11_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/12_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/13_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/14_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/15_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/5_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/6_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/7_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/8_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/9_homes_worst_lv_profile.png",
+        "outputs/critical_5_to_15_all_sitings/figures/lv_conductor_loading_by_household.png",
+        "outputs/critical_5_to_15_all_sitings/figures/min_voltage_by_household.png",
+        "outputs/critical_5_to_15_all_sitings/figures/transformer_loading_by_household.png",
+        "outputs/full_5_to_15_reference/powerflow_hourly_or_critical.csv",
+        "outputs/full_5_to_15_reference/scenario_summary.csv",
+        "outputs/full_5_to_15_reference/tap_voltage_profiles.csv",
+        "outputs/full_5_to_15_reference/validation_manifest.json",
+        "outputs/full_5_to_15_reference/figures/10_homes_worst_lv_profile.png",
+        "outputs/full_5_to_15_reference/figures/11_homes_worst_lv_profile.png",
+        "outputs/full_5_to_15_reference/figures/12_homes_worst_lv_profile.png"
+      ]
+    },
+    {
+      "path": "case1/research_archive/transfer_zips/representative_ac/pandapower_critical_results.zip",
+      "bytes": 607556,
+      "sha256": "86b1d18b942fa63aa4eeeba3be56eb11ff7482b9c7814f05f1b34348901d3ac0",
+      "valid_zip": true,
+      "member_count": 16,
+      "sample_members": [
+        "figures/",
+        "powerflow_hourly_or_critical.csv",
+        "scenario_summary.csv",
+        "tap_voltage_profiles.csv",
+        "figures/12_homes_worst_lv_profile.png",
+        "figures/12_homes_worst_lv_profile.svg",
+        "figures/7_homes_worst_lv_profile.png",
+        "figures/7_homes_worst_lv_profile.svg",
+        "figures/9_homes_worst_lv_profile.png",
+        "figures/9_homes_worst_lv_profile.svg",
+        "figures/lv_conductor_loading_by_household.png",
+        "figures/lv_conductor_loading_by_household.svg",
+        "figures/min_voltage_by_household.png",
+        "figures/min_voltage_by_household.svg",
+        "figures/transformer_loading_by_household.png",
+        "figures/transformer_loading_by_household.svg"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/SEEDExchange_WP1_12house_Robustness_v1_7.zip",
+      "bytes": 8432,
+      "sha256": "a10687fb66e01e7625e144c56dedaece94e0ade25641ee0b064f9ba63784a939",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "README_WP1_12house_robustness_v1_7.md",
+        "case1/studies/ac_aware_redispatch_v1/run_12house_robustness.py",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_12house_robustness_v17.py"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/SEEDExchange_WP1_AC_Redispatch_Pilot_v1.zip",
+      "bytes": 13549,
+      "sha256": "b19d2dc3c7546efe231f66d7c82b48c603914eabb3070747b4524eb680b22a0a",
+      "valid_zip": true,
+      "member_count": 5,
+      "sample_members": [
+        "case1/studies/ac_aware_redispatch_v1/README.md",
+        "case1/studies/ac_aware_redispatch_v1/corridors.py",
+        "case1/studies/ac_aware_redispatch_v1/fixed_hardware.py",
+        "case1/studies/ac_aware_redispatch_v1/run_pilot.py",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_corridors.py"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/SEEDExchange_WP1_AC_Redispatch_Pilot_v1_1.zip",
+      "bytes": 22505,
+      "sha256": "8f9cffe5bbdd9835e21e11b3aef50b40ed672146dbab9b9c34f8a90f4106f5bc",
+      "valid_zip": true,
+      "member_count": 10,
+      "sample_members": [
+        "case1/studies/ac_aware_redispatch_v1/",
+        "case1/studies/ac_aware_redispatch_v1/scenario_membership.py",
+        "case1/studies/ac_aware_redispatch_v1/README.md",
+        "case1/studies/ac_aware_redispatch_v1/corridors.py",
+        "case1/studies/ac_aware_redispatch_v1/fixed_hardware.py",
+        "case1/studies/ac_aware_redispatch_v1/run_pilot.py",
+        "case1/studies/ac_aware_redispatch_v1/HARDWARE_EVIDENCE_2026-11-04.md",
+        "case1/studies/ac_aware_redispatch_v1/tests/",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_corridors.py",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_membership_manufacturer.py"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/SEEDExchange_WP1_Annual_AC_Feedback_Patch_v1_2.zip",
+      "bytes": 8873,
+      "sha256": "f687ef7ea3082a25cf2d8709d40f56c52778a972581e6906702e893a81cadc3d",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "case1/studies/ac_aware_redispatch_v1/run_annual_feedback.py",
+        "case1/studies/ac_aware_redispatch_v1/ANNUAL_VIOLATION_FEEDBACK_README.md",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_annual_feedback.py"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/SEEDExchange_WP1_Annual_AC_Validation_Patch_v1_1.zip",
+      "bytes": 6118,
+      "sha256": "c3ed2eabf9684d0798ad3c4203e7be9271a43c14b54a75bc30a87dde0c43c272",
+      "valid_zip": true,
+      "member_count": 2,
+      "sample_members": [
+        "case1/studies/ac_aware_redispatch_v1/validate_annual_ac.py",
+        "case1/studies/ac_aware_redispatch_v1/ANNUAL_AC_VALIDATION_README.md"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/SEEDExchange_WP1_Full_Campaign_Reuse_and_Annual_AC_v1_8.zip",
+      "bytes": 29692,
+      "sha256": "ca97d7b60fc60cda98edda375abe9055a3ab4b2c989906c91d0433907409021a",
+      "valid_zip": true,
+      "member_count": 8,
+      "sample_members": [
+        "README_WP1_Campaign_Reuse.md",
+        "VERIFIED_GITLAB_CAMPAIGN_AUDIT.md",
+        "case1/studies/ac_aware_redispatch_v1/audit_archived_campaign.py",
+        "case1/studies/ac_aware_redispatch_v1/run_archived_energy.py",
+        "case1/studies/ac_aware_redispatch_v1/collate_archived_campaign.py",
+        "case1/studies/ac_aware_redispatch_v1/validate_archived_candidate_ac.py",
+        "case1/studies/ac_aware_redispatch_v1/batch_archived_campaign.py",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_archived_campaign_reuse_v18.py"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/SEEDExchange_WP1_Robustness_and_Equipment_Shortlist_v1_3.zip",
+      "bytes": 79992,
+      "sha256": "ed00743f7461fd24f10eda3198adf8ea72e6d0917aa7e28c60d28135cb81560b",
+      "valid_zip": true,
+      "member_count": 8,
+      "sample_members": [
+        "case1/studies/ac_aware_redispatch_v1/run_robustness.py",
+        "case1/studies/ac_aware_redispatch_v1/shortlist_equipment.py",
+        "case1/studies/ac_aware_redispatch_v1/plot_robustness.py",
+        "case1/studies/ac_aware_redispatch_v1/ROBUSTNESS_AND_SIZING_GATE_v1_3.md",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_robustness_shortlist.py",
+        "case1/studies/ac_aware_redispatch_v1/reference_checkpoint/REFERENCE_CHECKPOINT.md",
+        "case1/studies/ac_aware_redispatch_v1/reference_checkpoint/94022_seven_critical_hours_from_user_upload.csv",
+        "case1/studies/ac_aware_redispatch_v1/reference_checkpoint/94022_seven_annual_voltage_histogram.png"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/SEEDExchange_WP1_Voltage_Band_Reassessment_v1_4.zip",
+      "bytes": 110027,
+      "sha256": "0487781a2940a2439670d41e73f487f406e6a84961b0fff1e87059269b740106",
+      "valid_zip": true,
+      "member_count": 10,
+      "sample_members": [
+        "case1/studies/ac_aware_redispatch_v1/reassess_voltage_bands.py",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_voltage_band_reassessment.py",
+        "case1/studies/ac_aware_redispatch_v1/VOLTAGE_BAND_REASSESSMENT_v1_4.md",
+        "WP1_Voltage_Limits_Robustness_and_Sizing_Decision_Audit_2026-11-04.md",
+        "sample_results/voltage_band_postprocess_manifest.json",
+        "sample_results/original_strict_research_critical_hour_failures.png",
+        "sample_results/engineering_target_critical_hour_failures.png",
+        "sample_results/voltage_band_hourly_screen_flags.csv",
+        "sample_results/annual_reference_voltage_band_reclassification.csv",
+        "sample_results/voltage_band_sample_summary.csv"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/WP1_12house_Robustness_Audit_and_Equipment_Pilot_Plan_2026-11-04.zip",
+      "bytes": 89777,
+      "sha256": "5643f6c26b0c6521c2cf71fc8409891de59d7425a0e05d6b47ab57e43629e752",
+      "valid_zip": true,
+      "member_count": 4,
+      "sample_members": [
+        "verified_critical_sensitivity_summary.csv",
+        "WP1_12house_six_candidate_screening_plan.csv",
+        "WP1_12house_critical_failures.png",
+        "WP1_12house_robustness_decision_audit.md"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/WP1_12house_and_voltage_review_v1_6.zip",
+      "bytes": 16879,
+      "sha256": "3dc20fa9ed27565c61b3d1bbe7410536d530c2552f524cda17b53e4db30c6152",
+      "valid_zip": true,
+      "member_count": 7,
+      "sample_members": [
+        "README.md",
+        "case1/studies/ac_aware_redispatch_v1/run_12house_manufacturer_baseline.py",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_12house_voltage_v16.py",
+        "case1/studies/ac_aware_redispatch_v1/validate_annual_ac_target.py",
+        "case1/studies/ac_aware_redispatch_v1/voltage_band_protocol.py",
+        "case1/studies/ac_aware_redispatch_v1/plot_annual_voltage_sensitivity.py",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_annual_voltage_sensitivity.py"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/WP1_AC_Validator_Hotfix_v1_6_1.zip",
+      "bytes": 6263,
+      "sha256": "29fcacd229c84d88b881f58ba8eba43073689929e3d2a33bf7bf78d40b8f8567",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "README_HOTFIX_v1_6_1.md",
+        "case1/studies/ac_aware_redispatch_v1/validate_annual_ac_target.py",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_12house_voltage_v16.py"
+      ]
+    },
+    {
+      "path": "case1/research_archive/versioned_wp1_packages/WP1_voltage_review_v1_5_retry.zip",
+      "bytes": 5482,
+      "sha256": "2af35eb37be0d636f0344c3bce751436f09bcf5cf81cb28d35f7db955a02a6f2",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "README.md",
+        "case1/studies/ac_aware_redispatch_v1/plot_annual_voltage_sensitivity.py",
+        "case1/studies/ac_aware_redispatch_v1/tests/test_annual_voltage_sensitivity.py"
+      ]
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_94022_AllNine_Bundle_v1/inputs/StudyA_94022_DualService_Trial_v1_Results.zip",
+      "bytes": 52633,
+      "sha256": "c0985268efa29d621273812ccefca23f24a3b57ad619359d476fc6d6bf670879",
+      "valid_zip": true,
+      "member_count": 5,
+      "sample_members": [
+        "DUAL_SERVICE_AC_72_CASES_EACH.csv",
+        "DUAL_SERVICE_OPTIONS_RANKED.csv",
+        "DUAL_SERVICE_BRANCH_MEMBERSHIP.csv",
+        "DUAL_SERVICE_MODEL_BRANCH_ENDPOINTS.csv",
+        "DUAL_SERVICE_MANIFEST.json"
+      ]
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_94022_Annual_Bundle_Validation_v1/inputs/StudyA_A0_94022_AllNine_Bundle_v1_Results.zip",
+      "bytes": 70977,
+      "sha256": "d94c960eb657ac866f8ea70849adc1633a52ccd5c16d656653733ef24126cc2d",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "ALL_NINE_SELECTED_AC_ROWS.csv",
+        "ALL_NINE_OPTION_SUMMARY.csv",
+        "ALL_NINE_SOURCE_AND_SCOPE.json"
+      ]
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_94022_Branch_Isolation_v1/inputs/StudyA_A0_94022_Network_Probe_v1.zip",
+      "bytes": 9892,
+      "sha256": "b9e5764d425c0dd1472234eaf4b545e6784fc8cb413eed6af1d84d464f94fb4b",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "A0_94022_NETWORK_OPTION_PROBES.csv",
+        "A0_94022_NINE_RESIDUAL_TIMESTAMPS.csv",
+        "PROBE_MANIFEST.json"
+      ]
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_94022_DualService_Trial_v1/inputs/StudyA_94022_Sparse_Bundle_Trial_v1_Results.zip",
+      "bytes": 49120,
+      "sha256": "7c6f9921b83060b83f564e654dbb7f5e381f71002a343f26d3b0f4cdbd9fb0f7",
+      "valid_zip": true,
+      "member_count": 5,
+      "sample_members": [
+        "BUNDLE_AC_72_SCENARIOS_EACH.csv",
+        "BUNDLE_OPTION_SUMMARY.csv",
+        "BUNDLE_BRANCH_MEMBERSHIP.csv",
+        "MODEL_BRANCH_ENDPOINTS.csv",
+        "BUNDLE_MANIFEST.json"
+      ]
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_94022_Sparse_Bundle_v1/inputs/StudyA_94022_Branch_Isolation_v1_Results.zip",
+      "bytes": 84877,
+      "sha256": "7b89a8c859cc26c661498d81882baa11fa839d75d4c4cca924014dc47385bad1",
+      "valid_zip": true,
+      "member_count": 4,
+      "sample_members": [
+        "BRANCH_SCREEN_AC_HOURLY.csv",
+        "BRANCH_SCREEN_OPTION_SUMMARY.csv",
+        "94022_LV_BRANCH_REGISTER.csv",
+        "BRANCH_SCREEN_MANIFEST.json"
+      ]
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_A0_106039_Validated_2026-11-16/SOURCE_StudyA_A0_106039_Sequenced_Trial_v1.zip",
+      "bytes": 1405573,
+      "sha256": "e72012848c9152e3a3ec004831b4654472b52b6ab02d6554ae25306aac89ca30",
+      "valid_zip": true,
+      "member_count": 9,
+      "sample_members": [
+        "A0_106039_min_cost_ref_causal_candidate_8760.csv",
+        "A0_106039_min_cost_ref_optimized_candidate_8760.csv",
+        "A0_106039_ss90_ref_causal_candidate_8760.csv",
+        "A0_106039_ss90_ref_optimized_candidate_8760.csv",
+        "ADOPTED_SHIFT_EVENTS.csv",
+        "CHANGED_HOURS_FINAL_AC.csv",
+        "NINE_FACTOR_ANNUAL_REUSE.csv",
+        "TRIAL_MANIFEST.json",
+        "UNRESOLVED_EVENTS.csv"
+      ]
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_A0_Sequenced_Redispatch_Pilot_v1/StudyA_Mapped_SOC_Windows_for_Redispatch.zip",
+      "bytes": 134992,
+      "sha256": "571ab9deba6b16fce357868b8848762a975c5761d218ba5e9544b409133e0a66",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "MAPPED_EVENT_SOC_WINDOWS.csv",
+        "MAPPED_EVENT_SELECTION.csv",
+        "SOURCE_VERIFICATION.json"
+      ]
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_Mapped_Redispatch_A1_v1/StudyA_Mapped_SOC_Windows_for_Redispatch.zip",
+      "bytes": 134992,
+      "sha256": "571ab9deba6b16fce357868b8848762a975c5761d218ba5e9544b409133e0a66",
+      "valid_zip": true,
+      "member_count": 3,
+      "sample_members": [
+        "MAPPED_EVENT_SOC_WINDOWS.csv",
+        "MAPPED_EVENT_SELECTION.csv",
+        "SOURCE_VERIFICATION.json"
+      ]
+    },
+    {
+      "path": "case1/studies/ac_aware_redispatch_v1/outputs/annual_exports/SEEDExchange_9house_annual_results.zip",
+      "bytes": 3395437,
+      "sha256": "ad29806f5249900e83a2d625b24d3352ecaa6421ff495093325915ab4278d681",
+      "valid_zip": true,
+      "member_count": 26,
+      "sample_members": [
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-3cc99d4429a15487a083/",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-3cc99d4429a15487a083/fixed_hardware_manufacturer_soc_baseline.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-3cc99d4429a15487a083/manufacturer_baseline_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-3cc99d4429a15487a083/pilot_manifest.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/ac_checkpoint.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/annual_ac_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/annual_ac_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/annual_ac_violating_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/annual_ac_worst_voltage_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/voltage_band_comparison.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-b091c626114a2d74884f/",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-b091c626114a2d74884f/fixed_hardware_manufacturer_soc_baseline.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-b091c626114a2d74884f/manufacturer_baseline_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-b091c626114a2d74884f/pilot_manifest.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/ac_checkpoint.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/annual_ac_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/annual_ac_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/annual_ac_violating_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/annual_ac_worst_voltage_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/voltage_band_comparison.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_reuse_index_v18_01/all_distinct_equipment_candidates.csv"
+      ]
+    },
+    {
+      "path": "case1/studies/ac_aware_redispatch_v1/outputs/annual_exports/two_candidates_01/SEEDExchange_two_12house_annual_AC.zip",
+      "bytes": 2371443,
+      "sha256": "d07a9cf26c90185b8e52a49f39ce54531a89118d98bb3a423e7a49f06f0202fb",
+      "valid_zip": true,
+      "member_count": 19,
+      "sample_members": [
+        "comparison.csv",
+        "export_manifest.json",
+        "README.md",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-70d86432647ba0b77603/pf_0.98_service_1.00/ac_checkpoint.json",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-70d86432647ba0b77603/pf_0.98_service_1.00/annual_ac_hours.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-70d86432647ba0b77603/pf_0.98_service_1.00/annual_ac_summary.json",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-70d86432647ba0b77603/pf_0.98_service_1.00/annual_ac_violating_hours.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-70d86432647ba0b77603/pf_0.98_service_1.00/annual_ac_worst_voltage_hours.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-70d86432647ba0b77603/pf_0.98_service_1.00/voltage_band_comparison.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-ae0eed011a95698df0af/pf_0.98_service_1.00/ac_checkpoint.json",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-ae0eed011a95698df0af/pf_0.98_service_1.00/annual_ac_hours.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-ae0eed011a95698df0af/pf_0.98_service_1.00/annual_ac_summary.json",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-ae0eed011a95698df0af/pf_0.98_service_1.00/annual_ac_violating_hours.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-ae0eed011a95698df0af/pf_0.98_service_1.00/annual_ac_worst_voltage_hours.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-ae0eed011a95698df0af/pf_0.98_service_1.00/voltage_band_comparison.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-70d86432647ba0b77603/fixed_hardware_manufacturer_soc_baseline.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-70d86432647ba0b77603/pilot_manifest.json",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-ae0eed011a95698df0af/fixed_hardware_manufacturer_soc_baseline.csv",
+        "repo_sources/case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-ae0eed011a95698df0af/pilot_manifest.json"
+      ]
+    },
+    {
+      "path": "nine_house_results.zip",
+      "bytes": 3535464,
+      "sha256": "6dc1fe4d2eecb332280d8a4f9d62aaf512b488477066d451bc679f3986b9b5b3",
+      "valid_zip": true,
+      "member_count": 27,
+      "sample_members": [
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-3cc99d4429a15487a083/fixed_hardware_manufacturer_soc_baseline.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-3cc99d4429a15487a083/manufacturer_baseline_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-3cc99d4429a15487a083/pilot_manifest.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-b091c626114a2d74884f/fixed_hardware_manufacturer_soc_baseline.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-b091c626114a2d74884f/manufacturer_baseline_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-b091c626114a2d74884f/pilot_manifest.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-9df8c68834f7c7f6faa3/fixed_hardware_manufacturer_soc_baseline.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-9df8c68834f7c7f6faa3/manufacturer_baseline_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_manufacturer_01/EC-9df8c68834f7c7f6faa3/pilot_manifest.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/ac_checkpoint.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/annual_ac_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/annual_ac_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/annual_ac_violating_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/annual_ac_worst_voltage_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-3cc99d4429a15487a083/pf_0.98_service_1.00/voltage_band_comparison.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/ac_checkpoint.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/annual_ac_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/annual_ac_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/annual_ac_violating_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/annual_ac_worst_voltage_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-b091c626114a2d74884f/pf_0.98_service_1.00/voltage_band_comparison.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-9df8c68834f7c7f6faa3/pf_0.98_service_1.00/ac_checkpoint.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-9df8c68834f7c7f6faa3/pf_0.98_service_1.00/annual_ac_hours.csv",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-9df8c68834f7c7f6faa3/pf_0.98_service_1.00/annual_ac_summary.json",
+        "case1/studies/ac_aware_redispatch_v1/outputs/campaign_AC_01/EC-9df8c68834f7c7f6faa3/pf_0.98_service_1.00/annual_ac_violating_hours.csv"
+      ]
+    }
+  ],
+  "verified_identical_groups": [
+    {
+      "sha256": "7b89a8c859cc26c661498d81882baa11fa839d75d4c4cca924014dc47385bad1",
+      "paths": [
+        "StudyA_94022_Branch_Isolation_v1_Results.zip",
+        "case1/studies/SEEDExchange_StudyA_94022_Sparse_Bundle_v1/inputs/StudyA_94022_Branch_Isolation_v1_Results.zip"
+      ],
+      "extra_copies": 1,
+      "repeated_bytes": 84877
+    },
+    {
+      "sha256": "c0985268efa29d621273812ccefca23f24a3b57ad619359d476fc6d6bf670879",
+      "paths": [
+        "StudyA_94022_DualService_Trial_v1_Results.zip",
+        "case1/studies/SEEDExchange_StudyA_94022_AllNine_Bundle_v1/inputs/StudyA_94022_DualService_Trial_v1_Results.zip"
+      ],
+      "extra_copies": 1,
+      "repeated_bytes": 52633
+    },
+    {
+      "sha256": "7c6f9921b83060b83f564e654dbb7f5e381f71002a343f26d3b0f4cdbd9fb0f7",
+      "paths": [
+        "StudyA_94022_Sparse_Bundle_Trial_v1_Results.zip",
+        "case1/studies/SEEDExchange_StudyA_94022_DualService_Trial_v1/inputs/StudyA_94022_Sparse_Bundle_Trial_v1_Results.zip"
+      ],
+      "extra_copies": 1,
+      "repeated_bytes": 49120
+    },
+    {
+      "sha256": "e72012848c9152e3a3ec004831b4654472b52b6ab02d6554ae25306aac89ca30",
+      "paths": [
+        "StudyA_A0_106039_Sequenced_Trial_v1.zip",
+        "case1/studies/SEEDExchange_StudyA_A0_106039_Validated_2026-11-16/SOURCE_StudyA_A0_106039_Sequenced_Trial_v1.zip"
+      ],
+      "extra_copies": 1,
+      "repeated_bytes": 1405573
+    },
+    {
+      "sha256": "d94c960eb657ac866f8ea70849adc1633a52ccd5c16d656653733ef24126cc2d",
+      "paths": [
+        "StudyA_A0_94022_AllNine_Bundle_v1_Results.zip",
+        "case1/studies/SEEDExchange_StudyA_94022_Annual_Bundle_Validation_v1/inputs/StudyA_A0_94022_AllNine_Bundle_v1_Results.zip"
+      ],
+      "extra_copies": 1,
+      "repeated_bytes": 70977
+    },
+    {
+      "sha256": "b9e5764d425c0dd1472234eaf4b545e6784fc8cb413eed6af1d84d464f94fb4b",
+      "paths": [
+        "StudyA_A0_94022_Network_Probe_v1.zip",
+        "case1/studies/SEEDExchange_StudyA_94022_Branch_Isolation_v1/inputs/StudyA_A0_94022_Network_Probe_v1.zip"
+      ],
+      "extra_copies": 1,
+      "repeated_bytes": 9892
+    },
+    {
+      "sha256": "571ab9deba6b16fce357868b8848762a975c5761d218ba5e9544b409133e0a66",
+      "paths": [
+        "StudyA_Mapped_SOC_Windows_for_Redispatch.zip",
+        "case1/studies/SEEDExchange_StudyA_A0_Sequenced_Redispatch_Pilot_v1/StudyA_Mapped_SOC_Windows_for_Redispatch.zip",
+        "case1/studies/SEEDExchange_StudyA_Mapped_Redispatch_A1_v1/StudyA_Mapped_SOC_Windows_for_Redispatch.zip"
+      ],
+      "extra_copies": 2,
+      "repeated_bytes": 269984
+    }
+  ]
+}
