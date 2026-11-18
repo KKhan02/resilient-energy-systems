@@ -1,0 +1,29 @@
+{
+  "study": "SEEDExchange_A1_106039_Utilization_Frontier_v1",
+  "profile": "full",
+  "expected_new_cases": 10,
+  "new_solved": [
+    "SS_B9_POWER16",
+    "SS_P45_B9",
+    "MC_B10",
+    "MC_P33"
+  ],
+  "verified_reused": [
+    "SS_B9",
+    "SS_B10",
+    "SS_P45",
+    "SS_P41_KEEP20",
+    "MC_B9",
+    "MC_P37"
+  ],
+  "unresolved": [],
+  "signed_source_manifest_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+  "solar_source_sha256": "b03e9274d40fcc486eddc54a2cada013c1493bd5562216f27e984f4d5d5d1e08",
+  "original_model_sha256": "4f04a7b6c94bdb3f40f2f09074b6896f13eb543598af18291ae9b10e31606eab",
+  "reference_manifest_sha256": {
+    "MC_REF": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+    "SS_REF": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257"
+  },
+  "status": "COMPLETE",
+  "note": "New cases only energy screened; baseline AC correction is not transferred to resized hardware."
+}
