@@ -48,6 +48,65 @@ def read_checked(root,key):
     return list(csv.DictReader(data.decode('utf-8-sig').splitlines()))
 
 
+
+INDEX_FILE='SIGNED_REFERENCE_AC_LOSS_INDEX_18.json'
+INDEX_SHA256='4ab845a71ae969af0796a36091bce192db4ab65dfbb316617b1d2f5baed9ef75'
+
+
+def signed_reference_index():
+    """Validate an exact GitLab-indexed copy of 18 historical AC summaries.
+
+    Source summaries may not have been materialized in a partial checkout.
+    The index was extracted from the 18 unchanged GitLab files, with their
+    individual blob SHA256 and original ac_hourly SHA256 provenance.
+    """
+    path=Path(__file__).with_name(INDEX_FILE)
+    raw=path.read_bytes().replace(b'\r\n',b'\n')
+    digest=hashlib.sha256(raw).hexdigest()
+    if digest!=INDEX_SHA256:
+        raise ValueError(f'Signed reference AC-loss index SHA mismatch: {digest}')
+    payload=json.loads(raw)
+    if payload.get('status')!='GITLAB_SIGNED_HISTORICAL_AC_SUMMARY_INDEX' or (
+        payload.get('source_commit')!='2ab70535bbe22fa7490b16b7ae8ac60674a38455'):
+        raise ValueError('Historical AC index provenance changed')
+    entries=payload.get('entries',[])
+    expected={(tier,pf,lf) for tier in ('min_cost_ref','ss90_ref') for pf,lf in FACTOR}
+    if len(entries)!=18 or {(e['tier'],float(e['pf']),float(e['length_factor'])) for e in entries}!=expected:
+        raise ValueError('Historical AC index incomplete or duplicated')
+    return {(e['tier'],float(e['pf']),float(e['length_factor'])):e for e in entries}
+
+
+def checked_reference_summary(root,tier,pf,lf,old_entry,expected_energy,index):
+    """Use an exact local source summary if present, else signed GitLab index.
+
+    Both modes require historical annual AC SHA from the already independently
+    audited eight-battery redispatch manifest; there is no invented data.
+    """
+    name=f'A1_106039_{tier}_mapped_optimized_pf{round(pf*100):03d}_length{round(lf*10):02d}_annual8760'
+    relative=f'{BASE}/{name}/ac_summary.json'
+    row=index[(tier,pf,lf)]
+    if (row['relative_path']!=relative or row['ac_hourly_sha256']!=old_entry['original_ac_sha256'] or
+        row['energy_manifest_sha256']!=expected_energy or
+        int(row['hours'])!=8760 or int(row['converged_hours'])!=8760 or
+        len(row['gitlab_source_content_sha256'])!=64):
+        raise ValueError('Historical summary index disagrees with signed reference: '+name)
+    path=root/relative
+    if not path.is_file():
+        return {'hours':8760,'converged_hours':8760,
+                'ac_hourly_sha256':row['ac_hourly_sha256'],
+                'energy_manifest_sha256':row['energy_manifest_sha256'],
+                'pf':pf,'length_factor':lf,
+                'annual_or_sample_losses_kwh':row['annual_ac_loss_kwh']},'GITLAB_INDEX_FALLBACK',relative
+    m=json.loads(path.read_text(encoding='utf-8'))
+    if (m.get('hours')!=8760 or m.get('converged_hours')!=8760 or
+        m.get('ac_hourly_sha256')!=old_entry['original_ac_sha256'] or
+        m.get('energy_manifest_sha256')!=expected_energy or
+        abs(float(m['pf'])-pf)>1e-9 or abs(float(m['length_factor'])-lf)>1e-9 or
+        abs(float(m['annual_or_sample_losses_kwh'])-float(row['annual_ac_loss_kwh']))>1e-8):
+        raise ValueError('Local historical AC summary conflicts with GitLab source index: '+relative)
+    return m,'LOCAL_SUMMARY_VERIFIED',relative
+
+
 def one(items,what):
     if len(items)!=1:
         raise ValueError(f'Expected exactly one {what}: found {len(items)}')
@@ -66,21 +125,19 @@ def build(root,tariff=.29):
     if any(int(s['candidate_bad_hours'])!=0 or s['all_8760_hours_accounted_for'] is not True for s in old['screens']):
         raise ValueError('Eight-battery AC reference not feasible')
     equip={r['case_id']:r for r in sources['cost']}
-    pair=[];all_rows=[]
+    index=signed_reference_index()
+    pair=[];all_rows=[];provenance=[]
     for ref,(tier,updated) in TIERS.items():
         for pf,lf in FACTOR:
             old_entry=one([r for r in old['screens'] if r['tier']==tier and float(r['pf'])==pf and float(r['length_factor'])==lf],'old reference')
             new_entry=one([r for r in fresh['results'] if r['case_id']==updated and float(r['pf'])==pf and float(r['length_factor'])==lf],'B9 annual')
             if old_entry['candidate_bad_hours']!=0 or new_entry['corrected_bad_hours']!=0:
                 raise ValueError('Not modelled AC feasible')
-            name=f'A1_106039_{tier}_mapped_optimized_pf{round(pf*100):03d}_length{round(lf*10):02d}_annual8760'
-            meta_path=root/BASE/name/'ac_summary.json'
-            m=json.loads(meta_path.read_text(encoding='utf-8'))
-            if (m.get('hours')!=8760 or m.get('converged_hours')!=8760 or
-                m.get('ac_hourly_sha256')!=old_entry['original_ac_sha256'] or
-                m.get('energy_manifest_sha256')!=old['source_annual_signatures'][tier] or
-                abs(float(m['pf'])-pf)>1.e-9 or abs(float(m['length_factor'])-lf)>1.e-9):
-                raise ValueError(f'Original reference summary or signature mismatch: {name}')
+            m,source_mode,source_path=checked_reference_summary(
+                root,tier,pf,lf,old_entry,old['source_annual_signatures'][tier],index)
+            provenance.append({'tier':tier,'pf':pf,'length_factor':lf,
+                'reference_source_mode':source_mode,'historical_source_path':source_path,
+                'gitlab_summary_content_sha256':index[(tier,pf,lf)]['gitlab_source_content_sha256']})
             events=[r for r in sources['old_changes'] if r['tier']==tier and float(r['pf'])==pf and float(r['length_factor'])==lf]
             stamps=sorted(set(r['timestamp_lst'] for r in events))
             expected=4 if tier=='min_cost_ref' else 2
@@ -122,7 +179,7 @@ def build(root,tariff=.29):
                     'lossAdder':loss*tariff,'adjusted':float(hardware['annual_total_usd'])+loss*tariff})
     if len(pair)!=18 or len(all_rows)!=36:
         raise ValueError('Incomplete AC loss-cost sensitivity coverage')
-    return pair,all_rows
+    return pair,all_rows,provenance
 
 
 def formatted(row,headers):
@@ -138,10 +195,14 @@ def main():
     a.add_argument('--repo-root',type=Path,default=Path.cwd())
     a.add_argument('--out',type=Path,help='New output directory, optional')
     args=a.parse_args()
-    pair,all_rows=build(args.repo_root.resolve())
+    pair,all_rows,provenance=build(args.repo_root.resolve())
     s=[r for r in pair if r['pf']==.95 and r['lf']==1.6]
     report={'status':'SIGNED_18_FACTOR_PAIR_AC_LOSS_SENSITIVITY_PASS',
             'pair_comparisons':18,'case_factor_records':36,'assumed_tariff_USD_kWh':.29,
+            'historical_reference_local_summaries':sum(p['reference_source_mode']=='LOCAL_SUMMARY_VERIFIED' for p in provenance),
+            'historical_reference_gitlab_index_fallbacks':sum(p['reference_source_mode']=='GITLAB_INDEX_FALLBACK' for p in provenance),
+            'historical_reference_provenance':provenance,
+            'historical_reference_index_SHA256':INDEX_SHA256,
             'assumption':'community purchases feeder losses at research tariff, NOT VERIFIED',
             'stress_pair_result':[{'reference':r['reference'],'candidate':r['new_case'],
                 'losses_saved_kwh':r['savings'],'loss_adjusted_cost_delta_USD_a':r['fullDiff']} for r in s]}
