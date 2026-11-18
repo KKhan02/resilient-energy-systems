@@ -45,3 +45,30 @@ Upload `StudyA_A1_106039_Utilization_Pilot_v1.zip` even if some variants are inf
 ## Existing non-solver results in this package
 
 `A0_A1_EQUAL_POPULATION_ENERGY_COST_SCREEN.csv` reconciles two assignments, two hardware-selection tiers and the **same 34 households**. `STUDYB_92395_EXISTING_ANNUAL_SCREEN.csv` isolates the conditional STAR versus MST network outcomes. These were produced by `build_existing_decision_tables.py` using signed, audited prior results, without new numerical models. See `RESEARCH_SCOPE_AND_DECISIONS.md` for interpretation and future actions.
+
+
+## 18 November 2026, Git-synced CSV portability and full-profile preflight
+
+The six published 8,760-hour pilot CSVs have original **Windows CRLF** SHA-256 values recorded in their signed manifests. GitLab stores them as **LF-only** text. The updated `verify_energy_csv_signature` accepts an LF-only CSV *only if* restoring CRLF reproduces the exact original signed SHA-256. It rejects all other changes to content and keeps the source manifest unchanged. This was independently confirmed against the complete original GitLab `SS_B9` file.
+
+The `--preflight --profile full` command now checks that all six pilot folders exist and validates all six saved signed cases, plus the original reference source context, before any of the four new PyPSA simulations. If files are missing or inconsistent, fix the checkout rather than recomputing sources. The full runner repeats the read-only preflight before computing; it also checks that the target ZIP archive does not already exist before any solve. This prevents inadvertent reruns and partial work from archive-name conflicts.
+
+Run in Miniforge or Anaconda Prompt, from the repository root:
+
+```bat
+git status --short
+git fetch origin
+git switch sync/seedexchange-local-2026-11-17
+git pull --rebase origin sync/seedexchange-local-2026-11-17
+python -m unittest discover -s "case1\studies\SEEDExchange_StudyA_Utilization_Frontier_v1\tests" -p "test_*.py" -v
+python "case1\studies\SEEDExchange_StudyA_Utilization_Frontier_v1\run_a1_106039_frontier.py" --repo-root . --profile full --preflight --out "StudyA_A1_106039_Utilization_v1"
+python "case1\studies\SEEDExchange_StudyA_Utilization_Frontier_v1\run_a1_106039_frontier.py" --repo-root . --profile full --run --out "StudyA_A1_106039_Utilization_v1" --zip-out "StudyA_A1_106039_Utilization_Full_20261118.zip"
+git status --short
+git add "StudyA_A1_106039_Utilization_v1"
+git diff --cached --stat
+git commit -m "Add source-verified full A1 106039 fixed-hardware frontier [ci skip]"
+git pull --rebase origin sync/seedexchange-local-2026-11-17
+git push origin sync/seedexchange-local-2026-11-17
+```
+
+Only run the numerical full profile after all preflight checks pass. The output folder contains six reused pilot cases and four new cases, not ten new simulations. Do not stage the ZIP archive alongside identical tracked output files.

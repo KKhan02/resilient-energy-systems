@@ -1,4 +1,5 @@
 import importlib.util
+import hashlib
 from pathlib import Path
 import sys
 import tempfile
@@ -75,6 +76,27 @@ class Tests(unittest.TestCase):
         self.assertEqual(f.REFERENCE['SS_REF']['panels'],49)
         self.assertEqual(f.CANDIDATES['SS_P45']['panels'],45)
         self.assertEqual(f.CANDIDATES['SS_B10']['modules'],10)
+    def test_signed_csv_crlf_exact_normalization(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'energy_hourly_2025.csv'
+            signed=b'timestamp_lst,demand_kw\r\n2025-01-01 00:00:00,4\r\n'
+            expected=hashlib.sha256(signed).hexdigest()
+            path.write_bytes(signed)
+            self.assertEqual(f.verify_energy_csv_signature(path,expected),'SIGNED_BYTES_MATCH')
+            path.write_bytes(signed.replace(b'\r\n',b'\n'))
+            self.assertEqual(f.verify_energy_csv_signature(path,expected),'EXACT_GIT_LF_TO_SIGNED_CRLF')
+            path.write_bytes(b'timestamp_lst,demand_kw\n2025-01-01 00:00:00,9\n')
+            with self.assertRaisesRegex(ValueError,'differs'):
+                f.verify_energy_csv_signature(path,expected)
+            path.write_bytes(b'timestamp_lst,demand_kw\r\n2025-01-01 00:00:00,4\n')
+            with self.assertRaisesRegex(ValueError,'differs'):
+                f.verify_energy_csv_signature(path,expected)
+
+    def test_full_preflight_refuses_missing_pilots(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaisesRegex(FileNotFoundError,'six existing signed pilot'):
+                f.preflight_existing({'repo':Path(tmp)},'full',Path(tmp)/'not_present')
+
     def test_zip_no_overwrite(self):
         with tempfile.TemporaryDirectory() as t:
             out=Path(t)/'data';out.mkdir();(out/'a.txt').write_text('ok')

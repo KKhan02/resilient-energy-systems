@@ -47,6 +47,25 @@ def digest(path):
         for chunk in iter(lambda:f.read(1<<20),b''):h.update(chunk)
     return h.hexdigest()
 
+def verify_energy_csv_signature(path,expected):
+    """Verify original signed bytes, tolerating ONLY an exact Git LF normalization.
+
+    Historical 2025 candidate CSV manifests were hashed after writing on
+    Windows with CRLF. Git stores the same numeric records with LF. Accept
+    LF content only when converting its LF to CRLF reproduces the *exact*
+    recorded manifest SHA256. Never accept arbitrary numeric similarity.
+    """
+    if not isinstance(expected,str) or len(expected)!=64:
+        raise ValueError('Missing or invalid original signed CSV SHA256')
+    direct=digest(path)
+    if direct==expected:return 'SIGNED_BYTES_MATCH'
+    data=path.read_bytes()
+    if b'\r' not in data and b'\n' in data:
+        restored=hashlib.sha256(data.replace(b'\n',b'\r\n')).hexdigest()
+        if restored==expected:return 'EXACT_GIT_LF_TO_SIGNED_CRLF'
+    raise ValueError('Signed existing candidate CSV differs from its manifest: '+str(path))
+
+
 def validate_device(x):
     p,m,kw,inv=x['panels'],x['modules'],x['battery_kw'],x['inverter_kva']
     if not (isinstance(p,int) and isinstance(m,int) and p>=1 and m>=1):
@@ -163,11 +182,42 @@ def checked_reuse(path,expected,ctx):
     m=json.loads(mpath.read_text(encoding='utf-8'))
     if (m.get('case_id')!=expected or m.get('input_manifest_sha256')!=digest(ctx['manifest'])
         or m.get('source_model_sha256')!=digest(ctx['repo']/'case1/studies/pypsa_joint_optimization_v1/model.py')
-        or m.get('energy_csv_sha256')!=digest(cpath)):
-        raise RuntimeError('Existing output mismatch: '+str(path))
+        ):
+        raise RuntimeError('Existing output metadata mismatch: '+str(path))
+    newline_mode=verify_energy_csv_signature(cpath,m.get('energy_csv_sha256'))
+    if newline_mode=='EXACT_GIT_LF_TO_SIGNED_CRLF':
+        print('REUSED_SIGNED_CSV_LINE_ENDINGS',expected,newline_mode,flush=True)
     frame=pd.read_csv(cpath,parse_dates=['timestamp_lst']).set_index('timestamp_lst')
     check_chronology(frame)
     return frame,m
+
+def preflight_existing(ctx,profile,out):
+    """Verify all existing signed output cases before any full-profile solves.
+
+    Full profile explicitly reuses six published pilot solves. If any pilot
+    folder is missing, stop rather than silently spending time recomputing it.
+    This is a read-only source verification, not a PyPSA simulation.
+    """
+    if not out.is_absolute():out=ctx['repo']/out
+    if profile=='full':
+        missing=[x for x in PILOT_IDS if not (out/('energy_'+x)).is_dir()]
+        if missing:
+            raise FileNotFoundError('Full profile needs six existing signed pilot folders; missing '
+                + ', '.join(missing) + '. Restore missing tracked outputs or inspect checkout.')
+    reused=[]
+    model=None
+    for case_id in selected(profile):
+        folder=out/('energy_'+case_id)
+        if not folder.exists():continue
+        frame,meta=checked_reuse(folder,case_id,ctx)
+        if model is None:
+            model=ctx['fh'].load_existing_pypsa_model(ctx['repo'])
+        case_summary(case_id,CANDIDATES[case_id],frame,model,'new',meta.get('source_model_summary'))
+        reused.append(case_id)
+    return {'profile':profile,'source_reuse_checked':reused,
+            'new_solves_expected':[x for x in selected(profile) if x not in reused],
+            'preflight':'SOURCE_AND_PILOT_REUSE_PASS_NO_NUMERICAL_SOLVES'}
+
 
 def run_one(case_id,ctx,out):
     design=CANDIDATES[case_id]
@@ -222,6 +272,10 @@ def package_zip(out,zip_path):
 def execute(ctx,profile,out,zipout):
     if not out.is_absolute():out=ctx['repo']/out
     out=out.resolve()
+    if zipout:
+        zp=Path(zipout)
+        if not zp.is_absolute():zp=ctx['repo']/zp
+        if zp.exists():raise FileExistsError('Protected frontier archive already exists: '+str(zp))
     out.mkdir(parents=True,exist_ok=True)
     model=ctx['fh'].load_existing_pypsa_model(ctx['repo'])
     results=[];month_rows=[];failures=[];reused=[];new=[]
@@ -278,6 +332,8 @@ def cli(argv=None):
         return 0
     ctx=context(args.repo_root.resolve())
     print('SIGNED PREFLIGHT PASS, 11 A1/106039 households, year 2025, baseline references 2')
+    reuse=preflight_existing(ctx,args.profile,Path(args.out))
+    print(json.dumps(reuse,indent=2))
     if args.preflight:return 0
     return execute(ctx,args.profile,Path(args.out),args.zip_out)
 
