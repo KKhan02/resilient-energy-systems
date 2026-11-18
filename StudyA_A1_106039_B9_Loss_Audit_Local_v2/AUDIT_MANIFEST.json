@@ -1,0 +1,170 @@
+{
+  "status": "SIGNED_18_FACTOR_PAIR_AC_LOSS_SENSITIVITY_PASS",
+  "pair_comparisons": 18,
+  "case_factor_records": 36,
+  "assumed_tariff_USD_kWh": 0.29,
+  "historical_reference_local_summaries": 9,
+  "historical_reference_gitlab_index_fallbacks": 9,
+  "historical_reference_provenance": [
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "reference_source_mode": "GITLAB_INDEX_FALLBACK",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf095_length10_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "076f9a2515030f23347391f76ea65bb00b22a2df27d543806e32b5ae95faefa4"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "reference_source_mode": "GITLAB_INDEX_FALLBACK",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf095_length13_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "aa714ada03086f221cb30422ed2a1caa941447208b619822fb0dc3ba269cd6fd"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "reference_source_mode": "GITLAB_INDEX_FALLBACK",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf095_length16_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "d93fbf8e7f7f3746f12b119bf7e6c62689882536819335344e2ef47b89314125"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "reference_source_mode": "GITLAB_INDEX_FALLBACK",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf098_length10_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "6b0a63f542460d0b0116931fd5719b0786ce40e5f8fe06c39ede99dfba2bf854"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "reference_source_mode": "GITLAB_INDEX_FALLBACK",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf098_length13_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "d0bb2bd6b059702b77a49d4923ead767d6e37c187fc52e4d68e6854bc5ed357e"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "reference_source_mode": "GITLAB_INDEX_FALLBACK",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf098_length16_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "02902e72adc258c27ac5f850351a825c7fb70692974c91ff83737c290cdda027"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "reference_source_mode": "GITLAB_INDEX_FALLBACK",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf100_length10_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "40ddfdaf122a864417450f57fa4604722d7b2606086246fe695c670f7743b346"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "reference_source_mode": "GITLAB_INDEX_FALLBACK",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf100_length13_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "5e4bdb9a26a98055954f8b0af9a5e49bd6bee59906d08fa44e9dc26c00094a93"
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "reference_source_mode": "GITLAB_INDEX_FALLBACK",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf100_length16_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "1cc4a07d3e9feb935c6aff3e5e49336451afc619c864502229b9ce8679b63a53"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "reference_source_mode": "LOCAL_SUMMARY_VERIFIED",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf095_length10_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "dd7b3c0b7889fa1654a3d90ce7ca2ea9a090821ab07088aa4e3b5cf8055be989"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "reference_source_mode": "LOCAL_SUMMARY_VERIFIED",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf095_length13_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "184e4b9e476099e4929003ae0783e7870c71ce739f17be946d3faeff3b84482a"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "reference_source_mode": "LOCAL_SUMMARY_VERIFIED",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf095_length16_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "410577c84e807c5e0f29b017b8f402dc019e984b79c93208d61e5222fdd850d5"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "reference_source_mode": "LOCAL_SUMMARY_VERIFIED",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf098_length10_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "8bf00f5d89cfc46bf9df05ad9dec8f5c38e33d2bb61f989b76b779ebbbe966b7"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "reference_source_mode": "LOCAL_SUMMARY_VERIFIED",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf098_length13_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "641795f871b119018ed0907d11da27bde33f9f0444edd951fbed9e43c59a696c"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "reference_source_mode": "LOCAL_SUMMARY_VERIFIED",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf098_length16_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "b4cae4ad81d5ad8303cbbc4ce6bd8d5b4342eeb38bca6c101e3592efcdebe354"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "reference_source_mode": "LOCAL_SUMMARY_VERIFIED",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf100_length10_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "eca00a619d577e5570aea9df0f30036dd9edd505a95c099885c99c379cc84974"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "reference_source_mode": "LOCAL_SUMMARY_VERIFIED",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf100_length13_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "9fa4c0d6fb15d4a89057a635b5d39d008108d92a211ca2a01f8cb39674ef00a7"
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "reference_source_mode": "LOCAL_SUMMARY_VERIFIED",
+      "historical_source_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf100_length16_annual8760/ac_summary.json",
+      "gitlab_summary_content_sha256": "2610298ce6777106d942d9acd67efd5f486900bb7ceab68ff463a6554e96778a"
+    }
+  ],
+  "historical_reference_index_SHA256": "4ab845a71ae969af0796a36091bce192db4ab65dfbb316617b1d2f5baed9ef75",
+  "assumption": "community purchases feeder losses at research tariff, NOT VERIFIED",
+  "stress_pair_result": [
+    {
+      "reference": "MC_REF",
+      "candidate": "MC_B9",
+      "losses_saved_kwh": 2.3073877135889234,
+      "loss_adjusted_cost_delta_USD_a": 54.561465458058805
+    },
+    {
+      "reference": "SS_REF",
+      "candidate": "SS_B9",
+      "losses_saved_kwh": 4.050354178613418,
+      "loss_adjusted_cost_delta_USD_a": -16.069445936797823
+    }
+  ]
+}
