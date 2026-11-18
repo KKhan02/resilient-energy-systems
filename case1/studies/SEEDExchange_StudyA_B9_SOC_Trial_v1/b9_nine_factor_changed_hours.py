@@ -143,6 +143,15 @@ def compare_saved_stress(saved, case, phase, timestamp, metrics):
         raise ValueError('New stress AC pass/fail does not match saved result')
 
 
+def finite_stat(series, operation):
+    """Return null for missing AC metrics, preserving non-convergence evidence."""
+    values = pd.to_numeric(series, errors='coerce').to_numpy(float)
+    finite = values[np.isfinite(values)]
+    if not len(finite):
+        return None
+    return float(finite.min() if operation == 'min' else finite.max())
+
+
 def run_screen(repo, stress_root, out, oct_dc, nov_dc):
     if out.exists():
         raise FileExistsError(f'Will not overwrite an earlier study: {out}')
@@ -176,22 +185,22 @@ def run_screen(repo, stress_root, out, oct_dc, nov_dc):
                                      phase=phase, timestamp_lst=str(timestamp),
                                      inverter_ac_kw=float(frame.loc[timestamp, 'inverter_ac_kw']),
                                      **metrics))
-    out.mkdir(parents=True, exist_ok=False)
     df = pd.DataFrame(rows)
-    df.to_csv(out / 'ALL_NINE_CHANGED_HOUR_AC.csv', index=False, float_format='%.10f')
+    if len(df) != 108:
+        raise ValueError(f'Incorrect changed-hour coverage: {len(df)} AC evaluations')
     summary = []
     for (case, pf, length), group in df[df.phase == 'candidate'].groupby(['case_id', 'pf', 'length_factor']):
         summary.append({'case_id': case, 'pf': float(pf), 'length_factor': float(length),
                         'changed_case_hours': int(len(group)),
                         'changed_hours_ac_fail': int((~group.ac_feasible.astype(bool)).sum()),
-                        'lowest_v_pu': group.min_v_pu.min(),
-                        'highest_trafo_pct': group.max_trafo_pct.max(),
-                        'highest_line_pct': group.max_line_pct.max(),
+                        'lowest_v_pu': finite_stat(group.min_v_pu, 'min'),
+                        'highest_trafo_pct': finite_stat(group.max_trafo_pct, 'max'),
+                        'highest_line_pct': finite_stat(group.max_line_pct, 'max'),
+                        'nonconverged_changed_hours': int((group.status != 'CONVERGED').sum()),
                         'coverage': 'ONLY_CHANGED_HOURS_NO_ANNUAL_FEASIBILITY'})
     aggregate = pd.DataFrame(summary).sort_values(['case_id', 'pf', 'length_factor'])
-    if len(df) != 108 or len(aggregate) != 18:
-        raise ValueError('Incorrect nine-factor by-hour coverage')
-    aggregate.to_csv(out / 'NINE_FACTOR_CHANGED_HOUR_SUMMARY.csv', index=False, float_format='%.10f')
+    if len(aggregate) != 18:
+        raise ValueError('Incorrect nine-factor case coverage')
     passes = bool((aggregate.changed_hours_ac_fail == 0).all())
     review = {
         'status': 'NINE_FACTOR_CHANGED_HOURS_PASS_ONLY' if passes else 'NINE_FACTOR_CHANGED_HOURS_FAIL',
@@ -204,7 +213,11 @@ def run_screen(repo, stress_root, out, oct_dc, nov_dc):
         'may_claim_full_year_feasibility': False,
         'next_gate': 'After changed-hour sensitivity passes, conduct signed 2025 8760-hour annual AC replays for every factor not yet verified',
     }
-    (out / 'SCREEN_MANIFEST.json').write_text(json.dumps(review, indent=2, allow_nan=False) + '\n', encoding='utf-8')
+    serialized = json.dumps(review, indent=2, allow_nan=False) + '\n'
+    out.mkdir(parents=True, exist_ok=False)
+    df.to_csv(out / 'ALL_NINE_CHANGED_HOUR_AC.csv', index=False, float_format='%.10f')
+    aggregate.to_csv(out / 'NINE_FACTOR_CHANGED_HOUR_SUMMARY.csv', index=False, float_format='%.10f')
+    (out / 'SCREEN_MANIFEST.json').write_text(serialized, encoding='utf-8')
     return {'status': review['status'], 'case_factors': 18,
             'changed_hour_AC_calls': len(df), 'output': str(out),
             'full_annual_AC_remaining': True}

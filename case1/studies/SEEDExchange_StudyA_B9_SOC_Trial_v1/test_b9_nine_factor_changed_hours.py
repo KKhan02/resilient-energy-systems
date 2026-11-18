@@ -32,6 +32,14 @@ class NineFactorChecks(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'disagrees'):
             module.ac_metrics(row)
 
+    def test_nonconvergence_metrics_remain_reportable(self):
+        row = {'status':'DID_NOT_CONVERGE', 'error':'no solution'}
+        result = module.ac_metrics(row)
+        self.assertFalse(result['ac_feasible'])
+        self.assertIsNone(result['max_trafo_pct'])
+        self.assertIsNone(module.finite_stat(pd.Series([float('nan')]), 'max'))
+        self.assertEqual(module.finite_stat(pd.Series([float('nan'), 97.4]), 'max'), 97.4)
+
     def test_compare_saved_stress_rejects_mismatch(self):
         sample = pd.DataFrame([dict(case_id='SS_B9', phase='candidate',
             timestamp_lst=pd.Timestamp('2025-11-27 20:00:00'),
