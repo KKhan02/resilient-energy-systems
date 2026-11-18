@@ -1,0 +1,281 @@
+{
+  "status": "GITLAB_SIGNED_HISTORICAL_AC_SUMMARY_INDEX",
+  "data_date": "2026-11-18",
+  "source_gitlab_ref": {
+    "result": {
+      "data": {
+        "name": "sync/seedexchange-local-2026-11-17",
+        "commit": {
+          "id": "d2c8e2f6c8aea649deb3c679f17729654f7cc24c",
+          "short_id": "d2c8e2f6",
+          "created_at": "2026-11-18T20:01:54.000+00:00",
+          "parent_ids": [
+            "2ab70535bbe22fa7490b16b7ae8ac60674a38455"
+          ],
+          "title": "Reconcile signed full-year B9 and 8-battery AC losses with conditional economic sensitivity [ci skip]",
+          "message": "Reconcile signed full-year B9 and 8-battery AC losses with conditional economic sensitivity [ci skip]",
+          "author_name": "Khuzaim Khan",
+          "author_email": "khuzaimkhan123@gmail.com",
+          "authored_date": "2026-11-18T20:01:54.000+00:00",
+          "committer_name": "Khuzaim Khan",
+          "committer_email": "khuzaimkhan123@gmail.com",
+          "committed_date": "2026-11-18T20:01:54.000+00:00",
+          "trailers": {},
+          "extended_trailers": {},
+          "web_url": "https://gitlab.com/KKhan02/resilient-energy-systems/-/commit/d2c8e2f6c8aea649deb3c679f17729654f7cc24c"
+        },
+        "merged": false,
+        "protected": false,
+        "developers_can_push": false,
+        "developers_can_merge": false,
+        "can_push": true,
+        "default": false,
+        "web_url": "https://gitlab.com/KKhan02/resilient-energy-systems/-/tree/sync/seedexchange-local-2026-11-17"
+      },
+      "pagination": {
+        "next_page": null,
+        "page": null,
+        "per_page": null,
+        "prev_page": null,
+        "total": null,
+        "total_pages": null,
+        "link": null
+      }
+    }
+  },
+  "source_commit": "2ab70535bbe22fa7490b16b7ae8ac60674a38455",
+  "purpose": "Local historical ac_summary.json may be absent in partial checkout; use this locked index instead of inventing data or rerunning solver",
+  "transformer": "106039",
+  "cohort": [
+    "H11",
+    "H16",
+    "H17",
+    "H18",
+    "H19",
+    "H20",
+    "H21",
+    "H22",
+    "H23",
+    "H24",
+    "H25"
+  ],
+  "source_kind": "18 source AC summary files present in GitLab with verified content SHA-256 and original ac_hourly SHA-256",
+  "entries": [
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.95,
+      "length_factor": 1,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf095_length10_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "076f9a2515030f23347391f76ea65bb00b22a2df27d543806e32b5ae95faefa4",
+      "ac_hourly_sha256": "0bdacc95078bd1fc2377868bcfb870951c890424da499a90dafaebe6c836cde4",
+      "energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "annual_ac_loss_kwh": 428.79478877936367,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf095_length13_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "aa714ada03086f221cb30422ed2a1caa941447208b619822fb0dc3ba269cd6fd",
+      "ac_hourly_sha256": "d6bb4daa52a8765f0dbf06fac56e0f98fa2d9067cddc5d2db0ac7e6c45d40ab4",
+      "energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "annual_ac_loss_kwh": 434.58762149574045,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf095_length16_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "d93fbf8e7f7f3746f12b119bf7e6c62689882536819335344e2ef47b89314125",
+      "ac_hourly_sha256": "3fc81bcc8f742df83b4a21d22a5e991adfcccc3a0b71ffc29cf6ff834692303c",
+      "energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "annual_ac_loss_kwh": 440.3934394022687,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.98,
+      "length_factor": 1,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf098_length10_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "6b0a63f542460d0b0116931fd5719b0786ce40e5f8fe06c39ede99dfba2bf854",
+      "ac_hourly_sha256": "fedac250c8e4f009aea68c7116ce730df693b19e687b9898bf4887ea111c5dfb",
+      "energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "annual_ac_loss_kwh": 407.41962706259994,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf098_length13_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "d0bb2bd6b059702b77a49d4923ead767d6e37c187fc52e4d68e6854bc5ed357e",
+      "ac_hourly_sha256": "d17f10ddc8a0297d2e3203b21df90cc4175a2d37097f4e4de3442308cdc8db6d",
+      "energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "annual_ac_loss_kwh": 412.8423964864297,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf098_length16_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "02902e72adc258c27ac5f850351a825c7fb70692974c91ff83737c290cdda027",
+      "ac_hourly_sha256": "76364def9bcac2bf556b021d64d21c682e5aae598fb9442bc382e6c6165d9a09",
+      "energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "annual_ac_loss_kwh": 418.277180637404,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 1,
+      "length_factor": 1,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf100_length10_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "40ddfdaf122a864417450f57fa4604722d7b2606086246fe695c670f7743b346",
+      "ac_hourly_sha256": "88ff678ee97e8ac71dc7ad5678ae94d7a94bd4965fd16a8ad44720fe98e806a2",
+      "energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "annual_ac_loss_kwh": 393.02170884876716,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 1,
+      "length_factor": 1.3,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf100_length13_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "5e4bdb9a26a98055954f8b0af9a5e49bd6bee59906d08fa44e9dc26c00094a93",
+      "ac_hourly_sha256": "6dd897421addc8633dbcb0e6ce5fcc36997b4a971cab18649fac86c8abc9a2c4",
+      "energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "annual_ac_loss_kwh": 398.19789369004803,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "min_cost_ref",
+      "pf": 1,
+      "length_factor": 1.6,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf100_length16_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "1cc4a07d3e9feb935c6aff3e5e49336451afc619c864502229b9ce8679b63a53",
+      "ac_hourly_sha256": "45093ca1f41b3c9757c44adcc31ae35c2d36a40179a8c5c0ccdd97bd10c62b67",
+      "energy_manifest_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "annual_ac_loss_kwh": 403.38534936165513,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.95,
+      "length_factor": 1,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf095_length10_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "dd7b3c0b7889fa1654a3d90ce7ca2ea9a090821ab07088aa4e3b5cf8055be989",
+      "ac_hourly_sha256": "0120679a03f92f856088639c21be59018faa3ef38308955b70aac6d91a9ec8ca",
+      "energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257",
+      "annual_ac_loss_kwh": 419.6295244189673,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf095_length13_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "184e4b9e476099e4929003ae0783e7870c71ce739f17be946d3faeff3b84482a",
+      "ac_hourly_sha256": "ea03f428bc2baab8c12d536f47abdfcd1c4033f73f83222bc6368027c61fdfab",
+      "energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257",
+      "annual_ac_loss_kwh": 425.41092137530126,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf095_length16_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "410577c84e807c5e0f29b017b8f402dc019e984b79c93208d61e5222fdd850d5",
+      "ac_hourly_sha256": "b239d82e7ecec2688ca229cdf8aa35a69f84a64f3b637beec9b784d36c820abc",
+      "energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257",
+      "annual_ac_loss_kwh": 431.20525766646927,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.98,
+      "length_factor": 1,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf098_length10_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "8bf00f5d89cfc46bf9df05ad9dec8f5c38e33d2bb61f989b76b779ebbbe966b7",
+      "ac_hourly_sha256": "091f26183afde1d179d515c056acd75e8110711c6b766d4f806fde273e34d181",
+      "energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257",
+      "annual_ac_loss_kwh": 398.31757657551816,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf098_length13_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "641795f871b119018ed0907d11da27bde33f9f0444edd951fbed9e43c59a696c",
+      "ac_hourly_sha256": "dd506ea27af5c47767f3591a5793a2ebee1921d8352049555c3f61c68831d2ac",
+      "energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257",
+      "annual_ac_loss_kwh": 403.72972281745547,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf098_length16_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "b4cae4ad81d5ad8303cbbc4ce6bd8d5b4342eeb38bca6c101e3592efcdebe354",
+      "ac_hourly_sha256": "8deb7a88832cd51e9a08c86e8b9f467d478abe86d5f66d59ac60c014efc8d096",
+      "energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257",
+      "annual_ac_loss_kwh": 409.15383647257306,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 1,
+      "length_factor": 1,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf100_length10_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "eca00a619d577e5570aea9df0f30036dd9edd505a95c099885c99c379cc84974",
+      "ac_hourly_sha256": "3382ab3f3f1f95faca04571634955a53f689163c768d4a9fc496de6ebe8472be",
+      "energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257",
+      "annual_ac_loss_kwh": 383.9787657888336,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 1,
+      "length_factor": 1.3,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf100_length13_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "9fa4c0d6fb15d4a89057a635b5d39d008108d92a211ca2a01f8cb39674ef00a7",
+      "ac_hourly_sha256": "cb3eabd6bf7aa5d7f074d67ab9e5fb5026c239b7893951303da4ed27f6de013b",
+      "energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257",
+      "annual_ac_loss_kwh": 389.1448733930538,
+      "hours": 8760,
+      "converged_hours": 8760
+    },
+    {
+      "tier": "ss90_ref",
+      "pf": 1,
+      "length_factor": 1.6,
+      "relative_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_ss90_ref_mapped_optimized_pf100_length16_annual8760/ac_summary.json",
+      "gitlab_source_content_sha256": "2610298ce6777106d942d9acd67efd5f486900bb7ceab68ff463a6554e96778a",
+      "ac_hourly_sha256": "0f958671208fa4eadec75f6766a672ad1ce0c66c6e7832a85f8ae05493a73c16",
+      "energy_manifest_sha256": "b878035eb2448154e5632eb5b38800dbbb9cd471a9425cd59114c18657877257",
+      "annual_ac_loss_kwh": 394.32221387175997,
+      "hours": 8760,
+      "converged_hours": 8760
+    }
+  ]
+}
