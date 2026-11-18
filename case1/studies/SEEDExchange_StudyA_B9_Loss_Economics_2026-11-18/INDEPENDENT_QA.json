@@ -1,0 +1,28 @@
+{
+  "status": "SOURCE_MAPPED_COMPARE_PASS",
+  "checked_on": "2026-11-18",
+  "gitlab_annual_source_commit": "2ab70535bbe22fa7490b16b7ae8ac60674a38455",
+  "baseline_designs": [
+    "MC_REF",
+    "SS_REF"
+  ],
+  "b9_designs": [
+    "MC_B9",
+    "SS_B9"
+  ],
+  "scenarios_per_design": 9,
+  "correction_source_original_and_candidate_AC_rows": 108,
+  "paired_cases": 18,
+  "individual_design_factors": 36,
+  "loss_pricing_assumption_usd_per_kwh": 0.29,
+  "source_pins_in_script": true,
+  "stress_delta_examples": {
+    "SS_B9_vs_SS_REF": -16.069445936795333,
+    "MC_B9_vs_MC_REF": 54.56146545806575
+  },
+  "model_limits": [
+    "5kVA transformer nameplate assumed",
+    "AC loss billing at research tariff not verified",
+    "no BOS/cable/field costs"
+  ]
+}
