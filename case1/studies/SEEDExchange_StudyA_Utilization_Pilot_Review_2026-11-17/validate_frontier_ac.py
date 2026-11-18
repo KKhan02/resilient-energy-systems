@@ -16,7 +16,8 @@ import zipfile
 import numpy as np
 import pandas as pd
 
-CASES=('SS_B9','MC_B9','SS_B10','SS_P45','SS_P41_KEEP20','MC_P37')
+CASES=('SS_B9','MC_B9','SS_B10','SS_P45','SS_P41_KEEP20','MC_P37',
+       'SS_B9_POWER16','SS_P45_B9','MC_B10','MC_P33')
 FACTORS={'stress':[(.95,1.6)],'reference':[(.98,1.0)],
          'all-nine':[(pf,length) for pf in (.95,.98,1.) for length in (1.,1.3,1.6)]}
 EXPECTED=pd.date_range('2025-01-01',periods=8760,freq='h')
@@ -56,9 +57,67 @@ def valid_ac(df):
             (df.max_trafo_pct<=100+1e-9) & (df.max_line_pct<=100+1e-9))
 
 
+def signed_csv_line_endings(path, expected):
+    """Accept exact original signed bytes, or exact Git LF-normalized text.
+
+    The Windows source manifests carry CRLF-file SHA256. Git may store LF.
+    Only when LF->CRLF reproduces the original signed SHA256 is the changed
+    checkout accepted. No data is rewritten or numerical tolerance applied.
+    """
+    if not isinstance(expected,str) or len(expected)!=64:
+        raise ValueError('Missing signed CSV SHA256')
+    if sha(path)==expected:return 'SIGNED_BYTES_MATCH'
+    with open(xp(path),'rb') as stream:
+        raw=stream.read()
+    if b'\r' not in raw and b'\n' in raw and (
+        hashlib.sha256(raw.replace(b'\n',b'\r\n')).hexdigest()==expected):
+        return 'EXACT_GIT_LF_TO_SIGNED_CRLF'
+    raise ValueError('Source CSV SHA256 differs from signed manifest: '+str(path))
+
+
+def energy_from_signed_or_git_normalized(st,d,ctx):
+    """Preserve the original source validator, with one strict portability case.
+
+    The original study_a_pvbess.validated_energy_directory checks a direct
+    byte-level CSV digest; Windows CRLF signed files can be LF-only after Git
+    checkout. In that ONLY case reproduce its exact cohort, manifest, year,
+    chronology, power and balance checks, without modifying source files.
+    """
+    meta_path=d/'energy_manifest.json'
+    cpath=d/'energy_hourly_2025.csv'
+    with open(xp(meta_path),encoding='utf-8') as f:
+        meta=json.load(f)
+    mode=signed_csv_line_endings(cpath,meta.get('energy_csv_sha256'))
+    if mode=='SIGNED_BYTES_MATCH':
+        return st.validated_energy_directory(
+            d,ctx['m'],ctx['mp'],'A1','106039',ctx['houses'],ctx['trace'])
+    if (meta.get('input_manifest_sha256')!=sha(ctx['mp']) or
+            meta.get('transformer')!='106039' or
+            meta.get('selected_house_ids')!=ctx['houses'] or
+            meta.get('scenario')!='A1'):
+        raise ValueError('LF-normalized candidate metadata differs from signed A1 source')
+    df=pd.read_csv(xp(cpath),parse_dates=['timestamp_lst']).set_index('timestamp_lst')
+    if len(df)!=8760 or not df.index.equals(ctx['trace'].index):
+        raise ValueError('LF-normalized candidate hourly timebase differs from signed source')
+    cols=['demand_kw','inverter_ac_kw','pv_dc_available_kw','grid_export_kw',
+          'unserved_kw','battery_soc_usable_kwh']
+    if not set(cols).issubset(df.columns) or not np.isfinite(df[cols].to_numpy(float)).all():
+        raise ValueError('LF-normalized candidate has incomplete/nonfinite dispatch fields')
+    if np.max(np.abs(df.demand_kw.to_numpy(float)-
+                     ctx['trace'].sum(axis=1).to_numpy(float)))>1e-5:
+        raise ValueError('LF-normalized candidate household demand differs')
+    if df.grid_export_kw.abs().max()>1e-5 or df.unserved_kw.abs().max()>1e-5:
+        raise ValueError('LF-normalized candidate source export/ENS differs')
+    rating=float(meta['hardware']['inverter_kva'])
+    if (df.inverter_ac_kw>rating+1e-5).any() or (df.inverter_ac_kw<-1e-5).any():
+        raise ValueError('LF-normalized candidate violates source inverter rating')
+    print('SOURCE_SIGNED_CSV_GIT_LF_NORMALIZATION_VERIFIED',meta.get('case_id'),flush=True)
+    return df,meta
+
+
 def signed_energy(repo,root,cid,st,ctx):
     d=root/('energy_'+cid)
-    df,m=st.validated_energy_directory(d,ctx['m'],ctx['mp'],'A1','106039',ctx['houses'],ctx['trace'])
+    df,m=energy_from_signed_or_git_normalized(st,d,ctx)
     if m.get('case_id')!=cid or m.get('status')!='FULL_8760H_FIXED_HARDWARE_FRONTIER_ENERGY_ONLY':
         raise ValueError('Not a frontier source: '+cid)
     if m.get('source_model_sha256')!=sha(repo/'case1/studies/pypsa_joint_optimization_v1/model.py'):
@@ -99,7 +158,7 @@ def check_saved(case_dir,provenance):
     with open(xp(j),encoding='utf-8') as f:meta=json.load(f)
     for k,v in provenance.items():
         if meta.get(k)!=v:raise ValueError('Existing AC provenance mismatch: '+k)
-    if meta.get('ac_hourly_sha256')!=sha(c):raise ValueError('AC CSV checksum changed')
+    signed_csv_line_endings(c,meta.get('ac_hourly_sha256'))
     d=pd.read_csv(xp(c))
     if len(d)!=8760 or not pd.to_datetime(d.timestamp_lst).equals(pd.Series(EXPECTED)):
         raise ValueError('Saved AC chronology invalid')
