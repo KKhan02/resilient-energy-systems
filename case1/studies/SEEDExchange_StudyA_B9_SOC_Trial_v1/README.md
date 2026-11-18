@@ -37,3 +37,7 @@ The original user-run AC trial reached `solve_changed` but raised `ValueError: M
 A separate `FutureWarning` occurred because the all-empty `error` column was inferred as float64 before receiving an empty string. The overlay now converts it to object dtype before changed-row assignment. These are **code-level corrections**, not a change in transformer assumptions, limits, profiles or setpoints.
 
 The script creates its output directory only after successful AC processing, so the reported exception should not itself have written partial trial output. Inspect the result path before rerunning. The actual corrected 2025 stress outcome is still pending user execution.
+
+## Conditional second-stage screening
+
+The synchronized branch also includes `b9_nine_factor_changed_hours.py` and `test_b9_nine_factor_changed_hours.py`. It strictly requires both B9 stress cases to pass and checks the candidate SHA-256 before screening only the six distinct changed case-hours across the nine PF and length combinations. Results do **not** validate all annual hours at those additional factors. Full commands must be given directly to the user. See `NINE_FACTOR_SCREENING_WORKFLOW.md` for exact command syntax.
