@@ -193,6 +193,8 @@ def main(argv=None):
         print(json.dumps(dict(status='PREFLIGHT_PASS_NO_SOLVER',jobs=len(plan),cases=checked,
              factor_grid=args.mode,source_2025_hours=8760),indent=2));return
     if os.path.isfile(xp(args.zip_out.resolve())):raise FileExistsError('ZIP already exists')
+    if (out/(args.receipt_stem+'.csv')).exists() or (out/(args.receipt_stem+'.json')).exists():
+        raise FileExistsError('Protected AC receipt already exists. Choose a fresh --receipt-stem')
     from run_epm_validation import build_net
     import pandapower as pp
     os.makedirs(xp(out),exist_ok=True)
