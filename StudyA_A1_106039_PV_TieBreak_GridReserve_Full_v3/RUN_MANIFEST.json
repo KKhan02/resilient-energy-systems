@@ -1,0 +1,509 @@
+{
+  "status": "COMPLETE_SOURCE_STITCHED_2025_AC",
+  "scope": "full",
+  "preflight": {
+    "status": "SIGNED_SOURCE_GRID_RESERVE_PREFLIGHT",
+    "source_v2_sha256": "db2700e9f0180a200bb85061c4e31a34accf37438b04925730d9f919a9d62ed4",
+    "source_delta_sha256": "bf5dbe8706ca03ad18363c3ef966a389bbea758d09b0e9ade6426bb751404264",
+    "source_annual_inverter_identity": "TO_BE_VALIDATED_PER_FACTOR",
+    "shift_plan": [
+      [
+        "2025-10-13 17:00:00",
+        "2025-10-13 20:00:00",
+        0.6
+      ],
+      [
+        "2025-11-27 17:00:00",
+        "2025-11-27 20:00:00",
+        0.8
+      ]
+    ],
+    "replayed_grid_injection_hours": 4,
+    "changed_hour_lineage": {
+      "stage2_changed_hours": 68,
+      "reserve_corrected_hours": 4,
+      "overlap_with_stage2_indexes": [
+        7937
+      ],
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71
+    },
+    "stage2_grid_import_kwh": 3107.4851226344,
+    "candidate_grid_import_kwh": 3107.4851226344,
+    "stage2_end_soc_kwh": 14.3821543546,
+    "candidate_end_soc_kwh": 14.3821543546
+  },
+  "candidate_sha256": "585681b4705c2ec67c58c6f32721a93f52ee673f1bd18d6dec5b06b1ab7213f6",
+  "cases": [
+    {
+      "tag": "MC_REF_PF095_LEN10",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "historical": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 2,
+        "min_v_pu": 0.9565121669,
+        "max_v_pu": 0.9977867924,
+        "max_trafo_pct": 107.3136659017,
+        "max_line_pct": 7.905211187,
+        "yearly_ac_losses_kwh": 428.7947887799,
+        "failed_timestamps": [
+          "2025-10-13 20:00:00",
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "stage2": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 2,
+        "min_v_pu": 0.9565121669,
+        "max_v_pu": 0.9977867924,
+        "max_trafo_pct": 107.3136659017,
+        "max_line_pct": 7.905211187,
+        "yearly_ac_losses_kwh": 428.7853116063,
+        "failed_timestamps": [
+          "2025-10-13 20:00:00",
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "reserve_candidate": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 0,
+        "min_v_pu": 0.959508389188601,
+        "max_v_pu": 0.9977867924,
+        "max_trafo_pct": 99.3516178284,
+        "max_line_pct": 7.905211187,
+        "yearly_ac_losses_kwh": 428.7486069951244,
+        "failed_timestamps": []
+      },
+      "source_annual_ac_sha256": "0bdacc95078bd1fc2377868bcfb870951c890424da499a90dafaebe6c836cde4",
+      "stage2_delta_csv_sha256": "980f8b493e33b240f21359ecea3e54a413232cd8313ab777a4d7316c732c1181",
+      "changed_earlier_stage2_ac_hours": 68,
+      "new_reserve_corrected_hours": 4,
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71,
+      "interpretation": "SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE",
+      "replayed_four_hour_csv": "PF095_LEN10_FOUR_CORRECTION_HOURS.csv",
+      "replayed_four_hour_sha256": "7f6c2aa51a65f6fc8a285a35c0599348decb1859b86f07260ee0870e8b5d981c"
+    },
+    {
+      "tag": "MC_REF_PF095_LEN13",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "historical": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 2,
+        "min_v_pu": 0.9553753844,
+        "max_v_pu": 0.9977752262,
+        "max_trafo_pct": 107.3722847241,
+        "max_line_pct": 7.9074423267,
+        "yearly_ac_losses_kwh": 434.587621499,
+        "failed_timestamps": [
+          "2025-10-13 20:00:00",
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "stage2": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 2,
+        "min_v_pu": 0.9553753844,
+        "max_v_pu": 0.9977752262,
+        "max_trafo_pct": 107.3722847241,
+        "max_line_pct": 7.9074423267,
+        "yearly_ac_losses_kwh": 434.5780873142,
+        "failed_timestamps": [
+          "2025-10-13 20:00:00",
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "reserve_candidate": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 0,
+        "min_v_pu": 0.9583754576559168,
+        "max_v_pu": 0.9977752262,
+        "max_trafo_pct": 99.3916539521,
+        "max_line_pct": 7.9074423267,
+        "yearly_ac_losses_kwh": 434.54134180433664,
+        "failed_timestamps": []
+      },
+      "source_annual_ac_sha256": "d6bb4daa52a8765f0dbf06fac56e0f98fa2d9067cddc5d2db0ac7e6c45d40ab4",
+      "stage2_delta_csv_sha256": "82181b999af72351e9e40eeb621decea99458ef488ba9de3e974078027d1147c",
+      "changed_earlier_stage2_ac_hours": 68,
+      "new_reserve_corrected_hours": 4,
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71,
+      "interpretation": "SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE",
+      "replayed_four_hour_csv": "PF095_LEN13_FOUR_CORRECTION_HOURS.csv",
+      "replayed_four_hour_sha256": "d87aca586a01ffdc1783a6c2aa324bad0dac131af46fd77d7e1c8883af0948b8"
+    },
+    {
+      "tag": "MC_REF_PF095_LEN16",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "historical": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 2,
+        "min_v_pu": 0.9542357057,
+        "max_v_pu": 0.9977636595,
+        "max_trafo_pct": 107.4311690706,
+        "max_line_pct": 7.909676735,
+        "yearly_ac_losses_kwh": 440.3934394037,
+        "failed_timestamps": [
+          "2025-10-13 20:00:00",
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "stage2": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 2,
+        "min_v_pu": 0.9542357057,
+        "max_v_pu": 0.9977636595,
+        "max_trafo_pct": 107.4311690706,
+        "max_line_pct": 7.909676735,
+        "yearly_ac_losses_kwh": 440.3838485038,
+        "failed_timestamps": [
+          "2025-10-13 20:00:00",
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "reserve_candidate": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 0,
+        "min_v_pu": 0.9572396590244653,
+        "max_v_pu": 0.9977636595,
+        "max_trafo_pct": 99.4318148586,
+        "max_line_pct": 7.909676735,
+        "yearly_ac_losses_kwh": 440.3470617750874,
+        "failed_timestamps": []
+      },
+      "source_annual_ac_sha256": "3fc81bcc8f742df83b4a21d22a5e991adfcccc3a0b71ffc29cf6ff834692303c",
+      "stage2_delta_csv_sha256": "69ec3aa495c1773f1641dac4551d0dd573d5382f21d6abf0f86d2b8266a0d2ac",
+      "changed_earlier_stage2_ac_hours": 68,
+      "new_reserve_corrected_hours": 4,
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71,
+      "interpretation": "SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE",
+      "replayed_four_hour_csv": "PF095_LEN16_FOUR_CORRECTION_HOURS.csv",
+      "replayed_four_hour_sha256": "92bf65d88f41dc9a9b4c934f6f1c812ac92c8d1a173ba9a8bf5c55f142bf6884"
+    },
+    {
+      "tag": "MC_REF_PF098_LEN10",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "historical": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9597307681,
+        "max_v_pu": 0.9983958588,
+        "max_trafo_pct": 103.4916719489,
+        "max_line_pct": 7.6397053381,
+        "yearly_ac_losses_kwh": 407.41962706259994,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "stage2": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9597307681,
+        "max_v_pu": 0.9983958588,
+        "max_trafo_pct": 103.4916719489,
+        "max_line_pct": 7.6397053381,
+        "yearly_ac_losses_kwh": 407.40798771870004,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "reserve_candidate": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 0,
+        "min_v_pu": 0.9627156175134872,
+        "max_v_pu": 0.9983958588,
+        "max_trafo_pct": 95.8233858183,
+        "max_line_pct": 7.6397053381,
+        "yearly_ac_losses_kwh": 407.3726262353198,
+        "failed_timestamps": []
+      },
+      "source_annual_ac_sha256": "fedac250c8e4f009aea68c7116ce730df693b19e687b9898bf4887ea111c5dfb",
+      "stage2_delta_csv_sha256": "d0346d6ed95980fb819bda7b83e140aa318357b1657dea94819e38d5638e0499",
+      "changed_earlier_stage2_ac_hours": 68,
+      "new_reserve_corrected_hours": 4,
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71,
+      "interpretation": "SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE",
+      "replayed_four_hour_csv": "PF098_LEN10_FOUR_CORRECTION_HOURS.csv",
+      "replayed_four_hour_sha256": "886583ccb0dc1d4308c7da2aca12441475ddf5e824b408e9f52b4a337e6e1601"
+    },
+    {
+      "tag": "MC_REF_PF098_LEN13",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "historical": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9586065814,
+        "max_v_pu": 0.9983843877,
+        "max_trafo_pct": 103.5475855215,
+        "max_line_pct": 7.6418302609,
+        "yearly_ac_losses_kwh": 412.8423964822,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "stage2": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9586065814,
+        "max_v_pu": 0.9983843877,
+        "max_trafo_pct": 103.5475855215,
+        "max_line_pct": 7.6418302609,
+        "yearly_ac_losses_kwh": 412.8307048473,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "reserve_candidate": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 0,
+        "min_v_pu": 0.961595194615666,
+        "max_v_pu": 0.9983843877,
+        "max_trafo_pct": 95.8616240951,
+        "max_line_pct": 7.6418302609,
+        "yearly_ac_losses_kwh": 412.7953050065675,
+        "failed_timestamps": []
+      },
+      "source_annual_ac_sha256": "d17f10ddc8a0297d2e3203b21df90cc4175a2d37097f4e4de3442308cdc8db6d",
+      "stage2_delta_csv_sha256": "9f390cf5f6b306e9760168937144a84d31f214184a706fbb15394547f4eeb394",
+      "changed_earlier_stage2_ac_hours": 68,
+      "new_reserve_corrected_hours": 4,
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71,
+      "interpretation": "SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE",
+      "replayed_four_hour_csv": "PF098_LEN13_FOUR_CORRECTION_HOURS.csv",
+      "replayed_four_hour_sha256": "32c690e48e81b99ce0cf787ef1af2a27c0e47ab748416a06e1a98e078311c668"
+    },
+    {
+      "tag": "MC_REF_PF098_LEN16",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "historical": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9574796425,
+        "max_v_pu": 0.9983729162,
+        "max_trafo_pct": 103.6037470248,
+        "max_line_pct": 7.6439582168,
+        "yearly_ac_losses_kwh": 418.27718064190003,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "stage2": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9574796425,
+        "max_v_pu": 0.9983729162,
+        "max_trafo_pct": 103.6037470248,
+        "max_line_pct": 7.6439582168,
+        "yearly_ac_losses_kwh": 418.26543604020003,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "reserve_candidate": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 0,
+        "min_v_pu": 0.9604720470541108,
+        "max_v_pu": 0.9983729162,
+        "max_trafo_pct": 95.8999790704,
+        "max_line_pct": 7.6439582168,
+        "yearly_ac_losses_kwh": 418.22999754558555,
+        "failed_timestamps": []
+      },
+      "source_annual_ac_sha256": "76364def9bcac2bf556b021d64d21c682e5aae598fb9442bc382e6c6165d9a09",
+      "stage2_delta_csv_sha256": "1f56e2509e38881fd685eb28e912a51cbcd2fae335502fddc71b601c43f618e7",
+      "changed_earlier_stage2_ac_hours": 68,
+      "new_reserve_corrected_hours": 4,
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71,
+      "interpretation": "SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE",
+      "replayed_four_hour_csv": "PF098_LEN16_FOUR_CORRECTION_HOURS.csv",
+      "replayed_four_hour_sha256": "9ea7e6f3bcc32ed7341facb9dc6b6234e9a1ac49862157900c5e287396206569"
+    },
+    {
+      "tag": "MC_REF_PF100_LEN10",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "historical": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9648552291,
+        "max_v_pu": 0.9994048521,
+        "max_trafo_pct": 100.4749757125,
+        "max_line_pct": 7.4504289927,
+        "yearly_ac_losses_kwh": 393.02170884919997,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "stage2": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9648552291,
+        "max_v_pu": 0.9994048521,
+        "max_trafo_pct": 100.4749757125,
+        "max_line_pct": 7.4504289927,
+        "yearly_ac_losses_kwh": 393.00838678,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "reserve_candidate": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 0,
+        "min_v_pu": 0.9678225830364041,
+        "max_v_pu": 0.9994048521,
+        "max_trafo_pct": 93.0362211686,
+        "max_line_pct": 7.4504289927,
+        "yearly_ac_losses_kwh": 392.97395408071577,
+        "failed_timestamps": []
+      },
+      "source_annual_ac_sha256": "88ff678ee97e8ac71dc7ad5678ae94d7a94bd4965fd16a8ad44720fe98e806a2",
+      "stage2_delta_csv_sha256": "c05cd6e8e0f6eea3871ccd853cfbc3ad72423989a56af5f6fbd0ba930b9f6202",
+      "changed_earlier_stage2_ac_hours": 68,
+      "new_reserve_corrected_hours": 4,
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71,
+      "interpretation": "SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE",
+      "replayed_four_hour_csv": "PF100_LEN10_FOUR_CORRECTION_HOURS.csv",
+      "replayed_four_hour_sha256": "a1102ed3ec81ec325416ae614a71f54b5c6b722daabfef9ba28f11347de79a01"
+    },
+    {
+      "tag": "MC_REF_PF100_LEN13",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "historical": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9637491551,
+        "max_v_pu": 0.9994013305,
+        "max_trafo_pct": 100.5285424599,
+        "max_line_pct": 7.4524580916,
+        "yearly_ac_losses_kwh": 398.1978936913,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "stage2": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9637491551,
+        "max_v_pu": 0.9994013305,
+        "max_trafo_pct": 100.5285424599,
+        "max_line_pct": 7.4524580916,
+        "yearly_ac_losses_kwh": 398.1845168162,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "reserve_candidate": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 0,
+        "min_v_pu": 0.9667201603825005,
+        "max_v_pu": 0.9994013305,
+        "max_trafo_pct": 93.0729238483,
+        "max_line_pct": 7.4524580916,
+        "yearly_ac_losses_kwh": 398.1500509267154,
+        "failed_timestamps": []
+      },
+      "source_annual_ac_sha256": "6dd897421addc8633dbcb0e6ce5fcc36997b4a971cab18649fac86c8abc9a2c4",
+      "stage2_delta_csv_sha256": "7ddec849795fa66830a6102385a735f58a798db217f98082467dd519d8f7ac95",
+      "changed_earlier_stage2_ac_hours": 68,
+      "new_reserve_corrected_hours": 4,
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71,
+      "interpretation": "SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE",
+      "replayed_four_hour_csv": "PF100_LEN13_FOUR_CORRECTION_HOURS.csv",
+      "replayed_four_hour_sha256": "fbde1f99acf44bd513b4ff49e90c645959332bf90c2771816fbb362939ba01de"
+    },
+    {
+      "tag": "MC_REF_PF100_LEN16",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "historical": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9626404597,
+        "max_v_pu": 0.9993978086,
+        "max_trafo_pct": 100.5823407849,
+        "max_line_pct": 7.4544900123,
+        "yearly_ac_losses_kwh": 403.38534936269997,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "stage2": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 1,
+        "min_v_pu": 0.9626404597,
+        "max_v_pu": 0.9993978086,
+        "max_trafo_pct": 100.5823407849,
+        "max_line_pct": 7.4544900123,
+        "yearly_ac_losses_kwh": 403.37191728259995,
+        "failed_timestamps": [
+          "2025-11-27 20:00:00"
+        ]
+      },
+      "reserve_candidate": {
+        "hours": 8760,
+        "converged": 8760,
+        "ac_infeasible_or_unconverged_hours": 0,
+        "min_v_pu": 0.9652225266,
+        "max_v_pu": 0.9993978086,
+        "max_trafo_pct": 93.1097358173,
+        "max_line_pct": 7.4544900123,
+        "yearly_ac_losses_kwh": 403.33741794886464,
+        "failed_timestamps": []
+      },
+      "source_annual_ac_sha256": "45093ca1f41b3c9757c44adcc31ae35c2d36a40179a8c5c0ccdd97bd10c62b67",
+      "stage2_delta_csv_sha256": "8c97d3ee7c1dba63005be03c7f3a53d7d2881c1e8df6ab7262be726b74ad1873",
+      "changed_earlier_stage2_ac_hours": 68,
+      "new_reserve_corrected_hours": 4,
+      "overlap_with_stage2_hours": 1,
+      "unique_changed_since_stage1_hours": 71,
+      "interpretation": "SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE",
+      "replayed_four_hour_csv": "PF100_LEN16_FOUR_CORRECTION_HOURS.csv",
+      "replayed_four_hour_sha256": "5336be9ab4939be2cfe5c2204f061b5e389193b145ee7bca15e53e1296534bd1"
+    }
+  ],
+  "errors": {},
+  "assumed_transformer_kva": 5.0,
+  "ac_provenance": "SIGNED_ANNUAL_STAGE1_PLUS_VERIFIED_STAGE2_CHANGED_HOURS_PLUS_4_NEW_AC_HOURS",
+  "not_a_new_full_8760_solve": true,
+  "not_field_certification": true
+}
