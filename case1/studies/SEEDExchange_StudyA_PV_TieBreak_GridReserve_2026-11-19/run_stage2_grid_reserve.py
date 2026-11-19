@@ -41,6 +41,49 @@ def sha(path):
             h.update(block)
     return h.hexdigest()
 
+def verify_signed_sha(path, expected):
+    """Only accept exact bytes or LF text that reconstructs the signed CRLF SHA."""
+    path=Path(path)
+    raw=path.read_bytes()
+    actual=hashlib.sha256(raw).hexdigest()
+    if actual==expected:
+        return 'EXACT_SIGNED_BYTES'
+    if b'\r' not in raw and b'\n' in raw:
+        if hashlib.sha256(raw.replace(b'\n',b'\r\n')).hexdigest()==expected:
+            return 'GIT_LF_RECONSTRUCTS_SIGNED_CRLF'
+    raise ValueError('Signed source SHA256 mismatch: '+str(path)+
+                     ' expected='+str(expected)+' actual='+actual)
+
+def verify_annual_history(repo,historical_root,manifest,pf,lf,s1):
+    """Validate all signed sources and annual chronology before creating output."""
+    tag=f'MC_REF_PF{round(pf*100):03d}_LEN{round(lf*10):02d}'
+    name=f'A1_106039_min_cost_ref_mapped_optimized_pf{round(pf*100):03d}_length{round(lf*10)}_annual8760'
+    folder=Path(historical_root)/name
+    r=json.loads((folder/'ac_summary.json').read_text(encoding='utf-8'))
+    hourly=folder/'ac_hourly.csv'
+    mode=verify_signed_sha(hourly,r['ac_hourly_sha256'])
+    energy=repo/'case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_106039_min_cost_ref/energy_manifest.json'
+    emode=verify_signed_sha(energy,r['energy_manifest_sha256'])
+    if (r['input_manifest_sha256']!=manifest['source']['input_manifest_sha256']
+        or r['scenario']!='A1' or r['transformer']!='106039'
+        or r['dispatch']!='optimized' or abs(r['pf']-pf)>1e-10
+        or abs(r['length_factor']-lf)>1e-10 or r['hours']!=8760):
+        raise ValueError('Historical annual AC metadata mismatch: '+tag)
+    case=next((x for x in manifest['scenarios'] if x['tag']==tag),None)
+    if case is None or case['changed_hours']!=68:
+        raise ValueError('Missing signed Stage2 changed-hour scenario: '+tag)
+    delta_file=repo/DELTA_ROOT/case['output_csv']
+    dmode=verify_signed_sha(delta_file,case['output_sha256'])
+    original=pd.read_csv(hourly,parse_dates=['timestamp_lst']).set_index('timestamp_lst')
+    if len(original)!=8760 or not original.index.equals(s1.index):
+        raise ValueError('Historical timestamps mismatch: '+tag)
+    if (np.max(np.abs(original.inverter_ac_kw-s1.inverter_ac_kw))>1e-7
+        or np.max(np.abs(original.gross_demand_kw-s1.demand_kw))>1e-7):
+        raise ValueError('Historical Stage1 inverter/demand mismatch: '+tag)
+    return r,original,case,delta_file,{
+        'tag':tag,'annual_ac_hash_mode':mode,'energy_hash_mode':emode,
+        'stage2_delta_hash_mode':dmode,'verified_hours':8760}
+
 def update_shift(frame, donor, target, dc):
     """Move one DC kWh of discharge, preserving annual import and cycle-end SOC."""
     a=frame.copy(deep=True)
@@ -181,33 +224,14 @@ def patch_ac(frame, time, record, prefix):
         if prefix+field in record:
             frame.at[time,field]=record[prefix+field]
 
-def ac_one_factor(repo,v6,trace,houses,s1,s2,candidate,manifest,indexes,pf,lf,qratio=.25):
+def ac_one_factor(repo,v6,trace,houses,s1,s2,candidate,manifest,indexes,pf,lf,
+                  qratio=.25,historical_root=None):
     repo=Path(repo).resolve()
+    historical_root=repo/HIST_ROOT if historical_root is None else Path(historical_root)
     tag=f'MC_REF_PF{round(pf*100):03d}_LEN{round(lf*10):02d}'
-    annual_name=f'A1_106039_min_cost_ref_mapped_optimized_pf{round(pf*100):03d}_length{round(lf*10)}_annual8760'
-    old_dir=repo/HIST_ROOT/annual_name
-    record=json.loads((old_dir/'ac_summary.json').read_text(encoding='utf-8'))
-    old_file=old_dir/'ac_hourly.csv'
-    if (record['ac_hourly_sha256']!=sha(old_file) or
-        record['energy_manifest_sha256']!=sha(repo/'case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_106039_min_cost_ref/energy_manifest.json')
-        or record['input_manifest_sha256']!=manifest['source']['input_manifest_sha256']
-        or record['scenario']!='A1' or record['transformer']!='106039'
-        or record['dispatch']!='optimized' or abs(record['pf']-pf)>1e-10
-        or abs(record['length_factor']-lf)>1e-10 or record['hours']!=8760):
-        raise ValueError('Historical full-year AC evidence mismatch: '+tag)
-    original=pd.read_csv(old_file,parse_dates=['timestamp_lst']).set_index('timestamp_lst')
-    if len(original)!=8760 or not original.index.equals(s1.index):
-        raise ValueError('Historical timestamps mismatch')
-    if (np.max(np.abs(original.inverter_ac_kw-s1.inverter_ac_kw))>1e-7 or
-        np.max(np.abs(original.gross_demand_kw-s1.demand_kw))>1e-7):
-        raise ValueError('Historical AC replay does not use same Stage 1 8760h power')
+    record,original,case_item,changed_file,source_modes=verify_annual_history(
+        repo,historical_root,manifest,pf,lf,s1)
     staged=original.copy(deep=True)
-    case_item=next((x for x in manifest['scenarios'] if x['tag']==tag),None)
-    if case_item is None or case_item['changed_hours']!=68:
-        raise ValueError('Missing signed Stage2 changed-hour scenario '+tag)
-    changed_file=repo/DELTA_ROOT/case_item['output_csv']
-    if sha(changed_file)!=case_item['output_sha256']:
-        raise ValueError('Changed-hour AC file hash mismatch')
     change=pd.read_csv(changed_file,parse_dates=['timestamp_lst']).set_index('timestamp_lst')
     if len(change)!=68 or not change.index.is_unique:
         raise ValueError('Changed AC hour count/time uniqueness')
@@ -260,20 +284,28 @@ def ac_one_factor(repo,v6,trace,houses,s1,s2,candidate,manifest,indexes,pf,lf,qr
         if x['hours']!=8760 or x['converged']!=8760:
             raise ValueError('Full year lacks converged provenance')
     return {'tag':tag,'pf':pf,'length_factor':lf,'historical':a,'stage2':b,'reserve_candidate':c,
-            'source_annual_ac_sha256':sha(old_file),
-            'stage2_delta_csv_sha256':sha(changed_file),
+            'source_annual_ac_sha256':record['ac_hourly_sha256'],
+            'stage2_delta_csv_sha256':case_item['output_sha256'],
+            'source_signed_hash_modes':source_modes,
             'changed_earlier_stage2_ac_hours':68,'new_reserve_corrected_hours':len(indexes),
             'overlap_with_stage2_hours':len(set(indexes)&set(manifest['plan']['MC_REF']['changed_indexes'])),
             'unique_changed_since_stage1_hours':len(set(indexes)|set(manifest['plan']['MC_REF']['changed_indexes'])),
             'interpretation':'SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE'},changed
 
-def run(repo,out=None,preflight=False,scope='stress'):
+def run(repo,out=None,preflight=False,scope='stress',historical_root=None):
     repo=Path(repo).resolve()
+    hist_root=repo/HIST_ROOT if historical_root is None else Path(historical_root)
+    if not hist_root.is_absolute():
+        hist_root=repo/hist_root
     v6,trace,houses,s1,s2,candidate,plan,manifest,indexes,provenance,change_coverage=load_inputs(repo)
+    cases=[(.95,1.6)] if scope=='stress' else [(pf,lf) for pf in (.95,.98,1.) for lf in (1.,1.3,1.6)]
+    historical_gates=[verify_annual_history(repo,hist_root,manifest,pf,lf,s1)[-1]
+                      for pf,lf in cases]
     checks={'status':'SIGNED_SOURCE_GRID_RESERVE_PREFLIGHT',
             'source_v2_sha256':sha(repo/V2_ROOT/'RUN_MANIFEST.json'),
             'source_delta_sha256':sha(repo/DELTA_ROOT/'RUN_MANIFEST.json'),
-            'source_annual_inverter_identity':'TO_BE_VALIDATED_PER_FACTOR',
+            'source_annual_inverter_identity':'PASS_8760H_ALL_SELECTED_FACTORS',
+            'historical_root':str(hist_root),'historical_source_gates':historical_gates,
             'shift_plan':SHIFT_PLAN,'replayed_grid_injection_hours':len(indexes),
             'changed_hour_lineage':change_coverage,
             'stage2_grid_import_kwh':float(s2.grid_import_kw.sum()),
@@ -281,14 +313,19 @@ def run(repo,out=None,preflight=False,scope='stress'):
             'stage2_end_soc_kwh':float(s2.battery_soc_usable_kwh.iat[-1]),
             'candidate_end_soc_kwh':float(candidate.battery_soc_usable_kwh.iat[-1])}
     if preflight:return checks
-    if out is None:raise ValueError('Provide a fresh --out directory')
+    if out is None:
+        stem='StudyA_A1_106039_PV_TieBreak_GridReserve_'+scope.capitalize()+'_v'
+        out=next((repo/(stem+str(i)) for i in range(1,1000)
+                  if not (repo/(stem+str(i))).exists()),None)
+        if out is None:
+            raise FileExistsError('No unused result folder in 1..999')
     out=Path(out).resolve()
     if out.exists():raise FileExistsError('No overwrites: '+str(out))
     out.mkdir(parents=True)
     hourly_path=out/'MC_REF_STAGE2_GRID_RESERVE_CANDIDATE_8760.csv'
     candidate.to_csv(hourly_path,index_label='timestamp_lst',float_format='%.10f')
-    cases=[(.95,1.6)] if scope=='stress' else [(pf,lf) for pf in (.95,.98,1.) for lf in (1.,1.3,1.6)]
     report={'status':'INCOMPLETE_OR_FAILED_SOURCE_STITCHED_AC','scope':scope,
+            'output_folder':str(out),
             'preflight':checks,'candidate_sha256':sha(hourly_path),'cases':[],
             'errors':{},'assumed_transformer_kva':5.,
             'ac_provenance':'SIGNED_ANNUAL_STAGE1_PLUS_VERIFIED_STAGE2_CHANGED_HOURS_PLUS_4_NEW_AC_HOURS',
@@ -296,7 +333,8 @@ def run(repo,out=None,preflight=False,scope='stress'):
     for pf,lf in cases:
         tag=f'PF{round(pf*100):03d}_LEN{round(lf*10):02d}'
         try:
-            r,rows=ac_one_factor(repo,v6,trace,houses,s1,s2,candidate,manifest,indexes,pf,lf)
+            r,rows=ac_one_factor(repo,v6,trace,houses,s1,s2,candidate,manifest,indexes,pf,lf,
+                                 historical_root=hist_root)
             csv=out/(tag+'_FOUR_CORRECTION_HOURS.csv')
             pd.DataFrame(rows).to_csv(csv,index=False,float_format='%.10f')
             r['replayed_four_hour_csv']=csv.name
@@ -318,11 +356,14 @@ def main(argv=None):
     ap.add_argument('--repo-root',type=Path,default=Path.cwd())
     ap.add_argument('--preflight-only',action='store_true')
     ap.add_argument('--scope',choices=['stress','full'],default='stress')
-    ap.add_argument('--out',type=Path)
+    ap.add_argument('--out',type=Path,help='Optional. Unused output auto-selected.')
+    ap.add_argument('--historical-root',type=Path,
+                    help='Short annual AC archive path, for example R:/ on Windows')
     args=ap.parse_args(argv)
-    result=run(args.repo_root,args.out,args.preflight_only,args.scope)
+    result=run(args.repo_root,args.out,args.preflight_only,args.scope,args.historical_root)
     print(json.dumps(result if args.preflight_only else {
         'status':result['status'],'scope':result['scope'],
+        'output_folder':result['output_folder'],
         'cases':[{k:v for k,v in r.items() if k in ('tag','stage2','reserve_candidate')} for r in result['cases']],
         'errors':result['errors']},indent=2,allow_nan=False,default=str))
     if not args.preflight_only and result['errors']:

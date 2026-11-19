@@ -1,4 +1,6 @@
 import importlib.util
+import hashlib
+import tempfile
 import math
 from pathlib import Path
 import unittest
@@ -22,6 +24,30 @@ class ReserveTests(unittest.TestCase):
         df['pcc_p_kw']=df.grid_import_kw
         df['pcc_kva_proxy']=np.hypot(df.grid_import_kw,df.pcc_q_kvar_proxy)
         return df
+
+    def test_signed_exact_bytes(self):
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/'source.csv'
+            data=b'a,b\r\n1,2\r\n'
+            path.write_bytes(data)
+            self.assertEqual(m.verify_signed_sha(path,hashlib.sha256(data).hexdigest()),
+                             'EXACT_SIGNED_BYTES')
+
+    def test_git_lf_reproduces_original_crlf_signature(self):
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/'source.csv'
+            path.write_bytes(b'a,b\n1,2\n')
+            signed=hashlib.sha256(b'a,b\r\n1,2\r\n').hexdigest()
+            self.assertEqual(m.verify_signed_sha(path,signed),
+                             'GIT_LF_RECONSTRUCTS_SIGNED_CRLF')
+
+    def test_tampered_signed_file_fails(self):
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/'source.csv'
+            path.write_bytes(b'a,b\n1,3\n')
+            signed=hashlib.sha256(b'a,b\r\n1,2\r\n').hexdigest()
+            with self.assertRaisesRegex(ValueError,'Signed source SHA256 mismatch'):
+                m.verify_signed_sha(path,signed)
 
     def test_shift_preserves_annual_dc_discharge_and_ac_grid_import(self):
         df=self.simple()
