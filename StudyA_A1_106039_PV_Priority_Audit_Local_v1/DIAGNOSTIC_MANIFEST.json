@@ -1,0 +1,121 @@
+{
+  "status": "SIGNED_SOURCE_PV_FIRST_CAUSAL_DIAGNOSTIC_ONLY",
+  "case_ids": [
+    "MC_REF",
+    "MC_P33"
+  ],
+  "input_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+  "source_provenance": {
+    "MC_REF": {
+      "case": "MC_REF",
+      "signed_csv_SHA256": "8b1e20b218fe4edab51dea2e2e81566077321ca6cb4929746ff84c6043e45e65",
+      "read_mode": "SIGNED_BYTES",
+      "source_manifest_path": "case1\\studies\\SEEDExchange_StudyA_v6_LocalRunner\\outputs\\run_01\\pvbess_phase_01\\energy_A1_106039_min_cost_ref\\energy_manifest.json"
+    },
+    "MC_P33": {
+      "case": "MC_P33",
+      "signed_csv_SHA256": "e1faf60587b248923f05d08b4979c92c7e64fa23ba5306a0390a68af32079123",
+      "read_mode": "SIGNED_BYTES",
+      "source_manifest_path": "StudyA_A1_106039_Utilization_v1\\energy_MC_P33\\energy_manifest.json"
+    }
+  },
+  "annual_source": {
+    "MC_REF": {
+      "case": "MC_REF",
+      "hours": 8760,
+      "annual_demand_kwh": 20878.0000000024,
+      "annual_available_pv_dc_kwh": 21657.242803255096,
+      "annual_generated_pv_dc_kwh": 19213.638534299404,
+      "annual_curtailed_pv_dc_kwh": 2443.6042689522997,
+      "annual_grid_import_ac_kwh": 3107.4851226334,
+      "annual_battery_discharge_dc_kwh": 9648.834604328002,
+      "curtailed_hours": 704,
+      "grid_import_hours": 1778,
+      "hours_both_curtail_and_import": 0,
+      "curtailment_while_SOC_at_floor_kwh": 1859.3296742809998,
+      "curtailment_while_not_charging_kwh": 1916.3895236251,
+      "curtailment_while_SOC_at_ceiling_kwh": 0.0,
+      "soc_min_usable_kwh": 1.832,
+      "soc_year_end_usable_kwh": 14.3821543547
+    },
+    "MC_P33": {
+      "case": "MC_P33",
+      "hours": 8760,
+      "annual_demand_kwh": 20878.0000000024,
+      "annual_available_pv_dc_kwh": 17431.439329446504,
+      "annual_generated_pv_dc_kwh": 16882.1468835386,
+      "annual_curtailed_pv_dc_kwh": 549.2924459071,
+      "annual_grid_import_ac_kwh": 5227.0918941374,
+      "annual_battery_discharge_dc_kwh": 7742.6286700082,
+      "curtailed_hours": 246,
+      "grid_import_hours": 2809,
+      "hours_both_curtail_and_import": 0,
+      "curtailment_while_SOC_at_floor_kwh": 376.3543474755,
+      "curtailment_while_not_charging_kwh": 385.8277169637,
+      "curtailment_while_SOC_at_ceiling_kwh": 0.0,
+      "soc_min_usable_kwh": 1.832,
+      "soc_year_end_usable_kwh": 14.1945005026
+    }
+  },
+  "replay_comparison": {
+    "MC_REF": {
+      "case": "MC_REF",
+      "source_grid_import_kwh": 3107.4851226334,
+      "pv_first_grid_import_kwh": 3107.485122634154,
+      "source_curtailment_kwh": 2443.6042689522997,
+      "pv_first_curtailment_kwh": 2443.6042689557535,
+      "difference_grid_import_kwh": 7.538461127033769e-10,
+      "difference_curtailment_kwh": 3.4533269577252668e-09,
+      "curtailment_timing_changed_hours": 1348,
+      "charging_timing_changed_hours": 1348,
+      "original_year_end_SOC_kwh": 14.3821543547,
+      "pv_first_year_end_SOC_kwh": 14.38215435455842,
+      "cyclic_match_to_source": true,
+      "grid_proxy_failure_hours": 0,
+      "grid_proxy_max_excess_kw": 0.0,
+      "grid_proxy_failure_events": [],
+      "no_AC_feasibility_claim": true
+    },
+    "MC_P33": {
+      "case": "MC_P33",
+      "source_grid_import_kwh": 5227.0918941374,
+      "pv_first_grid_import_kwh": 5227.091894141247,
+      "source_curtailment_kwh": 549.2924459071,
+      "pv_first_curtailment_kwh": 549.2924459084015,
+      "difference_grid_import_kwh": 3.847588385050282e-09,
+      "difference_curtailment_kwh": 1.301594387825844e-09,
+      "curtailment_timing_changed_hours": 491,
+      "charging_timing_changed_hours": 491,
+      "original_year_end_SOC_kwh": 14.1945005026,
+      "pv_first_year_end_SOC_kwh": 14.19450050239993,
+      "cyclic_match_to_source": true,
+      "grid_proxy_failure_hours": 2,
+      "grid_proxy_max_excess_kw": 0.4450705637983825,
+      "grid_proxy_failure_events": [
+        {
+          "timestamp": "2025-10-13 19:00:00",
+          "grid_import_kw": 5.32667697,
+          "grid_import_bound_kw": 4.881606406201618,
+          "excess_kw": 0.4450705637983825
+        },
+        {
+          "timestamp": "2025-11-20 20:00:00",
+          "grid_import_kw": 4.9196978584,
+          "grid_import_bound_kw": 4.899186101655251,
+          "excess_kw": 0.020511756744749476
+        }
+      ],
+      "no_AC_feasibility_claim": true
+    }
+  },
+  "energy_decomposition": {
+    "PV_removed_panels": 8,
+    "lost_PV_available_dc_kwh": 4225.803473808592,
+    "curtailment_reduction_dc_kwh": 1894.3118230451996,
+    "lost_PV_used_dc_kwh": 2331.491650760803,
+    "grid_import_increase_ac_kwh": 2119.6067715040003,
+    "battery_discharge_reduction_dc_kwh": 1906.2059343198016,
+    "assessment": "SIGNED_PV_RESOURCE_LOSS_PLUS_TIMING_AND_OPTIMAL_CHARGE_DEGENERACY"
+  },
+  "interpretation": "PV-first affects hourly charge/curtailment timing without changing annual energy in these cases; naive greedy violates import P/Q bound for MC_P33. Never claim AC certification."
+}
