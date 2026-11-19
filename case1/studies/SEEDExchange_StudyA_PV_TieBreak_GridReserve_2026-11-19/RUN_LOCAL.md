@@ -11,6 +11,32 @@ The earlier signed `StudyA_A1_106039_Redispatch_Trial_v1/` already demonstrates 
 - Validate physical 20% minimum SOC, battery 12kW power, inverter, DC and AC energy closures, annual cyclic SOC, 5kVA PF .98 import proxy and exactly unchanged annual purchases/throughput.
 - **Do not equate this source-stitched annual AC result with a new 8,760-hour AC run or utility certification**. EPM connection geometry/phase and the transformer nameplate remain provisional.
 
+## 19 Nov 2026: permanent Windows source-provenance fix
+
+The original archived annual AC, energy manifest and Stage2 delta files have
+Windows CRLF SHA-256 signatures, whereas Git stores LF versions. The runner
+now accepts only the exact signed bytes or an LF-to-CRLF reconstruction that
+matches the original signed SHA-256 precisely. All other changes fail. No
+historical file content is rewritten.
+
+The full nine-factor preflight now checks source hashes, 8,760-hour chronology,
+and Stage1 demand/inverter identity **before** any new output folder is created.
+An optional short archive path avoids Windows path-length problems. With R:
+still mapped as shown by the user, use Miniforge Prompt commands:
+
+~~~bat
+git pull --ff-only origin sync/seedexchange-local-2026-11-17
+python -m unittest discover -s "case1\studies\SEEDExchange_StudyA_PV_TieBreak_GridReserve_2026-11-19" -p "test_*.py" -v
+python "case1\studies\SEEDExchange_StudyA_PV_TieBreak_GridReserve_2026-11-19\run_stage2_grid_reserve.py" --repo-root . --scope full --historical-root R:/ --preflight-only
+python "case1\studies\SEEDExchange_StudyA_PV_TieBreak_GridReserve_2026-11-19\run_stage2_grid_reserve.py" --repo-root . --scope full --historical-root R:/
+~~~
+
+The runner automatically selects a new unused output folder and prints its
+path. The earlier stress result in the local folder
+StudyA_A1_106039_PV_TieBreak_GridReserve_Stress_v3 was already validated
+by the user and must not be overwritten. The v1 examples below predate the
+permanent fix. Preserve only successful provenance-signed results for GitLab.
+
 ## Complete Miniforge workflow, GitLab-first
 
 From your repository root:
