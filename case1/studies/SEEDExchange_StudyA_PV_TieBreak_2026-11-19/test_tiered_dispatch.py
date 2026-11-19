@@ -2,6 +2,11 @@
 import importlib.util
 from pathlib import Path
 import unittest
+import contextlib
+import io
+import json
+import sys
+from unittest import mock
 import numpy as np
 import pandas as pd
 
@@ -33,6 +38,28 @@ class TieBreakTests(unittest.TestCase):
         self.assertEqual(stats['simultaneous_grid_import_curtailment_hours'],1)
         self.assertAlmostEqual(stats['annual_battery_dc_throughput_kwh'],1.)
         self.assertGreater(stats['weighted_daily_early_curtailment_score'],1.)
+
+    def test_preflight_cli_succeeds_without_errors_key(self):
+        signed = {'status':'SIGNED_SOURCE_PREFLIGHT_ONLY',
+                  'checks':{'MC_REF':{'hours':8760},'MC_P33':{'hours':8760}}}
+        output=io.StringIO()
+        with mock.patch.object(m,'run',return_value=signed) as run_stub:
+            with mock.patch.object(sys,'argv',['tiered_dispatch.py','--preflight-only']):
+                with contextlib.redirect_stdout(output):
+                    m.main()
+        self.assertEqual(json.loads(output.getvalue()),signed)
+        self.assertTrue(run_stub.call_args.kwargs.get('preflight_only',False) or
+                        run_stub.call_args.args[-1] is True)
+
+    def test_full_run_cli_preserves_failure_exit(self):
+        simulated={'status':'INCOMPLETE_OR_FAILURES_NOT_AC_VALIDATED',
+                   'cases':{},'errors':{'MC_REF':{'type':'RuntimeError'}}}
+        with mock.patch.object(m,'run',return_value=simulated):
+            with mock.patch.object(sys,'argv',['tiered_dispatch.py','--out','mock_new']):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    with self.assertRaises(SystemExit) as ctx:
+                        m.main()
+        self.assertEqual(ctx.exception.code,2)
 
     def test_negative_tolerance_fails_before_source_read(self):
         with self.assertRaisesRegex(ValueError,'negative'):

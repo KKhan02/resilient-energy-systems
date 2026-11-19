@@ -225,7 +225,13 @@ def main():
     args=parser.parse_args()
     result=run(args.repo_root,args.out,args.case,args.import_tolerance_kwh,
                args.throughput_tolerance_dc_kwh,args.preflight_only)
-    print(json.dumps(result if args.preflight_only else {
+    if args.preflight_only:
+        # Preflight has a different report schema: status/checks, no errors.
+        # Once its signed-source checks pass, exit successfully without
+        # invoking any full-year optimizer or indexing result['errors'].
+        print(json.dumps(result, indent=2, allow_nan=False))
+        return
+    print(json.dumps({
         'status':result['status'],
         'cases':{c:v['stage2_tiebreak'] for c,v in result['cases'].items()},
         'errors':result['errors'],'output':str(args.out)},indent=2,allow_nan=False))
