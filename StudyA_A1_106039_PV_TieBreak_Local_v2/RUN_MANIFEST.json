@@ -1,0 +1,174 @@
+{
+  "status": "COMPLETE_TWO_STAGE_ENERGY_ONLY_NOT_AC_VALIDATED",
+  "source_checks": {
+    "MC_REF": {
+      "signature": {
+        "case": "MC_REF",
+        "signed_csv_SHA256": "8b1e20b218fe4edab51dea2e2e81566077321ca6cb4929746ff84c6043e45e65",
+        "read_mode": "SIGNED_BYTES",
+        "source_manifest_path": "case1\\studies\\SEEDExchange_StudyA_v6_LocalRunner\\outputs\\run_01\\pvbess_phase_01\\energy_A1_106039_min_cost_ref\\energy_manifest.json"
+      },
+      "hours": 8760,
+      "hardware": {
+        "pv_panels": 41,
+        "battery_modules": 8,
+        "battery_power_dc_kw": 12.0,
+        "inverter_kva": 12.0,
+        "transformer_kva_assumed_or_evidenced": 5.0
+      },
+      "annual": {
+        "annual_grid_import_ac_kwh": 3107.4851226334,
+        "annual_curtailment_dc_kwh": 2443.6042689522997,
+        "weighted_daily_early_curtailment_score": 3821.9693993928167,
+        "annual_battery_dc_throughput_kwh": 19805.5026088837,
+        "annual_charge_dc_kwh": 10156.6680045557,
+        "annual_discharge_dc_kwh": 9648.834604328002,
+        "soc_end_usable_kwh": 14.3821543547,
+        "grid_proxy_failure_hours": 0,
+        "simultaneous_battery_charge_discharge_hours": 0,
+        "simultaneous_grid_import_curtailment_hours": 0
+      }
+    },
+    "MC_P33": {
+      "signature": {
+        "case": "MC_P33",
+        "signed_csv_SHA256": "e1faf60587b248923f05d08b4979c92c7e64fa23ba5306a0390a68af32079123",
+        "read_mode": "SIGNED_BYTES",
+        "source_manifest_path": "StudyA_A1_106039_Utilization_v1\\energy_MC_P33\\energy_manifest.json"
+      },
+      "hours": 8760,
+      "hardware": {
+        "pv_panels": 33,
+        "battery_modules": 8,
+        "battery_power_dc_kw": 12.0,
+        "inverter_kva": 12.0,
+        "transformer_kva_assumed_or_evidenced": 5.0
+      },
+      "annual": {
+        "annual_grid_import_ac_kwh": 5227.0918941374,
+        "annual_curtailment_dc_kwh": 549.2924459071,
+        "weighted_daily_early_curtailment_score": 870.6135150334417,
+        "annual_battery_dc_throughput_kwh": 15892.7641121184,
+        "annual_charge_dc_kwh": 8150.1354421102,
+        "annual_discharge_dc_kwh": 7742.6286700082,
+        "soc_end_usable_kwh": 14.1945005026,
+        "grid_proxy_failure_hours": 0,
+        "simultaneous_battery_charge_discharge_hours": 0,
+        "simultaneous_grid_import_curtailment_hours": 0
+      }
+    }
+  },
+  "stage2_import_tolerance_kwh": 0.01,
+  "stage2_throughput_tolerance_dc_kwh": 0.1,
+  "cases": {
+    "MC_REF": {
+      "case_id": "MC_REF",
+      "source_provenance": {
+        "case": "MC_REF",
+        "signed_csv_SHA256": "8b1e20b218fe4edab51dea2e2e81566077321ca6cb4929746ff84c6043e45e65",
+        "read_mode": "SIGNED_BYTES",
+        "source_manifest_path": "case1\\studies\\SEEDExchange_StudyA_v6_LocalRunner\\outputs\\run_01\\pvbess_phase_01\\energy_A1_106039_min_cost_ref\\energy_manifest.json"
+      },
+      "source_annual": {
+        "annual_grid_import_ac_kwh": 3107.4851226334,
+        "annual_curtailment_dc_kwh": 2443.6042689522997,
+        "weighted_daily_early_curtailment_score": 3821.9693993928167,
+        "annual_battery_dc_throughput_kwh": 19805.5026088837,
+        "annual_charge_dc_kwh": 10156.6680045557,
+        "annual_discharge_dc_kwh": 9648.834604328002,
+        "soc_end_usable_kwh": 14.3821543547,
+        "grid_proxy_failure_hours": 0,
+        "simultaneous_battery_charge_discharge_hours": 0,
+        "simultaneous_grid_import_curtailment_hours": 0
+      },
+      "stage1_reproduced_economic": {
+        "annual_grid_import_ac_kwh": 3107.485122634284,
+        "annual_curtailment_dc_kwh": 2443.6042689557544,
+        "weighted_daily_early_curtailment_score": 3821.9693993981437,
+        "annual_battery_dc_throughput_kwh": 19805.50260887813,
+        "annual_charge_dc_kwh": 10156.668004552888,
+        "annual_discharge_dc_kwh": 9648.834604325242,
+        "soc_end_usable_kwh": 14.382154354558425,
+        "grid_proxy_failure_hours": 0,
+        "simultaneous_battery_charge_discharge_hours": 0,
+        "simultaneous_grid_import_curtailment_hours": 0
+      },
+      "stage2_tiebreak": {
+        "annual_grid_import_ac_kwh": 3107.4851226342844,
+        "annual_curtailment_dc_kwh": 2443.6017048531903,
+        "weighted_daily_early_curtailment_score": 3361.119533051272,
+        "annual_battery_dc_throughput_kwh": 19805.60260887812,
+        "annual_charge_dc_kwh": 10156.719286604162,
+        "annual_discharge_dc_kwh": 9648.883322273954,
+        "soc_end_usable_kwh": 14.382154354558425,
+        "grid_proxy_failure_hours": 0,
+        "simultaneous_battery_charge_discharge_hours": 0,
+        "simultaneous_grid_import_curtailment_hours": 0
+      },
+      "changed_source_curtailment_hours": 1363,
+      "stage2_grid_import_delta_to_signed_kwh": 8.844835974741727e-10,
+      "stage2_curtailment_delta_to_signed_dc_kwh": -0.002564099109349627,
+      "stage2_early_curtail_score_improvement": 460.84986634687175,
+      "status": "TWO_STAGE_DISPATCH_ENERGY_ONLY_NO_AC_CERTIFICATION",
+      "not_a_rolling_horizon_controller": true,
+      "not_pandapower_ac_validated": true,
+      "STAGE1_csv_sha256": "94a921d48dedaff991d85187e753ec456ff744c771a9087cbcfe610126496f06",
+      "STAGE2_csv_sha256": "b32c12c82a92a6f9ab7b114a03321d11fe0027a8f70863a4e4dd6b732cf0e2ff"
+    },
+    "MC_P33": {
+      "case_id": "MC_P33",
+      "source_provenance": {
+        "case": "MC_P33",
+        "signed_csv_SHA256": "e1faf60587b248923f05d08b4979c92c7e64fa23ba5306a0390a68af32079123",
+        "read_mode": "SIGNED_BYTES",
+        "source_manifest_path": "StudyA_A1_106039_Utilization_v1\\energy_MC_P33\\energy_manifest.json"
+      },
+      "source_annual": {
+        "annual_grid_import_ac_kwh": 5227.0918941374,
+        "annual_curtailment_dc_kwh": 549.2924459071,
+        "weighted_daily_early_curtailment_score": 870.6135150334417,
+        "annual_battery_dc_throughput_kwh": 15892.7641121184,
+        "annual_charge_dc_kwh": 8150.1354421102,
+        "annual_discharge_dc_kwh": 7742.6286700082,
+        "soc_end_usable_kwh": 14.1945005026,
+        "grid_proxy_failure_hours": 0,
+        "simultaneous_battery_charge_discharge_hours": 0,
+        "simultaneous_grid_import_curtailment_hours": 0
+      },
+      "stage1_reproduced_economic": {
+        "annual_grid_import_ac_kwh": 5227.091894141432,
+        "annual_curtailment_dc_kwh": 549.2924459084018,
+        "weighted_daily_early_curtailment_score": 870.6135150355119,
+        "annual_battery_dc_throughput_kwh": 15892.764112114486,
+        "annual_charge_dc_kwh": 8150.135442109993,
+        "annual_discharge_dc_kwh": 7742.628670004492,
+        "soc_end_usable_kwh": 14.194500502399935,
+        "grid_proxy_failure_hours": 0,
+        "simultaneous_battery_charge_discharge_hours": 0,
+        "simultaneous_grid_import_curtailment_hours": 0
+      },
+      "stage2_tiebreak": {
+        "annual_grid_import_ac_kwh": 5227.091894141432,
+        "annual_curtailment_dc_kwh": 549.2898818058377,
+        "weighted_daily_early_curtailment_score": 741.2725873856033,
+        "annual_battery_dc_throughput_kwh": 15892.864112114485,
+        "annual_charge_dc_kwh": 8150.1867241612745,
+        "annual_discharge_dc_kwh": 7742.677387953209,
+        "soc_end_usable_kwh": 14.194500502399935,
+        "grid_proxy_failure_hours": 0,
+        "simultaneous_battery_charge_discharge_hours": 0,
+        "simultaneous_grid_import_curtailment_hours": 0
+      },
+      "changed_source_curtailment_hours": 495,
+      "stage2_grid_import_delta_to_signed_kwh": 4.031790012959391e-09,
+      "stage2_curtailment_delta_to_signed_dc_kwh": -0.0025641012623509596,
+      "stage2_early_curtail_score_improvement": 129.34092764990862,
+      "status": "TWO_STAGE_DISPATCH_ENERGY_ONLY_NO_AC_CERTIFICATION",
+      "not_a_rolling_horizon_controller": true,
+      "not_pandapower_ac_validated": true,
+      "STAGE1_csv_sha256": "451b1fdd88749f5568c8c0d68aa70cbbb67814e2130c71240ae3755e49346bfa",
+      "STAGE2_csv_sha256": "75a492fb32ba3ba6ac4dd0ad4d894fca54bdbddc378a8f7f064308a6adb3fb4d"
+    }
+  },
+  "errors": {}
+}
