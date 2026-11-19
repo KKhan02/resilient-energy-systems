@@ -24,6 +24,27 @@ class TieBreakTests(unittest.TestCase):
         self.assertGreater(w[0],w[1]);self.assertAlmostEqual(w[0],w[2])
         self.assertAlmostEqual(w[1],w[3])
 
+    def test_objective_weights_with_timestamp_lst_named_index(self):
+        import xarray as xr
+        idx=pd.date_range('2025-01-01',periods=24,freq='h',name='timestamp_lst')
+        lp_var=xr.DataArray(np.arange(24.,dtype=float),
+                            coords={'snapshot':idx.to_numpy()},dims=('snapshot',))
+        weights=m.objective_snapshot_weights(idx,lp_var)
+        self.assertEqual(weights.dims,('snapshot',))
+        self.assertEqual(weights.coords['snapshot'].dims,('snapshot',))
+        self.assertTrue(np.array_equal(weights.coords['snapshot'].to_numpy(),idx.to_numpy()))
+        self.assertAlmostEqual(float((weights*lp_var).sum()),
+                               float(np.dot(m.morning_weight(idx),np.arange(24.))))
+
+    def test_objective_weights_reject_misaligned_lp_timestamps(self):
+        import xarray as xr
+        idx=pd.date_range('2025-01-01',periods=4,freq='h',name='timestamp_lst')
+        shifted=idx + pd.Timedelta(hours=1)
+        lp_var=xr.DataArray(np.ones(4),
+                            coords={'snapshot':shifted.to_numpy()},dims=('snapshot',))
+        with self.assertRaisesRegex(ValueError,'snapshots do not match'):
+            m.objective_snapshot_weights(idx,lp_var)
+
     def test_source_metrics_flag_naive_grid_violation(self):
         class Audit:
             @staticmethod

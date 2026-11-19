@@ -35,6 +35,24 @@ def morning_weight(index):
     hours = pd.DatetimeIndex(index).hour.to_numpy(dtype=float)
     return 1.0 + (23.0 - hours) / 24.0
 
+def objective_snapshot_weights(snapshots, pv_variable):
+    """Align hourly preference weights to the Linopy variable's 'snapshot' dimension.
+
+    PyPSA input timestamps arrive as an index named 'timestamp_lst', while
+    Linopy variables use 'snapshot'. Passing that named pandas index to
+    xarray directly creates a mismatched coordinate dimension.
+    Use the LP variable's own coordinate values instead.
+    """
+    import xarray as xr
+    stamps = pd.DatetimeIndex(snapshots)
+    if 'snapshot' not in pv_variable.coords:
+        raise ValueError('PV objective variable has no snapshot coordinate')
+    coord = np.asarray(pv_variable.coords['snapshot'].values)
+    if coord.shape != (len(stamps),) or not np.array_equal(coord, stamps.to_numpy()):
+        raise ValueError('PV objective snapshots do not match 2025 source chronology')
+    return xr.DataArray(morning_weight(stamps),
+                        coords={'snapshot': coord}, dims=('snapshot',))
+
 
 def annual_metrics(hourly, audit):
     curtail = hourly['curtailed_pv_dc_kw'].to_numpy(float)
@@ -120,7 +138,6 @@ def solve_checked(n, label):
 
 
 def run_case(repo, case, audit, fixed, import_tolerance, throughput_tolerance):
-    import xarray as xr
     source, hw, provenance = audit.read_signed(repo, case)
     model, settings, n = build_problem(repo, source, hw, fixed, audit)
     solve_checked(n, case + ' primary economic')
@@ -142,8 +159,7 @@ def run_case(repo, case, audit, fixed, import_tolerance, throughput_tolerance):
                       original['annual_battery_dc_throughput_kwh'] + throughput_tolerance,
                       name='stage2_limit_annual_battery_dc_throughput')
     pvgen = m.variables['Generator-p'].sel(name='PV_DC')
-    weights = xr.DataArray(morning_weight(n.snapshots),
-                           coords={'snapshot': n.snapshots}, dims=['snapshot'])
+    weights = objective_snapshot_weights(n.snapshots, pvgen)
     # Minimize early curtailment = maximize earlier generation at fixed PV availability.
     # This does NOT force strict real-time priority, nor does it guarantee AC feasibility.
     m.add_objective(-(weights * pvgen).sum(), overwrite=True)
