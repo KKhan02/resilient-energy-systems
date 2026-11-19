@@ -8,7 +8,7 @@ signed historical output.
 ## What already exists
 
 The signed full-year PyPSA frontier contains 12 choices. The stress annual
-pandapower source in \`StudyA_A1_106039_NewHardware_AC_Stress_v1\` contains
+pandapower source in `StudyA_A1_106039_NewHardware_AC_Stress_v1` contains
 three new candidates with original AC violations:
 
 | Case | PV modules | Battery modules | Original PF .95, length 1.6 AC failures |
@@ -47,7 +47,7 @@ only**, NOT a full nine-factor annual AC conclusion.
 
 ## Miniforge Command Prompt, from repository root
 
-\`\`\`bat
+```bat
 git status --short
 git switch sync/seedexchange-local-2026-11-17
 git pull --ff-only origin sync/seedexchange-local-2026-11-17
@@ -57,16 +57,16 @@ python -m unittest discover -s "case1\studies\SEEDExchange_StudyA_NewHardware_Re
 python "case1\studies\SEEDExchange_StudyA_NewHardware_Reserve_2026-11-19\new_hardware_reserve.py" --repo-root . --preflight-only
 
 python "case1\studies\SEEDExchange_StudyA_NewHardware_Reserve_2026-11-19\new_hardware_reserve.py" --repo-root .
-\`\`\`
+```
 
 Verify the output folder printed by the runner. Expect 3 case results and
-status \`STRESS_PASS_ONLY_ALL_NINE_PENDING\` **only if** all corrected annual
+status `STRESS_PASS_ONLY_ALL_NINE_PENDING` **only if** all corrected annual
 source-stitched AC screens pass. Retain failed receipts as evidence; do not
 claim a failed run passed. The runner never overwrites an existing folder.
 
 Push the completed, successful **new output folder only**:
 
-\`\`\`bat
+```bat
 git status --short
 git add "StudyA_A1_106039_NewHardware_Reserve_Stress_vN"
 git diff --cached --name-only
@@ -75,9 +75,9 @@ git commit -m "Validate source-matched A1 new-hardware reserve stress [ci skip]"
 git pull --rebase origin sync/seedexchange-local-2026-11-17
 git push origin sync/seedexchange-local-2026-11-17
 git status --short
-\`\`\`
+```
 
-Replace \`vN\` with the ACTUAL folder printed by the runner. The assistant
+Replace `vN` with the ACTUAL folder printed by the runner. The assistant
 will independently audit GitLab source and results. If any case fails, push
 only when explicitly labelled diagnostic and plan another correction;
 never recast failures as a pass.
