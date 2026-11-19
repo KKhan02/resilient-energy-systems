@@ -18,6 +18,26 @@ Same 11 named houses (annual load 20,878.00 kWh), same inverter 12 kVA and eight
 
 Energy accounting: reducing panels loses 4,225.80 kWh potential DC PV. Of this, 1,894.31 kWh had been curtailed under the old design; the remaining 2,331.49 kWh was previously used. Reduced PV charging yields 1,906.21 kWh less battery DC discharge. Both effects increase grid imports after efficiency conversion. The curtailment reduction is **77.52%**, not small, but cannot be equated with energy delivered to households.
 
+
+## Exact annual import decomposition, not just a heuristic explanation
+
+The original signed DC-bus and AC-load balances imply, in kWh/year:
+
+`Grid imports = Household demand − 0.95 × PV available + 0.95 × PV curtailed + 0.95 × (battery DC charging − battery DC discharging)`.
+
+This is an identity for the specified 2025 model with no export or ENS, not an empirical regression. It separates the potential PV energy shortfall, unavoidable curtailed energy at the selected dispatch, and the battery conversion-loss term. It does **not** include independently modelled pandapower feeder losses.
+
+| Term of annual grid imports | MC_REF, 41 panels | MC_P33, 33 panels | Change |
+|---|---:|---:|---:|
+| Load minus 95%-converted available PV, kWh | 303.619 | 4,318.133 | +4,014.513 |
+| 95% of DC PV curtailment, kWh | 2,321.424 | 521.828 | −1,799.596 |
+| 95% × (battery DC charge − DC discharge), kWh | 482.442 | 387.131 | −95.310 |
+| **Result: grid import AC**, kWh | **3,107.485** | **5,227.092** | **+2,119.607** |
+
+MC_P33's *available* PV at 95% conversion supplies at most **16,559.867 kWh AC** against 20,878 kWh load, even with no curtailment or battery losses. Therefore **at least 4,318.133 kWh of grid imports is unavoidable** under this fixed solar resource and inverter efficiency. The additional 908.959 kWh in the signed dispatch is explained by 521.828 kWh curtailed PV's AC equivalent and 387.131 kWh battery conversion losses. Eliminating the entire 549.292 kWh DC curtailment cannot eliminate imported energy.
+
+The source curves and grid limit constrain timing. The detailed chronological replay separately demonstrates the source optimizer's absence of explicit immediate PV-first charging priority, but the PV-first replay still reaches the same annual import and curtailment totals while changing which hours are curtailed.
+
 ## 2. Exact optimization priority from original code
 
 - `case1/studies/ac_aware_redispatch_v1/fixed_hardware.py` uses `fixed_settings(... objective='economic', export_policy='zero', allow_unserved=False)`, then creates an 8,760-hour Linopy LP with fixed PV, BESS energy, BESS power and inverter ratings, minimum battery physical SOC, and cyclic year-end state.
