@@ -1,5 +1,7 @@
 """Synthetic tests only; do not claim AC feasibility without user-local pandapower."""
 import importlib.util
+import hashlib
+import tempfile
 from pathlib import Path
 import unittest
 import pandas as pd
@@ -24,6 +26,30 @@ class ReserveTransferTests(unittest.TestCase):
         f["pcc_p_kw"]=f.grid_import_kw
         f["pcc_kva_proxy"]=(f.pcc_p_kw**2+f.pcc_q_kvar_proxy**2)**.5
         return f
+
+    def test_accepts_original_signed_manifest_bytes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path=Path(temp)/"energy_manifest.json"
+            raw=b'{"status":"SIGNED"}\r\n'
+            path.write_bytes(raw)
+            expected=hashlib.sha256(raw).hexdigest()
+            self.assertEqual(m.verify_signed_text(path,expected),"EXACT_SIGNED_BYTES")
+
+    def test_git_lf_reconstructs_exact_original_crlf_manifest(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path=Path(temp)/"energy_manifest.json"
+            path.write_bytes(b'{"status":"SIGNED"}\n')
+            expected=hashlib.sha256(b'{"status":"SIGNED"}\r\n').hexdigest()
+            self.assertEqual(m.verify_signed_text(path,expected),
+                             "GIT_LF_RECONSTRUCTS_SIGNED_CRLF")
+
+    def test_changed_manifest_bytes_are_rejected(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path=Path(temp)/"energy_manifest.json"
+            path.write_bytes(b'{"status":"ALTERED"}\n')
+            expected=hashlib.sha256(b'{"status":"SIGNED"}\r\n').hexdigest()
+            with self.assertRaisesRegex(ValueError,"Signed source bytes differ"):
+                m.verify_signed_text(path,expected)
 
     def test_transfer_preserves_import_and_discharge(self):
         a=self.fixture()

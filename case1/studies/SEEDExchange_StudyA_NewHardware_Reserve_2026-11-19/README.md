@@ -31,7 +31,9 @@ timestamps and target grid imports have been inspected in GitLab.
 
 The runner checks all three original source energy manifests/CSV hashes and
 three original 8,760-row pandapower stress manifest/CSV hashes using existing
-verified Git-LF/Windows-CRLF logic. It matches household demand, exact inverter
+verified Git-LF/Windows-CRLF logic. Each original energy-manifest JSON hash
+must match the archived AC manifest, either directly or through a byte-exact
+Git LF-to-original CRLF reconstruction; other differences are rejected. It matches household demand, exact inverter
 injections and the original fail timestamps. It checks annual manufacturer SOC
 20% floor, DC and AC bus balances, cyclic SOC, inverter and battery power,
 5 kVA dispatch proxy, no simultaneous charge/discharge, no export/ENS,

@@ -52,6 +52,19 @@ def sha(path):
             h.update(data)
     return h.hexdigest()
 
+def verify_signed_text(path, expected):
+    """Allow only exact bytes or original CRLF SHA recreated from Git LF text."""
+    path=Path(path)
+    raw=path.read_bytes()
+    actual=hashlib.sha256(raw).hexdigest()
+    if actual==expected:
+        return "EXACT_SIGNED_BYTES"
+    if b"\r" not in raw and b"\n" in raw:
+        if hashlib.sha256(raw.replace(b"\n",b"\r\n")).hexdigest()==expected:
+            return "GIT_LF_RECONSTRUCTS_SIGNED_CRLF"
+    raise ValueError("Signed source bytes differ: "+str(path)+
+                     " expected="+str(expected)+" actual="+actual)
+
 def load_module(label, file):
     spec = importlib.util.spec_from_file_location(label, file)
     if spec is None or spec.loader is None:
@@ -155,8 +168,15 @@ def preflight(repo):
     st, ctx = frontier.make_context(repo)
     all_cases = {}
     for case in CASES:
-        df, man, energy_manifest_sha = frontier.signed_energy(
+        df, man, raw_energy_manifest_sha = frontier.signed_energy(
             repo, repo / ENERGY_DIR, case, st, ctx)
+        archived_ac_metadata = json.loads((
+            repo / STRESS_DIR / f"{case}_pf095_l16" / "ac_summary.json"
+        ).read_text(encoding="utf-8"))
+        energy_manifest_sha = archived_ac_metadata["new_energy_manifest_sha256"]
+        source_hash_mode = verify_signed_text(
+            repo / ENERGY_DIR / ("energy_"+case) / "energy_manifest.json",
+            energy_manifest_sha)
         baseline, ac_record = check_source_ac(
             repo, frontier, b9, st, ctx, case, df, energy_manifest_sha)
         trial = df.copy(deep=True)
@@ -174,6 +194,8 @@ def preflight(repo):
         all_cases[case] = {
             "original":df, "candidate":trial, "original_ac":baseline,
             "energy_manifest":man, "energy_manifest_sha256":energy_manifest_sha,
+            "energy_manifest_checkout_sha256":raw_energy_manifest_sha,
+            "energy_manifest_hash_mode":source_hash_mode,
             "ac_manifest":ac_record, "gates":gates, "changed":changed}
     receipt = {
         "status":"SIGNED_SOURCES_AND_ANNUAL_ENERGY_PREFLIGHT_PASS_NO_NEW_AC",
@@ -187,6 +209,8 @@ def preflight(repo):
         receipt["cases"][case] = {
             "hardware":d["energy_manifest"]["hardware"],
             "source_energy_manifest_sha256":d["energy_manifest_sha256"],
+            "source_energy_checkout_sha256":d["energy_manifest_checkout_sha256"],
+            "source_energy_manifest_hash_mode":d["energy_manifest_hash_mode"],
             "source_ac_hourly_sha256":d["ac_manifest"]["ac_hourly_sha256"],
             "original_infeasible_hours":len(KNOWN_BASELINE_FAILURES[case]),
             "exact_plan":[list(x) for x in PLAN[case]],
