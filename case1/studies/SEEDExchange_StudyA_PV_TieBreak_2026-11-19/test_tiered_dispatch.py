@@ -1,0 +1,42 @@
+"""Lightweight independent checks; source preflight is an explicit local command."""
+import importlib.util
+from pathlib import Path
+import unittest
+import numpy as np
+import pandas as pd
+
+path=Path(__file__).with_name('tiered_dispatch.py')
+spec=importlib.util.spec_from_file_location('tiered_dispatch',path)
+m=importlib.util.module_from_spec(spec)
+spec.loader.exec_module(m)
+
+class TieBreakTests(unittest.TestCase):
+    def test_daily_weight_is_bounded_and_prefers_early_hours(self):
+        dates=pd.to_datetime(['2025-01-01 07:00','2025-01-01 14:00',
+                              '2025-01-02 07:00','2025-01-02 14:00'])
+        w=m.morning_weight(dates)
+        self.assertTrue(np.all((w>=1.)&(w<=2.)))
+        self.assertGreater(w[0],w[1]);self.assertAlmostEqual(w[0],w[2])
+        self.assertAlmostEqual(w[1],w[3])
+
+    def test_source_metrics_flag_naive_grid_violation(self):
+        class Audit:
+            @staticmethod
+            def grid_bound(demand):
+                return np.full(len(demand),4.5)
+        idx=pd.date_range('2025-01-01',periods=2,freq='h')
+        h=pd.DataFrame({'demand_kw':[5.,3.], 'curtailed_pv_dc_kw':[1.,0.],
+          'grid_import_kw':[5.,2.], 'battery_charge_dc_kw':[0.,1.],
+          'battery_discharge_dc_kw':[0.,0.], 'battery_soc_usable_kwh':[3.,4.]},index=idx)
+        stats=m.annual_metrics(h,Audit)
+        self.assertEqual(stats['grid_proxy_failure_hours'],1)
+        self.assertEqual(stats['simultaneous_grid_import_curtailment_hours'],1)
+        self.assertAlmostEqual(stats['annual_battery_dc_throughput_kwh'],1.)
+        self.assertGreater(stats['weighted_daily_early_curtailment_score'],1.)
+
+    def test_negative_tolerance_fails_before_source_read(self):
+        with self.assertRaisesRegex(ValueError,'negative'):
+            m.run('.',selected='MC_P33',import_tolerance=-1,preflight_only=True)
+
+if __name__=='__main__':
+    unittest.main()
