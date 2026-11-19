@@ -1,0 +1,40 @@
+{
+  "status": "NEW_AC_PILOT_COMPLETE_WITH_EXPLICIT_FAILURES",
+  "items": [
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9542357057049781,
+      "max_trafo_pct": 107.43116907056816,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "MC_B10",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 2,
+      "min_voltage_pu": 0.9542357057049781,
+      "max_trafo_pct": 107.43116907056816,
+      "execution": "NEW"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "converged_hours": 8760,
+      "AC_infeasible_hours": 1,
+      "min_voltage_pu": 0.9542357057049781,
+      "max_trafo_pct": 107.43116907056816,
+      "execution": "NEW"
+    }
+  ],
+  "job_count": 3,
+  "reused": 0,
+  "blocked": 0,
+  "AC_failed_cases": 3,
+  "scope": "NEW_FRONTIER_DISPATCH_AC_ONLY_NOT_EQUIPMENT_OR_NETWORK_CERTIFICATION"
+}
