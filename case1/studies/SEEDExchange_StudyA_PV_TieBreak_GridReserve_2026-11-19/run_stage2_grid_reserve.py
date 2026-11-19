@@ -113,6 +113,27 @@ def assert_dispatch(original, candidate):
     if abs(original.battery_soc_usable_kwh.iat[-1]-candidate.battery_soc_usable_kwh.iat[-1])>1e-5:
         raise ValueError('Annual battery terminal SOC changed')
 
+def verify_reserve_change_set(indexes, expected, stage2_changed):
+    """Verify four specified reserve hours; overlaps with prior Stage2 are valid.
+
+    Stage2 AC is applied first. The four reserve hours are independently
+    re-solved and replace the Stage2 entries, including any overlapping hour.
+    """
+    actual = [int(i) for i in indexes]
+    planned = [int(i) for i in expected]
+    previous = set(int(i) for i in stage2_changed)
+    if len(actual) != len(planned) or set(actual) != set(planned):
+        raise ValueError('Unexpected reserve candidate changed-hour set')
+    overlap = sorted(set(actual) & previous)
+    return {
+        'stage2_changed_hours': len(previous),
+        'reserve_corrected_hours': len(actual),
+        'overlap_with_stage2_indexes': overlap,
+        'overlap_with_stage2_hours': len(overlap),
+        'unique_changed_since_stage1_hours': len(set(actual) | previous),
+    }
+
+
 def load_inputs(repo):
     repo=Path(repo).resolve()
     sys.path.insert(0,str(repo/'case1/studies/SEEDExchange_StudyA_PV_TieBreak_AC_Delta_2026-11-19'))
@@ -126,14 +147,13 @@ def load_inputs(repo):
     indexes=np.flatnonzero(np.abs(s2.inverter_ac_kw.to_numpy()-
                                   candidate.inverter_ac_kw.to_numpy())>1e-7).tolist()
     expected=[s2.index.get_loc(pd.Timestamp(x)) for a,b,_ in SHIFT_PLAN for x in (a,b)]
-    if sorted(indexes)!=sorted(expected) or set(indexes)&set(plan['MC_REF']['changed_indexes']):
-        raise ValueError('Unexpected or overlapping candidate changed-hour set')
+    change_coverage=verify_reserve_change_set(indexes,expected,plan['MC_REF']['changed_indexes'])
     manifest=json.loads((repo/DELTA_ROOT/'RUN_MANIFEST.json').read_text(encoding='utf-8'))
     if (manifest['status']!='COMPLETE_MATCHED_DELTA_AC_WITHOUT_ANNUAL_CERTIFICATION'
         or manifest['errors'] or len(manifest['scenarios'])!=18 or
         manifest['source']['energy_run_manifest_sha256']!=sha(repo/V2_ROOT/'RUN_MANIFEST.json')):
         raise ValueError('Previous Stage2 AC delta manifest not fully signed')
-    return v6,trace,houses,s1,s2,candidate,plan,manifest,indexes,prov
+    return v6,trace,houses,s1,s2,candidate,plan,manifest,indexes,prov,change_coverage
 
 def summary(df):
     converged=df.status.eq('CONVERGED')
@@ -206,6 +226,8 @@ def ac_one_factor(repo,v6,trace,houses,s1,s2,candidate,manifest,indexes,pf,lf,qr
     corrected=staged.copy(deep=True)
     changed=[]
     for index in indexes:
+        # Re-solve every reserve hour against the already stitched Stage2 source.
+        # The Nov 27 17:00 donor is itself one of the 68 Stage2-changed hours.
         t=trace.index[index]
         oldr=v6.solve_ac_hour(net,meta,territory,t,trace.iloc[index],pf,
                     float(s2.inverter_ac_kw.iat[index]),12.,
@@ -241,16 +263,19 @@ def ac_one_factor(repo,v6,trace,houses,s1,s2,candidate,manifest,indexes,pf,lf,qr
             'source_annual_ac_sha256':sha(old_file),
             'stage2_delta_csv_sha256':sha(changed_file),
             'changed_earlier_stage2_ac_hours':68,'new_reserve_corrected_hours':len(indexes),
+            'overlap_with_stage2_hours':len(set(indexes)&set(manifest['plan']['MC_REF']['changed_indexes'])),
+            'unique_changed_since_stage1_hours':len(set(indexes)|set(manifest['plan']['MC_REF']['changed_indexes'])),
             'interpretation':'SOURCE_STITCHED_COMPLETE_2025_AC_BALANCED_PROVISIONAL_GIS_NOT_A_NEW_8760H_SOLVE'},changed
 
 def run(repo,out=None,preflight=False,scope='stress'):
     repo=Path(repo).resolve()
-    v6,trace,houses,s1,s2,candidate,plan,manifest,indexes,provenance=load_inputs(repo)
+    v6,trace,houses,s1,s2,candidate,plan,manifest,indexes,provenance,change_coverage=load_inputs(repo)
     checks={'status':'SIGNED_SOURCE_GRID_RESERVE_PREFLIGHT',
             'source_v2_sha256':sha(repo/V2_ROOT/'RUN_MANIFEST.json'),
             'source_delta_sha256':sha(repo/DELTA_ROOT/'RUN_MANIFEST.json'),
             'source_annual_inverter_identity':'TO_BE_VALIDATED_PER_FACTOR',
             'shift_plan':SHIFT_PLAN,'replayed_grid_injection_hours':len(indexes),
+            'changed_hour_lineage':change_coverage,
             'stage2_grid_import_kwh':float(s2.grid_import_kw.sum()),
             'candidate_grid_import_kwh':float(candidate.grid_import_kw.sum()),
             'stage2_end_soc_kwh':float(s2.battery_soc_usable_kwh.iat[-1]),

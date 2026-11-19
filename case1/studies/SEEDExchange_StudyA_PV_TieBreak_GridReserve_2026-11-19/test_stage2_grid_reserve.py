@@ -52,5 +52,28 @@ class ReserveTests(unittest.TestCase):
           ('2025-10-13 17:00:00','2025-10-13 20:00:00'),
           ('2025-11-27 17:00:00','2025-11-27 20:00:00')])
 
+    def test_valid_prior_stage2_overlap_is_counted_once(self):
+        lineage=m.verify_reserve_change_set(
+            [6857,6860,7937,7940],[6857,6860,7937,7940],[20,21,7937])
+        self.assertEqual(lineage['overlap_with_stage2_indexes'],[7937])
+        self.assertEqual(lineage['overlap_with_stage2_hours'],1)
+        self.assertEqual(lineage['reserve_corrected_hours'],4)
+        self.assertEqual(lineage['unique_changed_since_stage1_hours'],6)
+
+    def test_unexpected_reserve_hour_is_still_rejected(self):
+        with self.assertRaisesRegex(ValueError,'Unexpected reserve candidate changed-hour set'):
+            m.verify_reserve_change_set(
+                [6857,6860,7937,7941],[6857,6860,7937,7940],[7937])
+
+    def test_overlapping_stage2_ac_row_is_replaced_by_reserve(self):
+        t=pd.Timestamp('2025-11-27 17:00:00')
+        stitched=pd.DataFrame({'status':['CONVERGED'],
+                              'ac_feasible':[True],'max_trafo_pct':[65.879]},index=[t])
+        m.patch_ac(stitched,t,{'stage2_max_trafo_pct':36.7338640691},'stage2_')
+        self.assertAlmostEqual(float(stitched.at[t,'max_trafo_pct']),36.7338640691)
+        m.patch_ac(stitched,t,{'reserve_max_trafo_pct':42.0},'reserve_')
+        self.assertAlmostEqual(float(stitched.at[t,'max_trafo_pct']),42.0)
+
+
 if __name__=='__main__':
     unittest.main()
