@@ -26,6 +26,8 @@ only, **not the unchanged 8,760-hour original AC baseline**.
 
 The summary records non-converged/missing metrics as JSON null, preserves failed case counts and never recasts a failed hour as feasible.
 
+The preflight argument contract was corrected after a local `KeyError: 'candidate'`: the source gate now receives the full case dictionary, not its `original` DataFrame. Two regression tests cover this boundary and a synthetic signed 8,760-hour CSV source gate. The failed preflight created no output and executed no new AC solver.
+
 ## Windows Miniforge commands
 
 From the same project checkout on

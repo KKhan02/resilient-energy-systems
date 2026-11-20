@@ -96,7 +96,7 @@ def verify_source(repo, root):
     checks={}
     for case in nh.CASES:
         checks[case]=exact_source_stress(
-            nh,root,cases[case]["original"],cases[case],saved["cases"][case],case)
+            nh,root,cases[case],cases[case],saved["cases"][case],case)
     source_receipt={"status":"SIGNED_3CASE_STRESS_PREFLIGHT_PASS_NO_NEW_AC",
         "stress_manifest_sha256":sha(manifest_file),
         "stress_root":str(root),
