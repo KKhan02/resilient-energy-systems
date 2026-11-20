@@ -28,6 +28,9 @@ If any signature, control, input or result disagrees, the run fails closed.
 | SS_P45_B9 | SS_B9 (20 kVA) | 8,029 | 731 |
 
 All 9 original B9 reference AC factor files are read and source checked.
+The stress-source manifest is checked against the SHA-256 recorded by the
+nine-factor screen using exact bytes or only a signature-matching Git LF to
+original Windows CRLF reconstruction. No original file is modified.
 Each new hardware's own original PF .95 x1.6 annual AC is retained. Only
 the 8 other network factors require original AC mismatch solves, expected
 **9,256**. Corrected reserves require **72** additional replays to record

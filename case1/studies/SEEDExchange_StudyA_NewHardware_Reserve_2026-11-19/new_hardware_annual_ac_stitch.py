@@ -110,8 +110,13 @@ def check_screen(repo,screen_manifest,source_stress,nh,cases):
         man.get("AC_calls")!=144 or man.get("factor_case_count")!=27 or
         man.get("annual_ac_cases_completed_by_this_screen")!=0 or
         man.get("may_claim_annual_ac_feasibility") is not False or
-        man.get("stress_manifest_sha256")!=source_stress["stress_manifest_sha256"]):
+        not isinstance(man.get("stress_manifest_sha256"),str)):
         raise ValueError("Signed changed-hour screen status or source mismatch")
+    # Signed screen may reference the original Windows CRLF manifest while
+    # Git stores its LF normalization. Require exact original SHA evidence.
+    stress_hash_mode=nh.verify_signed_text(
+        repo/SOURCE_STRESS/"RUN_MANIFEST.json",
+        man["stress_manifest_sha256"])
     csvpath=repo/SOURCE_SCREEN/"ALL_NINE_CHANGED_HOUR_AC.csv"
     frame=pd.read_csv(csvpath,parse_dates=["timestamp_lst"])
     expected={(case,pf,lf,t,phase)
@@ -140,7 +145,9 @@ def check_screen(repo,screen_manifest,source_stress,nh,cases):
         source=cases[row.case_id]["candidate" if row.phase=="candidate" else "original"]
         if abs(float(row.inverter_ac_kw)-float(source.loc[row.timestamp_lst,"inverter_ac_kw"]))>2e-7:
             raise ValueError("Changed hour signed source inverter mismatch")
-    return frame,{"screen_manifest_sha256":sha(manpath),
+    return frame,{"stress_manifest_hash_mode":stress_hash_mode,
+                  "stress_manifest_signed_sha256":man["stress_manifest_sha256"],
+                  "screen_manifest_sha256":sha(manpath),
                   "screen_csv_checkout_sha256":sha(csvpath),
                   "screen_row_count":len(frame)}
 
@@ -367,7 +374,8 @@ def cli(argv=None):
         "source_all_nine_factor_case_factors_checked":len(source),
         "screen_sha256":screen_meta["screen_manifest_sha256"],
         "screen_csv_sha256":screen_meta["screen_csv_checkout_sha256"],
-        "stress_source_sha256":stress["stress_manifest_sha256"],
+        "stress_source_sha256":screen_meta["stress_manifest_signed_sha256"],
+        "stress_source_hash_mode":screen_meta["stress_manifest_hash_mode"],
         "runner_sha256":sha(Path(__file__)),
         "expected_new_original_hour_solves":sum(0 if (pf,lf)==(.95,1.6)
                     else int((~source[(c,pf,lf)]["reusable"]).sum())
