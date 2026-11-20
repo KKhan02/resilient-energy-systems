@@ -116,6 +116,14 @@ def verify_source(repo, root):
             } for case in nh.CASES}}
     return nh,frontier,b9,ctx,cases,checks,source_receipt
 
+def finite_extreme(values, what):
+    """Preserve non-converged cases as null, never emit a NaN JSON result."""
+    arr=pd.to_numeric(values,errors="coerce").to_numpy(float)
+    finite=arr[np.isfinite(arr)]
+    if not len(finite):
+        return None
+    return float(finite.min() if what=="min" else finite.max())
+
 def ac_screen(record):
     status=str(record.get("status"))=="CONVERGED"
     try:
@@ -200,8 +208,8 @@ def run_screen(repo, root, out, run_preflight_only=False):
             "changed_case_hours":len(part),
             "corrected_changed_hour_failures":int((~feas).sum()),
             "nonconverged_changed_hours":int((part.status!="CONVERGED").sum()),
-            "worst_changed_hour_trafo_pct":float(part.max_trafo_pct.max()),
-            "lowest_changed_hour_voltage_pu":float(part.min_v_pu.min()),
+            "worst_changed_hour_trafo_pct":finite_extreme(part.max_trafo_pct,"max"),
+            "lowest_changed_hour_voltage_pu":finite_extreme(part.min_v_pu,"min"),
             "coverage":"CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"})
     summary=sorted(summary,key=lambda s:(s["case_id"],s["pf"],s["length_factor"]))
     if len(summary)!=len(nh.CASES)*len(FACTORS):
@@ -233,7 +241,10 @@ def run_screen(repo, root, out, run_preflight_only=False):
             selected=[v for v in summary if v["case_id"]==case]
             fig,ax=plt.subplots(figsize=(9,4))
             keys=[f'PF{v["pf"]:.2f} x{v["length_factor"]:.1f}' for v in selected]
-            ax.bar(np.arange(len(keys)),[v["worst_changed_hour_trafo_pct"] for v in selected])
+            values=[float(v["worst_changed_hour_trafo_pct"])
+                    if v["worst_changed_hour_trafo_pct"] is not None else np.nan
+                    for v in selected]
+            ax.bar(np.arange(len(keys)),values)
             ax.axhline(100,color="black",linestyle="--",label="Transformer rating")
             ax.set_xticks(np.arange(len(keys)),keys,rotation=40,ha="right")
             ax.set_ylabel("Maximum of altered hours, transformer loading (%)")

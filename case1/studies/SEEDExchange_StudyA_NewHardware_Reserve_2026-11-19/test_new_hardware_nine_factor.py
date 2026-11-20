@@ -41,6 +41,13 @@ class NineFactorTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"feasibility flag disagrees"):
             m.ac_screen(r)
 
+    def test_nonconvergent_metrics_are_explicit_not_nan(self):
+        rec={"status":"NOT_CONVERGED","ac_feasible":False}
+        self.assertFalse(m.ac_screen(rec)["ac_feasible"])
+        x=pd.Series([float("nan"),None])
+        self.assertIsNone(m.finite_extreme(x,"min"))
+        self.assertIsNone(m.finite_extreme(x,"max"))
+
     def test_stress_hour_numeric_check_rejects_tampering(self):
         saved=pd.DataFrame([{"timestamp_lst":"2025-11-27 20:00:00",
             "old_trafo_pct":107.43117,"new_trafo_pct":92.53,
