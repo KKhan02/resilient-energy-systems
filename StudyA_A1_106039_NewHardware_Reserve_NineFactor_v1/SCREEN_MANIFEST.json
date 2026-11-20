@@ -1,0 +1,342 @@
+{
+  "status": "NINE_FACTOR_CHANGED_HOURS_PASS_ONLY",
+  "stress_manifest_sha256": "88af14cf9a3ce757dd673e60374d754114b966705a706f4256c81dbcd70e8742",
+  "stress_root": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\StudyA_A1_106039_NewHardware_Reserve_Stress_v1",
+  "three_case_year": 2025,
+  "factor_count": 9,
+  "planned_changed_hour_AC_solves": 144,
+  "annual_ac_cases_completed_by_this_screen": 0,
+  "cases": {
+    "MC_B10": {
+      "signed_source_energy_manifest_sha256": "1d86c316d1bdcd9e45042b966437ee3696a153833e03da1b09471e772aa058db",
+      "source_annual_stress_ac_sha256": "16069fb88b928b0ba6bd998670119d054a13065648543706be82f96d16afd180",
+      "stress_corrected_csv_sha256": "f5d093cbac2f8ee7021b480da823bd2d05e0a420b761a5e1669cb43d927bb76d",
+      "stress_correction_checks_sha256": "89e64c7306d5bb5e295ee983cb2ed11f0d27fbbffc2c0aaa024afd72b7763994",
+      "candidate_source_mode": "EXACT_SIGNED_BYTES",
+      "stress_changed_source_mode": "EXACT_SIGNED_BYTES",
+      "changed_hours": 4
+    },
+    "SS_B10": {
+      "signed_source_energy_manifest_sha256": "3e9730adbcecc8fbe275c294c605373f4de25f7c29e3448ebfecab4626881189",
+      "source_annual_stress_ac_sha256": "47043bc94e3b689ee983f6e2890c81ffe9bac2b7ab655bb494db12aefb56600f",
+      "stress_corrected_csv_sha256": "ad7e4e9e9ebc8b411ae258e7d7dd33b93b1cfc5df1bad247f84cd3fb06ebd75c",
+      "stress_correction_checks_sha256": "809eca3fcbaca992be782a42c685c82369c630d6756af1e1cac6975b69fa188a",
+      "candidate_source_mode": "EXACT_SIGNED_BYTES",
+      "stress_changed_source_mode": "EXACT_SIGNED_BYTES",
+      "changed_hours": 2
+    },
+    "SS_P45_B9": {
+      "signed_source_energy_manifest_sha256": "df0ba1b41099d646accc0101483c17667193bf56edc69013c7595cb9382da487",
+      "source_annual_stress_ac_sha256": "314d884098b4b5c96e4c1bd549e0310b661eb67bce03968fd22da9c941a2b8d0",
+      "stress_corrected_csv_sha256": "e5b4836edd87163e2f6851277294f9341e1cae5496fb1847e0592c9a81bacdf8",
+      "stress_correction_checks_sha256": "f67f03d60d8968acd74dd70d8009d3624b19e33662c7b6ca93ef8053b627ebeb",
+      "candidate_source_mode": "EXACT_SIGNED_BYTES",
+      "stress_changed_source_mode": "EXACT_SIGNED_BYTES",
+      "changed_hours": 2
+    }
+  },
+  "AC_calls": 144,
+  "factor_case_count": 27,
+  "changed_hour_factor_summaries": [
+    {
+      "case_id": "MC_B10",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "changed_case_hours": 4,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 92.41937041972022,
+      "lowest_changed_hour_voltage_pu": 0.959508389188601,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "MC_B10",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "changed_case_hours": 4,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 92.47623889124823,
+      "lowest_changed_hour_voltage_pu": 0.9583754576559168,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "MC_B10",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "changed_case_hours": 4,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 92.53336510059201,
+      "lowest_changed_hour_voltage_pu": 0.9572396590244653,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "MC_B10",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "changed_case_hours": 4,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 88.09722286581577,
+      "lowest_changed_hour_voltage_pu": 0.9627156175134872,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "MC_B10",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "changed_case_hours": 4,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 88.15202965145164,
+      "lowest_changed_hour_voltage_pu": 0.961595194615666,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "MC_B10",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "changed_case_hours": 4,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 88.20707866124557,
+      "lowest_changed_hour_voltage_pu": 0.9604720470541108,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "MC_B10",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "changed_case_hours": 4,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 84.73225210918902,
+      "lowest_changed_hour_voltage_pu": 0.9678225830364041,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "MC_B10",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "changed_case_hours": 4,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 84.78515684076609,
+      "lowest_changed_hour_voltage_pu": 0.9667201603825005,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "MC_B10",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "changed_case_hours": 4,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 84.83828893435927,
+      "lowest_changed_hour_voltage_pu": 0.9656151421955632,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 92.41937041972022,
+      "lowest_changed_hour_voltage_pu": 0.959508389188601,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 92.47623889124823,
+      "lowest_changed_hour_voltage_pu": 0.9583754576559168,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 92.53336510059201,
+      "lowest_changed_hour_voltage_pu": 0.9572396590244653,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 88.09722286581577,
+      "lowest_changed_hour_voltage_pu": 0.9627156175134872,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 88.15202965145164,
+      "lowest_changed_hour_voltage_pu": 0.961595194615666,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 88.20707866124557,
+      "lowest_changed_hour_voltage_pu": 0.9604720470541108,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 84.73225210918902,
+      "lowest_changed_hour_voltage_pu": 0.9678225830364041,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 84.78515684076609,
+      "lowest_changed_hour_voltage_pu": 0.9667201603825005,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_B10",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 84.83828893435927,
+      "lowest_changed_hour_voltage_pu": 0.9656151421955632,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 0.95,
+      "length_factor": 1.0,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 92.41937041972022,
+      "lowest_changed_hour_voltage_pu": 0.959508389188601,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 0.95,
+      "length_factor": 1.3,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 92.47623889124823,
+      "lowest_changed_hour_voltage_pu": 0.9583754576559168,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 0.95,
+      "length_factor": 1.6,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 92.53336510059201,
+      "lowest_changed_hour_voltage_pu": 0.9572396590244653,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 0.98,
+      "length_factor": 1.0,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 88.09722286581577,
+      "lowest_changed_hour_voltage_pu": 0.9627156175134872,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 0.98,
+      "length_factor": 1.3,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 88.15202965145164,
+      "lowest_changed_hour_voltage_pu": 0.961595194615666,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 0.98,
+      "length_factor": 1.6,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 88.20707866124557,
+      "lowest_changed_hour_voltage_pu": 0.9604720470541108,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 1.0,
+      "length_factor": 1.0,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 84.73225210918902,
+      "lowest_changed_hour_voltage_pu": 0.9678225830364041,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 1.0,
+      "length_factor": 1.3,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 84.78515684076609,
+      "lowest_changed_hour_voltage_pu": 0.9667201603825005,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    },
+    {
+      "case_id": "SS_P45_B9",
+      "pf": 1.0,
+      "length_factor": 1.6,
+      "changed_case_hours": 2,
+      "corrected_changed_hour_failures": 0,
+      "nonconverged_changed_hours": 0,
+      "worst_changed_hour_trafo_pct": 84.83828893435927,
+      "lowest_changed_hour_voltage_pu": 0.9656151421955632,
+      "coverage": "CHANGED_HOURS_ONLY_2025_NO_ANNUAL_CLAIM"
+    }
+  ],
+  "all_nine_changed_hour_conditions_tested": true,
+  "may_claim_annual_ac_feasibility": false,
+  "next_gate": "Run signed original annual AC missing PF/length factors, then source-stitch reserve changes"
+}
