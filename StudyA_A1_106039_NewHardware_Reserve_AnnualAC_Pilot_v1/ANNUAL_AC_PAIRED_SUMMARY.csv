@@ -1,0 +1,2 @@
+case_id,pf,length_factor,reused_hours,new_original_ac_hours,baseline_bad_hours,corrected_bad_hours,min_voltage_pu,max_transformer_pct,losses_kwh,strict_097_103_failed_hours
+MC_B10,0.9500000000,1.0000000000,8601,159,2,0,0.9595083892,99.3516178284,425.3563848577,49
