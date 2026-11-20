@@ -1,0 +1,189 @@
+{
+  "status": "STRESS_PASS_ONLY_ALL_NINE_PENDING",
+  "case_count": 3,
+  "cases": {
+    "MC_B10": {
+      "hardware": {
+        "pv_panels": 41,
+        "battery_modules": 10,
+        "battery_power_dc_kw": 12.0,
+        "inverter_kva": 12.0,
+        "transformer_kva_assumed_or_evidenced": 5.0
+      },
+      "source_energy_manifest_sha256": "1d86c316d1bdcd9e45042b966437ee3696a153833e03da1b09471e772aa058db",
+      "source_energy_checkout_sha256": "1d86c316d1bdcd9e45042b966437ee3696a153833e03da1b09471e772aa058db",
+      "source_energy_manifest_hash_mode": "EXACT_SIGNED_BYTES",
+      "source_ac_hourly_sha256": "16069fb88b928b0ba6bd998670119d054a13065648543706be82f96d16afd180",
+      "original_infeasible_hours": 2,
+      "exact_plan": [
+        [
+          "2025-10-13 17:00:00",
+          "2025-10-13 20:00:00",
+          0.6
+        ],
+        [
+          "2025-11-27 18:00:00",
+          "2025-11-27 20:00:00",
+          0.8
+        ]
+      ],
+      "changed_hour_count": 4,
+      "energy_gates": {
+        "original": {
+          "min_usable_soc_kwh": 2.29,
+          "max_usable_soc_kwh": 43.25,
+          "annual_grid_import_kwh": 2646.9861657656998,
+          "annual_discharge_dc_kwh": 10133.570348400299,
+          "year_end_usable_soc_kwh": 23.0321543547
+        },
+        "candidate": {
+          "min_usable_soc_kwh": 2.29,
+          "max_usable_soc_kwh": 43.25,
+          "annual_grid_import_kwh": 2646.9861657656998,
+          "annual_discharge_dc_kwh": 10133.570348400299,
+          "year_end_usable_soc_kwh": 23.0321543547
+        },
+        "max_pcc_kva_proxy": 4.5900355551
+      },
+      "stress_result": {
+        "status": "STRESS_PASS_ONLY_ALL_NINE_PENDING",
+        "baseline_bad_hours": 2,
+        "corrected_bad_hours": 0,
+        "failed_timestamps": [],
+        "corrected_min_v_pu": 0.9572396590244653,
+        "corrected_max_trafo_pct": 99.4318148586,
+        "corrected_max_line_pct": 7.909676735,
+        "stage1_ac_losses_kwh": 436.97720043489994,
+        "corrected_ac_losses_kwh": 436.94719446677607,
+        "changed_hour_ac_calls": 8,
+        "changed_hour_csv": "MC_B10\\CHANGED_HOUR_AC.csv",
+        "changed_hour_sha256": "89e64c7306d5bb5e295ee983cb2ed11f0d27fbbffc2c0aaa024afd72b7763994",
+        "candidate_energy_csv": "MC_B10\\CANDIDATE_ENERGY_8760.csv",
+        "candidate_energy_sha256": "f5d093cbac2f8ee7021b480da823bd2d05e0a420b761a5e1669cb43d927bb76d",
+        "source_original_ac_sha256": "16069fb88b928b0ba6bd998670119d054a13065648543706be82f96d16afd180"
+      }
+    },
+    "SS_B10": {
+      "hardware": {
+        "pv_panels": 49,
+        "battery_modules": 10,
+        "battery_power_dc_kw": 14.11017378393042,
+        "inverter_kva": 20.0,
+        "transformer_kva_assumed_or_evidenced": 5.0
+      },
+      "source_energy_manifest_sha256": "3e9730adbcecc8fbe275c294c605373f4de25f7c29e3448ebfecab4626881189",
+      "source_energy_checkout_sha256": "3e9730adbcecc8fbe275c294c605373f4de25f7c29e3448ebfecab4626881189",
+      "source_energy_manifest_hash_mode": "EXACT_SIGNED_BYTES",
+      "source_ac_hourly_sha256": "47043bc94e3b689ee983f6e2890c81ffe9bac2b7ab655bb494db12aefb56600f",
+      "original_infeasible_hours": 1,
+      "exact_plan": [
+        [
+          "2025-11-27 18:00:00",
+          "2025-11-27 20:00:00",
+          0.8
+        ]
+      ],
+      "changed_hour_count": 2,
+      "energy_gates": {
+        "original": {
+          "min_usable_soc_kwh": 2.29,
+          "max_usable_soc_kwh": 43.25,
+          "annual_grid_import_kwh": 1184.5102841921,
+          "annual_discharge_dc_kwh": 11452.2177137114,
+          "year_end_usable_soc_kwh": 23.2198082069
+        },
+        "candidate": {
+          "min_usable_soc_kwh": 2.29,
+          "max_usable_soc_kwh": 43.25,
+          "annual_grid_import_kwh": 1184.5102841921,
+          "annual_discharge_dc_kwh": 11452.2177137114,
+          "year_end_usable_soc_kwh": 23.2198082069
+        },
+        "max_pcc_kva_proxy": 4.5900355551
+      },
+      "stress_result": {
+        "status": "STRESS_PASS_ONLY_ALL_NINE_PENDING",
+        "baseline_bad_hours": 1,
+        "corrected_bad_hours": 0,
+        "failed_timestamps": [],
+        "corrected_min_v_pu": 0.9572396590244653,
+        "corrected_max_trafo_pct": 99.4318148586,
+        "corrected_max_line_pct": 7.909676735,
+        "stage1_ac_losses_kwh": 425.1072810718,
+        "corrected_ac_losses_kwh": 425.08284457809145,
+        "changed_hour_ac_calls": 4,
+        "changed_hour_csv": "SS_B10\\CHANGED_HOUR_AC.csv",
+        "changed_hour_sha256": "809eca3fcbaca992be782a42c685c82369c630d6756af1e1cac6975b69fa188a",
+        "candidate_energy_csv": "SS_B10\\CANDIDATE_ENERGY_8760.csv",
+        "candidate_energy_sha256": "ad7e4e9e9ebc8b411ae258e7d7dd33b93b1cfc5df1bad247f84cd3fb06ebd75c",
+        "source_original_ac_sha256": "47043bc94e3b689ee983f6e2890c81ffe9bac2b7ab655bb494db12aefb56600f"
+      }
+    },
+    "SS_P45_B9": {
+      "hardware": {
+        "pv_panels": 45,
+        "battery_modules": 9,
+        "battery_power_dc_kw": 14.11017378393042,
+        "inverter_kva": 20.0,
+        "transformer_kva_assumed_or_evidenced": 5.0
+      },
+      "source_energy_manifest_sha256": "df0ba1b41099d646accc0101483c17667193bf56edc69013c7595cb9382da487",
+      "source_energy_checkout_sha256": "df0ba1b41099d646accc0101483c17667193bf56edc69013c7595cb9382da487",
+      "source_energy_manifest_hash_mode": "EXACT_SIGNED_BYTES",
+      "source_ac_hourly_sha256": "314d884098b4b5c96e4c1bd549e0310b661eb67bce03968fd22da9c941a2b8d0",
+      "original_infeasible_hours": 1,
+      "exact_plan": [
+        [
+          "2025-11-27 18:00:00",
+          "2025-11-27 20:00:00",
+          0.8
+        ]
+      ],
+      "changed_hour_count": 2,
+      "energy_gates": {
+        "original": {
+          "min_usable_soc_kwh": 2.061,
+          "max_usable_soc_kwh": 38.925,
+          "annual_grid_import_kwh": 2011.5678906777998,
+          "annual_discharge_dc_kwh": 10682.8792510589,
+          "year_end_usable_soc_kwh": 18.8009812808
+        },
+        "candidate": {
+          "min_usable_soc_kwh": 2.061,
+          "max_usable_soc_kwh": 38.925,
+          "annual_grid_import_kwh": 2011.5678906777998,
+          "annual_discharge_dc_kwh": 10682.8792510589,
+          "year_end_usable_soc_kwh": 18.8009812808
+        },
+        "max_pcc_kva_proxy": 4.5900355551
+      },
+      "stress_result": {
+        "status": "STRESS_PASS_ONLY_ALL_NINE_PENDING",
+        "baseline_bad_hours": 1,
+        "corrected_bad_hours": 0,
+        "failed_timestamps": [],
+        "corrected_min_v_pu": 0.9572396590244653,
+        "corrected_max_trafo_pct": 99.4318148586,
+        "corrected_max_line_pct": 7.909676735,
+        "stage1_ac_losses_kwh": 431.5251421631,
+        "corrected_ac_losses_kwh": 431.50070566939144,
+        "changed_hour_ac_calls": 4,
+        "changed_hour_csv": "SS_P45_B9\\CHANGED_HOUR_AC.csv",
+        "changed_hour_sha256": "f67f03d60d8968acd74dd70d8009d3624b19e33662c7b6ca93ef8053b627ebeb",
+        "candidate_energy_csv": "SS_P45_B9\\CANDIDATE_ENERGY_8760.csv",
+        "candidate_energy_sha256": "e5b4836edd87163e2f6851277294f9341e1cae5496fb1847e0592c9a81bacdf8",
+        "source_original_ac_sha256": "314d884098b4b5c96e4c1bd549e0310b661eb67bce03968fd22da9c941a2b8d0"
+      }
+    }
+  },
+  "network": "A1 106039 provisional balanced EPM, assumed 5 kVA",
+  "year": 2025,
+  "hours_per_case": 8760,
+  "stress_factor": {
+    "pf": 0.95,
+    "length_factor": 1.6
+  },
+  "all_nine_factors_tested": false,
+  "provenance": "Original signed PyPSA + independent historical 8760h AC, no new solver yet",
+  "output_folder": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\StudyA_A1_106039_NewHardware_Reserve_Stress_v1"
+}
