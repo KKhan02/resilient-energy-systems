@@ -102,5 +102,30 @@ class AnnualSourceStitchTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"Nonfinite AC metrics"):
             m.validate_year(None,b9,df)
 
+    def test_nonconverged_annual_hour_is_explicit_failure(self):
+        idx=pd.date_range("2025-01-01",periods=8760,freq="h")
+        df=pd.DataFrame({"status":["CONVERGED"]*8760,
+                         "ac_feasible":[True]*8760,
+                         "min_v_pu":[.96]*8760,
+                         "max_v_pu":[1.0]*8760,
+                         "max_trafo_pct":[99.]*8760,
+                         "max_line_pct":[8.]*8760,
+                         "loss_kw":[.12]*8760,
+                         "pcc_kva":[4.1]*8760},index=idx)
+        df.at[idx[100],"status"]="AC_FAILURE"
+        df.at[idx[100],"ac_feasible"]=False
+        df.at[idx[100],"min_v_pu"]=np.nan
+        df.at[idx[100],"max_v_pu"]=np.nan
+        df.at[idx[100],"max_trafo_pct"]=np.nan
+        df.at[idx[100],"max_line_pct"]=np.nan
+        df.at[idx[100],"loss_kw"]=np.nan
+        df.at[idx[100],"pcc_kva"]=np.nan
+        b9=SimpleNamespace(validated_ac_mask=lambda f,d:d.ac_feasible)
+        summary=m.validate_year(None,b9,df)
+        self.assertEqual(summary["converged_hours"],8759)
+        self.assertEqual(summary["ac_failed_hours"],1)
+        self.assertIsNone(summary["losses_kwh"])
+        self.assertGreaterEqual(summary["strict_097_103_failed_hours"],1)
+
 if __name__=="__main__":
     unittest.main()

@@ -174,21 +174,40 @@ def fill_ac(base,t,record):
 def validate_year(frontier,b9,frame):
     if len(frame)!=8760 or frame.index.has_duplicates:
         raise ValueError("Incomplete 8760-row AC reconstruction")
-    # b9's contract recomputes the SAME original .95/1.05, trafo, line limits.
-    mask=b9.validated_ac_mask(frontier,frame)
-    status=(frame.status=="CONVERGED").to_numpy()
-    if not np.isfinite(frame.loc[status,list(METRICS)].to_numpy(float)).all():
+    converged=(frame.status=="CONVERGED").to_numpy(bool)
+    numbers=frame.loc[:,list(METRICS)].apply(pd.to_numeric,errors="coerce")
+    finite=np.isfinite(numbers.to_numpy(float)).all(axis=1)
+    if (converged & ~finite).any():
         raise ValueError("Nonfinite AC metrics in a converged annual row")
+    if converged.all():
+        # Retain the original verified b9/AC validator for fully converged years.
+        mask=b9.validated_ac_mask(frontier,frame).to_numpy(bool)
+    else:
+        # Nonconvergence remains an explicit AC failure, with null numerical
+        # fields rather than pretending it is a physically feasible year.
+        vmin=numbers.min_v_pu.to_numpy(float)
+        vmax=numbers.max_v_pu.to_numpy(float)
+        trafo=numbers.max_trafo_pct.to_numpy(float)
+        line=numbers.max_line_pct.to_numpy(float)
+        mask=(converged & finite & (vmin>=.95-1e-10) &
+              (vmax<=1.05+1e-10) & (trafo<=100+1e-9) & (line<=100+1e-9))
+        if not np.array_equal(mask,frame.ac_feasible.astype(bool).to_numpy()):
+            raise ValueError("AC flags inconsistent with nonconvergent annual row")
+    strict=(~converged | ~finite |
+            (numbers.min_v_pu.to_numpy(float)<.97) |
+            (numbers.max_v_pu.to_numpy(float)>1.03))
+    def extreme(key,func):
+        values=numbers.loc[converged,key].to_numpy(float)
+        return float(func(values)) if len(values) else None
     return {
-        "year_hours":8760,"converged_hours":int(status.sum()),
+        "year_hours":8760,"converged_hours":int(converged.sum()),
         "ac_failed_hours":int((~mask).sum()),
-        "strict_097_103_failed_hours":int(((frame.min_v_pu<.97)|
-                                        (frame.max_v_pu>1.03)).sum()),
-        "min_v_pu":float(frame.min_v_pu.min()) if status.any() else None,
-        "max_v_pu":float(frame.max_v_pu.max()) if status.any() else None,
-        "max_trafo_pct":float(frame.max_trafo_pct.max()) if status.any() else None,
-        "max_line_pct":float(frame.max_line_pct.max()) if status.any() else None,
-        "losses_kwh":float(frame.loss_kw.sum()) if status.all() else None}
+        "strict_097_103_failed_hours":int(strict.sum()),
+        "min_v_pu":extreme("min_v_pu",np.min),
+        "max_v_pu":extreme("max_v_pu",np.max),
+        "max_trafo_pct":extreme("max_trafo_pct",np.max),
+        "max_line_pct":extreme("max_line_pct",np.max),
+        "losses_kwh":float(numbers.loss_kw.sum()) if converged.all() else None}
 
 def prepare(repo):
     nine=import_file("nh_nine_stage",repo/ROOT/"new_hardware_nine_factor.py")
