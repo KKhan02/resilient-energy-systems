@@ -334,6 +334,7 @@ def cli(argv=None):
     ap.add_argument("--repo-root",type=Path,default=Path.cwd())
     ap.add_argument("--scope",choices=("pilot","full"),default="pilot")
     ap.add_argument("--preflight-only",action="store_true")
+    ap.add_argument("--resume",action="store_true",help="Resume a previously started unchanged, source-matched result directory")
     ap.add_argument("--out",type=Path)
     args=ap.parse_args(argv)
     repo=args.repo_root.resolve()
@@ -348,6 +349,7 @@ def cli(argv=None):
         "screen_sha256":screen_meta["screen_manifest_sha256"],
         "screen_csv_sha256":screen_meta["screen_csv_checkout_sha256"],
         "stress_source_sha256":stress["stress_manifest_sha256"],
+        "runner_sha256":sha(Path(__file__)),
         "expected_new_original_hour_solves":sum(0 if (pf,lf)==(.95,1.6)
                     else int((~source[(c,pf,lf)]["reusable"]).sum())
                     for c,pf,lf in selected),
@@ -368,14 +370,53 @@ def cli(argv=None):
         if out is None:raise FileExistsError("No unused annual-AC output path")
     else:
         out=args.out.resolve()
-    if out.exists():raise FileExistsError("No overwrite: "+str(out))
-    out.mkdir()
-    receipt["status"]="INCOMPLETE_SOURCE_STITCHED_AC"
-    receipt["output_folder"]=str(out)
     output_manifest=out/"RUN_MANIFEST.json"
+    if args.resume:
+        if args.out is None or not out.is_dir() or not output_manifest.is_file():
+            raise ValueError("--resume requires --out pointing to an existing case receipt")
+        previous=json.loads(output_manifest.read_text(encoding="utf-8"))
+        for key in ("scope","screen_sha256","screen_csv_sha256",
+                    "stress_source_sha256","runner_sha256","modelled_case_factors"):
+            if previous.get(key)!=receipt.get(key):
+                raise ValueError("Cannot resume changed source or scope: "+key)
+        if previous.get("status")!="INCOMPLETE_SOURCE_STITCHED_AC":
+            raise ValueError("Only resume an explicitly incomplete annual receipt")
+        receipt=previous
+        print("SOURCE-VERIFIED RESUME: "+str(out),flush=True)
+    else:
+        if out.exists():raise FileExistsError("No overwrite: "+str(out))
+        out.mkdir()
+        receipt["status"]="INCOMPLETE_SOURCE_STITCHED_AC"
+        receipt["output_folder"]=str(out)
+        output_manifest.write_text(json.dumps(receipt,indent=2,allow_nan=False)+"\n",
+                                   encoding="utf-8")
+    expected_tags={factor_tag(c,pf,lf) for c,pf,lf in selected}
+    if not set(receipt["cases"]).issubset(expected_tags):
+        raise ValueError("Resume includes unexpected case-factor results")
     for c,pf,lf in selected:
+        tag=factor_tag(c,pf,lf)
+        expected_new=0 if (pf,lf)==(.95,1.6) else int(
+            (~source[(c,pf,lf)]["reusable"]).sum())
+        if tag in receipt["cases"]:
+            row=receipt["cases"][tag]
+            if (row.get("new_original_ac_hours")!=expected_new or
+                row.get("source_ref_ac_sha256")!=source[(c,pf,lf)]["source"]["ref_ac_sha256"] or
+                row.get("source_energy_manifest_sha256")!=cases[c]["energy_manifest_sha256"] or
+                row.get("reserve_corrected_hours")!=len(cases[c]["changed"])):
+                raise ValueError("Existing partial case does not match signed inputs: "+tag)
+            case_file=out/row["new_ac_delta_file"]
+            if (not case_file.is_file() or sha(case_file)!=row.get("new_ac_delta_sha256") or
+                not (out/tag/"CASE_RECEIPT.json").is_file()):
+                raise ValueError("Missing or modified saved partial case: "+tag)
+            archived=json.loads((out/tag/"CASE_RECEIPT.json").read_text(encoding="utf-8"))
+            if archived!=row:
+                raise ValueError("Partial case receipt differs from running manifest: "+tag)
+            print("REUSED VERIFIED COMPLETED CASE "+tag,flush=True)
+            continue
+        if (out/tag).exists():
+            raise FileExistsError("Partial uncommitted case folder: "+str(out/tag))
         row,delta=sim_one(repo,nh,frontier,b9,ctx,cases,screen,source,c,pf,lf)
-        tag=commit_case_result(out,row,delta)
+        commit_case_result(out,row,delta)
         receipt["cases"][tag]=row
         output_manifest.write_text(json.dumps(receipt,indent=2,allow_nan=False)+"\n",
                                    encoding="utf-8")
