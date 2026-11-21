@@ -1,0 +1,138 @@
+{
+  "status": "SAMPLED_AC_P_CANDIDATES_FOUND_SOC_AND_ANNUAL_PENDING",
+  "previous_result_commit": "e211d601314b2b34dbfceba5a224622e618b005f",
+  "original_ac_manifest_lf_sha256": "b17333788978555471d7ee0760ad11b5e4c267106fcc22c4f4dae2967cbbe947",
+  "original_ac_csv_signed_sha256": "908ce6a602e1e317288ce8d4028084b207790753fa8edc0e8ad943ffd0af180a",
+  "original_ac_csv_signed_representation": "ORIGINAL_EXACT",
+  "signed_energy_source_manifest_lf_sha256": "b07ac43ce5a610bfd3f79ffe7deb0c622da7d582319b81701ef1e3b51c930f1f",
+  "transformer": "113699",
+  "territory": "A1",
+  "phase_model": "BALANCED_THREE_PHASE_PROXY",
+  "transformer_kva_assumed": 3.0,
+  "individual_load_pf": 0.98,
+  "service_multiplier": 1.0,
+  "night_q": "OFF",
+  "hardware_changed": false,
+  "SOC_schedule_changed": false,
+  "new_ac_solver_calls": 123,
+  "failure_case_hours": [
+    {
+      "hardware_origin": "A0",
+      "assignment": "A1",
+      "timestamp_lst": "2025-03-14 19:00:00",
+      "gross_demand_kw": 2.8199790275,
+      "original_AC_pcc_kva": 3.0329217465,
+      "original_AC_min_v_pu": 0.9520660091,
+      "original_AC_transformer_pct": 101.0973915497,
+      "original_energy_PCC_proxy_kva": 2.8775296199,
+      "original_inverter_ac_kw": -0.0,
+      "original_battery_soc_usable_kwh": 0.687,
+      "manufacturer_SOC_usable_floor_kwh": 0.6870000000000003,
+      "maximum_sweep_ac_kw": 2.8199790275,
+      "P_grid_samples": 41,
+      "source_energy_csv_sha256": "df1952e61da8404677cceed1c760c5be1a5c891855f6dd8968088136997112d8"
+    },
+    {
+      "hardware_origin": "A0",
+      "assignment": "A1",
+      "timestamp_lst": "2025-11-30 20:00:00",
+      "gross_demand_kw": 2.8030511287,
+      "original_AC_pcc_kva": 3.0156820037,
+      "original_AC_min_v_pu": 0.9515722153,
+      "original_AC_transformer_pct": 100.5227334561,
+      "original_energy_PCC_proxy_kva": 2.8602562538,
+      "original_inverter_ac_kw": -0.0,
+      "original_battery_soc_usable_kwh": 0.687,
+      "manufacturer_SOC_usable_floor_kwh": 0.6870000000000003,
+      "maximum_sweep_ac_kw": 2.8030511287,
+      "P_grid_samples": 41,
+      "source_energy_csv_sha256": "df1952e61da8404677cceed1c760c5be1a5c891855f6dd8968088136997112d8"
+    },
+    {
+      "hardware_origin": "A1",
+      "assignment": "A1",
+      "timestamp_lst": "2025-11-30 20:00:00",
+      "gross_demand_kw": 2.8030511287,
+      "original_AC_pcc_kva": 3.0156820037,
+      "original_AC_min_v_pu": 0.9515722153,
+      "original_AC_transformer_pct": 100.5227334561,
+      "original_energy_PCC_proxy_kva": 2.8602562538,
+      "original_inverter_ac_kw": -0.0,
+      "original_battery_soc_usable_kwh": 0.916,
+      "manufacturer_SOC_usable_floor_kwh": 0.9160000000000004,
+      "maximum_sweep_ac_kw": 2.8030511287,
+      "P_grid_samples": 41,
+      "source_energy_csv_sha256": "ce9493033a7c58775e5528a6e2809143746e3469019a1085891aa4348668c28a"
+    }
+  ],
+  "sample_points_per_case": 41,
+  "planned_AC_powerflow_calls": 123,
+  "annual_AC_feasible": false,
+  "interpretation": "Sampled static AC P operating points, not yet chronological SOC or proven interval feasibility",
+  "sampled_hour_results": [
+    {
+      "hardware_origin": "A0",
+      "timestamp_lst": "2025-03-14 19:00:00",
+      "total_sample_points": 41,
+      "converged_sample_points": 41,
+      "AC_feasible_sample_points": 40,
+      "candidate_sample_bands": [
+        {
+          "first_sample_kw": 0.07049947568750001,
+          "last_sample_kw": 2.8199790275,
+          "sample_count": 40,
+          "inter_sample_AC_feasibility": "NOT_PROVEN"
+        }
+      ],
+      "first_feasible_sample_kw": 0.07049947568750001,
+      "unresolved_no_feasible_sample": false,
+      "inter_sample_AC_feasibility": "NOT_PROVEN",
+      "annual_SOC_feasibility": "NOT_TESTED"
+    },
+    {
+      "hardware_origin": "A0",
+      "timestamp_lst": "2025-11-30 20:00:00",
+      "total_sample_points": 41,
+      "converged_sample_points": 41,
+      "AC_feasible_sample_points": 40,
+      "candidate_sample_bands": [
+        {
+          "first_sample_kw": 0.0700762782175,
+          "last_sample_kw": 2.8030511287,
+          "sample_count": 40,
+          "inter_sample_AC_feasibility": "NOT_PROVEN"
+        }
+      ],
+      "first_feasible_sample_kw": 0.0700762782175,
+      "unresolved_no_feasible_sample": false,
+      "inter_sample_AC_feasibility": "NOT_PROVEN",
+      "annual_SOC_feasibility": "NOT_TESTED"
+    },
+    {
+      "hardware_origin": "A1",
+      "timestamp_lst": "2025-11-30 20:00:00",
+      "total_sample_points": 41,
+      "converged_sample_points": 41,
+      "AC_feasible_sample_points": 40,
+      "candidate_sample_bands": [
+        {
+          "first_sample_kw": 0.0700762782175,
+          "last_sample_kw": 2.8030511287,
+          "sample_count": 40,
+          "inter_sample_AC_feasibility": "NOT_PROVEN"
+        }
+      ],
+      "first_feasible_sample_kw": 0.0700762782175,
+      "unresolved_no_feasible_sample": false,
+      "inter_sample_AC_feasibility": "NOT_PROVEN",
+      "annual_SOC_feasibility": "NOT_TESTED"
+    }
+  ],
+  "ac_samples_sha256": "8c400fdf5bc011a5ff838ae1b05f2426a70abd8fc84cd682c7a9d94fdcfadbb0",
+  "diagnostic_figure_sha256": {
+    "sampled_transformer_vs_P.png": "08fbcd5d63828b2adb14f4ad27c1896f927d5a06f163ca790968e04582128fb5",
+    "sampled_voltage_vs_P.png": "da1e5e292065b508476602bb9cfbaf8c9aefdfe43b9725e466600a184bf43738"
+  },
+  "nonconverged_sample_points": 0,
+  "unresolved_case_hours": 0
+}
