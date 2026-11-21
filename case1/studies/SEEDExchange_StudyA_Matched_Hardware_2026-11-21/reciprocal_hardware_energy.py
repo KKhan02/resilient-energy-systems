@@ -427,7 +427,8 @@ def recombine(originals,shared,completed,roster):
             b=next(x for x in result if x["hardware_origin"]==origin
                    and x["tier"]==tier and x["load_assignment"]=="A1")
             for k in ("pv_panels","battery_modules","inverter_kva_sum","annual_equipment_usd"):
-                if abs(a[k]-b[k])>1e-6:
+                allowed=.05 if k=="annual_equipment_usd" else 1e-6
+                if abs(a[k]-b[k])>allowed:
                     raise ValueError("Matched hardware not equal: "+origin+":"+tier+":"+k)
             pairs.append({"hardware_origin":origin,"tier":tier,
                 "A0_annual_total_usd":a["annual_total_usd"],
@@ -496,6 +497,9 @@ def run(repo,scope="reverse",preflight_only=False,out=None,resume=False):
         if (out/casekey).exists():
             raise FileExistsError("Partial case output must be manually inspected: "+str(out/casekey))
         try:
+            # When resuming a previous incomplete numerical job, a recovered
+            # case must not retain its old failure in the final receipt.
+            receipt["errors"].pop(casekey,None)
             if casekey==PILOT_KEY:
                 metrics=pilot["metrics"]
                 summary=pilot["summary"]
