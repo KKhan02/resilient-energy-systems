@@ -119,5 +119,32 @@ class NightPEnvelopeContractTests(unittest.TestCase):
                 m.select_out(root, first)
 
 
+    def test_correct_full_64_character_pilot_csv_digest(self):
+        expected = "908ce6a602e1e317288ce8d4028084b207790753fa8edc0e8ad943ffd0af180a"
+        self.assertEqual(m.ORIGINAL_CSV_SHA, expected)
+        self.assertEqual(len(m.ORIGINAL_CSV_SHA), 64)
+
+    def test_original_manifest_field_by_field_source_regression(self):
+        source = {"full_manifest_lf_sha256": "1" * 64}
+        saved = {
+            "status": "BOUNDED_AC_VIOLATIONS_RECORDED_ANNUAL_PENDING",
+            "ac_csv_sha256": m.ORIGINAL_CSV_SHA,
+            "sampled_infeasible_case_hours": 10,
+            "converged_case_hours": 150,
+            "nonconverged_case_hours": 0,
+            "new_powerflow_solves": 150,
+            "annual_AC_feasible": False,
+            "full_manifest_lf_sha256": source["full_manifest_lf_sha256"],
+        }
+        self.assertIsNone(m.verify_previous_manifest_fields(saved, source))
+        broken = dict(saved, ac_csv_sha256="truncated")
+        with self.assertRaisesRegex(ValueError, "field ac_csv_sha256 mismatch"):
+            m.verify_previous_manifest_fields(broken, source)
+        broken = dict(saved, new_powerflow_solves=149)
+        with self.assertRaisesRegex(ValueError, "field new_powerflow_solves mismatch"):
+            m.verify_previous_manifest_fields(broken, source)
+
+
+
 if __name__ == "__main__":
     unittest.main()

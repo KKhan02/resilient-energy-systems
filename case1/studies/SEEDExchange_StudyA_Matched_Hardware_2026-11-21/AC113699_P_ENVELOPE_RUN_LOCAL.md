@@ -1,5 +1,14 @@
 # Study A | A1 113699 nighttime failed-hour inverter-P AC envelope
 
+**Source-gate correction, 21 November:** The first runner revision accidentally
+pinned a 58-character truncated AC CSV SHA-256. The complete original Windows
+CSV SHA-256 is 908ce6a602e1e317288ce8d4028084b207790753fa8edc0e8ad943ffd0af180a.
+This correction changes only the new runner and tests, not the saved pilot,
+source CRC/sha, model, network or results. If your local preflight previously
+stopped with "Original bounded AC result is not the audited source",
+pull the repaired runner and rerun the preflight before numerical execution.
+The new check names the exact mismatched source field.
+
 **21 November 2026. Prepared next experiment, not executed.** First read
 AC113699_SIGNED_PILOT_REMOTE_AUDIT.md and the original 15-hour pilot.
 The signed result e211d601 contains 150 converged cases, 10 failed

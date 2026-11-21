@@ -22,7 +22,7 @@ HERE = Path("case1/studies/SEEDExchange_StudyA_Matched_Hardware_2026-11-21")
 PREVIOUS_RUNNER = HERE / "matched_hardware_ac113699.py"
 OLD_PILOT = Path("StudyA_A0_A1_MatchedHardware_AC113699_Pilot_v1")
 MANIFEST_LF_SHA = "b17333788978555471d7ee0760ad11b5e4c267106fcc22c4f4dae2967cbbe947"
-ORIGINAL_CSV_SHA = "908ce6a602e1e317288ce8d4028084b207790753fa8ed943ffd0af180a"
+ORIGINAL_CSV_SHA = "908ce6a602e1e317288ce8d4028084b207790753fa8edc0e8ad943ffd0af180a"
 OUT_PREFIX = "StudyA_A0_A1_MatchedHardware_AC113699_P_Envelope_v"
 EXPECTED_FAILURES = {
     "A0": ("2025-03-14 19:00:00", "2025-11-30 20:00:00"),
@@ -142,6 +142,31 @@ def select_out(repo, path=None):
     raise FileExistsError("Exhausted output versions")
 
 
+
+def verify_previous_manifest_fields(manifest, source):
+    """Report the precise failed signed-source field, never relax a gate."""
+    if len(ORIGINAL_CSV_SHA) != 64 or any(
+            c not in "0123456789abcdef" for c in ORIGINAL_CSV_SHA):
+        raise ValueError("The runner's pinned AC CSV SHA-256 is incomplete or invalid")
+    expected = {
+        "status": "BOUNDED_AC_VIOLATIONS_RECORDED_ANNUAL_PENDING",
+        "ac_csv_sha256": ORIGINAL_CSV_SHA,
+        "sampled_infeasible_case_hours": 10,
+        "converged_case_hours": 150,
+        "nonconverged_case_hours": 0,
+        "new_powerflow_solves": 150,
+        "annual_AC_feasible": False,
+        "full_manifest_lf_sha256": source["full_manifest_lf_sha256"],
+    }
+    for field, value in expected.items():
+        observed = manifest.get(field)
+        if type(observed) is not type(value) or observed != value:
+            raise ValueError(
+                f"Original bounded AC source manifest field {field} mismatch: "
+                f"expected {value!r}, saved {observed!r}")
+
+
+
 def preflight(repo, samples=DEFAULT_SAMPLES):
     repo = Path(repo).resolve()
     if not (repo / ".git").exists():
@@ -160,15 +185,7 @@ def preflight(repo, samples=DEFAULT_SAMPLES):
     if not manifest_path.exists() or git_lf_sha(manifest_path) != MANIFEST_LF_SHA:
         raise ValueError("Original bounded AC pilot manifest changed")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if (manifest.get("status") != "BOUNDED_AC_VIOLATIONS_RECORDED_ANNUAL_PENDING"
-        or manifest.get("ac_csv_sha256") != ORIGINAL_CSV_SHA
-        or manifest.get("sampled_infeasible_case_hours") != 10
-        or manifest.get("converged_case_hours") != 150
-        or manifest.get("nonconverged_case_hours") != 0
-        or manifest.get("new_powerflow_solves") != 150
-        or manifest.get("annual_AC_feasible") is not False
-        or manifest.get("full_manifest_lf_sha256") != source["full_manifest_lf_sha256"]):
-        raise ValueError("Original bounded AC result is not the audited source")
+    verify_previous_manifest_fields(manifest, source)
     mode = signed_text_mode(csv_path, ORIGINAL_CSV_SHA)
     frame = pd.read_csv(csv_path)
     if frame.timestamp_lst.dtype != object:
