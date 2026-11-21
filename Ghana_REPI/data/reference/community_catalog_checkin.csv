@@ -1,0 +1,22 @@
+region,community,survey_respondents,latitude,longitude,area_type,grid_access_from_document
+Savannah,Dinnee,16,9.231254,-2.64823,inland,no_grid_reported
+Savannah,Horiyiri,26,9.11625,-2.56433,inland,not_specified
+Savannah,Jellinkon,49,9.323806,-2.34512,inland,grid_present_households_not_connected
+Savannah,Kablima,32,8.955707,-2.25858,inland,grid_and_some_household_connections
+Savannah,Kawie,14,9.288128,-2.58678,inland,grid_and_some_household_connections
+Savannah,Ntereso,30,8.787289,-2.57966,inland,not_specified
+Savannah,Seripe,19,8.916333,-2.39015,inland,grid_present_households_not_connected
+Savannah,Tumakura,10,9.250617,-2.6124,inland,not_specified
+Savannah,Tuonbo,26,9.282115,-2.6121,inland,no_grid_reported
+Oti,Aglakope,44,7.60253,0.067104,island,not_specified
+Oti,Asitsek ope,2,7.578488,0.118737,island,not_specified
+Oti,Attafiam,29,7.579458,0.118149,island,not_specified
+Oti,Azizakpe,30,7.802596,0.146564,island,grid_access_reported
+Oti,Basare,42,7.667151,0.071838,island,not_specified
+Oti,Bogede,1,7.812538,0.148906,island,not_specified
+Oti,Chinekope,61,7.687417,0.065338,island,not_specified
+Oti,Jerusalem,38,7.444484,0.139257,island,not_specified
+Oti,Kpogede,27,7.812805,0.149385,island,not_specified
+Oti,Lala,3,7.778393,-0.0612,island,not_specified
+Oti,Munkor munkor,1,7.598795,0.063964,island,not_specified
+Oti,Tokpo,20,7.663734,0.159895,island,not_specified
