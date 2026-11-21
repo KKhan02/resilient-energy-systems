@@ -1,0 +1,43 @@
+{
+  "case_id": "MC_B10",
+  "pf": 0.95,
+  "length_factor": 1.6,
+  "source_mode": "OWN_ORIGINAL_SIGNED_8760H_STRESS_AC",
+  "reference": "MC_B9",
+  "source_ref_ac_sha256": "127e97629130a34c3ffbf017e414e1bc98818fe7748267777c053d078d25a00f",
+  "source_own_stress_ac_sha256": "16069fb88b928b0ba6bd998670119d054a13065648543706be82f96d16afd180",
+  "reference_energy_signed_sha256": "2f2a8b7902f7f7580ce66b048e05a33d3ecdc7d315763fe459f68ed0e3294e36",
+  "reference_energy_hash_mode": "EXACT_SIGNED_BYTES",
+  "source_energy_manifest_sha256": "1d86c316d1bdcd9e45042b966437ee3696a153833e03da1b09471e772aa058db",
+  "exact_source_reused_hours": 8760,
+  "new_original_ac_hours": 0,
+  "independent_reuse_samples": 0,
+  "reserve_corrected_hours": 4,
+  "replayed_changed_hour_ac_calls": 4,
+  "baseline": {
+    "year_hours": 8760,
+    "converged_hours": 8760,
+    "ac_failed_hours": 2,
+    "strict_097_103_failed_hours": 65,
+    "min_v_pu": 0.9542357057,
+    "max_v_pu": 0.9977636595,
+    "max_trafo_pct": 107.4311690706,
+    "max_line_pct": 7.909676735,
+    "losses_kwh": 436.97720043489994
+  },
+  "corrected": {
+    "year_hours": 8760,
+    "converged_hours": 8760,
+    "ac_failed_hours": 0,
+    "strict_097_103_failed_hours": 65,
+    "min_v_pu": 0.9572396590244653,
+    "max_v_pu": 0.9977636595,
+    "max_trafo_pct": 99.4318148586,
+    "max_line_pct": 7.909676735,
+    "losses_kwh": 436.94719446677607
+  },
+  "no_new_full_8760h_AC_solve": true,
+  "coverage": "SIGNED_EXACT_REFERENCE_HOURS_PLUS_NEW_MISMATCH_AC_PLUS_SAME_FACTOR_RESERVE_REPLAY",
+  "new_ac_delta_file": "MC_B10_pf095_l16/AC_NEW_SOLVED_HOURS.csv",
+  "new_ac_delta_sha256": "67072430b9bdef65e533e4a6042bae1ce117d353123cbcdcb26634ecf3c41272"
+}
