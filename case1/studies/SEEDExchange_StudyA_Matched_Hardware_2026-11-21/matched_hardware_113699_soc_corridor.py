@@ -52,7 +52,7 @@ def load_module(path, name):
     return obj
 
 
-def target_from_sample(row, group, origin, hour):
+def target_from_sample(group, origin, hour):
     """Pick only the exact source-AC-tested index3 P, not an invented interpolation."""
     if (len(group) != 41 or set(group.sample_number.astype(int)) != set(range(41))
         or (group.status != "CONVERGED").any()
@@ -129,7 +129,7 @@ def build_plan(repo):
         selected = []
         for t in expected:
             part = df[(df.hardware_origin == origin) & (df.timestamp_lst == t)]
-            selected.append(target_from_sample(None, part, origin, t))
+            selected.append(target_from_sample(part, origin, t))
             source_e = cases[origin + "_hardware_on_A1"]["energy"].loc[pd.Timestamp(t)]
             if (abs(float(source_e.inverter_ac_kw)) > 1e-7
                 or abs(float(source_e.pv_dc_available_kw)) > 1e-7):
@@ -190,6 +190,23 @@ def build_plan(repo):
         "source_case_original_annual_summary":source_summaries,
         "method":"Full 8760h fixed hardware PyPSA LP, equal-P targets at original sampled points; subsequent 15h AC only"}
     return sweep, rec, v6, cases, geometry, solar, plans, source_summaries, sources
+
+
+def exact_sampled_corridors(points):
+    """Use signed samples as equality constraints, with no unproven P interpolation."""
+    target = {}
+    for row in points:
+        ts = pd.Timestamp(row["timestamp_lst"])
+        p = float(row["fixed_inverter_p_ac_kw"])
+        if ts in target or not np.isfinite(p) or p <= 0:
+            raise ValueError("Duplicate/invalid signed exact-P corridor point")
+        if (not row["sampled_AC_feasible_main_095_105"]
+            or row["sample_index"] != SELECTED_INDEX):
+            raise ValueError("Source corridor not the accepted AC-tested point")
+        target[ts] = (p, p)
+    if len(target) != len(points):
+        raise ValueError("Signed exact-P corridor count changed")
+    return target
 
 
 def output_path(repo, origin, specified=None):
@@ -268,10 +285,7 @@ def run(repo, origin=None, out=None, preflight_only=False):
         original = cases[origin + "_hardware_on_A1"]
         hw = source_equipment(fixed, original["hardware"], originals[origin])
         demand = original["trace"].sum(axis=1)
-        corridors = {
-            pd.Timestamp(x["timestamp_lst"]):
-                (x["fixed_inverter_p_ac_kw"], x["fixed_inverter_p_ac_kw"])
-            for x in plans[origin]}
+        corridors = exact_sampled_corridors(plans[origin])
         if len(corridors) != len(plans[origin]) or not demand.index.equals(solar.index):
             raise ValueError("Misaligned source timestamps or duplicate P constraints")
         updated, model_summary = fixed.solve_fixed(
@@ -298,8 +312,6 @@ def run(repo, origin=None, out=None, preflight_only=False):
                 raise ValueError("Nightly corridor not served solely by battery DC dispatch")
         annual_file = result / "annual_soc_reoptimized_2025.csv"
         updated.to_csv(annual_file, float_format="%.10f")
-        if sha(annual_file) != sha(annual_file):
-            raise AssertionError("Unexpected CSV mutation")
         reloaded = pd.read_csv(annual_file, parse_dates=["timestamp_lst"]).set_index("timestamp_lst")
         rec.validate_dispatch(reloaded, original["trace"], original["hardware"])
         ac_source = json.loads((repo / BASE_AC_FOLDER / "RUN_MANIFEST.json").read_text(encoding="utf-8"))
