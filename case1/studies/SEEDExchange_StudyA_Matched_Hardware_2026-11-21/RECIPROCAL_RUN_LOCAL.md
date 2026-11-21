@@ -1,5 +1,5 @@
 # Study A | Reciprocal A0/A1 matched-hardware experiment
-**21 November 2026. Both directions for 113699 have been audited. Full runner now reuses four signed cases and requires 12 additional annual fixed-hardware LP solves. AC pending.**
+**21 November 2026. The completed 16-case full study is independently validated at the energy-only level. AC remains pending. See FULL_16_REMOTE_AUDIT_2026-11-21.md.**
 
 ## Purpose
 The signed 34-house A0/A1 comparison holds the population fixed but has different PV/BESS equipment choices. This controlled experiment keeps, at each named transformer, **all four equipment quantities fixed** (PV panels, battery modules, battery DC continuous power and inverter kVA) and changes A0/A1 household membership using the signed 2025 hourly demand. The same assumed transformer rating, source NASA solar, zero exports, zero ENS, cyclic Store SOC, and manufacturer 20% physical SOC floor remain in force. It recomputes an 8,760-hour **energy-only** dispatch. Network AC remains separate.
@@ -101,3 +101,7 @@ paired_comparison_count=4, new_AC_cases=0, and 12 new annual LPs.
 Push only the new successful versioned output after checking its receipts.
 I will then independently verify the eight 34-house totals and four paired
 controlled A0/A1 comparisons. This remains energy-only until new AC checks.
+
+## Full run uploaded and audited
+
+GitLab commit `120c4e96` contains `StudyA_A0_A1_MatchedHardware_Full_v1`. The 16 case receipts, 12 new full-year CSVs, 8 independently reconstructed 34-house portfolios and 4 same-hardware comparisons passed source/energy auditing. The full-run instructions above are retained for reproducibility and should **not** be rerun merely to repeat saved source data. Next work is source-specific network AC preflight and a bounded 113699 pilot; do not claim the matched results AC-feasible. See `FULL_16_REMOTE_AUDIT_2026-11-21.md` for the external-review correction register.
