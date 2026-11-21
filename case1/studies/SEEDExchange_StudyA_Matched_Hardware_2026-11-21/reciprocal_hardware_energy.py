@@ -379,8 +379,11 @@ def recombine(originals,shared,completed,roster):
             for assignment in ASSIGNMENTS:
                 pieces=[]
                 for tr in MODELLED:
-                    origin=next(r for r in roster if r["donor_assignment"]==hardware_origin
-                                and r["tier"]==tier and r["transformer"]==tr)
+                    origin=next((r for r in roster if r["donor_assignment"]==hardware_origin
+                                and r["tier"]==tier and r["transformer"]==tr),None)
+                    if origin is None or key(origin) not in originals:
+                        raise ValueError("Missing matched portfolios source "+
+                                         hardware_origin+"/"+tier+"/"+tr)
                     original=originals[key(origin)]
                     if assignment==hardware_origin:
                         metrics=original["metrics"]
