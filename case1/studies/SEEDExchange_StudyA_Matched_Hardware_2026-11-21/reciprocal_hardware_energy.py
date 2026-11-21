@@ -30,6 +30,10 @@ SAME_92395={"min_cost":"energy_A0_92395_min_cost_four","ss90":"energy_A0_92395_s
 BASE_PART=Path("case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01")
 REVERSE_KEY="A0_113699_min_cost_to_A1"
 PILOT_KEY="A1_113699_min_cost_to_A0"
+SIGNED_REVERSE=Path("StudyA_A0_A1_MatchedHardware_ReversePilot_v1")
+REVERSE_MANIFEST_LF_SHA="5b2c37514608845490843e502466351dc0b7124f6833b9b42e6e407225ce2e8d"
+REVERSE_CSV_ORIGINAL_SHA="df1952e61da8404677cceed1c760c5be1a5c891855f6dd8968088136997112d8"
+REVERSE_RUNNER_ORIGINAL_SHA="914b346a41b561c0cd79db45016fa5d0a5943a16c3527d5d3ac40e05e343ec32"
 VERSION_PREFIX={"reverse":"StudyA_A0_A1_MatchedHardware_ReversePilot_v",
                 "full":"StudyA_A0_A1_MatchedHardware_Full_v"}
 METRICS=("demand_kwh","grid_import_kwh","curtailed_pv_dc_kwh",
@@ -218,6 +222,92 @@ def verify_pilot(repo,row,target_trace,source):
             "sha_mode":mode,"manifest_sha256":sha(manifest_path),
             "relative_csv":str((SIGNED_PILOT/"energy_hourly_2025.csv")).replace("\\","/"),
             "metrics":result,"summary":receipt["target_model_summary"]}
+
+
+def normalized_lf_sha(path):
+    """Accept only identical data with Git LF or original Windows CRLF."""
+    raw=Path(path).read_bytes()
+    if b"\r" in raw.replace(b"\r\n",b""):
+        raise ValueError("Lone CR in signed reverse source")
+    return hashlib.sha256(raw.replace(b"\r\n",b"\n")).hexdigest()
+
+def verify_reverse_pilot(repo,pv,manifest,mapping,profiles,originals,base):
+    """Verify exact independently audited commit-4cffd500 case, with no solve."""
+    folder=repo/SIGNED_REVERSE
+    p=folder/"RUN_MANIFEST.json"
+    if not p.is_file():
+        raise FileNotFoundError("Independently audited reverse pilot missing: "+str(p))
+    if normalized_lf_sha(p)!=REVERSE_MANIFEST_LF_SHA:
+        raise ValueError("Reverse pilot signed manifest hash differs")
+    j=json.loads(p.read_text(encoding="utf-8"))
+    identity=("input_manifest_sha256","solar_sha256","fixed_solver_sha256",
+              "source_roster_sha256","source_manifest_shas",
+              "preexisting_pilot_manifest_sha256",
+              "existing_exact_hardware_source_reuse")
+    if any(j.get(k)!=base.get(k) for k in identity):
+        raise ValueError("Reverse pilot input/donor lineage differs")
+    if (j.get("scope")!="reverse" or j.get("status")!=
+        "ENERGY_ONLY_REVERSE_MATCHED_HARDWARE_PASS_AC_PENDING"
+        or j.get("runner_sha256")!=REVERSE_RUNNER_ORIGINAL_SHA
+        or j.get("expected_case_count")!=1 or j.get("completed_case_count")!=1
+        or j.get("expected_new_2025_LP_solves")!=1
+        or j.get("new_AC_cases")!=0 or j.get("main_network_AC_validated") is not False
+        or j.get("errors")!={} or j.get("selected_case_keys")!=[REVERSE_KEY]
+        or set(j.get("completed_cases",{}))!={REVERSE_KEY}):
+        raise ValueError("Reverse pilot not a signed complete energy-only case")
+    row=j["completed_cases"][REVERSE_KEY]
+    receipt=folder/REVERSE_KEY/"CASE_RECEIPT.json"
+    if not receipt.is_file() or json.loads(receipt.read_text(encoding="utf-8"))!=row:
+        raise ValueError("Reverse pilot case receipt does not match manifest")
+    original=originals[REVERSE_KEY]
+    if (row.get("status")!="COMPLETE_SOURCE_VERIFIED_ENERGY_ONLY_AC_PENDING"
+        or row.get("source_case")!=REVERSE_KEY
+        or row.get("assignment_for_hardware")!="A0"
+        or row.get("assignment_for_load")!="A1"
+        or row.get("transformer")!="113699" or row.get("tier")!="min_cost"
+        or row.get("donor_house_ids")!=manifest["groups"]["A0"]["113699"]
+        or row.get("target_house_ids")!=manifest["groups"]["A1"]["113699"]
+        or row.get("same_hardware") is not True
+        or row.get("same_physical_transformer") is not True
+        or row.get("AC_verified") is not False
+        or row.get("hardware")!=original["hw"]
+        or row.get("source_energy_manifest_sha256")!=original["manifest_checkout_sha256"]
+        or row.get("source_energy_csv_sha256")!=original["csv_signed_sha256"]
+        or row.get("target_energy_sha256")!=REVERSE_CSV_ORIGINAL_SHA
+        or row.get("method")!="NEW_8760H_PYPSA_EXACT_SAME_HARDWARE"):
+        raise ValueError("Reverse pilot signed membership/hardware mismatch")
+    for k in METRICS:
+        if abs(float(row["source_original_energy_metrics"][k])-original["metrics"][k])>2e-4:
+            raise ValueError("Reverse source donor energy differs: "+k)
+    summary=row["target_model_summary"]
+    if (summary.get("status")!="OPTIMAL_ENERGY_ONLY_NO_AC_VALIDATION"
+        or summary.get("pandapower_status")!="NOT_RUN"
+        or summary.get("export_policy")!="zero"
+        or abs(float(summary["annual_equipment_usd"])-
+               float(original["summary"]["annual_equipment_usd"]))>.02):
+        raise ValueError("Reverse pilot changed source equipment annuity or AC status")
+    csv=folder/REVERSE_KEY/"energy_hourly_2025.csv"
+    mode=checked_bytes(csv,REVERSE_CSV_ORIGINAL_SHA)
+    _,trace=pv.source_trace(manifest,mapping,profiles,"A1","113699")
+    frame=pd.read_csv(csv,parse_dates=["timestamp_lst"]).set_index("timestamp_lst")
+    metrics=validate_dispatch(frame,trace,original["hw"],row["target_yearly_energy_metrics"])
+    if ("pcc_kva_proxy" not in frame.columns or
+        frame.pcc_kva_proxy.max()>original["hw"]["transformer_kva_assumed_or_evidenced"]+1e-5
+        or abs(float(summary["grid_import_kwh"])-metrics["grid_import_kwh"])>2e-4
+        or abs(float(summary["demand_kwh"])-metrics["demand_kwh"])>2e-4
+        or abs(float(summary["annual_grid_import_usd"])-.29*metrics["grid_import_kwh"])>.02
+        or abs(float(summary["annual_total_usd"])-float(summary["annual_equipment_usd"])
+               -float(summary["annual_grid_import_usd"]))>.02):
+        raise ValueError("Reverse pilot PCC/energy/economic closure differs")
+    checked_bytes(folder/"CONTROLLED_ENERGY_CASE_SUMMARY.csv",j["case_summary_sha256"])
+    return {"metrics":metrics,"summary":summary,"sha":REVERSE_CSV_ORIGINAL_SHA,
+            "sha_mode":mode,"manifest_lf_sha256":REVERSE_MANIFEST_LF_SHA,
+            "relative_csv":str((SIGNED_REVERSE/REVERSE_KEY/"energy_hourly_2025.csv")).replace("\\","/")}
+
+def expected_new_lp_count(selected,cross,reverse_available):
+    return (len(selected)-(1 if PILOT_KEY in selected else 0)
+            -sum(k in cross for k in selected)
+            -(1 if reverse_available and REVERSE_KEY in selected else 0))
 
 def preflight(repo):
     repo=Path(repo).resolve()
@@ -448,11 +538,17 @@ def run(repo,scope="reverse",preflight_only=False,out=None,resume=False):
     repo=Path(repo).resolve()
     pv,v6,manifest,mapping,profiles,solar,roster,originals,shared,pilot,cross,receipt=preflight(repo)
     selected=select_keys(roster,scope)
+    reverse=(verify_reverse_pilot(repo,pv,manifest,mapping,profiles,originals,receipt)
+             if scope=="full" else None)
+    if reverse is not None:
+        receipt["verified_reverse_pilot"]={
+            "case_key":REVERSE_KEY,
+            "manifest_lf_sha256":reverse["manifest_lf_sha256"],
+            "target_energy_sha256":reverse["sha"],
+            "csv_sha_mode":reverse["sha_mode"]}
     receipt.update({"scope":scope,"expected_case_count":len(selected),
                     "selected_case_keys":selected,
-                    "expected_new_2025_LP_solves":len(selected)-
-                        (1 if PILOT_KEY in selected else 0)-
-                        sum(k in cross for k in selected),
+                    "expected_new_2025_LP_solves":expected_new_lp_count(selected,cross,reverse is not None),
                     "completed_cases":{},"errors":{},
                     "runner_sha256":sha(Path(__file__))})
     if preflight_only:
@@ -474,7 +570,7 @@ def run(repo,scope="reverse",preflight_only=False,out=None,resume=False):
         for k in ("scope","expected_case_count","selected_case_keys","runner_sha256",
                   "source_roster_sha256","input_manifest_sha256","solar_sha256",
                   "fixed_solver_sha256","source_manifest_shas","preexisting_pilot_manifest_sha256",
-                  "existing_exact_hardware_source_reuse"):
+                  "existing_exact_hardware_source_reuse","verified_reverse_pilot"):
             if prev.get(k)!=receipt.get(k):
                 raise ValueError("Source/runner identity changed: "+k)
         receipt=prev
@@ -503,7 +599,14 @@ def run(repo,scope="reverse",preflight_only=False,out=None,resume=False):
             # When resuming a previous incomplete numerical job, a recovered
             # case must not retain its old failure in the final receipt.
             receipt["errors"].pop(casekey,None)
-            if casekey==PILOT_KEY:
+            if casekey==REVERSE_KEY and reverse is not None:
+                metrics=reverse["metrics"]
+                summary=reverse["summary"]
+                csv_rel=reverse["relative_csv"]
+                checksha=reverse["sha"]
+                mode="SIGNED_REVERSE_PILOT_REUSED_"+reverse["sha_mode"]
+                method="PINNED_USER_SIGNED_8760H_REVERSE_PILOT"
+            elif casekey==PILOT_KEY:
                 metrics=pilot["metrics"]
                 summary=pilot["summary"]
                 csv_rel=pilot["relative_csv"]

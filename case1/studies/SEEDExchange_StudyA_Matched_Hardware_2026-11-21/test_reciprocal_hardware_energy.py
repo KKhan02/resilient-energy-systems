@@ -171,6 +171,31 @@ class ReciprocalHardwareTests(unittest.TestCase):
         self.assertTrue(all(abs(x["A1_minus_A0_import_kwh"])<1e-8 for x in pairs))
         self.assertTrue(all(x["AC_verified"] is False for x in portfolios))
 
+
+    def test_normalized_signed_manifest_lf_or_crlf(self):
+        with tempfile.TemporaryDirectory() as d:
+            f=Path(d)/"receipt.json"
+            signed=hashlib.sha256(b"a\n").hexdigest()
+            f.write_bytes(b"a\r\n")
+            self.assertEqual(m.normalized_lf_sha(f),signed)
+            f.write_bytes(b"a\n")
+            self.assertEqual(m.normalized_lf_sha(f),signed)
+
+    def test_signed_reverse_reuse_reduces_13_to_12(self):
+        full=[m.key({"donor_assignment":d,"target_assignment":
+                     ("A1" if d=="A0" else "A0"),
+                     "transformer":tr,"tier":tier})
+              for d in m.ASSIGNMENTS for tr in m.MODELLED for tier in m.TIERS]
+        cross={"A0_106039_min_cost_to_A1":None,"A1_106039_min_cost_to_A0":None}
+        self.assertEqual(m.expected_new_lp_count(full,cross,False),13)
+        self.assertEqual(m.expected_new_lp_count(full,cross,True),12)
+        self.assertEqual(m.expected_new_lp_count([m.REVERSE_KEY],cross,False),1)
+
+    def test_missing_or_tampered_reverse_pilot_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            with self.assertRaises(FileNotFoundError):
+                m.verify_reverse_pilot(Path(d),None,{},None,None,{},{})
+
     def test_bad_population_blocks_recombination(self):
         with self.assertRaisesRegex(ValueError,"Missing matched portfolios"):
             m.recombine({}, {}, {}, [])
