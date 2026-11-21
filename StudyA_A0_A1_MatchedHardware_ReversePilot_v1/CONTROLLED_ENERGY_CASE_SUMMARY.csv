@@ -1,0 +1,2 @@
+case_id,donor,target,transformer,tier,pv_panels,battery_modules,battery_power_dc_kw,inverter_kva,annual_target_import_kwh,annual_target_curtailment_dc_kwh,annual_equipment_cost_usd,annual_total_cost_usd,method,AC_verified
+A0_113699_min_cost_to_A1,A0,A1,113699,min_cost,17,3,4.7009394509,5.0000000000,3682.5459192302,689.9090340560,1413.2543550789,2481.1926716556,NEW_8760H_PYPSA_EXACT_SAME_HARDWARE,False
