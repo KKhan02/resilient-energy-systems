@@ -165,6 +165,35 @@ def signed_energy(repo,pv,manifest,mapping,profiles,scenario,transformer,tier,ki
             "csv_signed_sha256":j["energy_csv_sha256"],"manifest_checkout_sha256":sha(folder/"energy_manifest.json"),
             "source_csv_hash_mode":mode,"trace":trace}
 
+def exact_device_pair(first,second):
+    """Only all four converter/storage fields and rating match. No tolerance."""
+    fields=("pv_panels","battery_modules","battery_power_dc_kw","inverter_kva",
+            "transformer_kva_assumed_or_evidenced")
+    return all(first["hw"][f]==second["hw"][f] for f in fields)
+
+def signed_existing_cross_reuse(roster,originals):
+    """Source-specific same-hardware opposite original energy for that same feeder."""
+    cross={}
+    for row in roster:
+        k=key(row)
+        opposite=next((z for z in roster
+                      if z["donor_assignment"]==row["target_assignment"]
+                      and z["transformer"]==row["transformer"]
+                      and z["tier"]==row["tier"]),None)
+        if opposite is None:raise ValueError("Missing opposite assignment")
+        orig=originals[k]
+        other=originals[key(opposite)]
+        if exact_device_pair(orig,other):
+            if (orig["json"]["original_pv_source_sha256"]!=
+                other["json"]["original_pv_source_sha256"] or
+                orig["json"]["input_manifest_sha256"]!=other["json"]["input_manifest_sha256"]):
+                raise ValueError("Cannot reuse identical hardware with different solar/demand sources")
+            if abs(float(orig["summary"]["annual_equipment_usd"])-
+                   float(other["summary"]["annual_equipment_usd"]))>.02:
+                raise ValueError("Same hardware annual equipment annuity differs")
+            cross[k]=other
+    return cross
+
 def verify_pilot(repo,row,target_trace,source):
     folder=repo/SIGNED_PILOT
     manifest_path=folder/"RUN_MANIFEST.json"
@@ -226,12 +255,19 @@ def preflight(repo):
     row=next(r for r in roster if key(r)==PILOT_KEY)
     _,pilot_trace=pv.source_trace(manifest,mapping,profiles,"A0","113699")
     pilot=verify_pilot(repo,row,pilot_trace,originals[PILOT_KEY])
+    cross=signed_existing_cross_reuse(roster,originals)
+    if PILOT_KEY in cross:
+        raise ValueError("Original 113699 pilot must not be replaced by unrelated original hardware")
+    if set(cross)!={"A0_106039_min_cost_to_A1","A1_106039_min_cost_to_A0"}:
+        raise ValueError("Unexpected source-equivalent hardware pairs; reassess experiment")
     receipt={
         "status":"SIGNED_MATCHED_HARDWARE_16_SOURCE_PREFLIGHT_NO_NEW_SOLVES",
         "source_hardware_case_count":len(originals),
         "common_92395_STAR_reference_count":len(shared),
         "previous_source_matched_pilot_reused":PILOT_KEY,
         "preexisting_pilot_manifest_sha256":pilot["manifest_sha256"],
+        "existing_exact_hardware_source_reuse":{
+            k:v["csv_signed_sha256"] for k,v in cross.items()},
         "input_manifest_sha256":sha(repo/pv.MANIFEST_REL),
         "solar_sha256":sha(solar_path),
         "fixed_solver_sha256":sha(repo/FIXED),
@@ -240,7 +276,7 @@ def preflight(repo):
         "new_AC_cases":0,
         "main_network_AC_validated":False,
         "scope_comment":"A0 and A1 memberships share 34 distinct household profiles. 92395 unchanged proposed STAR."}
-    return pv,v6,manifest,mapping,profiles,solar,roster,originals,shared,pilot,receipt
+    return pv,v6,manifest,mapping,profiles,solar,roster,originals,shared,pilot,cross,receipt
 
 def select_keys(roster,scope):
     keys=[key(x) for x in roster]
@@ -406,11 +442,13 @@ def recombine(originals,shared,completed,roster):
 
 def run(repo,scope="reverse",preflight_only=False,out=None,resume=False):
     repo=Path(repo).resolve()
-    pv,v6,manifest,mapping,profiles,solar,roster,originals,shared,pilot,receipt=preflight(repo)
+    pv,v6,manifest,mapping,profiles,solar,roster,originals,shared,pilot,cross,receipt=preflight(repo)
     selected=select_keys(roster,scope)
     receipt.update({"scope":scope,"expected_case_count":len(selected),
                     "selected_case_keys":selected,
-                    "expected_new_2025_LP_solves":len(selected)-(1 if PILOT_KEY in selected else 0),
+                    "expected_new_2025_LP_solves":len(selected)-
+                        (1 if PILOT_KEY in selected else 0)-
+                        sum(k in cross for k in selected),
                     "completed_cases":{},"errors":{},
                     "runner_sha256":sha(Path(__file__))})
     if preflight_only:
@@ -431,7 +469,8 @@ def run(repo,scope="reverse",preflight_only=False,out=None,resume=False):
             raise ValueError("Resume only unfinished output")
         for k in ("scope","expected_case_count","selected_case_keys","runner_sha256",
                   "source_roster_sha256","input_manifest_sha256","solar_sha256",
-                  "fixed_solver_sha256","source_manifest_shas","preexisting_pilot_manifest_sha256"):
+                  "fixed_solver_sha256","source_manifest_shas","preexisting_pilot_manifest_sha256",
+                  "existing_exact_hardware_source_reuse"):
             if prev.get(k)!=receipt.get(k):
                 raise ValueError("Source/runner identity changed: "+k)
         receipt=prev
@@ -464,6 +503,14 @@ def run(repo,scope="reverse",preflight_only=False,out=None,resume=False):
                 checksha=pilot["sha"]
                 mode="SIGNED_PREVIOUS_PILOT_REUSED_"+pilot["sha_mode"]
                 method="PRIOR_USER_SIGNED_8760H_PILOT"
+            elif casekey in cross:
+                matched=cross[casekey]
+                metrics=matched["metrics"]
+                summary=matched["summary"]
+                csv_rel=str((BASE_PART/matched["slug"]/"energy_hourly_2025.csv")).replace("\\","/")
+                checksha=matched["csv_signed_sha256"]
+                mode="SIGNED_SAME_HARDWARE_EXISTING_OPPOSITE_SOURCE_"+matched["source_csv_hash_mode"]
+                method="ORIGINAL_SIGNED_EXACT_SAME_HARDWARE_AND_TARGET_FEEDER"
             else:
                 metrics,summary,csv_rel,checksha=simulate_new(
                     repo,pv,v6,target_trace,solar,original,out,casekey)
