@@ -1,0 +1,520 @@
+{
+  "status": "BOUNDED_AC_VIOLATIONS_RECORDED_ANNUAL_PENDING",
+  "full_manifest_lf_sha256": "b07ac43ce5a610bfd3f79ffe7deb0c622da7d582319b81701ef1e3b51c930f1f",
+  "source_gitlab_commit": "120c4e966dfd089eb25116a85c2d5ae027dfd5ca",
+  "signed_v6_runner_sha256": "7c0ecb05230807c4ed206f0fea36fc6af68b9d4744cec7adb18f3ce6109f95c8",
+  "source_gis_geojson_sha256": "adfa33a8a01b0b33ee449c69924515fed05ad49665868e8c1ae8ba5d047c1bab",
+  "source_gis_associations_sha256": "ad830d00739180d41755605b79d3091abbd9d4e3804779d526f8b33012cf50b9",
+  "moved_house_provisional_taps": {
+    "H03": {
+      "from": "94022",
+      "to": "113699",
+      "provisional_segment_id": "39974487",
+      "straight_line_to_provisional_service_tap_m": 57.76,
+      "physical_connection": "NOT_VERIFIED"
+    },
+    "H06": {
+      "from": "94022",
+      "to": "113699",
+      "provisional_segment_id": "13360817",
+      "straight_line_to_provisional_service_tap_m": 131.38,
+      "physical_connection": "NOT_VERIFIED"
+    },
+    "H13": {
+      "from": "106039",
+      "to": "85398",
+      "provisional_segment_id": "357818861",
+      "straight_line_to_provisional_service_tap_m": 218.52,
+      "physical_connection": "NOT_VERIFIED"
+    }
+  },
+  "source_networks": {
+    "A0": {
+      "assignment": "A0",
+      "houses": [
+        "H04",
+        "H05",
+        "H07",
+        "H10"
+      ],
+      "transformer_kva_PLANNING": 3.0,
+      "topology": "EPM_GIS_SECTIONS_PLUS_INFERRED_HOUSE_SERVICES",
+      "gis_metrics": {
+        "trafo": "113699",
+        "epm_node": "823002",
+        "kva": 3.0,
+        "houses": 4,
+        "gis_lines": 6,
+        "mapped_lv_m": 429.49,
+        "assumed_service_m": 273.32,
+        "longest_service_m": 213.47,
+        "graph_connected": true,
+        "tree": true,
+        "assignment_policy": "provisional_base"
+      },
+      "fallback_conductor_categories": [],
+      "attachments": [
+        {
+          "house": "H04",
+          "fid": "43250352",
+          "assumed_service_length_m": 28.357,
+          "assumed": true
+        },
+        {
+          "house": "H05",
+          "fid": "13360817",
+          "assumed_service_length_m": 24.194,
+          "assumed": true
+        },
+        {
+          "house": "H07",
+          "fid": "13360813",
+          "assumed_service_length_m": 7.3,
+          "assumed": true
+        },
+        {
+          "house": "H10",
+          "fid": "13360813",
+          "assumed_service_length_m": 213.472,
+          "assumed": true
+        }
+      ],
+      "phase_model": "BALANCED_THREE_PHASE_PROXY",
+      "inverter_location": "HEAD",
+      "utility_connection_authorized": false
+    },
+    "A1": {
+      "assignment": "A1",
+      "houses": [
+        "H03",
+        "H04",
+        "H05",
+        "H06",
+        "H07",
+        "H10"
+      ],
+      "transformer_kva_PLANNING": 3.0,
+      "topology": "EPM_GIS_SECTIONS_PLUS_INFERRED_HOUSE_SERVICES",
+      "gis_metrics": {
+        "trafo": "113699",
+        "epm_node": "823002",
+        "kva": 3.0,
+        "houses": 6,
+        "gis_lines": 6,
+        "mapped_lv_m": 429.49,
+        "assumed_service_m": 462.46,
+        "longest_service_m": 213.47,
+        "graph_connected": true,
+        "tree": true,
+        "assignment_policy": "includes_nearest_mapped"
+      },
+      "fallback_conductor_categories": [],
+      "attachments": [
+        {
+          "house": "H03",
+          "fid": "39974487",
+          "assumed_service_length_m": 57.762,
+          "assumed": true
+        },
+        {
+          "house": "H04",
+          "fid": "43250352",
+          "assumed_service_length_m": 28.357,
+          "assumed": true
+        },
+        {
+          "house": "H05",
+          "fid": "13360817",
+          "assumed_service_length_m": 24.194,
+          "assumed": true
+        },
+        {
+          "house": "H06",
+          "fid": "13360817",
+          "assumed_service_length_m": 131.376,
+          "assumed": true
+        },
+        {
+          "house": "H07",
+          "fid": "13360813",
+          "assumed_service_length_m": 7.3,
+          "assumed": true
+        },
+        {
+          "house": "H10",
+          "fid": "13360813",
+          "assumed_service_length_m": 213.472,
+          "assumed": true
+        }
+      ],
+      "phase_model": "BALANCED_THREE_PHASE_PROXY",
+      "inverter_location": "HEAD",
+      "utility_connection_authorized": false
+    }
+  },
+  "four_fixed_hardware_dispatches": {
+    "A0_hardware_on_A0": {
+      "hardware_origin": "A0",
+      "assignment": "A0",
+      "hardware": {
+        "pv_panels": 17,
+        "battery_modules": 3,
+        "battery_power_dc_kw": 4.7009394508766436,
+        "inverter_kva": 5.0,
+        "transformer_kva_assumed_or_evidenced": 3.0
+      },
+      "csv_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A0_113699_min_cost_four/energy_hourly_2025.csv",
+      "signed_csv_sha256": "80c4ce33b7ee939c19839fa5f14520ab6e9d1f3196c228f1aadb91fc23b777c8",
+      "csv_hash_mode": "EXACT",
+      "source_kind": "ORIGINAL_SIGNED"
+    },
+    "A0_hardware_on_A1": {
+      "hardware_origin": "A0",
+      "assignment": "A1",
+      "hardware": {
+        "pv_panels": 17,
+        "battery_modules": 3,
+        "battery_power_dc_kw": 4.7009394508766436,
+        "inverter_kva": 5.0,
+        "transformer_kva_assumed_or_evidenced": 3.0
+      },
+      "csv_path": "StudyA_A0_A1_MatchedHardware_ReversePilot_v1/A0_113699_min_cost_to_A1/energy_hourly_2025.csv",
+      "signed_csv_sha256": "df1952e61da8404677cceed1c760c5be1a5c891855f6dd8968088136997112d8",
+      "csv_hash_mode": "EXACT",
+      "source_kind": "MATCHED_REUSE_OR_NEW_SIGNED"
+    },
+    "A1_hardware_on_A0": {
+      "hardware_origin": "A1",
+      "assignment": "A0",
+      "hardware": {
+        "pv_panels": 20,
+        "battery_modules": 4,
+        "battery_power_dc_kw": 6.439699033049508,
+        "inverter_kva": 6.0,
+        "transformer_kva_assumed_or_evidenced": 3.0
+      },
+      "csv_path": "StudyA_A0_A1_MatchedHardware_113699_Pilot_v1/energy_hourly_2025.csv",
+      "signed_csv_sha256": "05b9c362c6dc5387f363994fba09ea9f6c2403d430ac9119e3e7fd51bbcd5ef6",
+      "csv_hash_mode": "EXACT",
+      "source_kind": "MATCHED_REUSE_OR_NEW_SIGNED"
+    },
+    "A1_hardware_on_A1": {
+      "hardware_origin": "A1",
+      "assignment": "A1",
+      "hardware": {
+        "pv_panels": 20,
+        "battery_modules": 4,
+        "battery_power_dc_kw": 6.439699033049508,
+        "inverter_kva": 6.0,
+        "transformer_kva_assumed_or_evidenced": 3.0
+      },
+      "csv_path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_113699_min_cost_ref/energy_hourly_2025.csv",
+      "signed_csv_sha256": "ce9493033a7c58775e5528a6e2809143746e3469019a1085891aa4348668c28a",
+      "csv_hash_mode": "EXACT",
+      "source_kind": "ORIGINAL_SIGNED"
+    }
+  },
+  "household_pf": 0.98,
+  "service_multiplier": 1.0,
+  "daylight_Q_ratio": 0.25,
+  "night_Q": "OFF",
+  "selected_unique_2025_hours": 15,
+  "expected_powerflow_cases": 150,
+  "sampled_timestamps": [
+    {
+      "timestamp_lst": "2025-01-01 00:00:00",
+      "reasons": [
+        "A0_hardware_on_A1:min_battery_soc",
+        "calendar_anchor"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-01-01 04:00:00",
+      "reasons": [
+        "A1_hardware_on_A1:min_battery_soc"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-01-02 01:00:00",
+      "reasons": [
+        "A0_hardware_on_A0:min_battery_soc"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-01-02 06:00:00",
+      "reasons": [
+        "A1_hardware_on_A0:min_battery_soc"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-02-09 12:00:00",
+      "reasons": [
+        "calendar_anchor"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-02-11 20:00:00",
+      "reasons": [
+        "A1_hardware_on_A0:max_grid_import_kw",
+        "A1_hardware_on_A0:max_pcc_kva_proxy"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-03-14 19:00:00",
+      "reasons": [
+        "A0_hardware_on_A1:max_grid_import_kw",
+        "A0_hardware_on_A1:max_pcc_kva_proxy"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-06-20 09:00:00",
+      "reasons": [
+        "A0_hardware_on_A0:max_curtailed_pv_dc_kw",
+        "A0_hardware_on_A1:max_curtailed_pv_dc_kw",
+        "A1_hardware_on_A1:max_curtailed_pv_dc_kw"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-06-21 12:00:00",
+      "reasons": [
+        "calendar_anchor"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-07-30 12:00:00",
+      "reasons": [
+        "A1_hardware_on_A0:max_curtailed_pv_dc_kw"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-09-04 12:00:00",
+      "reasons": [
+        "A0_hardware_on_A0:max_pv_dc_available_kw",
+        "A0_hardware_on_A1:max_pv_dc_available_kw",
+        "A1_hardware_on_A0:max_pv_dc_available_kw",
+        "A1_hardware_on_A1:max_pv_dc_available_kw"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-09-11 20:00:00",
+      "reasons": [
+        "A0_hardware_on_A1:max_battery_discharge_dc_kw",
+        "A0_hardware_on_A1:max_inverter_ac_kw"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-10-06 19:00:00",
+      "reasons": [
+        "A0_hardware_on_A0:max_battery_discharge_dc_kw",
+        "A0_hardware_on_A0:max_demand_kw",
+        "A0_hardware_on_A0:max_inverter_ac_kw",
+        "A0_hardware_on_A1:max_demand_kw",
+        "A1_hardware_on_A0:max_battery_discharge_dc_kw",
+        "A1_hardware_on_A0:max_demand_kw",
+        "A1_hardware_on_A0:max_inverter_ac_kw",
+        "A1_hardware_on_A1:max_battery_discharge_dc_kw",
+        "A1_hardware_on_A1:max_demand_kw",
+        "A1_hardware_on_A1:max_inverter_ac_kw"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-11-30 20:00:00",
+      "reasons": [
+        "A0_hardware_on_A0:max_grid_import_kw",
+        "A0_hardware_on_A0:max_pcc_kva_proxy",
+        "A1_hardware_on_A1:max_grid_import_kw",
+        "A1_hardware_on_A1:max_pcc_kva_proxy"
+      ]
+    },
+    {
+      "timestamp_lst": "2025-12-21 19:00:00",
+      "reasons": [
+        "calendar_anchor"
+      ]
+    }
+  ],
+  "annual_AC_feasible": false,
+  "new_powerflow_solves": 150,
+  "real_EPM_approval": false,
+  "output_folder": "D:\\0. UoL\\3rd Sem\\5.06.M308 Resilient Energy Systems\\resilient-energy-systems\\StudyA_A0_A1_MatchedHardware_AC113699_Pilot_v1",
+  "ac_csv_sha256": "908ce6a602e1e317288ce8d4028084b207790753fa8edc0e8ad943ffd0af180a",
+  "sampled_case_summaries": [
+    {
+      "assignment": "A0",
+      "hardware_origin": "A0",
+      "operation": "daylight_q025",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 15,
+      "main_band_infeasible_hours": 0,
+      "strict_low_voltage_hours": 1,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.9694062311370985,
+      "max_voltage_pu": 0.997791724480465,
+      "max_transformer_pct": 67.67450988799413,
+      "max_line_pct": 5.298664898399979,
+      "sample_losses_kw_sum_NOT_ANNUAL": 0.4430974175482887
+    },
+    {
+      "assignment": "A0",
+      "hardware_origin": "A0",
+      "operation": "q_off",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 15,
+      "main_band_infeasible_hours": 0,
+      "strict_low_voltage_hours": 1,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.9694062311370985,
+      "max_voltage_pu": 0.997791724480465,
+      "max_transformer_pct": 67.67450988799413,
+      "max_line_pct": 5.298664898399979,
+      "sample_losses_kw_sum_NOT_ANNUAL": 0.4430974175482887
+    },
+    {
+      "assignment": "A0",
+      "hardware_origin": "A1",
+      "operation": "daylight_q025",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 15,
+      "main_band_infeasible_hours": 0,
+      "strict_low_voltage_hours": 0,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.974829281285928,
+      "max_voltage_pu": 0.997791724480465,
+      "max_transformer_pct": 56.50485427686333,
+      "max_line_pct": 5.234454734593363,
+      "sample_losses_kw_sum_NOT_ANNUAL": 0.4148494820076511
+    },
+    {
+      "assignment": "A0",
+      "hardware_origin": "A1",
+      "operation": "q_off",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 15,
+      "main_band_infeasible_hours": 0,
+      "strict_low_voltage_hours": 0,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.974829281285928,
+      "max_voltage_pu": 0.997791724480465,
+      "max_transformer_pct": 56.50485427686333,
+      "max_line_pct": 5.234454734593363,
+      "sample_losses_kw_sum_NOT_ANNUAL": 0.4148494820076511
+    },
+    {
+      "assignment": "A0",
+      "hardware_origin": "NONE",
+      "operation": "load_only",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 15,
+      "main_band_infeasible_hours": 0,
+      "strict_low_voltage_hours": 1,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.9694062311370985,
+      "max_voltage_pu": 0.994416021688703,
+      "max_transformer_pct": 72.39565914737717,
+      "max_line_pct": 5.298664898399979,
+      "sample_losses_kw_sum_NOT_ANNUAL": 0.5560781824092623
+    },
+    {
+      "assignment": "A1",
+      "hardware_origin": "A0",
+      "operation": "daylight_q025",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 13,
+      "main_band_infeasible_hours": 2,
+      "strict_low_voltage_hours": 5,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.9515722152950974,
+      "max_voltage_pu": 0.9967955586186954,
+      "max_transformer_pct": 101.09739154966537,
+      "max_line_pct": 10.669955423167481,
+      "sample_losses_kw_sum_NOT_ANNUAL": 0.8143148542655594
+    },
+    {
+      "assignment": "A1",
+      "hardware_origin": "A0",
+      "operation": "q_off",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 13,
+      "main_band_infeasible_hours": 2,
+      "strict_low_voltage_hours": 5,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.9515722152950974,
+      "max_voltage_pu": 0.9967955586186954,
+      "max_transformer_pct": 101.09739154966537,
+      "max_line_pct": 10.669955423167481,
+      "sample_losses_kw_sum_NOT_ANNUAL": 0.8144091939501134
+    },
+    {
+      "assignment": "A1",
+      "hardware_origin": "A1",
+      "operation": "daylight_q025",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 14,
+      "main_band_infeasible_hours": 1,
+      "strict_low_voltage_hours": 4,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.9515722152950974,
+      "max_voltage_pu": 0.9970552289355714,
+      "max_transformer_pct": 100.52273345614495,
+      "max_line_pct": 10.669955423167481,
+      "sample_losses_kw_sum_NOT_ANNUAL": 0.7887000138021896
+    },
+    {
+      "assignment": "A1",
+      "hardware_origin": "A1",
+      "operation": "q_off",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 14,
+      "main_band_infeasible_hours": 1,
+      "strict_low_voltage_hours": 4,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.9515722152950974,
+      "max_voltage_pu": 0.9970552289355714,
+      "max_transformer_pct": 100.52273345614495,
+      "max_line_pct": 10.669955423167481,
+      "sample_losses_kw_sum_NOT_ANNUAL": 0.7887846036704189
+    },
+    {
+      "assignment": "A1",
+      "hardware_origin": "NONE",
+      "operation": "load_only",
+      "selected_hours": 15,
+      "converged_hours": 15,
+      "nonconverged_hours": 0,
+      "main_band_feasible_hours": 11,
+      "main_band_infeasible_hours": 4,
+      "strict_low_voltage_hours": 6,
+      "strict_high_voltage_hours": 0,
+      "min_voltage_pu": 0.9469596469816608,
+      "max_voltage_pu": 0.9915222042460828,
+      "max_transformer_pct": 109.14216720572712,
+      "max_line_pct": 10.888009129623525,
+      "sample_losses_kw_sum_NOT_ANNUAL": 1.0292536123316136
+    }
+  ],
+  "diagnostic_png_sha256": {
+    "sampled_voltage.png": "81a4cfd51219cb9ea95d6988b21a38883fb6d5ae37c3b94a2eb3a3e9ee4c4456",
+    "sampled_transformer.png": "ec776e7fa8f7fff400c6fec6a51f841fe05439f4d8ce3d22d39c800f74747b33"
+  },
+  "converged_case_hours": 150,
+  "nonconverged_case_hours": 0,
+  "sampled_infeasible_case_hours": 10
+}
