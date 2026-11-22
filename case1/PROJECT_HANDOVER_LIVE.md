@@ -1,5 +1,7 @@
 # SEEDExchange El Arenal / San Rafael: rolling research handover
 
+**Current handover location, 22 November 2026:** This `case1/` file is an older 7 November research snapshot. The actively updated, authoritative continuation record is **`PROJECT_HANDOVER_LIVE.md` at the repository root**, on branch `sync/seedexchange-local-2026-11-17`. Read that root file and the 7 November approved scope before starting new SEEDExchange work. The root document includes the independently audited 17,520 annual AC records, latest 113699 nine-factor preflight hotfix (commit 1d56facc), current permissions and the A/B/C research-priority assessment. The active workflow now allows assistant code/documentation commits to the sync branch and user-local simulations with selective result pushes. Do not follow the older main-only permissions or outdated next steps below. Keep the root handover updated after each substantive response.
+
 **Last audit: 7 November 2026. Local main/origin-main distinction and missing CSV target directory clarified.**
 **Canonical project:** https://gitlab.com/KKhan02/resilient-energy-systems (private, GitLab.com), main.
 **Verified pre-handover HEAD:** bfc95c1b60ee.
