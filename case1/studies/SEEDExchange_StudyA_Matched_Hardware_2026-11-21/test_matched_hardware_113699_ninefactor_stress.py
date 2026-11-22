@@ -37,6 +37,17 @@ def reference_frame(hours=8760):
         "voltage_above_103":[0]*hours})
 
 class NineFactorContracts(unittest.TestCase):
+    def test_soc_source_dir_owned_by_annual_runner(self):
+        from types import SimpleNamespace
+        annual=SimpleNamespace(SOURCE_DIRS={
+            "A0":Path("source_a0"),"A1":Path("source_a1")})
+        self.assertEqual(m.soc_hourly_path(annual,"A0"),
+                         Path("source_a0/annual_soc_reoptimized_2025.csv"))
+        self.assertEqual(m.soc_hourly_path(annual,"A1"),
+                         Path("source_a1/annual_soc_reoptimized_2025.csv"))
+        with self.assertRaisesRegex(ValueError,"Unknown original SOC origin"):
+            m.soc_hourly_path(annual,"A2")
+
     def test_source_2025_common_hour_selection(self):
         a=reference_frame()
         b=a.copy()

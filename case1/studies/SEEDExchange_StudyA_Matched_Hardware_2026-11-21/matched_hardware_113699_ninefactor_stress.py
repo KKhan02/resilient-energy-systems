@@ -50,6 +50,12 @@ def load_annual(repo):
     spec.loader.exec_module(mod)
     return mod
 
+def soc_hourly_path(annual,origin):
+    """Use the annual AC module's signed annual-SOC directory mapping."""
+    if origin not in ORIGINS:
+        raise ValueError("Unknown original SOC origin: "+str(origin))
+    return Path(annual.SOURCE_DIRS[origin])/"annual_soc_reoptimized_2025.csv"
+
 def choose_stress_hours(full,old_15):
     """Union of original 15 and ranked 2025 annual extremes from BOTH origins."""
     if set(full)!=set(ORIGINS): raise ValueError("Both signed hardware origins required")
@@ -62,10 +68,11 @@ def choose_stress_hours(full,old_15):
              ("max_line_pct",False),("pcc_kva",False),("loss_kw",False))
     for origin in ORIGINS:
         df=full[origin]
-        if (len(df)!=8760 or df.timestamp_lst.duplicated().any()
-            or df.status.ne("CONVERGED").any()
+        if (len(df)!=8760 or df.status.ne("CONVERGED").any()
             or df.ac_feasible.astype(str).str.lower().ne("true").any()):
-            raise ValueError("Original full-year AC source invalid for "+origin)
+            raise ValueError("Original full-year AC source incomplete for "+origin)
+        if df.timestamp_lst.duplicated().any():
+            raise ValueError("Two source annual clocks disagree: duplicate timestamp in "+origin)
         timestamps=list(df.timestamp_lst)
         if clock is None: clock=timestamps
         if timestamps!=clock: raise ValueError("Two source annual clocks disagree")
@@ -164,7 +171,7 @@ def preflight(repo):
         hourly=folder/"annual_ac_hourly_2025.csv"
         mode=annual.verified_crlf_source(hourly,ANNUAL_AC_SHA_WINDOWS[origin])
         frame=pd.read_csv(hourly)
-        energy=pd.read_csv(repo/soc.SOURCE_DIRS[origin]/"annual_soc_reoptimized_2025.csv",
+        energy=pd.read_csv(repo/soc_hourly_path(annual,origin),
                            parse_dates=["timestamp_lst"]).set_index("timestamp_lst")
         if (len(frame)!=8760 or len(energy)!=8760
             or list(frame.timestamp_lst)!=list(energy.index.astype(str))
@@ -248,7 +255,7 @@ def run(repo,preflight_only=False):
         for origin in ORIGINS:
             trace=cases[origin+"_hardware_on_A1"]["trace"]
             hardware=cases[origin+"_hardware_on_A1"]["hardware"]
-            energy=pd.read_csv(repo/soc.SOURCE_DIRS[origin]/"annual_soc_reoptimized_2025.csv",
+            energy=pd.read_csv(repo/soc_hourly_path(annual,origin),
                                parse_dates=["timestamp_lst"]).set_index("timestamp_lst")
             signed=original[origin].set_index("timestamp_lst")
             if not energy.index.equals(trace.index):

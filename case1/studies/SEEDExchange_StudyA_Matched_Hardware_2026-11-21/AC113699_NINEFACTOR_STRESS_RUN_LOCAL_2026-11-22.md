@@ -51,6 +51,8 @@ identifies the original timestamp and transformer/line/voltage cause.
 The optional .97..1.03pu voltage flags remain separate from main
 .95..1.05pu voltage flags. Sampled losses are NOT annual loss estimates.
 
+**22 November preflight hotfix:** The first local execution reported 72 synthetic tests with two assertion-message failures and an `AttributeError` in preflight. The original source data was not implicated. The source checks now report `clocks disagree` for a duplicated/mismatched timestamp and `incomplete` for nonconvergent source rows. Both annual SOC CSV lookups use `annual.SOURCE_DIRS`, which is defined by `matched_hardware_113699_annual_ac.py`, rather than the SOC helper module. One source-directory ownership regression test was added. No equipment, AC/SOC equations, source hashes, annual results or GIS were changed. The revised 73-test suite and the full source preflight must still be rerun locally before launching the bounded screen.
+
 ## Windows Miniforge Prompt, original repository root
 
 First pull the corrected floating-point source-only test and the new
