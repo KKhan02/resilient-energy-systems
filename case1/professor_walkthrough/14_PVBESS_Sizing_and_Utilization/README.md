@@ -1,4 +1,4 @@
-# Stage 14. PV/BESS sizing and utilization (under validation)
+# Stage 14. PV/BESS sizing and utilization (historical and later validated results)
 
 **Research question:** Can equipment sizing reduce curtailed solar energy, imported electricity and annualized cost simultaneously, while respecting battery physics and household AC limits?
 
@@ -10,7 +10,7 @@ A1 transformer 106039 provides an 11-household example with **20,878 kWh/year** 
 - **Higher-SS plus ninth module:** 1,478 kWh/a imports, 4,876 kWh/a curtailment, USD 5,042/a. Energy-only improvement and modest modelled cost saving.
 - **Higher-SS plus tenth module:** 1,185 kWh/a imports, 4,550 kWh/a curtailment, USD 5,103/a. Further imports reduction at additional cost.
 
-**Critical limitation:** The new nine-module designs are not yet AC-feasible in the strongest initial PF 0.95 x length 1.6 full-year replay. MC_B9 has two transformer-overload hours; SS_B9 has one; voltage/line limits pass. Do not label them validated electrical designs. Follow-up requires SOC-consistent night-time redispatch, verified AC changed-hour tests and then all nine factors.
+**Historical 17 November limitation and later resolution:** The first PF 0.95 x length 1.6 full-year replay found two MC_B9 and one SS_B9 transformer overload hours, so those *initial schedules* were not AC feasible. By 21 November, subsequent SOC-consistent redispatch and the 27-factor-case source-stitched annual review completed the six-design A1 106039 portfolio comparison. All six designs now have modelled 8,760-hour main-band AC passes under the nine reference PF/service combinations (the 27 new cases plus the independently archived original factors), but this does **not** establish field validity. The worst reviewed new-factor minimum voltage is 0.957239659 pu; worst assumed 5 kVA transformer loading 99.431814859%. The separate strict 0.97–1.03 pu band remains unmet. Source: `case1/studies/SEEDExchange_StudyA_Validated_Frontier_2026-11-21/NEW_HARDWARE_FULL_27_REMOTE_AUDIT.md`.
 
 **Visual plan:** Add one uncluttered 8-design cost-versus-grid-import frontier, explicitly labelled `ENERGY-ONLY`, and one monthly energy/curtailment plot only after the underlying annual values and plot source are checked. Retain the historical Stage 02 and 03 figures rather than replacing them.
 
