@@ -1,3 +1,10 @@
+# CI/CD temporarily disabled for local-first research (2026-11-22).
+# Change/remove this workflow block only when explicitly resuming GitLab pipelines.
+# Preserve the original test jobs below for future reuse.
+workflow:
+  rules:
+    - when: never
+
 # Lightweight Case 1 model verification; annual sweeps remain researcher-run.
 # `python -m pytest` (not bare pytest) preserves case1/ on sys.path.
 stages:
