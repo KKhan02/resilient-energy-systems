@@ -76,7 +76,9 @@ class AnnualSOCContractTests(unittest.TestCase):
         corr=m.exact_sampled_corridors(plan)
         self.assertEqual(len(corr),2)
         self.assertTrue(all(lo==hi for lo,hi in corr.values()))
-        self.assertEqual(corr[pd.Timestamp("2025-03-14 19:00:00")],(.2115,.2115))
+        lo,hi=corr[pd.Timestamp("2025-03-14 19:00:00")]
+        self.assertEqual(lo,hi)
+        self.assertAlmostEqual(lo,.2115,places=10)
 
     def test_duplicate_corridor_hour_fails_closed(self):
         plan=[m.target_from_sample(group(),"A0","2025-03-14 19:00:00")]
