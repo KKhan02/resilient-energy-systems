@@ -47,6 +47,12 @@ class OriginalACInputPreflightTests(unittest.TestCase):
         self.assertEqual(gate.compare_original_inputs(e, a)
                          ["mismatch_counts"]["night_Q_not_zero"], 1)
 
+    def test_invalid_night_flag_fails_closed(self):
+        e, a = self.rows()
+        a[1]["night_reactive_disabled"] = "unsupported"
+        with self.assertRaisesRegex(ValueError, "Invalid night AC"):
+            gate.compare_original_inputs(e, a)
+
     def test_nan_energy_fails_closed(self):
         e, a = self.rows()
         e[1]["inverter_ac_kw"] = "nan"

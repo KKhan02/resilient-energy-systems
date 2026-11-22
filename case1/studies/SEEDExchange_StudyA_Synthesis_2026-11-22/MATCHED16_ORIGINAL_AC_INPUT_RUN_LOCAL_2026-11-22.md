@@ -24,7 +24,7 @@ python "case1\studies\SEEDExchange_StudyA_Synthesis_2026-11-22\matched16_origina
 python "case1\studies\SEEDExchange_StudyA_Synthesis_2026-11-22\matched16_original_ac_input_preflight.py" --repo-root .
 ```
 
-**Expected checks if current sources are unchanged:** eleven pure synthetic tests pass; source energy preflight verifies **16/16**, or **140,160 signed 2025 target hourly records** (16 x 8,760). Full read-only comparison checks **17,520 original AC input-hour pairs** from the two 106039 target-native candidates. Based on the already independently reviewed data, it should find both candidates' **8,760 matching source gross-P/daylight records each**. Source originally recorded **10 A0** and **1 A1** AC-infeasible hours before SOC-aware correction. Final `RUN_MANIFEST.json` must still say **0 certified SOC-corrected reuse hours**.
+**Expected checks if current sources are unchanged:** thirteen pure synthetic tests pass; source energy preflight verifies **16/16**, or **140,160 signed 2025 target hourly records** (16 x 8,760). Full read-only comparison checks **17,520 original AC input-hour pairs** from the two 106039 target-native candidates. Based on the already independently reviewed data, it should find both candidates' **8,760 matching source gross-P/daylight records each**. Source originally recorded **10 A0** and **1 A1** AC-infeasible hours before SOC-aware correction. Final `RUN_MANIFEST.json` must still say **0 certified SOC-corrected reuse hours**.
 
 If source signatures fail, data differ, or a test fails: **do not stage the output as validated**. Report the first error. The solver is never invoked.
 

@@ -126,7 +126,10 @@ def compare_original_inputs(energy: list[dict], ac: list[dict],
                 diffs[right] += 1
                 first.setdefault(right, stamp)
         night = float(e["pv_dc_available_kw"]) <= 1e-9
-        source_night = str(a["night_reactive_disabled"]).lower() == "true"
+        night_token = str(a["night_reactive_disabled"]).strip().lower()
+        if night_token not in ("true", "false"):
+            raise ValueError("Invalid night AC policy at " + stamp)
+        source_night = night_token == "true"
         if night != source_night:
             diffs["night_from_pv_availability"] += 1
             first.setdefault("night_from_pv_availability", stamp)
@@ -241,6 +244,9 @@ def inspect(repo: Path, only_preflight: bool = False) -> dict:
                     or ac_summary["night_q_disabled"] is not True
                     or ac_summary["energy_manifest_sha256"] is None):
                 raise ValueError("Original AC source metadata differs: " + case_id)
+            for factor in ("pf", "length_factor", "q_ratio_daylight"):
+                if not math.isfinite(float(ac_summary[factor])):
+                    raise ValueError("Nonfinite original AC factor " + factor)
             signed_bytes(native_dir / "energy_manifest.json",
                          ac_summary["energy_manifest_sha256"])
             if ac_summary.get("input_manifest_sha256") != INPUT_SHA:
@@ -250,6 +256,10 @@ def inspect(repo: Path, only_preflight: bool = False) -> dict:
             ac = read_csv(ac_csv)
             validate_year(ac, AC_KEYS)
             comparison = compare_original_inputs(energy, ac)
+            fail_counts = sum(str(row["ac_feasible"]).strip().lower() == "false"
+                              for row in ac)
+            if fail_counts != int(ac_summary["AC_infeasible_hours"]):
+                raise ValueError("Original source AC failure summary differs")
             item["source_AC_case"] = dirname
             item["source_original_AC_checked_hours"] = HOURS
             item["source_AC_violating_hours"] = int(ac_summary["AC_infeasible_hours"])
