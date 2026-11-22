@@ -23,6 +23,7 @@ def fake_ac(hours=8760):
     index = pd.date_range("2025-01-01", periods=hours, freq="h")
     frame = pd.DataFrame({
         "timestamp_lst": index.astype(str),
+        "assignment": ["A1"]*hours,
         "status": ["CONVERGED"]*hours,
         "ac_feasible": [True]*hours,
         "min_v_pu": [.96]*hours,
