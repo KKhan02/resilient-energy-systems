@@ -24,7 +24,7 @@ python "case1\studies\SEEDExchange_StudyA_Synthesis_2026-11-22\matched16_origina
 python "case1\studies\SEEDExchange_StudyA_Synthesis_2026-11-22\matched16_original_ac_input_preflight.py" --repo-root .
 ```
 
-**Expected checks if current sources are unchanged:** thirteen pure synthetic tests pass; source energy preflight verifies **16/16**, or **140,160 signed 2025 target hourly records** (16 x 8,760). Full read-only comparison checks **17,520 original AC input-hour pairs** from the two 106039 target-native candidates. Based on the already independently reviewed data, it should find both candidates' **8,760 matching source gross-P/daylight records each**. Source originally recorded **10 A0** and **1 A1** AC-infeasible hours before SOC-aware correction. Final `RUN_MANIFEST.json` must still say **0 certified SOC-corrected reuse hours**.
+**Expected checks if current sources are unchanged:** seventeen pure synthetic tests pass; source energy preflight verifies **16/16**, or **140,160 signed 2025 target hourly records** (16 x 8,760). Full read-only comparison checks **17,520 original AC input-hour pairs** from the two 106039 target-native candidates. Based on the already independently reviewed data, it should find both candidates' **8,760 matching source gross-P/daylight records each**. Source originally recorded **10 A0** and **1 A1** AC-infeasible hours before SOC-aware correction. Final `RUN_MANIFEST.json` must still say **0 certified SOC-corrected reuse hours**.
 
 If source signatures fail, data differ, or a test fails: **do not stage the output as validated**. Report the first error. The solver is never invoked.
 
@@ -54,3 +54,15 @@ Change the `OUT` number if another version was created. Stage only the successfu
 This study is a **necessary original-AC input correspondence check**, not a verified physical design or a corrected AC feasibility result for all 16 hardware exchanges. Once its output is pushed, independently audit its 16 receipts and two 8,760-hour source comparisons. Then search alternate archived native equipment families for the other 14, and check the exact SOC-corrected P/Q source outputs for the two 106039 candidates before approving any AC reuse.
 
 **Walkthrough:** No new figure is warranted for this source-integrity gate. Existing Stage 14 energy and Stage 15 uncertainty plots already cover the substantive research questions. Add a new poster figure only after a defensible whole-population AC/economic decision or actual Study B/C topology result.
+
+## Windows long-path correction, 22 November 2026
+
+The user's initial full-run traceback reached the original A1 106039 `ac_summary.json`. That source file exists in GitLab. Its reported absolute Windows path is exactly **260 characters**, consistent with the legacy Windows MAX_PATH limit. The script now uses Windows extended-length source paths for signed CSV and JSON reads, including drive paths and UNC shares, while preserving source bytes, signatures and archive identifiers. No repository relocation or numerical solver is necessary.
+
+`--preflight-only` intentionally does not inspect candidate original AC archives. Its `original_AC_candidate_cases: 0` is correct, even when all 16 signed 2025 energy cases pass. Following the fix, run the 17 synthetic tests and full preflight again. If a truly missing local file is reported, inspect the exact repository-relative file using:
+
+```bat
+git ls-files -- "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/annual_ac_replays_v1/A1_106039_min_cost_ref_mapped_optimized_pf098_length10_annual8760/ac_summary.json"
+```
+
+Do not substitute other source cases, create artificial summaries or reduce checksum validation. Only stage the versioned result folder after all comparisons pass.

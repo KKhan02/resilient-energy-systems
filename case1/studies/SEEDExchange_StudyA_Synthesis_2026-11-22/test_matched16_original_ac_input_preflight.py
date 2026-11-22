@@ -21,6 +21,33 @@ class OriginalACInputPreflightTests(unittest.TestCase):
              for i, x in enumerate(e)]
         return e, a
 
+    def test_windows_extended_drive_and_idempotence(self):
+        original = r"D:\0. UoL\3rd Sem\case1\annual_ac\ac_summary.json"
+        expected = "\\\\?\\" + original
+        self.assertEqual(gate.windows_extended_string(original, windows=True),
+                         expected)
+        self.assertEqual(gate.windows_extended_string(expected, windows=True),
+                         expected)
+
+    def test_windows_extended_unc_and_posix_noop(self):
+        original = r"\\server\share\folder\ac_summary.json"
+        expected = "\\\\?\\UNC\\" + original[2:]
+        self.assertEqual(gate.windows_extended_string(original, windows=True),
+                         expected)
+        self.assertEqual(gate.windows_extended_string(original, windows=False),
+                         original)
+
+    def test_relative_windows_extended_path_refused(self):
+        with self.assertRaisesRegex(ValueError, "absolute"):
+            gate.windows_extended_string(r"case1\ac_summary.json", windows=True)
+
+    def test_missing_file_still_fails_closed(self):
+        with tempfile.TemporaryDirectory() as td:
+            missing = Path(td) / "does_not_exist.json"
+            with self.assertRaisesRegex(FileNotFoundError,
+                                        "Required signed source not present"):
+                gate.read_json(missing)
+
     def test_matching_original_injections(self):
         e, a = self.rows()
         v = gate.compare_original_inputs(e, a)

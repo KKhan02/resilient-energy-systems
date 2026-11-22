@@ -17,3 +17,7 @@ A compact `STUDY_A_34HOUSE_DECISION_SCORECARD_2026-11-22.csv` retains source-spe
 ## Exact original-AC input preflight, 22 November 2026
 
 The new `matched16_original_ac_input_preflight.py` is a fail-closed, **read-only** annual source checker with eleven synthetic tests. It authenticates all 16 target source energy CSVs, checks 2025 timestamps, and compares gross demand, inverter AC power, daylight/Q policy and source AC metadata for the two 106039 min-cost target-native equipment matches at the reference PF .98 and service multiplier x1.0. It does not certify corrected schedules or field networks, and never runs a solver. See `MATCHED16_ORIGINAL_AC_INPUT_RUN_LOCAL_2026-11-22.md` for precise Miniforge commands and output receipt constraints. This preflight has been prepared in GitLab, **not executed by the assistant on the local repository**.
+
+## Windows long-path source reader correction
+
+A local full preflight reached a GitLab-existing A1 106039 original AC summary whose absolute Windows path measures exactly 260 characters. The signed read-only reader now uses extended Windows path syntax for JSON, CSV and binary checksum reads, preserving fail-closed missing-file and immutable source-SHA checks. Four new regression tests cover long drive paths, UNC paths, prefix idempotence, relative source rejection and genuinely missing files. No AC or LP results were changed.

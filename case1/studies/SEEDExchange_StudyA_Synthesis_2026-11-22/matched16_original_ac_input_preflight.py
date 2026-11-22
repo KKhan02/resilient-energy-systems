@@ -12,6 +12,8 @@ from datetime import datetime, timedelta
 import hashlib
 import json
 import math
+import ntpath
+import os
 from pathlib import Path
 
 HOME = Path("case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22")
@@ -30,13 +32,50 @@ HOURS = 8760
 TOL = 1e-8
 
 
+
+
+def windows_extended_string(value: str, windows: bool | None = None) -> str:
+    """Form a Win32 extended path without weakening source checks.
+
+    Pure string logic is separately testable on non-Windows.
+    """
+    if windows is None:
+        windows = os.name == "nt"
+    if not windows:
+        return value
+    if value.startswith("\\\\?\\"):
+        return value
+    if value.startswith("\\\\"):
+        return "\\\\?\\UNC\\" + value[2:]
+    if not ntpath.isabs(value):
+        raise ValueError("Windows extended source path must be absolute")
+    return "\\\\?\\" + value
+
+
+def io_path(path: Path) -> Path:
+    """Only filesystem access is normalized; saved source references stay exact."""
+    if os.name != "nt":
+        return path
+    return Path(windows_extended_string(os.path.abspath(os.fspath(path))))
+
+
+def required_file(path: Path) -> Path:
+    """Require the original local file even when Windows paths exceed MAX_PATH."""
+    candidate = io_path(path)
+    if not candidate.is_file():
+        raise FileNotFoundError(
+            "Required signed source not present in local checkout: "
+            + str(path) + ". Verify the relative path with git ls-files "
+                          "and Windows core.longpaths; no source was substituted.")
+    return candidate
+
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
 def signed_bytes(path: Path, expected: str) -> str:
     """Accept exact bytes or only Git-normalized LF form of a signed CRLF CSV."""
-    data = path.read_bytes()
+    data = required_file(path).read_bytes()
     if not isinstance(expected, str) or len(expected) != 64:
         raise ValueError("Missing or invalid signed source SHA: " + str(path))
     if sha256(data) == expected:
@@ -48,14 +87,14 @@ def signed_bytes(path: Path, expected: str) -> str:
 
 
 def read_json(path: Path) -> dict:
-    value = json.loads(path.read_text(encoding="utf-8"))
+    value = json.loads(required_file(path).read_text(encoding="utf-8"))
     if not isinstance(value, dict):
         raise ValueError("JSON object required: " + str(path))
     return value
 
 
 def read_csv(path: Path) -> list[dict]:
-    with path.open("r", encoding="utf-8-sig", newline="") as source:
+    with required_file(path).open("r", encoding="utf-8-sig", newline="") as source:
         reader = csv.DictReader(source)
         if reader.fieldnames is None or len(set(reader.fieldnames)) != len(reader.fieldnames):
             raise ValueError("Missing or duplicate CSV headers: " + str(path))
