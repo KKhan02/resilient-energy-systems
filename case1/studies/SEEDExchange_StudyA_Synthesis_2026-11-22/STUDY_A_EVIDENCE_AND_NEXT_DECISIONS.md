@@ -45,3 +45,7 @@ There is no demonstrated EPM-certified house wiring, conductor, phase/neutral lo
 - Walkthrough: [Stage 12 mapped geography](../../professor_walkthrough/12_Geographic_Assignment_and_Routing/), [Stage 13 AC corrections](../../professor_walkthrough/13_Annual_AC_Corrections_and_Conditional_Retrofit/), [Stage 14 PV/BESS utilization](../../professor_walkthrough/14_PVBESS_Sizing_and_Utilization/), [Stage 15 same-hardware versus PF robustness](../../professor_walkthrough/15_Matched_Hardware_and_AC_Robustness/).
 
 This is a **read-only synthesis of saved evidence**. No original simulation, grid or equipment data was altered. No new solver was executed.
+
+## Numerical source-reconciliation addendum (22 November)
+
+The follow-up `STUDY_A_34HOUSE_NUMERICAL_RECONCILIATION_2026-11-22.md` resolves all 360 source-AC case IDs behind the 72 A0/A1 factor scenario rows, reproducing original, corrected and hypothetical violation totals exactly. On original proxy network assumptions, 40 of 72 architecture-specific factor selections have zero residual territory-hour model violations (36 A1, 4 A0); the remaining 32 A0 selections all retain 94022 violations. All 72 hypothetical five-edge comparison totals are zero but rely on the proposed, unbuilt 94022 option and common 92395 STAR. These 72 are **not** matched-hardware AC outcomes. New Stage 14 architecture-specific annual cost/import/curtailment vector figure derives from the four signed energy points with no new solve.

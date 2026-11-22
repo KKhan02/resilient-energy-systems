@@ -1,5 +1,12 @@
 # Stage 14. PV/BESS sizing and utilization (historical and later validated results)
 
+## 34-house A0/A1 community energy frontier
+
+[01_34house_architecture_cost_import_curtailment.svg](01_34house_architecture_cost_import_curtailment.svg) is a new vector figure from the source-matched 34-house, architecture-specific annual energy totals. It compares A0/A1 minimum-cost and higher-self-sufficiency tiers with **unchanged household population (64,532 kWh/year)** but different PV/BESS/inverter hardware. In both assignments, the higher-SS tier reduces imported energy but has higher modelled annual equipment+grid expense and more DC PV curtailment. This is a planning-model trade-off, not evidence that adding batteries causes more curtailment. No identical-hardware attribution, full population AC certification, field-installed cable costs or loss-aware objective is claimed.
+
+Source: `case1/studies/SEEDExchange_StudyA_Matched_Cohort_2026-11-21/A0_A1_34H_MATCHED_SOURCE_ENERGY.csv`, independently cross-checked against the eight signed original-origin reciprocal portfolios. Pair this with Stage 15 for the separate fixed-hardware causal control.
+
+
 **Research question:** Can equipment sizing reduce curtailed solar energy, imported electricity and annualized cost simultaneously, while respecting battery physics and household AC limits?
 
 A1 transformer 106039 provides an 11-household example with **20,878 kWh/year** demand. The archived minimum-cost reference uses 41 panels and eight battery modules; the higher-self-sufficiency reference uses 49 panels and eight modules. Six new complete 8,760-hour fixed-hardware PyPSA solutions have been audited.
