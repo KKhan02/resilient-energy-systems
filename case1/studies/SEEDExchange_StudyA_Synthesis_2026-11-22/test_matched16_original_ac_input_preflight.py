@@ -47,6 +47,18 @@ class OriginalACInputPreflightTests(unittest.TestCase):
         self.assertEqual(gate.compare_original_inputs(e, a)
                          ["mismatch_counts"]["night_Q_not_zero"], 1)
 
+    def test_nan_energy_fails_closed(self):
+        e, a = self.rows()
+        e[1]["inverter_ac_kw"] = "nan"
+        with self.assertRaisesRegex(ValueError, "Nonfinite energy"):
+            gate.compare_original_inputs(e, a)
+
+    def test_nan_ac_fails_closed(self):
+        e, a = self.rows()
+        a[1]["q_selected_kvar"] = "nan"
+        with self.assertRaisesRegex(ValueError, "Nonfinite AC"):
+            gate.compare_original_inputs(e, a)
+
     def test_clock_mismatch_fails_closed(self):
         e, a = self.rows()
         a[1]["timestamp_lst"] = a[0]["timestamp_lst"]

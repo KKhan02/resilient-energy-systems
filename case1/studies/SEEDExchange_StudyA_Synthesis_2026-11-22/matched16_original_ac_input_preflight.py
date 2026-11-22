@@ -11,6 +11,7 @@ import csv
 from datetime import datetime, timedelta
 import hashlib
 import json
+import math
 from pathlib import Path
 
 HOME = Path("case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22")
@@ -59,7 +60,8 @@ def read_csv(path: Path) -> list[dict]:
         if reader.fieldnames is None or len(set(reader.fieldnames)) != len(reader.fieldnames):
             raise ValueError("Missing or duplicate CSV headers: " + str(path))
         rows = list(reader)
-    if any(None in row for row in rows):
+    if any(None in row or any(value is None for value in row.values())
+           for row in rows):
         raise ValueError("Malformed CSV source: " + str(path))
     return rows
 
@@ -99,6 +101,21 @@ def compare_original_inputs(energy: list[dict], ac: list[dict],
     greatest = {"gross_demand_kw": 0.0, "inverter_ac_kw": 0.0}
     for e, a in zip(energy, ac):
         stamp = str(e["timestamp_lst"])
+        for key in ("demand_kw", "inverter_ac_kw", "pv_dc_available_kw"):
+            try:
+                number = float(e[key])
+            except (ValueError, TypeError, KeyError) as exc:
+                raise ValueError("Invalid energy input at " + stamp + "/" + key) from exc
+            if not math.isfinite(number):
+                raise ValueError("Nonfinite energy input at " + stamp + "/" + key)
+        for key in ("gross_demand_kw", "inverter_ac_kw", "load_pf",
+                    "q_selected_kvar"):
+            try:
+                number = float(a[key])
+            except (ValueError, TypeError, KeyError) as exc:
+                raise ValueError("Invalid AC input at " + stamp + "/" + key) from exc
+            if not math.isfinite(number):
+                raise ValueError("Nonfinite AC input at " + stamp + "/" + key)
         if stamp != a["timestamp_lst"]:
             raise ValueError("Source annual clocks disagree at " + stamp)
         for left, right in (("demand_kw", "gross_demand_kw"),
@@ -167,9 +184,16 @@ def inspect(repo: Path, only_preflight: bool = False) -> dict:
         energy_signature = signed_bytes(path, c["target_energy_sha256"])
         energy = read_csv(path)
         validate_year(energy, ENERGY_KEYS)
-        if any(not x["demand_kw"] or not x["inverter_ac_kw"] or
-               not x["pv_dc_available_kw"] for x in energy):
-            raise ValueError("Incomplete hourly energy data: " + case_id)
+        for row in energy:
+            for col in ("demand_kw", "inverter_ac_kw", "pv_dc_available_kw"):
+                if row[col] in ("", None):
+                    raise ValueError("Incomplete hourly energy data: " + case_id)
+                try:
+                    value = float(row[col])
+                except (ValueError, TypeError) as exc:
+                    raise ValueError("Invalid annual energy input: " + case_id) from exc
+                if not math.isfinite(value):
+                    raise ValueError("Nonfinite annual energy input: " + case_id)
         item = {
             "case": case_id, "transformer": tr, "tier": tier,
             "hardware_origin": c["assignment_for_hardware"],
