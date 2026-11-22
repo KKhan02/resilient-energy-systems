@@ -21,3 +21,7 @@ The new `matched16_original_ac_input_preflight.py` is a fail-closed, **read-only
 ## Windows long-path source reader correction
 
 A local full preflight reached a GitLab-existing A1 106039 original AC summary whose absolute Windows path measures exactly 260 characters. The signed read-only reader now uses extended Windows path syntax for JSON, CSV and binary checksum reads, preserving fail-closed missing-file and immutable source-SHA checks. Four new regression tests cover long drive paths, UNC paths, prefix idempotence, relative source rejection and genuinely missing files. No AC or LP results were changed.
+
+## Extended 22-family source search, 22 November
+
+After the user's reported 16/16 local first-stage preflight, an independent read-only GitLab scan of all 22 source equipment families identified **two additional 85398 exact original-hardware/energy-schedule matches**. Both corresponding 8,760-hour original PF .98 AC input streams match their source energy P/gross demand/daylight fields and their recorded original AC screens have zero infeasible hours. Thus 4/16 reciprocal fixed-hardware cases have identified *original-source candidate* records across the 22 families, rather than just 2/16 target-native same-tier matches. **0/16 are certified for SOC-corrected AC reuse**, and the user's new local v1 receipt has not yet been pushed. See `MATCHED16_ALL_ARCHIVE_FAMILY_DISCOVERY_2026-11-22.md` and its source-family CSV. No plot is warranted for this source-integrity audit.
