@@ -1,0 +1,11 @@
+added_target_ac_kw,annual_AC_verified,annual_soc_and_energy_valid,case,checked_local_AC_points,fraction,moved_dc_kw,pair_4of4_AC_screen_pass,passed_local_AC_points,tier
+0.0,False,True,A1_94022_min_cost_to_A0,4,0.0,0.0,False,2,min_cost
+0.027404182742499998,False,True,A1_94022_min_cost_to_A0,4,0.25,0.02884650815,False,2,min_cost
+0.054808365484999996,False,True,A1_94022_min_cost_to_A0,4,0.5,0.0576930163,False,2,min_cost
+0.08221254822749999,False,True,A1_94022_min_cost_to_A0,4,0.75,0.08653952444999999,False,2,min_cost
+0.10742439635059998,False,True,A1_94022_min_cost_to_A0,4,0.98,0.11307831194799998,False,2,min_cost
+0.0,False,True,A1_94022_ss90_to_A0,4,0.0,0.0,False,2,ss90
+0.45544959462875,False,True,A1_94022_ss90_to_A0,4,0.25,0.479420625925,False,2,ss90
+0.9108991892575,False,True,A1_94022_ss90_to_A0,4,0.5,0.95884125185,False,3,ss90
+1.36634878388625,False,True,A1_94022_ss90_to_A0,4,0.75,1.438261877775,False,3,ss90
+1.7853624109447,False,True,A1_94022_ss90_to_A0,4,0.98,1.879328853626,True,4,ss90
