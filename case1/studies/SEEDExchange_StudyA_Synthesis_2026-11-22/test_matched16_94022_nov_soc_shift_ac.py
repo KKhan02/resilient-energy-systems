@@ -79,5 +79,50 @@ class ACShiftMath(unittest.TestCase):
         self.assertEqual(len(m.SAMPLE_FRACTIONS)*len(m.CASES)*len(m.PF)*2,40)
 
 
+    def test_full_8760_energy_and_cyclic_floor(self):
+        d=pd.DataFrame(index=pd.date_range("2025-01-01",periods=8760,freq="h"))
+        d["demand_kw"]=1.0
+        d["inverter_ac_kw"]=0.0
+        d["grid_import_kw"]=1.0
+        d["grid_export_kw"]=0.0
+        d["unserved_kw"]=0.0
+        d["pv_dc_generated_kw"]=0.0
+        d["pv_dc_available_kw"]=0.0
+        d["battery_discharge_dc_kw"]=0.0
+        d["battery_charge_dc_kw"]=0.0
+        d["battery_soc_usable_kwh"]=.229
+        d["curtailed_pv_dc_kw"]=0.0
+        res=m.check_year(d,1,2.0,5.0)
+        self.assertAlmostEqual(res["annual_import_kwh"],8760)
+        self.assertAlmostEqual(res["max_cyclic_store_error_kwh"],0)
+        self.assertAlmostEqual(res["module_floor_kwh"],.229)
+
+    def test_full_year_power_balance_violation_rejected(self):
+        d=pd.DataFrame(index=pd.date_range("2025-01-01",periods=8760,freq="h"))
+        for k in ("inverter_ac_kw","grid_export_kw","unserved_kw",
+                  "pv_dc_generated_kw","pv_dc_available_kw","battery_discharge_dc_kw",
+                  "battery_charge_dc_kw","curtailed_pv_dc_kw"): d[k]=0.0
+        d["demand_kw"]=1.0;d["grid_import_kw"]=1.0
+        d["battery_soc_usable_kwh"]=.229
+        d.iloc[75,d.columns.get_loc("grid_import_kw")]=1.15
+        with self.assertRaisesRegex(ValueError,"Annual battery SOC"):
+            m.check_year(d,1,2.0,5.0)
+
+    def test_full_year_soc_floor_breach_rejected(self):
+        d=pd.DataFrame(index=pd.date_range("2025-01-01",periods=8760,freq="h"))
+        for k in ("inverter_ac_kw","grid_export_kw","unserved_kw",
+                  "pv_dc_generated_kw","pv_dc_available_kw","battery_discharge_dc_kw",
+                  "battery_charge_dc_kw","curtailed_pv_dc_kw"): d[k]=0.0
+        d["demand_kw"]=1.0;d["grid_import_kw"]=1.0
+        d["battery_soc_usable_kwh"]=.229
+        d.iloc[17,d.columns.get_loc("battery_soc_usable_kwh")]=.20
+        with self.assertRaisesRegex(ValueError,"Annual battery SOC"):
+            m.check_year(d,1,2.0,5.0)
+
+    def test_year_requires_all_8760_chronological_snapshots(self):
+        with self.assertRaisesRegex(ValueError,"Annual 2025"):
+            m.check_year(fake(),1,2.0,5.0)
+
+
 if __name__=="__main__":
     unittest.main()
