@@ -23,6 +23,18 @@ class TargetedPQReplayTests(unittest.TestCase):
         self.assertTrue(x.compare_result(rec,old,
                         ("max_trafo_pct","min_v_pu","q_selected_kvar")))
 
+    def test_reproducing_originally_infeasible_AC_is_valid(self):
+        rec={"status":"CONVERGED","ac_feasible":False,
+             "max_trafo_pct":103.4916719489, "min_v_pu":.9597}
+        old={"status":"CONVERGED","ac_feasible":"False",
+             "max_trafo_pct":"103.4916719489","min_v_pu":"0.9597"}
+        self.assertTrue(x.compare_result(rec,old,("max_trafo_pct","min_v_pu")))
+
+    def test_original_feasibility_mismatch_fails(self):
+        rec={"status":"CONVERGED","ac_feasible":True,"max_trafo_pct":103.49}
+        old={"status":"CONVERGED","ac_feasible":"False","max_trafo_pct":"103.49"}
+        self.assertFalse(x.compare_result(rec,old,("max_trafo_pct",)))
+
     def test_failed_source_compare(self):
         rec={"status":"AC_FAILURE","max_trafo_pct":98}
         old={"ac_feasible":"True","max_trafo_pct":"98"}

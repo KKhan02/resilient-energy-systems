@@ -44,8 +44,16 @@ def check_near(a, b, tolerance=TOL, label="value"):
 
 def compare_result(new, old, columns, tol=TOL):
     """Numerical regression against original annual or saved changed-hour AC."""
-    if new["status"] != "CONVERGED" or str(old.get("ac_feasible")) not in ("True", "true", "1"):
+    if new["status"] != "CONVERGED":
         return False
+    if "status" in old and old["status"] != new["status"]:
+        return False
+    if "ac_feasible" in old:
+        old_bool = str(old["ac_feasible"]).strip().lower()
+        if old_bool not in ("true", "false", "1", "0"):
+            raise ValueError("Invalid archived AC feasibility flag")
+        if bool(new["ac_feasible"]) != (old_bool in ("true", "1")):
+            return False
     for col in columns:
         if not check_near(new[col], old[col], tol, col):
             return False
@@ -102,10 +110,17 @@ def load_evidence(repo):
         raise ValueError("Original saved AC compact coverage incomplete")
     lookup = {(float(r["pf"]),float(r["length_factor"]),r["timestamp_lst"]):r
               for r in original_compact}
+    # Signed original JSON can be LF in Git or CRLF on Windows. Use the
+    # archived AC summary's original manifest SHA, not the checkout byte SHA.
+    source_ac_meta = base.read_json(
+        repo/base.ARCHIVED/"annual_ac_replays_v1"/
+        (CASE+"_mapped_optimized_pf098_length10_annual8760")/"ac_summary.json")
+    signed_energy_manifest_sha = source_ac_meta["energy_manifest_sha256"]
+    base.signed_bytes(raw/"energy_manifest.json", signed_energy_manifest_sha)
     info={"source_energy_sha256":source_sha,
           "candidate_annual_energy_sha256":entry[0]["sha256"],
           "archived_compact_ac_sha256":hashlib.sha256(base.required_file(detail_path).read_bytes()).hexdigest(),
-          "source_energy_manifest_sha256":hashlib.sha256(base.required_file(raw/"energy_manifest.json").read_bytes()).hexdigest(),
+          "source_energy_manifest_sha256":signed_energy_manifest_sha,
           "original_source_input_manifest_sha256":base.INPUT_SHA,
           "source_v1_expected_candidates":2,
           "changed_P_hours":39,
