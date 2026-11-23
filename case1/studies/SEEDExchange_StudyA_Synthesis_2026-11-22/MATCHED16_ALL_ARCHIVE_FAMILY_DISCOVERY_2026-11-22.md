@@ -38,3 +38,7 @@ The two 106039 target-native comparisons were already independently checked agai
 - `.../annual_ac_replays_v1/A0_85398_min_cost_ref_mapped_optimized_pf098_length10_annual8760/{ac_summary.json,ac_hourly.csv}`
 - `.../annual_ac_replays_v1/A0_85398_ss90_ref_mapped_optimized_pf098_length10_annual8760/{ac_summary.json,ac_hourly.csv}`
 - Previously reviewed exact 106039 source documents and source receipts. No original files changed.
+
+## 23 November 2026 receipt and SOC-update addendum
+
+The first 16-case local versioned receipt **was subsequently pushed** at GitLab commit `54b4f66d` and independently checked. Its Windows CRLF SHA matches the LF GitLab source after normalizing line endings. The original review's statement that no receipt had been pushed records the state **on 22 November only**. A new four-family follow-up documents the 39 A0 / four A1 changed inverter-P hours, their 351 / 36 saved nine-factor AC checks and explicit missing A0 changed-hour Q/P logging. See `MATCHED16_SOURCE_AND_SOCSHIFT_INDEPENDENT_REVIEW_2026-11-23.md`. The new v2 local preflight package has been committed but not locally executed. Original source equivalence is not SOC-corrected AC certification.
