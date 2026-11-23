@@ -1,0 +1,18 @@
+{
+  "AC_solver_calls": 0,
+  "SOC_corrected_AC_reuse_certified_hours": 0,
+  "actual_EPM_feeder_verified": false,
+  "already_original_AC_source_matched": 4,
+  "original_reciprocal_cases": 16,
+  "prioritized_target_hours": 300,
+  "priority_counts": {
+    "P1": 6,
+    "P2": 4,
+    "P3": 2
+  },
+  "signed_2025_hours_checked": 105120,
+  "source_hour_selection_sha256": "482c2e296c2c803d32e4e3f0932286599ab05fcd9fc9c7dad74925c1084a62aa",
+  "source_register_sha256": "08e1ecb98b88dc533b6f23069941cf64876e03ccc0882ba7c6b74192a3164dad",
+  "status": "RECIPROCAL12_SOURCE_ONLY_MATERIALITY_AND_25H_PRIORITIZATION",
+  "unmatched_2025_energy_cases": 12
+}
