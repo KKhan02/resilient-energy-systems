@@ -10,8 +10,17 @@ class Reciprocal12MaterialityTests(unittest.TestCase):
         self.assertEqual(len(m.ARCHIVE_ANCHORS["94022"]),5)
 
     def test_night_pf_095_proxy(self):
-        val=m.nighttime_proxy(4.887809301, 5.7703076217, .95)
-        self.assertAlmostEqual(val,5.1765998799,places=7)
+        # Time-matched 2025-11-27 20:00 source inputs, not annual max gross load.
+        # A1 SS90 to A0: import=4.887809301, hourly demand=5.186888959 kW.
+        # A0 SS90 to A1: import=demand=4.8438874007 kW.
+        cases = (
+            (4.887809301, 5.186888959, 5.1765998799),
+            (4.8438874007, 4.8438874007, 5.0988288428),
+        )
+        for grid_import_kw, hourly_gross_demand_kw, expected_kva in cases:
+            with self.subTest(grid_import_kw=grid_import_kw):
+                val = m.nighttime_proxy(grid_import_kw, hourly_gross_demand_kw, .95)
+                self.assertAlmostEqual(val, expected_kva, places=7)
 
     def test_zero_import_with_reactive_load_is_nonzero(self):
         self.assertGreater(m.nighttime_proxy(0,2,.95),0)

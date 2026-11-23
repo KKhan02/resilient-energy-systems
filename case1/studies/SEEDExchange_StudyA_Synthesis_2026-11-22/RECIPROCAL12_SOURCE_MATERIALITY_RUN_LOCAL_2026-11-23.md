@@ -1,5 +1,8 @@
 # Local run | remaining 12 reciprocal Study A cases, source-only materiality gate
 
+> **POST-RUN CORRECTION | 23 NOV 2026:** The user has already uploaded `StudyA_Reciprocal12_Source_Materiality_v1` in commit `023f2b72`. Its manifest and both CSVs are present on the sync branch. The first nine-test materiality suite was reported to have ONE failure: `test_night_pf_095_proxy` supplied annual maximum gross demand 5.7703076217 kW instead of the simultaneous 2025-11-27 20:00 demand 5.186888959 kW. This was a **test fixture** error. The source formula and archived results are unchanged. The fixture is fixed on the sync branch; user must pull and rerun the nine tests before claiming 9/9. **Do not rerun the 12-case source producer or push another versioned receipt solely to fix this test.** The original steps 3 and 4 below describe first-time execution only and are superseded for the already-archived v1. See `RECIPROCAL12_LOCAL_TEST_FIX_AND_REMOTE_RECEIPT_AUDIT_2026-11-23.md`.
+
+
 **Commit preparation:** 23 November 2026. Read-only source audit, no solver. Must run on the real synced GitLab branch in Miniforge Prompt at the repo root.
 
 ## Step 1: fetch and pull before any Python invocation
