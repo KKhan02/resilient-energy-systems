@@ -34,8 +34,8 @@ class Reciprocal12MaterialityTests(unittest.TestCase):
 
     def test_duplicate_source_hour_refused(self):
         r={"timestamp_lst":"2025-01-01 00:00:00"}
-        with self.assertRaisesRegex(ValueError,"Full 2025 source"):
-            m.choose_hours([r,r],"113699")
+        with self.assertRaisesRegex(ValueError,"Duplicate source hour"):
+            m.choose_hours([r]*8760,"113699")
 
     def test_priority_register_is_complete_and_evidence_only(self):
         expected={

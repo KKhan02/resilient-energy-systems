@@ -226,8 +226,8 @@ def inspect(repo):
     src.signed_bytes(repo / src.INPUT_MANIFEST, src.INPUT_SHA)
     if src.read_json(repo / src.INPUT_MANIFEST).get("2025_hours") != 8760:
         raise ValueError("Original profile source changed")
-    if set(MATCHED) != (set(cases) - {k for k in cases if k not in MATCHED}):
-        raise ValueError("Four original-source matches missing")
+    if not MATCHED.issubset(set(cases)) or len(set(cases) - MATCHED) != 12:
+        raise ValueError("Four original-source matches and 12 unmatched cases required")
     registers, hours = [], []
     for name in sorted(set(cases)-MATCHED):
         c = cases[name]
