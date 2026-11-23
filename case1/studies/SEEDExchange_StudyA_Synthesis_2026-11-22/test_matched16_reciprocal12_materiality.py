@@ -37,15 +37,18 @@ class Reciprocal12MaterialityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"Full 2025 source"):
             m.choose_hours([r,r],"113699")
 
-    def test_target_priority_nameplate_not_a_certificate(self):
+    def test_priority_register_is_complete_and_evidence_only(self):
+        expected={
+            ("94022","A0"),("94022","A1"),
+            ("113699","A0"),("113699","A1"),
+            ("106039","A0"),("106039","A1"),("85398","A1"),
+        }
+        self.assertEqual(set(m.PRIORITY_DESCRIPTIONS),expected)
         self.assertEqual(m.PRIORITY_DESCRIPTIONS[("113699","A1")][0],"P1")
-        self.assertTrue(all("EPM" in m.PRIORITY_DESCRIPTIONS[k][1] or
-                            "PF" in m.PRIORITY_DESCRIPTIONS[k][1] or
-                            "original" in m.PRIORITY_DESCRIPTIONS[k][1] or
-                            "SS90" in m.PRIORITY_DESCRIPTIONS[k][1] or
-                            "H13" in m.PRIORITY_DESCRIPTIONS[k][1] or
-                            "Four-home" in m.PRIORITY_DESCRIPTIONS[k][1]
-                            for k in m.PRIORITY_DESCRIPTIONS))
+        self.assertEqual(m.PRIORITY_DESCRIPTIONS[("94022","A0")][0],"P1")
+        self.assertEqual(m.PRIORITY_DESCRIPTIONS[("85398","A1")][0],"P2")
+        self.assertTrue(all(band in ("P1","P2","P3") and bool(reason)
+                            for band,reason in m.PRIORITY_DESCRIPTIONS.values()))
 
 if __name__=="__main__":
     unittest.main()
