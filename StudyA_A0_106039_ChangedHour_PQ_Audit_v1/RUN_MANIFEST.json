@@ -1,0 +1,41 @@
+{
+  "AC_baseline_replays": 18,
+  "AC_corrected_replays": 18,
+  "AC_replays_executed": 36,
+  "annual_inverter_P_delta_kwh": 9.992007221626409e-16,
+  "archived_compact_ac_sha256": "6feef36aea8842bf25c119815bf6b7a5ddae626e9a24cddf7821f04b8bb1d4e8",
+  "baseline_reproduction_pass": true,
+  "candidate_annual_energy_sha256": "e7012b9b4b1de728dd4ff756e6a55f42524d53f993003621476076e65c00f768",
+  "changed_P_hours": 39,
+  "claimed_certified_annual_AC_reuse_hours": 0,
+  "corrected_Q_selected_nonzero_rows": 0,
+  "corrected_compact_reproduction_pass": true,
+  "factor_count": 9,
+  "failed_comparisons": [],
+  "field_verified": false,
+  "original_source_input_manifest_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+  "replay_csv_sha256": "189b12da86a324c4a892ad0f16104d5751d0c035d5732ea4e32b5a9b0fe7d208",
+  "scope": "daylight",
+  "selected_2025_hours": [
+    "2025-11-15 17:00:00",
+    "2025-11-27 16:00:00"
+  ],
+  "selected_hours": 2,
+  "source_AC_sha_by_factor": {
+    "pf0.95_length1.0": "8aa676e09e8f1d9040f4df11eff4ae7b33ee36cc1aedbd92eeb6878280210dd0",
+    "pf0.95_length1.3": "213bfea4bf3850313c57c62720edaf680593296a8bf98c2452253a273456bed8",
+    "pf0.95_length1.6": "796f947a41e20e1844d19ce9d0fe8cf4886e91f75e674b36fa1216cb240d4ea9",
+    "pf0.98_length1.0": "fdf97f67c988c640840e75b74e88de975b2840804b2d8ac31d1a9f1a6a6bdbd5",
+    "pf0.98_length1.3": "9285a42bc4e7d4bca35628ed15d5c64120125ed11c9b041f406f679268d9a14a",
+    "pf0.98_length1.6": "66142f64d757191ad6758eb2714bfbea045610a62c897b90d63aeb3e1e503a38",
+    "pf1.00_length1.0": "5772de66cfd221711bdb8febb30e344ee5043a0b0d5e4c267b885e791b983fb2",
+    "pf1.00_length1.3": "6071fd1f96daf5df8d4fda6b819d53742148f4a8e347f3e8adfb79da0ae1579a",
+    "pf1.00_length1.6": "87de7c86ec476574a813898851cb4a113070dfe5392d84cfff46adae9f563924"
+  },
+  "source_energy_manifest_sha256": "ffb22655ccdd4c606b3e23117018045e21e2c2385e5e08a1c784c7e6fea04db6",
+  "source_energy_sha256": "53012c200ee5b34cf0a2a4962dc52e92b492853ae95d702e78897b02796c6b54",
+  "source_hourly_inputs_only": false,
+  "source_model": "FROZEN_V6_2_STATELESS_AC",
+  "source_v1_expected_candidates": 2,
+  "status": "A0_CHANGED_HOUR_PQ_REPLAY_PASS"
+}
