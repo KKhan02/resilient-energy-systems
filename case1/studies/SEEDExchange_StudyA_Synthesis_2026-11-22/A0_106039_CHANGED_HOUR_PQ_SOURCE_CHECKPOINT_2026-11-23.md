@@ -1,0 +1,9 @@
+# Source checkpoint | 39 A0 106039 min-cost changed inverter-P hours
+
+Reviewed 23 November 2026 directly from immutable original 2025 optimized energy, original PF.98 length1 AC, and saved SOC-shift annual energy files. NO new power-flow simulation was executed in this source review.
+
+The independently reconstructed source ledger A0_106039_MINCOST_CHANGED39_ORIGINAL_PQ_LEDGER_2026-11-23.csv has exactly 39 changed inverter AC P hours. Sum of delta P is zero across the year. Original source selected Q is zero at all 39 hours. Of these hours, 37 have nighttime Q disabled, and 2 have a PV-daylight-capable path. Source original PV availability: 2025-11-15 17:00, 0.1859094887 kW, and 2025-11-27 16:00, 1.3652522556 kW. These source values DO NOT establish corrected Q equals zero.
+
+All ten original AC violations at PF.98 length1 were within the 39 changed hours, with peak original modeled transformer loading 105.0128925593 percent against the provisional 5 kVA rating. The old A0 sequenced trial recorded 351 compact changed-hour-factor AC outcomes all feasible and an annual nine-factor zero-residual report; its compact AC result omitted the injected P and selected Q. The new signed local runner will verify baseline source AC and corrected compact AC responses and log P/Q explicitly, first in 36 daylight-point evaluations, then optionally all 702 source and corrected evaluations. Both outputs remain proposed-model evidence, not utility field certification.
+
+User separately reported the four-family source-only preflight passed with four original families, 35,040 original source case-hours, no AC solve and no corrected source reuse approved. Its saved v1 receipt was not yet in GitLab at this checkpoint. No new full-year PyPSA optimization or 8,760-hour AC scenario was authorized here.
