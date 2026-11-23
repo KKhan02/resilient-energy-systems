@@ -1,5 +1,30 @@
 # A0 106039 | targeted corrected-hour AC P/Q provenance
 
+## First: synchronize the exact GitLab branch before running anything
+
+**Correction, 23 November 2026:** An earlier chat reply displayed only the `python` commands and omitted the mandatory Git fetch/pull before copying them. A local user reported `Ran 0 tests` followed by `python: can't open file ... No such file or directory`. That was **missing local source files**, not a passed test or an AC failure. Both files are independently confirmed at GitLab HEAD `bf5d73f4` under the sync branch.
+
+Run this **first**, from the repository root in your Windows Miniforge Prompt:
+
+```bat
+git status --short
+git branch --show-current
+git fetch origin
+git switch sync/seedexchange-local-2026-11-17
+git pull --ff-only origin sync/seedexchange-local-2026-11-17
+
+git ls-files -- "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/matched16_a0_106039_changed_pq_replay.py"
+git ls-files -- "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/test_matched16_a0_106039_changed_pq_replay.py"
+dir "case1\studies\SEEDExchange_StudyA_Synthesis_2026-11-22\matched16_a0_106039_changed_pq_replay.py"
+```
+
+Do not continue if the pull fails or either file is still absent. Check the branch selection and the exact pull error, and **do not delete, reset, overwrite, or discard local data** to force a pull. The existing local `StudyA_Matched16_FourFamily_InputGate_v1` folder is an untracked source-only result and should remain intact.
+
+The complete subsequent sequence is: **(1)** 8 four-family source-gate tests and saved-v1 receipt, **(2)** stage and push only that successful source result folder, **(3)** 9 new P/Q replay tests, **(4)** daylight `--preflight`, **(5)** daylight bounded solver, **(6)** if it passes, optional all-39-hour solver, **(7)** inspect and commit only clearly versioned P/Q results, and push. The commands are in the sections below. A test result of `Ran 0 tests` is a **failure to collect tests** and must never be accepted as success.
+
+---
+
+
 Prepared 23 November 2026. Source-verified 2025 A0 106039 min-cost optimized SOC shift; proposed mapped GIS, assumed 5 kVA, not field-certified.
 
 ## Evidence and boundaries
