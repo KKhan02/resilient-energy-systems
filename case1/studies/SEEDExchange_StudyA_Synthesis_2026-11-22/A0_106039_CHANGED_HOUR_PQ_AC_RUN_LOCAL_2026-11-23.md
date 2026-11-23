@@ -69,3 +69,20 @@ Full bounded workload: 39 hours x nine PF/length settings x original/corrected =
     git status --short
 
 Inspect exact output status and failed_comparisons before staging only those folders. Do not stage unrelated files or overwrite signed originals. A successful fixed-schedule AC response in the model does not certify the real EPM service wiring, transformer rating, Q-control permission, inverter dynamics, or loss-aware economics.
+
+## 23 November 2026 update: results already uploaded and unit-test fixture fixed
+
+The user has now committed both the **daylight v1** and **39-hour full v2** result directories, plus the four-family input gate, to the sync branch. Independent GitLab receipt inspection confirms the two solver-manifest statuses `A0_CHANGED_HOUR_PQ_REPLAY_PASS` and zero comparison errors, 36/702 AC records, and all corrected Q selected as zero; see `A0_106039_CHANGED_HOUR_PQ_UPLOADED_RESULTS_AUDIT_2026-11-23.md`. **Do not rerun either AC simulation** merely to repair the synthetic test.
+
+The separate local nine-test suite initially had eight successes and one error because `test_annual_source_comparison` omitted the mandatory `ac_feasible` field from its mock `CONVERGED` AC record. The fixture has been corrected; production solver and the uploaded AC datasets remain untouched. Pull the latest sync-branch commit, then rerun only:
+
+```bat
+git status --short
+git branch --show-current
+git fetch origin
+git switch sync/seedexchange-local-2026-11-17
+git pull --ff-only origin sync/seedexchange-local-2026-11-17
+python -m unittest discover -s "case1\studies\SEEDExchange_StudyA_Synthesis_2026-11-22" -p "test_matched16_a0_106039_changed_pq_replay.py" -v
+```
+
+Expect `Ran 9 tests` and `OK`; the patched tests are committed but have **not yet been executed locally after the patch**. If you get an error, preserve the traceback and do not revise the signed solver outputs.

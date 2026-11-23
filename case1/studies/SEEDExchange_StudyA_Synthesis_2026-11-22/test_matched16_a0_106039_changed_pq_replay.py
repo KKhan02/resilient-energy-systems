@@ -16,7 +16,8 @@ class TargetedPQReplayTests(unittest.TestCase):
             x.check_near(float("nan"),10)
 
     def test_annual_source_comparison(self):
-        rec={"status":"CONVERGED","max_trafo_pct":98.00010,
+        rec={"status":"CONVERGED","ac_feasible":True,
+             "max_trafo_pct":98.00010,
              "min_v_pu":.963123,"q_selected_kvar":0}
         old={"ac_feasible":"True","max_trafo_pct":"98.00000",
              "min_v_pu":".963123","q_selected_kvar":"0"}
