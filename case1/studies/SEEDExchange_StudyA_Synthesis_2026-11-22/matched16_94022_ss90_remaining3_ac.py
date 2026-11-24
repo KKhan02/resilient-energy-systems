@@ -180,7 +180,7 @@ def preflight(repo):
         new_AC_hours_planned=len(SAMPLES)*len(SOURCE_TIMES)*len(PF),
         new_AC_hours_executed=0,
         old_8_source_AC_points_not_rerun=True,
-        2025_annual_corrected_AC_verified=False,
+        annual_2025_corrected_AC_verified=False,
         field_utility_EPM_verified=False,
         source_AC_model_service_factor=1.0,
         AC_main_band="0.95 to 1.05 pu / 100 percent thermal",
@@ -296,7 +296,7 @@ def run_local(repo,receipt,item,v6):
           AC_infeasible_casehours=sum(r["ac_feasible"] is False for r in records),
           new_12of12_AC_pass_candidates=sum(x["new_6_changed_hours_ac_pass_12of12"] for x in grouped),
           all_selected_20of20_pass_candidates=sum(x["20of20_selected_AC_pass"] for x in grouped),
-          candidate_summary=grouped,2025_annual_corrected_AC_verified=False)
+          candidate_summary=grouped,annual_2025_corrected_AC_verified=False)
         acpath=path/"REMAINING3_DONOR_TARGET_60_AC_CASEHOURS.csv"
         summary=path/"JOINT_CANDIDATES_5.csv"
         save_csv(acpath,records);save_csv(summary,grouped)
