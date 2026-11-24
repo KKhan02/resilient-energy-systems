@@ -59,8 +59,26 @@ research_runner_science:
     - |
       $ErrorActionPreference = 'Stop'
       if (((whoami) -split '\\')[-1] -ne 'researchrunner') { throw 'Unexpected runner account' }
-      $conda = Join-Path $env:USERPROFILE 'miniforge3\Scripts\conda.exe'
-      if (!(Test-Path $conda)) { throw 'Miniforge executable missing' }
+      New-Item -ItemType Directory -Path runner-test -Force | Out-Null
+      $profile = [Environment]::GetFolderPath('UserProfile')
+      Write-Output "Runner profile: $profile"
+      Write-Output "USERPROFILE: $env:USERPROFILE"
+      $roots = @((Join-Path $profile 'miniforge3'), (Join-Path $env:USERPROFILE 'miniforge3'), (Join-Path $env:LOCALAPPDATA 'miniforge3'), (Join-Path $env:LOCALAPPDATA 'Programs\miniforge3'), (Join-Path $env:ProgramData 'miniforge3'), 'C:\Miniforge3') | Select-Object -Unique
+      $candidates = foreach ($root in $roots) {
+        foreach ($relative in @('Scripts\conda.exe', 'condabin\conda.bat')) {
+          $path = Join-Path $root $relative
+          [pscustomobject]@{ path = $path; exists = (Test-Path -LiteralPath $path -PathType Leaf) }
+        }
+      }
+      $candidates | ConvertTo-Json | Set-Content -Path runner-test/conda-discovery.json -Encoding UTF8
+      Get-Content runner-test/conda-discovery.json
+      $conda = ($candidates | Where-Object exists | Select-Object -First 1).path
+      if (!$conda) { throw 'Miniforge not found in expected runner or shared installation locations' }
+      Write-Output "Conda executable: $conda"
+      & $conda --version
+      if ($LASTEXITCODE -ne 0) { throw 'Conda version check failed' }
+      & $conda run -n research python -c "import sys; print('Research Python:', sys.executable); print(sys.version)"
+      if ($LASTEXITCODE -ne 0) { throw 'Research environment unavailable' }
       & $conda run -n research python -m pip check
       if ($LASTEXITCODE -ne 0) { throw 'pip check failed' }
       $env:MPLBACKEND = 'Agg'
