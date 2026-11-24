@@ -12,6 +12,7 @@ def base_6():
       "battery_soc_usable_kwh":[8.,6.,4.,3.,3.],
       "inverter_ac_kw":[0,1.9,1.9,.475,0],
       "grid_import_kw":[3.,0.,0.,3.,4.],
+      "grid_export_kw":[0.,0.,0.,0.,0.],
       "pcc_p_kw":[3.,0.,0.,3.,4.]},index=idx)
 
 
@@ -36,6 +37,7 @@ class JointNovResidualTests(unittest.TestCase):
         self.assertAlmostEqual(shifted.battery_discharge_dc_kw.sum(),
                                o.battery_discharge_dc_kw.sum())
         self.assertAlmostEqual(shifted.grid_import_kw.sum(),o.grid_import_kw.sum())
+        self.assertLess((shifted.pcc_p_kw-shifted.grid_import_kw).abs().max(),1e-12)
         self.assertAlmostEqual(shifted.inverter_ac_kw.sum(),o.inverter_ac_kw.sum())
         self.assertAlmostEqual(shifted.iloc[2].battery_soc_usable_kwh,
                                o.iloc[2].battery_soc_usable_kwh+(x+y)/a.nov.ETA_BAT)
