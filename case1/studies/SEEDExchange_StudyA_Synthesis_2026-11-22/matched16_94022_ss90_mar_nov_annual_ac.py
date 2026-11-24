@@ -351,12 +351,13 @@ def run(repo,pf,receipt,item,v6,original,modified,march_rows,nov_rows):
         corrected_summary=annual_summary(new_rows)
         save_csv(out/"CORRECTED_2025_8760_AC.csv",new_rows)
         save_csv(out/"FOUR_CHANGED_AC_HOURS.csv",changed_metrics)
-        if (sum(float(x["loss_delta_kw"]) for x in changed_metrics)
-             - (float(corrected_summary["annual_ac_network_losses_kwh"])
+        if original_summary["annual_losses_complete"] and corrected_summary["annual_losses_complete"]:
+            changed_loss_sum=sum(float(x["loss_delta_kw"]) for x in changed_metrics)
+            full_year_loss_diff=(
+                float(corrected_summary["annual_ac_network_losses_kwh"])
                 -float(original_summary["annual_ac_network_losses_kwh"]))
-             if original_summary["annual_losses_complete"] and corrected_summary["annual_losses_complete"]
-             else 0)>1e-5:
-            raise ValueError("Annual AC losses delta does not close four-hour substitutions")
+            if abs(changed_loss_sum-full_year_loss_diff)>1e-5:
+                raise ValueError("Annual AC losses delta does not close four-hour substitutions")
         plot_sha=figures(baseline,new_rows,out,pf)
         files={name:sha(out/name) for name in (
           "ORIGINAL_2025_8760_AC.csv","CORRECTED_2025_8760_AC.csv",

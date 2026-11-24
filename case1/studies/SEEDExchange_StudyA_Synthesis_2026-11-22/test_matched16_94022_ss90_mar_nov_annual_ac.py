@@ -64,5 +64,36 @@ class AnnualReconstructionTests(unittest.TestCase):
         self.assertIn("ANNUAL_AC_PREFLIGHT_ZERO_NEW_AC","SIGNED_94022_SS90_MAR50_NOV98_ANNUAL_AC_PREFLIGHT_ZERO_NEW_AC")
 
 
+    def test_full_year_metrics_one_voltage_failure(self):
+        import pandas as pd
+        ts=pd.date_range("2025-01-01",periods=a.HOURS,freq="h")
+        records=[point(str(v)) for v in ts]
+        records[13]["min_v_pu"]=.94
+        records[13]["ac_feasible"]=False
+        records[13]["voltage_below_095"]=1
+        records[13]["voltage_below_097"]=1
+        stats=a.annual_summary(records)
+        self.assertEqual(stats["case_hour_records"],8760)
+        self.assertEqual(stats["converged_hours"],8760)
+        self.assertEqual(stats["main_band_infeasible_hours"],1)
+        self.assertEqual(stats["undervoltage_under_095_hours"],1)
+        self.assertFalse(stats["all_2025_model_main_band_pass"])
+        self.assertAlmostEqual(stats["annual_ac_network_losses_kwh"],8760.)
+
+    def test_annual_summary_marks_nonconvergence_incomplete(self):
+        import pandas as pd
+        ts=pd.date_range("2025-01-01",periods=a.HOURS,freq="h")
+        records=[point(str(v)) for v in ts]
+        records[12]["status"]="AC_FAILURE"
+        records[12]["ac_feasible"]=False
+        records[12]["min_v_pu"]=None
+        records[12]["voltage_below_095"]=None
+        records[12]["voltage_below_097"]=None
+        stats=a.annual_summary(records)
+        self.assertEqual(stats["nonconverged_hours"],1)
+        self.assertIsNone(stats["annual_ac_network_losses_kwh"])
+        self.assertFalse(stats["all_2025_model_main_band_pass"])
+
+
 if __name__=="__main__":
     unittest.main()
