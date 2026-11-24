@@ -17,13 +17,12 @@ Expected 4 tests, OK; SIGNED_106039_RECIPROCAL_SS90_ANNUAL_PREFLIGHT_NO_AC, 1752
 python "case1\studies\SEEDExchange_StudyA_Synthesis_2026-11-22\matched16_106039_ss90_reciprocal_annual.py" --repo-root . --run-local
 ~~~
 
-Use actual output version:
+Use actual output version. Run each command separately. Use literal output paths rather than an OUT environment variable; a trailing CMD caret (^) joins commands, which can corrupt the variable and skip receipt verification. Do not pull or rerun the simulation merely to repair this local staging error.
 
 ~~~bat
-set "OUT=StudyA_106039_Reciprocal_SS90_AnnualAC_PF98_v1"
-python -c "import os,pathlib,json,csv,hashlib; p=pathlib.Path(os.environ['OUT']); j=json.loads((p/'RUN_MANIFEST.json').read_text()); assert j['status']=='106039_RECIPROCAL_SS90_ANNUAL_PF98_COMPLETE_RESULTS_RECORDED' and j['new_AC_case_hours']==17520 and j['cached_corrected_AC_hours']==4; assert len(j['completed_cases'])==2 and len(j['outputs_sha256'])==5; assert all(hashlib.sha256((p/n).read_bytes()).hexdigest()==h for n,h in j['outputs_sha256'].items()); assert all(sum(1 for _ in csv.DictReader((p/n).open(newline='')))==(4 if n=='FOUR_CHANGED_AC_HOURS.csv' else 8760) for n in j['outputs_sha256']); print('RECEIPT PASS'); print([(k,v['original']['main_band_infeasible_hours'],v['corrected']['main_band_infeasible_hours'],v['corrected']['nonconverged_hours']) for k,v in j['completed_cases'].items()])"
+python -c "import os,pathlib,json,csv,hashlib; p=pathlib.Path('StudyA_106039_Reciprocal_SS90_AnnualAC_PF98_v1'); j=json.loads((p/'RUN_MANIFEST.json').read_text()); assert j['status']=='106039_RECIPROCAL_SS90_ANNUAL_PF98_COMPLETE_RESULTS_RECORDED' and j['new_AC_case_hours']==17520 and j['cached_corrected_AC_hours']==4; assert len(j['completed_cases'])==2 and len(j['outputs_sha256'])==5; assert all(hashlib.sha256((p/n).read_bytes()).hexdigest()==h for n,h in j['outputs_sha256'].items()); assert all(sum(1 for _ in csv.DictReader((p/n).open(newline='')))==(4 if n=='FOUR_CHANGED_AC_HOURS.csv' else 8760) for n in j['outputs_sha256']); print('RECEIPT PASS'); print([(k,v['original']['main_band_infeasible_hours'],v['corrected']['main_band_infeasible_hours'],v['corrected']['nonconverged_hours']) for k,v in j['completed_cases'].items()])"
 git status --short
-git add -- "%OUT%"
+git add -- "StudyA_106039_Reciprocal_SS90_AnnualAC_PF98_v1"
 git diff --cached --stat
 git diff --cached --name-only
 ~~~
