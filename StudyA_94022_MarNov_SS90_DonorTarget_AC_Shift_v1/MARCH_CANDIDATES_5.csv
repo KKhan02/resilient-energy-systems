@@ -1,0 +1,6 @@
+added_march_target_ac_kw,annual_2025_combined_SOC_valid,annual_AC_verified,annual_import_kwh,case,changed_2025_hour_count,fraction,march_four_ac_pass,march_four_ac_pass_count,march_shift_dc_kw,nov_archived_four_ac_pass,two_dates_eight_of_eight_local_ac_pass
+0.0,True,False,4196.606410684601,A1_94022_ss90_to_A0,2,0.0,False,2,0.0,True,False
+0.5848301354075001,True,False,4196.606410684601,A1_94022_ss90_to_A0,4,0.25,False,3,0.61561066885,True,False
+1.1696602708150001,True,False,4196.606410684601,A1_94022_ss90_to_A0,4,0.5,True,4,1.2312213377,True,True
+1.7544904062225,True,False,4196.606410684601,A1_94022_ss90_to_A0,4,0.75,True,4,1.8468320065500001,True,True
+2.2925341307974,True,False,4196.606410684601,A1_94022_ss90_to_A0,4,0.98,True,4,2.413193821892,True,True
