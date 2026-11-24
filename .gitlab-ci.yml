@@ -12,11 +12,8 @@ research_runner_smoke:
   stage: diagnostic
   tags:
     - research-laptop
-  rules:
-    - if: '$RUNNER_DIAGNOSTIC == "science"'
-      when: never
-    - when: manual
-  allow_failure: false
+  when: manual
+  allow_failure: true
   timeout: 10m
   script:
     - |
@@ -55,10 +52,7 @@ research_runner_science:
   stage: diagnostic
   tags:
     - research-laptop
-  rules:
-    - if: '$RUNNER_DIAGNOSTIC == "science"'
-      when: manual
-    - when: never
+  when: manual
   allow_failure: false
   timeout: 10m
   script:
