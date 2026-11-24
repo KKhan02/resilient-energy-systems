@@ -32,3 +32,8 @@ The three **new** Stage 14 PNGs are generated locally, not already committed as 
 ## Next electrical gate, 17 November 2026
 
 For changed nine-battery hardware (`SS_B9`, `MC_B9`), GitLab now contains a separate **exploratory SOC-neutral stress-case repair script** at `case1/studies/SEEDExchange_StudyA_B9_SOC_Trial_v1/b9_soc_trial.py`. It preserves signed 2025 energy and AC results and tests three proposed same-day discharge moves against the exact original AC solver at PF 0.95 and length x1.6. The script is not an optimized policy, and **no user-run physical AC correction result is yet available**. All-nine factors and any final hardware selection remain pending. Three pure synthetic tests passed locally, but do not substitute for source AC replay.
+
+
+## 24 November: charging priority and curtailment timing
+
+[02_pv_first_curtailment_timing.svg](02_pv_first_curtailment_timing.svg) shows a source-matched 24-hour comparison on 13 January 2025, MC_P33, 11-house A1 106039, 33 panels and eight modules. The PV-first rule shifts charging and spill earlier/later while daily and annual curtailment are unchanged to numerical precision. The annual rule breaches the grid-import proxy twice, so this is a diagnostic rather than an operational controller. Both complete archived 8,760-hour CSVs were reopened to check annual sums and timestamp parity; no new optimization. [Exact figure-day data](../../studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/FIGURE_MC_P33_2025_01_13.csv). The wider 18-case native causal archive already exists; the next local audit will extend coverage to exact reciprocal sources and additional fixed-hardware alternatives.
