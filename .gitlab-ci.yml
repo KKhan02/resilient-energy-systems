@@ -1,181 +1,49 @@
-# CI/CD temporarily disabled for local-first research (2026-11-22).
-# Change/remove this workflow block only when explicitly resuming GitLab pipelines.
-# Preserve the original test jobs below for future reuse.
+# Isolated diagnostic only. Do not merge this file into research main.
 workflow:
   rules:
+    - if: '$CI_COMMIT_REF_PROTECTED == "true" && ($CI_PIPELINE_SOURCE == "web" || $CI_PIPELINE_SOURCE == "api")'
+      when: always
     - when: never
 
-# Lightweight Case 1 model verification; annual sweeps remain researcher-run.
-# `python -m pytest` (not bare pytest) preserves case1/ on sys.path.
 stages:
-  - test
+  - diagnostic
 
-case1_unit_tests:
-  stage: test
-  image: python:3.11-slim
-  variables:
-    MPLBACKEND: "Agg"
-    NUMBA_CACHE_DIR: "/tmp/numba_cache"
-  before_script:
-    - python -m pip install -r case1/requirements.txt
+research_runner_smoke:
+  stage: diagnostic
+  tags:
+    - research-laptop
+  when: manual
+  allow_failure: false
+  timeout: 10m
   script:
-    - cd case1
-    - python -m pytest tests/test_wp1_v3.py -q --junitxml=test-results.xml
-  artifacts:
-    when: always
-    reports:
-      junit: case1/test-results.xml
-
-case1_legacy_baseline_tests:
-  stage: test
-  image: python:3.11-slim
-  variables:
-    MPLBACKEND: "Agg"
-    NUMBA_CACHE_DIR: "/tmp/numba_cache"
-  before_script:
-    - python -m pip install -r case1/legacy/independent_case1_original/requirements.txt
-    - python -m pip freeze | grep -E '^(numpy|pandas|pvlib|pypsa|pandapower|highspy|pytest)=='
-  script:
-    - cd case1
-    - PYTHONPATH=legacy/independent_case1_original python -m pytest legacy/independent_case1_original/tests/test_case1.py -q --junitxml=legacy-results.xml
-  artifacts:
-    when: always
-    reports:
-      junit: case1/legacy-results.xml
-
-
-# Site A explanatory solar-access scenarios; no change to Case 1 results.
-case1_site_a_solar_screen:
-  stage: test
-  image: python:3.11-slim
-  variables:
-    MPLBACKEND: "Agg"
-    NUMBA_CACHE_DIR: "/tmp/numba_cache"
-  before_script:
-    - python -m pip install -r case1/requirements.txt
-  script:
-    - cd case1
-    - python -m pytest studies/site_a_solar/tests/test_solar_access.py -q --junitxml=site-a-tests.xml
-    - python studies/site_a_solar/solar_access_pvlib.py --weather data/NASA_POWER_SanRafael_hourly_2025.csv --outdir site_a_solar_ci_results
+    - |
+      $ErrorActionPreference = 'Stop'
+      Write-Output "RUNNER_DIAGNOSTIC_START"
+      $identity = whoami
+      Write-Output "Execution identity: $identity"
+      if (($identity -split '\\')[-1] -ne 'researchrunner') { throw 'Unexpected runner account' }
+      git --version
+      if ($LASTEXITCODE -ne 0) { throw 'Git version check failed' }
+      $actual = git rev-parse HEAD
+      if ($LASTEXITCODE -ne 0 -or $actual -ne $env:CI_COMMIT_SHA) { throw 'Checkout SHA mismatch' }
+      $pythonFound = [bool](Get-Command python -ErrorAction SilentlyContinue)
+      $condaFound = [bool](Get-Command conda -ErrorAction SilentlyContinue)
+      $report = [ordered]@{
+        status = 'PASS'
+        commit = $actual
+        runner_id = $env:CI_RUNNER_ID
+        execution_account = 'researchrunner'
+        os = $env:OS
+        python_command_found = $pythonFound
+        conda_command_found = $condaFound
+        timestamp_utc = [DateTime]::UtcNow.ToString('o')
+      }
+      New-Item -ItemType Directory -Path runner-test -Force | Out-Null
+      $report | ConvertTo-Json | Set-Content -Path runner-test/diagnostic.json -Encoding UTF8
+      Get-Content runner-test/diagnostic.json
+      Write-Output "RUNNER_DIAGNOSTIC_PASS"
   artifacts:
     when: always
     paths:
-      - case1/site_a_solar_ci_results/
-    reports:
-      junit: case1/site-a-tests.xml
-
-
-# Source-only check: recompute original digitized network lengths/group counts.
-# No pandapower simulation and no claims of existing connection verification.
-case1_original_spatial_source_audit:
-  stage: test
-  image: python:3.11-slim
-  script:
-    - cd case1
-    - python -m unittest discover -s studies/spatial_electrical_reconciliation -p 'test_*.py' -v
-    - python studies/spatial_electrical_reconciliation/audit_sources.py --output spatial_source_audit_result.json
-  artifacts:
-    when: always
-    paths:
-      - case1/spatial_source_audit_result.json
-
-
-# Provisional 35-property image registration; no EPM/customer assignment assumptions.
-case1_community_georef_tests:
-  stage: test
-  image: python:3.11-slim
-  script:
-    - cd case1/studies/community_georef
-    - python -m unittest discover -p 'test_*.py' -v
-    - python georeference.py --outdir /tmp/san_rafael_georef_rebuild
-  artifacts:
-    when: always
-    paths:
-      - case1/studies/community_georef/georeferencing_diagnostics.json
-
-# Read-only bounded public infrastructure layers. Network failures are recorded,
-# not misreported as no EPM assets. This job cannot validate LV service territories.
-case1_epm_public_gis_probe:
-  stage: test
-  image: python:3.11-slim
-  script:
-    - cd case1/studies/community_georef
-    - python epm_fetch.py --outdir epm_probe_artifacts --timeout 9
-  artifacts:
-    when: always
-    paths:
-      - case1/studies/community_georef/epm_probe_artifacts/
-
-
-# Review of user-supplied EPM screenshots and 35 mapped locations.
-# Data-only electrical evidence gate: no nodal pandapower run or transformer inventing.
-case1_20261027_field_review:
-  stage: test
-  image: python:3.11-slim
-  script:
-    - cd case1/studies/community_georef/field_review_2026_10_27
-    - python -m unittest discover -p 'test_*.py' -v
-  artifacts:
-    when: always
-    paths:
-      - case1/studies/community_georef/field_review_2026_10_27/review_findings.json
-
-
-# Archive-only saved pandapower v5 evidence; no new power-flow simulation.
-case1_saved_v5_constraint_gate:
-  stage: test
-  image: python:3.11-slim
-  script:
-    - cd case1/studies/reference_v5_baseline
-    - python -m unittest discover -p 'test_*.py' -v
-    - python audit_reference.py --outdir /tmp/reference_v5_rebuilt
-  artifacts:
-    when: always
-    paths:
-      - case1/studies/reference_v5_baseline/audit_summary.json
-
-
-# Static offline overlay build/test on preserved source imagery, no LV topology assumptions.
-case1_satellite_review_overlay:
-  stage: test
-  image: python:3.11-slim
-  script:
-    - cd case1/studies/community_georef/field_review_2026_10_27
-    - python -m unittest test_evidence_overlay.py -v
-  artifacts:
-    when: always
-    paths:
-      - case1/studies/community_georef/field_review_2026_10_27/satellite_epm_review_overlay.html
-
-
-# New pandapower AC sensitivity, conditional on 94022 candidate service territory.
-case1_conditional_94022_pv_bess:
-  stage: test
-  image: python:3.11-slim
-  variables:
-    NUMBA_CACHE_DIR: "/tmp/numba_cache"
-  before_script:
-    - python -m pip install -r case1/legacy/independent_case1_original/requirements.txt
-  script:
-    - cd case1/studies/conditional_94022_pv_bess
-    - python -m unittest test_conditional_powerflow.py -v
-    - python conditional_powerflow.py --outdir outputs
-  artifacts:
-    when: always
-    paths:
-      - case1/studies/conditional_94022_pv_bess/outputs/
-
-
-# Annual 8760-hour shared PV/BESS energy and explicit BOS cost sensitivity,
-# independent from pandapower voltage and EPM verified LV topology.
-case1_annual_shared_pvbess:
-  stage: test
-  image: python:3.11-slim
-  script:
-    - cd case1/studies/annual_shared_pvbess
-    - python -m unittest discover -p 'test_*.py' -v
-    - python annual_screen.py --outdir outputs
-  artifacts:
-    when: always
-    paths:
-      - case1/studies/annual_shared_pvbess/outputs/
+      - runner-test/diagnostic.json
+    expire_in: 7 days
