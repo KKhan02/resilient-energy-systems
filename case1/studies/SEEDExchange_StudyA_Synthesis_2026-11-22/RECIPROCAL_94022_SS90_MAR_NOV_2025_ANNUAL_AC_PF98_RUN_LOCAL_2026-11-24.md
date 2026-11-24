@@ -2,6 +2,14 @@
 
 **Prepared:** 24 November 2026. **Status:** code and synthetic tests published, no new annual AC result yet. **Approved research scope:** A first, original provisional mapped 94022 LV, original different 2025 household stochastic traces and NASA PV, 5 kVA model hypothesis, original battery/hardware signed sources, 0.95–1.05 pu main research voltage range and 100% transformer/conductor thermal. PF .98 reference, .95 and 1.00 sensitivity (1.00 is not part of this immediate 2-PF source-archived validation). Field EPM nameplate/phase/conductor/service route approval remains unverified.
 
+## 24 November 2026: preflight case-collision fix
+
+The user reported a local read-only preflight failure at \`2025-11-27 20:00:00\`, PF 0.98, fraction 0.98, stage \`target\`. The root cause was that the archived November 40-row CSV legitimately contains both the A1-origin minimum-cost (0.10742439635 kW inverter P) and SS90 (1.78536241094 kW) hardware at exactly that same key. An initial annual runner lookup omitted the \`case\` field and raised "Missing/duplicate archived local sample".
+
+Fixed in commit \`71ffa868a10edf1fb5518e2b7aab4f1fdc005ecd\`: every archive lookup now uses **all five identifiers**, case ID \`A1_94022_ss90_to_A0\`, timestamp, PF, shift fraction and donor/target stage. Four new solver-free regression tests cover same-time different-hardware records, wrong-hardware-only records, same-hardware duplicates and missing case IDs. There are now **16 annual runner tests**, not 12.
+
+The error occurred before any 8,760-hour AC work. Original March/November AC archives, energy source and GIS inputs were not changed. Pull this fix, run all 16 tests, then rerun the **read-only preflight**. Do not start the annual PF98 simulation until the preflight receipt passes. If a different traceback appears, preserve it and report it rather than rerunning expensive calculations.
+
 ## Motivation and frozen corrected candidate
 
 The uploaded combined two-event pilot **StudyA_94022_MarNov_SS90_DonorTarget_AC_Shift_v1/** passed 8/8 sampled AC cases by preserving November's prior 4/4 AC and correcting March's 4/4, after 2025 cyclic manufacturer SOC, inverter/battery P, grid imports and source power-energy validations:
@@ -40,7 +48,7 @@ If the pull fails, share the exact output. Do not reset the working tree, force 
 python -m unittest discover -s "case1\studies\SEEDExchange_StudyA_Synthesis_2026-11-22" -p "test_matched16_94022_ss90_mar_nov_annual_ac.py" -v
 ~~~
 
-Expected **12 tests, OK**. These tests do not solve new AC and cannot substitute for preflight.
+Expected **16 tests, OK**. These tests do not solve new AC and cannot substitute for preflight.
 
 ### 3. Strict source/model preflight at PF .98 with zero annual AC calls
 
@@ -99,4 +107,4 @@ The next sensitivity is exact **PF .95** at original service x1.0. The same runn
 
 If the new PF .98 annual scan reveals other failed source hours, do **not** claim the four-hour correction fixes the entire year. Prioritize exact failed-hour diagnosis, chronology-constrained redispatch or actual nameplate/line-route evidence. Do not redo 6,840 investment cases or previous 36/40/20 sampled AC pilots.
 
-User local 14 Nov synthetic + 8 Mar-Nov synthetic test receipts remain unreported; the new 12 annual synthetic test suite and preflight remain pending at the time of this package. Nothing touches \`main\`, signed original data or user-local ZIP files.
+User local 14 Nov synthetic + 8 Mar-Nov synthetic test receipts remain unreported; the new 16 annual synthetic test suite and repeat preflight remain pending at the time of this package. Nothing touches \`main\`, signed original data or user-local ZIP files.
