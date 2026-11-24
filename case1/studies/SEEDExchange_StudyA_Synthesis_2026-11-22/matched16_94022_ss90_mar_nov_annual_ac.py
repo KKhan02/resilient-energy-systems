@@ -69,14 +69,23 @@ def extract_archived(repo, folder, manifest_key, name):
     return nov.gate.read_csv(path),manifest,representation
 
 
-def unique_archived(samples, hour, pf, fraction, stage):
+def unique_archived(samples, case, hour, pf, fraction, stage):
+    """Select the exact hardware case before matching the archived AC point.
+
+    The November AC CSV contains both minimum-cost and SS90 case records at
+    the same target timestamp, PF and transfer fraction. Without the case
+    field those valid records collide or could be misattributed.
+    """
+    if not isinstance(case, str) or not case:
+        raise ValueError("An explicit archived hardware case is required")
     selected=[r for r in samples
-              if r["timestamp_lst"]==hour and r["point"]==stage
+              if r["case"]==case
+              and r["timestamp_lst"]==hour and r["point"]==stage
               and abs(float(r["pf"])-pf)<1e-9
               and abs(float(r["fraction"])-fraction)<1e-9]
     if len(selected)!=1:
         raise ValueError("Missing/duplicate archived local sample: "
-                         +str((hour,pf,fraction,stage)))
+                         +str((case,hour,pf,fraction,stage)))
     return selected[0]
 
 
@@ -135,14 +144,14 @@ def source_pilot_preflight(repo, pf):
     # Verify both accepted PF sample sets use exactly the resulting frame P.
     for stage,stamp in (("donor",combined.MARCH_DONOR),
                         ("target",combined.MARCH_TARGET)):
-        expected=unique_archived(mrows,stamp,pf,MARCH_FRACTION,stage)
+        expected=unique_archived(mrows,combined.CASE,stamp,pf,MARCH_FRACTION,stage)
         if (expected["ac_feasible"]!="True"
             or abs(float(expected["inverter_ac_kw"])-
                    float(frame.at[pd.Timestamp(stamp),"inverter_ac_kw"]))>1e-6):
             raise ValueError("March accepted AC P changed")
     for stage,stamp in (("donor",nov.CASES[combined.CASE]),
                         ("target",nov.TARGET)):
-        expected=unique_archived(nrows,stamp,pf,NOV_FRACTION,stage)
+        expected=unique_archived(nrows,combined.CASE,stamp,pf,NOV_FRACTION,stage)
         if (expected["ac_feasible"]!="True"
             or abs(float(expected["inverter_ac_kw"])-
                    float(frame.at[pd.Timestamp(stamp),"inverter_ac_kw"]))>1e-6):
@@ -302,7 +311,7 @@ def run(repo,pf,receipt,item,v6,original,modified,march_rows,nov_rows):
             if stamp in CHANGED:
                 stage="donor" if t.hour==17 else "target"
                 old=unique_archived(march_rows if t.month==3 else nov_rows,
-                      stamp,pf,0.0,stage)
+                      combined.CASE,stamp,pf,0.0,stage)
                 exact_ac_regression(value,old,"Signed baseline "+stamp)
             if (i+1)%500==0:
                 report["new_original_AC_case_hours"]=i+1
@@ -323,7 +332,7 @@ def run(repo,pf,receipt,item,v6,original,modified,march_rows,nov_rows):
                     float(src.inverter_ac_kw),float(hw["inverter_kva"]),
                     float(src.pv_dc_available_kw),0.25,9,"pvbess",pp)
             expected=unique_archived(march_rows if t.month==3 else nov_rows,
-                  stamp,pf,MARCH_FRACTION if t.month==3 else NOV_FRACTION,
+                  combined.CASE,stamp,pf,MARCH_FRACTION if t.month==3 else NOV_FRACTION,
                   "donor" if t.hour==17 else "target")
             exact_ac_regression(value,expected,"Corrected archived "+stamp)
             changed_metrics.append({
