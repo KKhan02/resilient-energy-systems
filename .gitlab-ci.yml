@@ -12,7 +12,10 @@ research_runner_smoke:
   stage: diagnostic
   tags:
     - research-laptop
-  when: manual
+  rules:
+    - if: '$RUNNER_DIAGNOSTIC == "science"'
+      when: never
+    - when: manual
   allow_failure: false
   timeout: 10m
   script:
@@ -46,4 +49,31 @@ research_runner_smoke:
     when: always
     paths:
       - runner-test/diagnostic.json
+    expire_in: 7 days
+
+research_runner_science:
+  stage: diagnostic
+  tags:
+    - research-laptop
+  rules:
+    - if: '$RUNNER_DIAGNOSTIC == "science"'
+      when: manual
+    - when: never
+  allow_failure: false
+  timeout: 10m
+  script:
+    - |
+      $ErrorActionPreference = 'Stop'
+      if (((whoami) -split '\\')[-1] -ne 'researchrunner') { throw 'Unexpected runner account' }
+      $conda = Join-Path $env:USERPROFILE 'miniforge3\Scripts\conda.exe'
+      if (!(Test-Path $conda)) { throw 'Miniforge executable missing' }
+      & $conda run -n research python -m pip check
+      if ($LASTEXITCODE -ne 0) { throw 'pip check failed' }
+      $env:MPLBACKEND = 'Agg'
+      & $conda run --no-capture-output -n research python runner_setup/scientific_smoke.py
+      if ($LASTEXITCODE -ne 0) { throw 'Scientific smoke failed' }
+  artifacts:
+    when: always
+    paths:
+      - runner-test/
     expire_in: 7 days
