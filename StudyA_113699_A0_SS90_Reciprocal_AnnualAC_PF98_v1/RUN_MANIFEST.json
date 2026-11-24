@@ -1,0 +1,72 @@
+{
+  "status": "113699_A0_SS90_RECIPROCAL_ANNUAL_PF98_RESULTS_RECORDED",
+  "case": "A1_113699_ss90_to_A0",
+  "pf": 0.98,
+  "length_factor": 1.0,
+  "households": [
+    "H04",
+    "H05",
+    "H07",
+    "H10"
+  ],
+  "assumed_trafo_kva": 3.0,
+  "source_energy_sha256": "8d71e1c5e3064303f290a0b728b8b6ae91ec88e8130ec36c2ea9d92770035a98",
+  "source_signature": "EXACT",
+  "benchmark_signature": "EXACT",
+  "benchmark_count": 25,
+  "planned_new_AC_case_hours": 8760,
+  "new_AC_case_hours": 8760,
+  "annual_AC_verified": true,
+  "field_EPM_verified": false,
+  "annual_energy_metrics": {
+    "max_ac_power_balance_kw": 1.000000082740371e-10,
+    "max_dc_power_balance_kw": 1.4736845077578664e-10,
+    "max_cyclic_store_error_kwh": 1.388947845626376e-10,
+    "max_export_kw": 0.0,
+    "max_unserved_kw": 0.0,
+    "min_store_kwh": 1.145,
+    "max_store_kwh": 21.625,
+    "bank_peak_dc_kw": 7.1517259348,
+    "inverter_peak_p_kw": 2.0442614111,
+    "annual_import_kwh": 11.0496980815,
+    "annual_battery_discharge_dc_kwh": 4464.755952301601,
+    "annual_curtail_dc_kwh": 5518.9264482531,
+    "initial_store_kwh_end_hour0": 4.9041048887,
+    "year_end_store_kwh": 5.5066614426,
+    "module_floor_kwh": 1.1450000000000005,
+    "module_store_cap_kwh": 21.625
+  },
+  "benchmark_regressions_passed": 25,
+  "annual_summary": {
+    "case_hour_records": 8760,
+    "converged_hours": 8760,
+    "nonconverged_hours": 0,
+    "nonconverged_first_25": [],
+    "main_band_infeasible_hours": 0,
+    "main_band_feasible_hours": 8760,
+    "violated_timestamps_first_100": [],
+    "undervoltage_under_095_hours": 0,
+    "overvoltage_above_105_hours": 0,
+    "over_transformer_100_hours": 0,
+    "over_line_100_hours": 0,
+    "optional_under_097_hours": 0,
+    "optional_above_103_hours": 0,
+    "minimum_voltage_pu": 0.9813429617633325,
+    "maximum_voltage_pu": 0.9991071155599445,
+    "maximum_trafo_loading_pct": 35.35237268178884,
+    "maximum_line_loading_pct": 5.234454734593363,
+    "annual_ac_network_losses_kwh": 192.45317113345618,
+    "annual_losses_complete": true,
+    "all_2025_model_main_band_pass": true,
+    "field_evidence_certified": false,
+    "source_grid_import_kwh_recomputed_loss_adjusted": false
+  },
+  "outputs_sha256": {
+    "ANNUAL_2025_8760_AC.csv": "c17388e515a9e9ba3b36b021795f3faab5d8ea53f63dc276ac38ede82e5914d5"
+  },
+  "diagnostics_sha256": {
+    "min_v_pu.png": "81655196868e33ccd63b6aa8736dea0caf68f6400d23f3549b7123e02ff7bef3",
+    "max_trafo_pct.png": "14bc1786ab14e187e5fd48b99e1da4df5ab8151a58d9de67481f3e577f15b478"
+  },
+  "loss_adjusted_economics_reoptimized": false
+}
