@@ -89,3 +89,35 @@ research_runner_science:
     paths:
       - runner-test/
     expire_in: 7 days
+
+research_runner_project_validation:
+  stage: diagnostic
+  tags:
+    - research-laptop
+  when: manual
+  allow_failure: false
+  timeout: 10m
+  script:
+    - |
+      $ErrorActionPreference = 'Stop'
+      New-Item -ItemType Directory -Path runner-test -Force | Out-Null
+      $identity = whoami
+      $session = (Get-Process -Id $PID).SessionId
+      Write-Output "SERVICE_SESSION_ID=$session"
+      if (($identity -split '\\')[-1] -ne 'researchrunner' -or $session -ne 0) { throw 'Expected restricted non-interactive service session' }
+      $actual = git rev-parse HEAD
+      if ($LASTEXITCODE -ne 0 -or $actual -ne $env:CI_COMMIT_SHA) { throw 'Checkout SHA mismatch' }
+      $env:RUNNER_VERIFIED_SESSION_ID = "$session"
+      $env:MPLBACKEND = 'Agg'
+      $env:NUMBA_CACHE_DIR = Join-Path $env:CI_PROJECT_DIR 'runner-test\numba-cache'
+      $conda = Join-Path $env:USERPROFILE 'miniforge3\Scripts\conda.exe'
+      if (!(Test-Path -LiteralPath $conda)) { throw 'Conda missing' }
+      & $conda run --no-capture-output -n research python runner_setup/project_validation.py
+      if ($LASTEXITCODE -ne 0) { throw 'Project validation failed' }
+  artifacts:
+    when: always
+    paths:
+      - runner-test/project/
+    reports:
+      junit: runner-test/project/junit.xml
+    expire_in: 30 days
