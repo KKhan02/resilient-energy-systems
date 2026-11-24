@@ -1,0 +1,3 @@
+hardware_origin,assignment,tier,households,demand_kwh,energy_import_kwh,network_loss_kwh,import_plus_loss_sensitivity_kwh,annual_energy_only_usd,loss_adder_usd,annual_loss_cost_sensitivity_usd,loss_inclusive_ss_proxy_pct,annual_model_reference_pass,field_verified
+A1,A0,ss90,34,64531.9999999985,8025.9138039433,1733.7648251522623,9759.678629095562,15286.2265339066,502.791799294156,15789.018333200756,84.87621857513204,True,False
+A1,A1,ss90,34,64532.0000000039,5821.7484833750,1678.9441243849876,7500.692607759988,14647.0185909409,486.89379607164636,15133.912387012546,88.37678576867363,True,False
