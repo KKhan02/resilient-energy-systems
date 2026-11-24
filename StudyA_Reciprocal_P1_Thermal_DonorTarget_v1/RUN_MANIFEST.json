@@ -1,0 +1,238 @@
+{
+  "status": "P1_THERMAL_120_AC_COMPLETE_NOT_ANNUAL",
+  "cases": 4,
+  "events": 6,
+  "candidate_pairs": 30,
+  "planned_AC_case_hours": 120,
+  "new_AC_case_hours": 120,
+  "PF": [
+    0.98,
+    0.95
+  ],
+  "fractions": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    0.98
+  ],
+  "length_factor": 1.0,
+  "annual_AC_verified": false,
+  "field_EPM_verified": false,
+  "source_events": [
+    {
+      "case": "A0_106039_ss90_to_A1",
+      "donor": "2025-11-27 18:00:00",
+      "target": "2025-11-27 20:00:00",
+      "cap_dc_kw": 4.1888162286,
+      "source_sha256": "88c19f6f59ea4c21c03f74f36cccbea2d3246b343509205a4bedb5cdbbace249",
+      "signature_mode": "EXACT"
+    },
+    {
+      "case": "A1_106039_ss90_to_A0",
+      "donor": "2025-11-27 18:00:00",
+      "target": "2025-11-27 20:00:00",
+      "cap_dc_kw": 4.4167336401,
+      "source_sha256": "26cfff2d232d6b6b7581c3bb8cce685dc5e354a0268b8b54d6d7e59a3a6fb9d3",
+      "signature_mode": "EXACT"
+    },
+    {
+      "case": "A0_113699_min_cost_to_A1",
+      "donor": "2025-03-14 17:00:00",
+      "target": "2025-03-14 19:00:00",
+      "cap_dc_kw": 1.5863675951,
+      "source_sha256": "df1952e61da8404677cceed1c760c5be1a5c891855f6dd8968088136997112d8",
+      "signature_mode": "EXACT"
+    },
+    {
+      "case": "A0_113699_min_cost_to_A1",
+      "donor": "2025-11-30 17:00:00",
+      "target": "2025-11-30 20:00:00",
+      "cap_dc_kw": 2.0309931193,
+      "source_sha256": "df1952e61da8404677cceed1c760c5be1a5c891855f6dd8968088136997112d8",
+      "signature_mode": "EXACT"
+    },
+    {
+      "case": "A0_113699_ss90_to_A1",
+      "donor": "2025-03-14 17:00:00",
+      "target": "2025-03-14 19:00:00",
+      "cap_dc_kw": 1.5863675951,
+      "source_sha256": "720442fb593a06b97057c283c402a9e926ca15f594c266bd32909f98e811fa68",
+      "signature_mode": "EXACT"
+    },
+    {
+      "case": "A0_113699_ss90_to_A1",
+      "donor": "2025-11-30 17:00:00",
+      "target": "2025-11-30 20:00:00",
+      "cap_dc_kw": 2.0309931193,
+      "source_sha256": "720442fb593a06b97057c283c402a9e926ca15f594c266bd32909f98e811fa68",
+      "signature_mode": "EXACT"
+    }
+  ],
+  "converged": 120,
+  "infeasible": 12,
+  "combined_candidates": [
+    {
+      "case": "A0_106039_ss90_to_A1",
+      "all_event_pairs_pass": true,
+      "combined_annual_SOC_valid": true,
+      "choices": [
+        {
+          "case": "A0_106039_ss90_to_A1",
+          "donor_time": "2025-11-27 18:00:00",
+          "target_time": "2025-11-27 20:00:00",
+          "fraction": 0.25,
+          "moved_dc_kw": 1.04720405715,
+          "pair_4of4_AC_screen_pass": true,
+          "passed_local_AC_points": 4
+        }
+      ],
+      "annual_energy_metrics": {
+        "max_ac_power_balance_kw": 1.0000045236324695e-10,
+        "max_dc_power_balance_kw": 1.4210543852755109e-10,
+        "max_cyclic_store_error_kwh": 1.4370193923696206e-10,
+        "max_export_kw": 0.0,
+        "max_unserved_kw": 0.0,
+        "min_store_kwh": 2.061,
+        "max_store_kwh": 38.925,
+        "bank_peak_dc_kw": 15.651097392,
+        "inverter_peak_p_kw": 5.32667697,
+        "annual_import_kwh": 1014.2561591832,
+        "annual_battery_discharge_dc_kwh": 11524.2613383999,
+        "annual_curtail_dc_kwh": 7008.4293347778,
+        "initial_store_kwh_end_hour0": 16.825765147,
+        "year_end_store_kwh": 19.0120918645,
+        "module_floor_kwh": 2.061000000000001,
+        "module_store_cap_kwh": 38.925000000000004
+      }
+    },
+    {
+      "case": "A0_113699_min_cost_to_A1",
+      "all_event_pairs_pass": true,
+      "combined_annual_SOC_valid": true,
+      "choices": [
+        {
+          "case": "A0_113699_min_cost_to_A1",
+          "donor_time": "2025-03-14 17:00:00",
+          "target_time": "2025-03-14 19:00:00",
+          "fraction": 0.25,
+          "moved_dc_kw": 0.396591898775,
+          "pair_4of4_AC_screen_pass": true,
+          "passed_local_AC_points": 4
+        },
+        {
+          "case": "A0_113699_min_cost_to_A1",
+          "donor_time": "2025-11-30 17:00:00",
+          "target_time": "2025-11-30 20:00:00",
+          "fraction": 0.25,
+          "moved_dc_kw": 0.507748279825,
+          "pair_4of4_AC_screen_pass": true,
+          "passed_local_AC_points": 4
+        }
+      ],
+      "annual_energy_metrics": {
+        "max_ac_power_balance_kw": 1.0000045236324695e-10,
+        "max_dc_power_balance_kw": 1.4210521648294616e-10,
+        "max_cyclic_store_error_kwh": 1.408655414536497e-10,
+        "max_export_kw": 0.0,
+        "max_unserved_kw": 0.0,
+        "min_store_kwh": 0.687,
+        "max_store_kwh": 12.975,
+        "bank_peak_dc_kw": 4.7009394509,
+        "inverter_peak_p_kw": 3.0103429961,
+        "annual_import_kwh": 3682.545919229,
+        "annual_battery_discharge_dc_kwh": 3399.4619924267004,
+        "annual_curtail_dc_kwh": 689.9090340567001,
+        "initial_store_kwh_end_hour0": 0.687,
+        "year_end_store_kwh": 1.2994975692,
+        "module_floor_kwh": 0.6870000000000003,
+        "module_store_cap_kwh": 12.975000000000001
+      }
+    },
+    {
+      "case": "A0_113699_ss90_to_A1",
+      "all_event_pairs_pass": true,
+      "combined_annual_SOC_valid": true,
+      "choices": [
+        {
+          "case": "A0_113699_ss90_to_A1",
+          "donor_time": "2025-03-14 17:00:00",
+          "target_time": "2025-03-14 19:00:00",
+          "fraction": 0.25,
+          "moved_dc_kw": 0.396591898775,
+          "pair_4of4_AC_screen_pass": true,
+          "passed_local_AC_points": 4
+        },
+        {
+          "case": "A0_113699_ss90_to_A1",
+          "donor_time": "2025-11-30 17:00:00",
+          "target_time": "2025-11-30 20:00:00",
+          "fraction": 0.25,
+          "moved_dc_kw": 0.507748279825,
+          "pair_4of4_AC_screen_pass": true,
+          "passed_local_AC_points": 4
+        }
+      ],
+      "annual_energy_metrics": {
+        "max_ac_power_balance_kw": 1.0000045236324695e-10,
+        "max_dc_power_balance_kw": 1.4210521648294616e-10,
+        "max_cyclic_store_error_kwh": 1.408637650968103e-10,
+        "max_export_kw": 0.0,
+        "max_unserved_kw": 0.0,
+        "min_store_kwh": 0.916,
+        "max_store_kwh": 17.3,
+        "bank_peak_dc_kw": 5.3305137762,
+        "inverter_peak_p_kw": 3.0103429961,
+        "annual_import_kwh": 3292.0751410423,
+        "annual_battery_discharge_dc_kwh": 3810.4838642018003,
+        "annual_curtail_dc_kwh": 257.2544321886,
+        "initial_store_kwh_end_hour0": 4.5551277611,
+        "year_end_store_kwh": 5.6244975692,
+        "module_floor_kwh": 0.9160000000000004,
+        "module_store_cap_kwh": 17.3
+      }
+    },
+    {
+      "case": "A1_106039_ss90_to_A0",
+      "all_event_pairs_pass": true,
+      "combined_annual_SOC_valid": true,
+      "choices": [
+        {
+          "case": "A1_106039_ss90_to_A0",
+          "donor_time": "2025-11-27 18:00:00",
+          "target_time": "2025-11-27 20:00:00",
+          "fraction": 0.25,
+          "moved_dc_kw": 1.104183410025,
+          "pair_4of4_AC_screen_pass": true,
+          "passed_local_AC_points": 4
+        }
+      ],
+      "annual_energy_metrics": {
+        "max_ac_power_balance_kw": 1.0000045236324695e-10,
+        "max_dc_power_balance_kw": 1.3684298139082784e-10,
+        "max_cyclic_store_error_kwh": 1.406845751006358e-10,
+        "max_export_kw": 0.0,
+        "max_unserved_kw": 0.0,
+        "min_store_kwh": 1.832,
+        "max_store_kwh": 34.6,
+        "bank_peak_dc_kw": 14.1101737839,
+        "inverter_peak_p_kw": 5.7703076217,
+        "annual_import_kwh": 3203.6670352694996,
+        "annual_battery_discharge_dc_kwh": 10594.2153540249,
+        "annual_curtail_dc_kwh": 4723.0002429175,
+        "initial_store_kwh_end_hour0": 10.168907723,
+        "year_end_store_kwh": 12.5634157724,
+        "module_floor_kwh": 1.8320000000000007,
+        "module_store_cap_kwh": 34.6
+      }
+    }
+  ],
+  "outputs_sha256": {
+    "DONOR_TARGET_120_AC_CASEHOURS.csv": "a143a2fe8c2a2877614f526f2e59030fd24002873721b69c9387476813cbfb37",
+    "PAIR_CANDIDATES_30.csv": "23d0ddb9fdbf418c3c138232b5f16e3538dfe1b236aa5b5ef61b3daaca745f0d"
+  },
+  "diagnostic_png_sha256": {
+    "min_v_pu.png": "2a8bfa1890535e47e977f81e3e26e74aa18df8573ac3da67a356757e4837acee",
+    "max_trafo_pct.png": "5ad8b5c05316b21fdb8ced3a1f5bddb612838ecf2d159b591ffc2a1e4bdcf2fc"
+  }
+}
