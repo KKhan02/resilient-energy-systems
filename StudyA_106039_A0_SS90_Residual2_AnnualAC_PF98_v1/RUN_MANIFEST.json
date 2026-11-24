@@ -1,0 +1,141 @@
+{
+  "status": "106039_RESIDUAL2_ANNUAL_RECONSTRUCTION_COMPLETE",
+  "case": "A1_106039_ss90_to_A0",
+  "pf_reference": 0.98,
+  "PF": [
+    0.98,
+    0.95
+  ],
+  "length_factor": 1.0,
+  "events": [
+    {
+      "donor": "2025-09-30 19:00:00",
+      "target": "2025-09-30 20:00:00",
+      "cap_dc_kw": 4.6073349392,
+      "previous_target_trafo_pct": 100.2352255141164
+    },
+    {
+      "donor": "2025-11-15 19:00:00",
+      "target": "2025-11-15 20:00:00",
+      "cap_dc_kw": 4.941285400947368,
+      "previous_target_trafo_pct": 100.3298645302201
+    }
+  ],
+  "candidate_pairs": 10,
+  "planned_new_AC_case_hours": 40,
+  "new_AC_case_hours": 40,
+  "annual_AC_verified": true,
+  "field_EPM_verified": false,
+  "source_energy_sha256": "26cfff2d232d6b6b7581c3bb8cce685dc5e354a0268b8b54d6d7e59a3a6fb9d3",
+  "archive_signatures": {
+    "A1_106039_ss90_to_A0_ORIGINAL_8760_AC.csv": "EXACT",
+    "A1_106039_ss90_to_A0_CORRECTED_8760_AC.csv": "EXACT"
+  },
+  "source_solver_stateless": true,
+  "prior_annual_summary": {
+    "case_hour_records": 8760,
+    "converged_hours": 8760,
+    "nonconverged_hours": 0,
+    "nonconverged_first_25": [],
+    "main_band_infeasible_hours": 2,
+    "main_band_feasible_hours": 8758,
+    "violated_timestamps_first_100": [
+      "2025-09-30 20:00:00",
+      "2025-11-15 20:00:00"
+    ],
+    "undervoltage_under_095_hours": 0,
+    "overvoltage_above_105_hours": 0,
+    "over_transformer_100_hours": 2,
+    "over_line_100_hours": 0,
+    "optional_under_097_hours": 69,
+    "optional_above_103_hours": 0,
+    "minimum_voltage_pu": 0.9506934198609517,
+    "maximum_voltage_pu": 0.9982146331286254,
+    "maximum_trafo_loading_pct": 100.3298645302201,
+    "maximum_line_loading_pct": 9.792754685261496,
+    "annual_ac_network_losses_kwh": 448.6708622166449,
+    "annual_losses_complete": true,
+    "all_2025_model_main_band_pass": false,
+    "field_evidence_certified": false,
+    "source_grid_import_kwh_recomputed_loss_adjusted": false
+  },
+  "outputs_sha256": {
+    "DONOR_TARGET_40_AC_CASEHOURS.csv": "c50541b6ab4fbfc942a48fe69f2e41d244356c74fef725e907ac49e905d9e10e",
+    "PAIR_CANDIDATES_10.csv": "81905790c749422b10d4d61bd44355841cd1e41e47cd85c54d5952766e710d62",
+    "CORRECTED_2025_8760_AC.csv": "a8bad087125ec52cd80c32ca022ad7a37a86d3e66d709384b26f1e9ae5b3009c",
+    "FOUR_NEW_CHANGED_AC_HOURS.csv": "43b834217fee314b465e409d84d7d4424dd4259050b3d6e21def59e32aa04dd9"
+  },
+  "converged": 40,
+  "selected_pairs": [
+    {
+      "case": "A1_106039_ss90_to_A0",
+      "donor_time": "2025-09-30 19:00:00",
+      "target_time": "2025-09-30 20:00:00",
+      "fraction": 0.25,
+      "moved_dc_kw": 1.1518337348,
+      "pair_4of4_AC_screen_pass": true,
+      "passed_local_AC_points": 4
+    },
+    {
+      "case": "A1_106039_ss90_to_A0",
+      "donor_time": "2025-11-15 19:00:00",
+      "target_time": "2025-11-15 20:00:00",
+      "fraction": 0.25,
+      "moved_dc_kw": 1.235321350236842,
+      "pair_4of4_AC_screen_pass": true,
+      "passed_local_AC_points": 4
+    }
+  ],
+  "annual_summary": {
+    "case_hour_records": 8760,
+    "converged_hours": 8760,
+    "nonconverged_hours": 0,
+    "nonconverged_first_25": [],
+    "main_band_infeasible_hours": 0,
+    "main_band_feasible_hours": 8760,
+    "violated_timestamps_first_100": [],
+    "undervoltage_under_095_hours": 0,
+    "overvoltage_above_105_hours": 0,
+    "over_transformer_100_hours": 0,
+    "over_line_100_hours": 0,
+    "optional_under_097_hours": 70,
+    "optional_above_103_hours": 0,
+    "minimum_voltage_pu": 0.9539190476722995,
+    "maximum_voltage_pu": 0.9982146331286254,
+    "maximum_trafo_loading_pct": 98.69285742853783,
+    "maximum_line_loading_pct": 9.792754685261496,
+    "annual_ac_network_losses_kwh": 448.6088633047339,
+    "annual_losses_complete": true,
+    "all_2025_model_main_band_pass": true,
+    "field_evidence_certified": false,
+    "source_grid_import_kwh_recomputed_loss_adjusted": false
+  },
+  "annual_energy_metrics": {
+    "max_ac_power_balance_kw": 1.0000045236324695e-10,
+    "max_dc_power_balance_kw": 1.3684298139082784e-10,
+    "max_cyclic_store_error_kwh": 1.406845751006358e-10,
+    "max_export_kw": 0.0,
+    "max_unserved_kw": 0.0,
+    "min_store_kwh": 1.832,
+    "max_store_kwh": 34.6,
+    "bank_peak_dc_kw": 14.1101737839,
+    "inverter_peak_p_kw": 5.7703076217,
+    "annual_import_kwh": 3203.6670352694996,
+    "annual_battery_discharge_dc_kwh": 10594.2153540249,
+    "annual_curtail_dc_kwh": 4723.0002429175,
+    "initial_store_kwh_end_hour0": 10.168907723,
+    "year_end_store_kwh": 12.5634157724,
+    "module_floor_kwh": 1.8320000000000007,
+    "module_store_cap_kwh": 34.6
+  },
+  "reused_prior_AC_hours": 8756,
+  "cached_new_AC_hours": 4,
+  "changed_P_hours_vs_original": 6,
+  "annual_loss_delta_kwh": -0.06199891191096185,
+  "diagnostics_sha256": {
+    "min_v_pu_residual_pairs.png": "0b805193328ee271b219bf693e78dc4b06faab6d09333729807fc374f330ac7c",
+    "min_v_pu_annual_reconstruction.png": "74f76421e07bc8c7dc5d924925b2e4fe763ca91c9ec8d6954e4366ceb6834621",
+    "max_trafo_pct_residual_pairs.png": "de7ce7198dd615460c6c67369254225379774aec904735b69b3af851d05c6843",
+    "max_trafo_pct_annual_reconstruction.png": "8937b8552d3163ce649d34797b26acf4e4939fe5e152d57b2934319308a6f1c0"
+  }
+}
