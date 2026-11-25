@@ -1,0 +1,98 @@
+{
+  "status": "COMPLETE_PYTHON_DATA_FIGURES",
+  "sources": {
+    "pairs": {
+      "path": "StudyA_A0_A1_MatchedHardware_Full_v1/MATCHED_A0_VS_A1_SAME_HARDWARE_PAIRS.csv",
+      "git_blob_content_sha256": "aaebbc8ae3c7d958dd966c0683bb1a2140e1a652d1b65bc5f92d3b2f67e96ee6",
+      "local_sha256": "f174b5c370904de8f98f6de7fcf6a24b17cca8128f535e11c461d21babd63f5b",
+      "match": "newline normalization only"
+    },
+    "stress": {
+      "path": "StudyA_A0_A1_MatchedHardware_113699_NineFactorStress_v1/factor_ac_hourly.csv",
+      "git_blob_content_sha256": "6bc4d39d4371b57cdcf1fff3c1f841f46d20c259f376eaf015525492859210b4",
+      "local_sha256": "4284ac6cb7abdd9c47a16e9f930dd295a1507e3cf1aca0e2eb647ad5a762705e",
+      "match": "newline normalization only"
+    },
+    "architecture": {
+      "path": "case1/studies/SEEDExchange_StudyA_Matched_Cohort_2026-11-21/A0_A1_34H_MATCHED_SOURCE_ENERGY.csv",
+      "git_blob_content_sha256": "37251e8653600ff5e21e6781f963d190c8a335524aa90b3b67d2fde0805f8748",
+      "local_sha256": "9e260fb4905619ad0aa2fb6cfcb9084770111e93068c1eb30619c3a1bf952e4b",
+      "match": "newline normalization only"
+    },
+    "timing": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/FIGURE_MC_P33_2025_01_13.csv",
+      "git_blob_content_sha256": "83eb2d230a36167f79c325612fe0f58973b05895e4710c6ac29119d7f0279fa2",
+      "local_sha256": "6fcf7063e3373c1656cafc13d8c495faf77eee3273e9977374391bd00f12d892",
+      "match": "newline normalization only"
+    },
+    "sizing": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/SIZING_DELTA_FIGURE_SOURCE_2026-11-25.csv",
+      "git_blob_content_sha256": "d9b70f6b4c8947d1645a10049a168b395e03e00af24968d4eb43bafc23f5e5f5",
+      "local_sha256": "b14e5ad12ce8fa97682c771a60cc45825a5dedc91fd9ce61fbb9364360107fb9",
+      "match": "newline normalization only"
+    },
+    "reserve": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/FULL_NIGHT_FIGURE_SOURCE_2026-11-25.csv",
+      "git_blob_content_sha256": "c33524a2ac355e86c7012798a35fef8a5a186a57ecd7ac88f8922bff05000f50",
+      "local_sha256": "6fed28bfcb6e0af117c9a3d961409aabd8ab7bdb25c8aa06fe61e6f29bd4ca48",
+      "match": "newline normalization only"
+    },
+    "annual_small": {
+      "path": "StudyA_113699_Sizing_AnnualAC_v1/ANNUAL_AC_SUMMARY.csv",
+      "git_blob_content_sha256": "aa1d3bd2dbc2f9cc5b724a627643f0a4d58b7e86dec94f9001406b39156739be",
+      "local_sha256": "0f31a7065fe3d07c08a87caf7d8038cf73728c0fe506b70db7d5902b3e715386",
+      "match": "newline normalization only"
+    },
+    "annual_large": {
+      "path": "StudyA_94022_FullNight_Reserve_v1/ANNUAL_AC_SUMMARY.csv",
+      "git_blob_content_sha256": "54ac9e13b24e709adcf5fd744977256376151cb33a6f3e7e1ed42a0b40b758ee",
+      "local_sha256": "bbf96187e13ff0219f4fb540409fbf32d7e67cc771733f6b91715b127c3a3536",
+      "match": "newline normalization only"
+    }
+  },
+  "figure_sources": {
+    "30_matched_assignment_energy": [
+      "pairs"
+    ],
+    "31_113699_sampled_ac_robustness": [
+      "stress"
+    ],
+    "32_architecture_energy_frontier": [
+      "architecture"
+    ],
+    "33_pv_first_curtailment_timing": [
+      "timing"
+    ],
+    "34_targeted_sizing_two_territories": [
+      "sizing"
+    ],
+    "35_94022_full_night_reserve": [
+      "reserve"
+    ],
+    "36_eight_design_reference_portfolio": [
+      "annual_small",
+      "annual_large"
+    ]
+  },
+  "output_sha256": {
+    "30_matched_assignment_energy.png": "092de24f81398cf641146084675c110897ab5ab5345d1b06c6f33a30879aab9a",
+    "30_matched_assignment_energy.svg": "e34cb768c5e6da3465a447c4d51c9e52e0c30339fb6559066e4d6ef7de9c4c8b",
+    "31_113699_sampled_ac_robustness.png": "d2f2ef9f348137f8546d6a61acb67f9ffc6627ec170d788d2b64b3390a2d64ce",
+    "31_113699_sampled_ac_robustness.svg": "9fc7c8e2079c0066c4ffca7d1439495e6629b6654da1c3945c0beb7bf89365d2",
+    "32_architecture_energy_frontier.png": "68e173d260af017317dcbf7ef81e6dcfd0af29b59f777312f39fb82d91b5d0b2",
+    "32_architecture_energy_frontier.svg": "5a031b9ba2768276a297d6a0a0b5bb1a3718afce21124c4e49e074292fdce5dc",
+    "33_pv_first_curtailment_timing.png": "c9354725f74a445a2665eb72da5ed7f6f708529a978423658a7e615b6f0651f8",
+    "33_pv_first_curtailment_timing.svg": "4c5a5abc5e09d826036bedbb3466b554b840a3ff870780d2357434a19f456d3f",
+    "34_targeted_sizing_two_territories.png": "7bd59703d7e1bac109aa35bc05923730d2956b8d766c00dea3ab7e82ebe743a7",
+    "34_targeted_sizing_two_territories.svg": "741da445be52a5977569df716b3e35478ea281f7f730f1d7e69f9a1af6a29355",
+    "35_94022_full_night_reserve.png": "331dc8fd84e2afd01e3cbde49be816ccc93a9ffa9909e28a0da162188c74e44b",
+    "35_94022_full_night_reserve.svg": "6370b3e11f7d7ae5c74d0c0eeaec5da879acc122e08c859fbec8ba0be15f0e49",
+    "36_eight_design_reference_portfolio.png": "73e561bf844d537296fd55ae4b83b0485d64a0317f3d399fc639552b6ccde763",
+    "36_eight_design_reference_portfolio.svg": "384303c9a4664b04a9fd93f8f351b1bdc97112d3f7abafd18e09a2da8a9e746f"
+  },
+  "python_script_sha256": "0711e7ac89ce803a3dfaa324607d5a7a6fdcf8740e3ec63ba6fa0dd3d538df8f",
+  "matplotlib": "3.10.7",
+  "pandas": "2.3.3",
+  "no_new_simulations": true,
+  "field_verified": false
+}
