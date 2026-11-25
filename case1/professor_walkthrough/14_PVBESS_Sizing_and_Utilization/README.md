@@ -46,3 +46,7 @@ For changed nine-battery hardware (`SS_B9`, `MC_B9`), GitLab now contains a sepa
 ## 25 November: full-night reserve correction
 
 [04_94022_full_night_reserve.svg](04_94022_full_night_reserve.svg) documents all three corrected 94022 A0 annual reference schedules, zero violations, 81 changed hours, unchanged model cost. Reference PF .98, length ×1.0 only. Source: [figure table](../../studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/FULL_NIGHT_FIGURE_SOURCE_2026-11-25.csv); audit in the same study folder. Prior energy-only Figure 34 retained.
+
+## Python figure update, 25 November
+
+Use the [walkthrough plotting generator](../generate_figures_30_36.py) to regenerate Figures 30–35 and create Figure 36 from the two annual AC summaries. Figure 36 compares the five 113699 alternatives and three corrected 94022 cases, separated by household count, including annual loss-cost sensitivity, DC spill and minimum voltage. All eight pass at PF 0.98 and service length x1.0 only; the nine-factor sizing screen remains pending. No generated figures are claimed until the local plotting run completes. Existing SVGs preserved for historical comparison, not accepted as Python-provenanced without reproducible generation.
