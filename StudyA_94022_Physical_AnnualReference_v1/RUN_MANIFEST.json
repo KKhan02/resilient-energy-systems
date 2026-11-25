@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_SELECTED_OPTION_ANNUAL",
+  "scope": "annual",
+  "options": [
+    "middle",
+    "head_hypothetical_R050"
+  ],
+  "cases": [
+    "A1_94022_min_cost_to_A0",
+    "94022_B6",
+    "94022_B7"
+  ],
+  "factors": [
+    [
+      0.98,
+      1.0
+    ]
+  ],
+  "planned_case_factors": 6,
+  "planned_new_AC_case_hours": 52560,
+  "planned_endpoint_regressions": 36,
+  "planned_annual_to_sample_regressions": 402,
+  "field_verified": false,
+  "no_new_LP": true,
+  "annual_verified": false,
+  "interpretation": "Frozen reference schedules; no optimization or physical installation approval",
+  "endpoint_regressions": 36,
+  "annual_to_sample_regressions": 402,
+  "new_AC_case_hours": 52560,
+  "completed_case_factors": 6,
+  "output_sha256": {
+    "head_hypothetical_R050_94022_B6_ANNUAL_AC.csv": "0c10bae296c4e9179e4ce6b425d26c222ece79564007b2e249d0bd63c7066d53",
+    "head_hypothetical_R050_94022_B7_ANNUAL_AC.csv": "1a9371942388b5b8cf7ecb2f813f679f24f745e0306dfbbd27aef83ca34af5d0",
+    "head_hypothetical_R050_A1_94022_min_cost_to_A0_ANNUAL_AC.csv": "a8db04148133dece0b7f6ea185b4612be09745bf10bf88f4681438b9dc71ef74",
+    "middle_94022_B6_ANNUAL_AC.csv": "5d768a7b21d45c6339942556e0c387d5bf429a70a294343f4975392a5068a68b",
+    "middle_94022_B7_ANNUAL_AC.csv": "594c88b4fc8371ef61a5ac71444490fc4e90570b6d34cb1b68cc4437cdd8f8d0",
+    "middle_A1_94022_min_cost_to_A0_ANNUAL_AC.csv": "9264809bc07c5380357a41eb02659a7ef055a97beabb4415e10b0a1abeb1177e",
+    "OPTION_AC_SUMMARY.csv": "204dbbbafe91837dc2c3dd7ef31d6f7f8a5c80f3b263c3b6b335616e4b6ee705"
+  }
+}

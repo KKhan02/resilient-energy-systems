@@ -1,0 +1,23 @@
+{
+  "sources": {
+    "OPTION_AC_SUMMARY.csv": {
+      "path": "StudyA_94022_Matched_Physical_Options_v1\\OPTION_AC_SUMMARY.csv",
+      "signed_sha256": "0d7176e7b4a59436cae0a90f348e66c8e615bfaf1df44dd12bc6496f35666289",
+      "local_sha256": "0d7176e7b4a59436cae0a90f348e66c8e615bfaf1df44dd12bc6496f35666289"
+    },
+    "SIGNED_HEAD_COMPARISON.csv": {
+      "path": "StudyA_94022_Matched_Physical_Options_v1\\SIGNED_HEAD_COMPARISON.csv",
+      "signed_sha256": "b3629854b1421533850e2b602a91192440552dc896af8dd51a167811ebd87dde",
+      "local_sha256": "b3629854b1421533850e2b602a91192440552dc896af8dd51a167811ebd87dde"
+    }
+  },
+  "script_sha256": "57432c69bcace46f10e0519e0bae6855cb61ebea726d36e5181d903223596623",
+  "matplotlib": "3.10.7",
+  "pandas": "2.3.3",
+  "sample_only": true,
+  "field_verified": false,
+  "output_sha256": {
+    "40_matched_physical_option_robustness.png": "a77056154edfcf80c951f511c3f68e5047b22e70ac823d505f65753c0e0c38b6",
+    "40_matched_physical_option_robustness.svg": "63721e39809e8bb5f2c950240881c92c938df31d16d46686831f94f25f5ed2c1"
+  }
+}
