@@ -43,3 +43,5 @@ Python-rendered [Figures 30–31](../python_figures_30_36_v1/) are now uploaded.
 ## Active stage-local Python figures
 
 Use [python_figures/](python_figures/) for Figures 30, 31 and 37. Provenance manifest links original generator scripts and receipts; original outputs and legacy figures retained. Figure 37 is sampled only, not annual nine-factor validation.
+
+Figure 38 generator `plot_annual_stress_and_unresolved.py` reads signed latest annual stress and P-corridor summaries. Generate into `python_figure_38_v1/` within this stage. Index pending completed output and verification.
