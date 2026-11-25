@@ -1,0 +1,7 @@
+# Physical option audit, 25 November 2026
+
+Commit d8e621ae. 756 AC rows, 36 groups, 720 household endpoint rows and 833 path rows independently reconciled. No duplicate, nonfinite, strict feasibility, night Q, summary count/minimum or endpoint household min/max mismatches. Path drops telescope exactly to stored root-to-worst-house difference. 189 head records exact on voltage extrema, line/trafo loading and loss against previous probes. No independent raw SHA audit or fresh solve.
+
+Head/middle/end/hypothetical R050: 0/9, 9/9, 9/9, 9/9 events with any feasible point; 0/9,9/9,0/9,9/9 at ceiling; 0/144/100/174 feasible grid points out of189 per option. End has max 1.112727 pu; low-P transformer loading can exceed100% for every option. Worst best-tested minimum voltage .944436/.976791/.975748/.964027 pu. The modeled 522.484m assumed H01 service on worst head event contributes .022675 pu of .055564 pu source-to-house drop, shared LV path .024595, source-to-LV root .008295. These are modeled, not surveyed. No power-point inference of chronological or global feasibility.
+
+Next compare three frozen energy designs and all nine PF/length factors with original head signed 67-hour baseline, middle/end/previous hypothetical R050. Full daytime controller and night Q off preserved, all 5427 new matched rows plus 54 source endpoint regressions. Optional annual fixed-factor runner only after reviewing sample and choosing options. Later use reserve or physical option economics where needed; no new LP or construction specification now.

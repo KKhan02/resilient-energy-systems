@@ -45,3 +45,5 @@ Python-rendered [Figures 30–31](../python_figures_30_36_v1/) are now uploaded.
 Use [python_figures/](python_figures/) for Figures 30, 31 and 37. Provenance manifest links original generator scripts and receipts; original outputs and legacy figures retained. Figure 37 is sampled only, not annual nine-factor validation.
 
 Figure 38 generator `plot_annual_stress_and_unresolved.py` reads signed latest annual stress and P-corridor summaries. Generate into `python_figure_38_v1/` within this stage. Index pending completed output and verification.
+
+Figure 38 uploaded and indexed. Figure 39 generator `plot_physical_option_voltage.py` reads the signed physical probe/path CSVs and plots matched voltage curves and modeled voltage-drop decomposition. Render under `python_figure_39_v1/` and index only after verification.
