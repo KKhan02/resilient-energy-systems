@@ -1,0 +1,38 @@
+{
+  "status": "COMPLETE_ENERGY_ONLY_SIZING_PILOT",
+  "expected_new": 7,
+  "completed_new": 7,
+  "sources": {
+    "oversize": {
+      "case": "A1_113699_ss90_to_A0",
+      "sha": "8d71e1c5e3064303f290a0b728b8b6ae91ec88e8130ec36c2ea9d92770035a98",
+      "signature_mode": "EXACT",
+      "house_ids": [
+        "H04",
+        "H05",
+        "H07",
+        "H10"
+      ]
+    },
+    "constraint": {
+      "case": "A1_94022_min_cost_to_A0",
+      "sha": "66b3af49a0ec2a00b81872140c42e19a592e694c2bd66053228b45c38ea8056b",
+      "signature_mode": "EXACT",
+      "house_ids": [
+        "H01",
+        "H02",
+        "H03",
+        "H06",
+        "H26",
+        "H27",
+        "H28",
+        "H29",
+        "H34",
+        "H35"
+      ]
+    }
+  },
+  "errors": [],
+  "no_new_AC": true,
+  "not_field_certified": true
+}
