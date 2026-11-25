@@ -24,7 +24,7 @@ SMALL_HASHES=dict(zip(SMALL_CASES,(
 "b00d90ae9eee3b91aa333fe7048b4226f208c3472f4c6ee97d08a3475935be26",
 "275669d906117a12c40e9d4c80f9ee78450b0bd6199561b4f0b7ff2ee5f42992")))
 FULL_AC_HASH=dict(zip(prev.CASES,(
-"659f0627fa9fa7e9b4e8e77f7c6efccc538119eb6f93c61f9d8fb28c680f22",
+"659f0627fa9fa7e9b9b4e8e77f7c6efccc538119eb6f93c61f9d8fb28c680f22",
 "26807d7bae832558647249c498900834ae90bab7a70a472a0c1fc1c3cf8e01f0",
 "92195aa8c5414a7881d71c0518a2562c7356a7f1848c5f7d944b6632b6193073")))
 FULL_ENERGY_HASH=dict(zip(prev.CASES,(
@@ -44,6 +44,14 @@ def common_hours(base,records,frames):
             hours.update(f[key].nlargest(3,keep="first").index)
         hours.update(f.battery_soc_usable_kwh.nsmallest(3,keep="first").index)
     return sorted(hours)
+
+def check_receipt_hash(path, expected, recorded):
+    """Fail closed on malformed pins or disagreement with a source receipt."""
+    if len(expected) != 64 or any(c not in "0123456789abcdef" for c in expected):
+        raise ValueError(f"Malformed pinned SHA256: {path}: {expected}")
+    if recorded != expected:
+        raise ValueError(f"Source receipt SHA256 mismatch: {path}: pinned={expected}, receipt={recorded}")
+
 
 def source_ac(path,signature,case,frame,energy_sha,field):
     signed(path,signature)
@@ -84,7 +92,7 @@ def prepare(repo):
             f=x["frames"][c];h=x["signatures"][c];field="source_energy_sha256"
             if family=="constraint":
                 h=FULL_ENERGY_HASH[c];path=repo/FULL/(c+"_CORRECTED_8760.csv")
-                if fm["output_sha256"][path.name]!=h:raise ValueError("Corrected schedule identity")
+                check_receipt_hash(path,h,fm["output_sha256"][path.name])
                 signed(path,h);f=read_frame(path);field="corrected_energy_sha256"
                 demand=x["trace"].sum(axis=1);solar,_=st.solar_per_unit(repo,demand.index)
                 sizing.validate_comparison(f,x["hardware"][c],demand,solar)
@@ -94,8 +102,7 @@ def prepare(repo):
                 base.update(corridors.timestamp_lst)
                 base.update(pd.to_datetime(["2025-09-24 19:00","2025-09-24 20:00"]))
             path=repo/root/(c+"_ANNUAL_AC.csv")
-            if (sm if family=="oversize" else fm)["output_sha256"][path.name]!=hashes[c]:
-                raise ValueError("Annual AC identity")
+            check_receipt_hash(path,hashes[c],(sm if family=="oversize" else fm)["output_sha256"][path.name])
             records[c]=source_ac(path,hashes[c],c,f,h,field)
             frames[c]=f;signatures[c]=h
         hours=common_hours(base,records,frames)
