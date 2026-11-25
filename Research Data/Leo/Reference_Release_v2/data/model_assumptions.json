@@ -1,0 +1,69 @@
+{
+  "release_purpose": "Frozen research inputs and replaceable examples, not final design",
+  "year": 2025,
+  "hourly_timebase": "local standard time, 1-hour intervals; timestamp labels start of interval",
+  "household_count": 35,
+  "active_study_A_households": 34,
+  "household_annual_kwh": 1898,
+  "load_data": "synthetic, fixed seed/profile mapping, not measured",
+  "pv_data": "NASA-based model DC production / 5.22 kWp; not measured; shared profile",
+  "pv_panel_kwp": 0.435,
+  "battery_module_nominal_kwh": 5.12,
+  "battery_store_cap_per_module_kwh": 4.325,
+  "battery_store_floor_per_module_kwh": 0.229,
+  "battery_usable_swing_per_module_kwh": 4.096,
+  "battery_physical_SOC_min": 0.2,
+  "battery_physical_SOC_max": 1.0,
+  "battery_roundtrip_efficiency": 0.95,
+  "battery_each_direction_efficiency": 0.9746794344808963,
+  "battery_continuous_DC_kw_per_module_screen": 2.24,
+  "physical_soc_formula": "1 - (4.325 * modules - Store_kWh) / (5.12 * modules); coordinate assumption, not measured SOC",
+  "store_timestamp": "end of interval; previous interval state is start; cyclic source year",
+  "inverter_efficiency": 0.95,
+  "grid_export_policy": "zero in supplied cases; not legal determination",
+  "grid_charging_battery": "not allowed in baseline model",
+  "tariff_USD_per_kwh": 0.29,
+  "economic_horizon_years": 25,
+  "discount_rate": 0.06,
+  "equipment_lifetime_years": {
+    "PV": 25,
+    "inverter": 15,
+    "battery": 20
+  },
+  "economics_status": "historical model costs; not actual bills, excludes unpriced infrastructure and AC feeder losses",
+  "reference_PF": 0.98,
+  "PF_sensitivities": [
+    0.95,
+    0.98,
+    1.0
+  ],
+  "service_length_factors": [
+    1.0,
+    1.3,
+    1.6
+  ],
+  "main_voltage_pu": [
+    0.95,
+    1.05
+  ],
+  "optional_strict_voltage_pu": [
+    0.97,
+    1.03
+  ],
+  "night_Q": "off",
+  "daylight_Q_ratio": 0.25,
+  "allowed_transformer_points": [
+    "106039",
+    "113699",
+    "85398",
+    "92395",
+    "94022",
+    "98380"
+  ],
+  "support_only_transformer": "98380",
+  "excluded_northern_transformer": "137468",
+  "GIS_context": "Transformer points filtered to allowed set; retained original mapped lines/poles are context, not validated service routes or evidence of permitted connections",
+  "field_verified": false,
+  "islanding_validated": false,
+  "critical_load_split": "parked; optional separately labelled hypothetical sensitivity"
+}

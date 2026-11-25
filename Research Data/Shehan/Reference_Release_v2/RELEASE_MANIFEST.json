@@ -1,0 +1,245 @@
+{
+  "release": "SEEDExchange_Team_Inputs_v2",
+  "created_utc": "2026-11-25T10:41:46.285473+00:00",
+  "source_commit": "cb9b3dfcb0ee37fd649e5315e80034f41c8f2b8b",
+  "source_branch": "sync/seedexchange-local-2026-11-17",
+  "reference_cases": [
+    "A1_113699_ss90_to_A0",
+    "A1_94022_min_cost_to_A0",
+    "A1_106039_min_cost_ref",
+    "113699_P22",
+    "113699_P20",
+    "113699_P18",
+    "113699_B4",
+    "113699_P20_B4",
+    "94022_B6",
+    "94022_B7"
+  ],
+  "no_new_solves": true,
+  "design_final": false,
+  "source_verification": "Signed model inputs and hourly schedules verified; other evidence recorded by hash; no AC or field certification performed",
+  "role": "04_Inverter_Capability_Backup_and_Protection",
+  "files_sha256": {
+    "data/cohort_memberships.csv": "12fe413c04886e9c230544e753d5255e5edeb369c576f8e48b728282358b7f03",
+    "data/hardware_evidence.md": "77656456e04ca387c5c80d00fe7a675926e5c05f3e21cd7bc4010cc36ebffbe5",
+    "data/model_assumptions.json": "8daf5ea440f2edfde6b16010d96e7380a9c9389a105bd7b5648e0c8810334c26",
+    "data/reference_case_catalog.csv": "7d742718edca4bbc88735ff474e38785a10918dc571d50401f0e76bd6c9eb4ec",
+    "data/reference_cases/113699_B4/case_metadata.json": "1b93dbf14ebed64a59bd7f4970abc0365800df20207cf5480b96430bffe1c5f7",
+    "data/reference_cases/113699_B4/energy_hourly_2025.csv": "c3e304ab16a060190b8fa1c829e845a145da4fc831f249e59c4c88c326f2f39a",
+    "data/reference_cases/113699_P18/case_metadata.json": "c719bc3d23efd0ef05f1ba795de21c81834a84f9eccad085edc20034f7adec63",
+    "data/reference_cases/113699_P18/energy_hourly_2025.csv": "d078b36531c3223f9b81d44348490215d789a55e85abd6e3767fe20f5afd9e46",
+    "data/reference_cases/113699_P20/case_metadata.json": "3331d2c9a4f43c1fdf30afd451f7561519ae69eeecca36b6624b2ab55be46faa",
+    "data/reference_cases/113699_P20/energy_hourly_2025.csv": "9d48aa73565ab380a805944108a3ab27eca38c9537a2bf7a73cf090bf30b6b51",
+    "data/reference_cases/113699_P20_B4/case_metadata.json": "3aa6a96b5e0ca9ae8790d60595a1a972cf40a7007436cc4533c7ffa83ac273cb",
+    "data/reference_cases/113699_P20_B4/energy_hourly_2025.csv": "06d0ebdb83f56edfeb89fb003095a0728b3b2fd1e8ebf100ab8761653c728db6",
+    "data/reference_cases/113699_P22/case_metadata.json": "0145306649553a752a81f7c93db674fe4e7f46bd6fd09b6cbb8da187175e4d75",
+    "data/reference_cases/113699_P22/energy_hourly_2025.csv": "08e5dd106881d0a9b46501d25d1d874262dd5a9b824e95d79d9ad8463eeb0292",
+    "data/reference_cases/94022_B6/case_metadata.json": "8da7565b59151c07ad556c3b54c1698470ebdae940368c56ac1abac7a21fb0c6",
+    "data/reference_cases/94022_B6/energy_hourly_2025.csv": "92491dcff0043e962943ff3160dda42257322c0cdc542d07574d2c71f1a4662a",
+    "data/reference_cases/94022_B7/case_metadata.json": "3c85132e397b5a12d0a515a30b5db2c7ad33f119e21492227ba104f0fa186256",
+    "data/reference_cases/94022_B7/energy_hourly_2025.csv": "fdb19c57bc3e36863f7c20fcaa6d0e5ee6ce77e86132bd570c6da64bb2b640e4",
+    "data/reference_cases/A1_106039_min_cost_ref/case_metadata.json": "befe0903e6ba9a1c2919a5aaa5e590cb79289e020c1421e7241a48d7d977d546",
+    "data/reference_cases/A1_106039_min_cost_ref/energy_hourly_2025.csv": "8b1e20b218fe4edab51dea2e2e81566077321ca6cb4929746ff84c6043e45e65",
+    "data/reference_cases/A1_113699_ss90_to_A0/case_metadata.json": "6473ccf932bf883ad12ad457fd8946bf7b4f891f134f43b5ced195d02ec4fd2a",
+    "data/reference_cases/A1_113699_ss90_to_A0/energy_hourly_2025.csv": "8d71e1c5e3064303f290a0b728b8b6ae91ec88e8130ec36c2ea9d92770035a98",
+    "data/reference_cases/A1_94022_min_cost_to_A0/case_metadata.json": "534fd1a6b1b82a7d687034bc47e20d7c79092a4fef239e6d7ea06b53efa77984",
+    "data/reference_cases/A1_94022_min_cost_to_A0/energy_hourly_2025.csv": "66b3af49a0ec2a00b81872140c42e19a592e694c2bd66053228b45c38ea8056b",
+    "DATA_README.md": "e357f1bed78053478aba7c62c6acb404a34289b5d50155f52686930097db46f2",
+    "WORK_PACKAGE.md": "4629c642c67b56e43fdabd8214d82e3ec87901286e4e5d96da1d0174fa6b08bd"
+  },
+  "sources": [
+    {
+      "path": "StudyA_A0_A1_MatchedHardware_Full_v1/RUN_MANIFEST.json",
+      "observed_sha256": "6d4302bf2882cfda25736f60bd35e46fbf9beafa9dedc2b1cdff7c18214a447b",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/input_manifest_v6_2.json",
+      "observed_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+      "expected_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_LocalPreflight_v4/outputs/run_02/fixed_house_to_profile_map.csv",
+      "observed_sha256": "6a158461213a834247eaf9fc351a41708cd883e981536a71f997c3707d1363ac",
+      "expected_sha256": "6a158461213a834247eaf9fc351a41708cd883e981536a71f997c3707d1363ac",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_LocalPreflight_v4/outputs/run_02/household_profiles_2025_excel_35.csv",
+      "observed_sha256": "0c55b8dbe534c083d1ffeb39d41c52dd95a2c1f8013d72eb284e5ffa91ccbfd3",
+      "expected_sha256": "0c55b8dbe534c083d1ffeb39d41c52dd95a2c1f8013d72eb284e5ffa91ccbfd3",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "Energy Community - San Rafael/pandapower_results_nasa/nasa_hourly_pv_and_load_inputs.csv",
+      "observed_sha256": "b03e9274d40fcc486eddc54a2cada013c1493bd5562216f27e984f4d5d5d1e08",
+      "expected_sha256": "b03e9274d40fcc486eddc54a2cada013c1493bd5562216f27e984f4d5d5d1e08",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "case1/studies/epm_gis_pandapower_v1/data/houses_candidate_associations.csv",
+      "observed_sha256": "ad830d00739180d41755605b79d3091abbd9d4e3804779d526f8b33012cf50b9",
+      "expected_sha256": "ad830d00739180d41755605b79d3091abbd9d4e3804779d526f8b33012cf50b9",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "case1/studies/epm_gis_pandapower_v1/data/epm_network_relevant_sanitized.geojson",
+      "observed_sha256": "adfa33a8a01b0b33ee449c69924515fed05ad49665868e8c1ae8ba5d047c1bab",
+      "expected_sha256": "adfa33a8a01b0b33ee449c69924515fed05ad49665868e8c1ae8ba5d047c1bab",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "case1/studies/site_a_solar/site_a_user_digitized_boundary.geojson",
+      "observed_sha256": "98e8bd0886ac39c88c770c21760bba55d8b57ddeee653d394e11123eebe5fd37",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "case1/studies/site_a_solar/DESIGN_DECISIONS_AND_ASSUMPTIONS.md",
+      "observed_sha256": "704095d5695665add66070ec7a59c8bdce4acc0d4b5f3e9bd90429bb7d6a8cb1",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "case1/studies/ac_aware_redispatch_v1/HARDWARE_EVIDENCE_2026-11-04.md",
+      "observed_sha256": "77656456e04ca387c5c80d00fe7a675926e5c05f3e21cd7bc4010cc36ebffbe5",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "case1/RESEARCH_SCOPE_APPROVED_2026-11-07.md",
+      "observed_sha256": "6d6019d0b34d8d40cf7d568e388bce24f57761feeecc8117fc3f0b2b350f5182",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_A0_A1_MatchedHardware_Full_v1/A1_113699_ss90_to_A0/CASE_RECEIPT.json",
+      "observed_sha256": "694468d93b0bbbeffa396db7f523f9cf3c10816281dc23bcaa6b43d1aa23e9a5",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_A0_A1_MatchedHardware_Full_v1/A1_113699_ss90_to_A0/energy_hourly_2025.csv",
+      "observed_sha256": "8d71e1c5e3064303f290a0b728b8b6ae91ec88e8130ec36c2ea9d92770035a98",
+      "expected_sha256": "8d71e1c5e3064303f290a0b728b8b6ae91ec88e8130ec36c2ea9d92770035a98",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "StudyA_A0_A1_MatchedHardware_Full_v1/A1_94022_min_cost_to_A0/CASE_RECEIPT.json",
+      "observed_sha256": "59e19ae37eb879552ea1c56ca462d743d101ef8600d652b991febfaaf72294cf",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_A0_A1_MatchedHardware_Full_v1/A1_94022_min_cost_to_A0/energy_hourly_2025.csv",
+      "observed_sha256": "66b3af49a0ec2a00b81872140c42e19a592e694c2bd66053228b45c38ea8056b",
+      "expected_sha256": "66b3af49a0ec2a00b81872140c42e19a592e694c2bd66053228b45c38ea8056b",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_106039_min_cost_ref/energy_manifest.json",
+      "observed_sha256": "29f136fbc1d1adf0968ef7222406fdd67c2eeaa7df4fd727995c40b9ec6ab125",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/pvbess_phase_01/energy_A1_106039_min_cost_ref/energy_hourly_2025.csv",
+      "observed_sha256": "8b1e20b218fe4edab51dea2e2e81566077321ca6cb4929746ff84c6043e45e65",
+      "expected_sha256": "8b1e20b218fe4edab51dea2e2e81566077321ca6cb4929746ff84c6043e45e65",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/RUN_MANIFEST.json",
+      "observed_sha256": "26f4107ee23da36eba01102315cf70494c602f2af782c7788d6550b283d47974",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_P22/energy_manifest.json",
+      "observed_sha256": "ab1d7ce61249e18c18b6181fafc8f4afa4a8f45d60df2a42954b9619ee9f810c",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_P22/energy_hourly_2025.csv",
+      "observed_sha256": "08e5dd106881d0a9b46501d25d1d874262dd5a9b824e95d79d9ad8463eeb0292",
+      "expected_sha256": "08e5dd106881d0a9b46501d25d1d874262dd5a9b824e95d79d9ad8463eeb0292",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_P20/energy_manifest.json",
+      "observed_sha256": "d1a2511113d4fa80282284b6fca199a12684f7686f794d333a822e69c9040713",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_P20/energy_hourly_2025.csv",
+      "observed_sha256": "9d48aa73565ab380a805944108a3ab27eca38c9537a2bf7a73cf090bf30b6b51",
+      "expected_sha256": "9d48aa73565ab380a805944108a3ab27eca38c9537a2bf7a73cf090bf30b6b51",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_P18/energy_manifest.json",
+      "observed_sha256": "c423d4b60bb23bcd5b5545b7ff5afc76573bd2a13064383670f1b049dc970619",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_P18/energy_hourly_2025.csv",
+      "observed_sha256": "d078b36531c3223f9b81d44348490215d789a55e85abd6e3767fe20f5afd9e46",
+      "expected_sha256": "d078b36531c3223f9b81d44348490215d789a55e85abd6e3767fe20f5afd9e46",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_B4/energy_manifest.json",
+      "observed_sha256": "8d2917c79108d36b7f8a59490fe70ab881afa4e588a9c56d509e7be2d350d478",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_B4/energy_hourly_2025.csv",
+      "observed_sha256": "c3e304ab16a060190b8fa1c829e845a145da4fc831f249e59c4c88c326f2f39a",
+      "expected_sha256": "c3e304ab16a060190b8fa1c829e845a145da4fc831f249e59c4c88c326f2f39a",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_P20_B4/energy_manifest.json",
+      "observed_sha256": "522e0c9491616ec031c5e1fe6902607d6b39fc0f0a3ad599d83d3c4d097db8c2",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/113699_P20_B4/energy_hourly_2025.csv",
+      "observed_sha256": "06d0ebdb83f56edfeb89fb003095a0728b3b2fd1e8ebf100ab8761653c728db6",
+      "expected_sha256": "06d0ebdb83f56edfeb89fb003095a0728b3b2fd1e8ebf100ab8761653c728db6",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/94022_B6/energy_manifest.json",
+      "observed_sha256": "9eb94248da1df08cb56bea8b4e30beb9540f89a314a307752f3f7d8e115f3981",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/94022_B6/energy_hourly_2025.csv",
+      "observed_sha256": "92491dcff0043e962943ff3160dda42257322c0cdc542d07574d2c71f1a4662a",
+      "expected_sha256": "92491dcff0043e962943ff3160dda42257322c0cdc542d07574d2c71f1a4662a",
+      "signature_mode": "EXACT"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/94022_B7/energy_manifest.json",
+      "observed_sha256": "bd227f99da3b73b9d81db61c5cf49de5d8152536748039b58e8a04245587b59f",
+      "expected_sha256": null,
+      "signature_mode": "RECORDED_NOT_PREVIOUSLY_SIGNED"
+    },
+    {
+      "path": "StudyA_Battery_Sizing_Pilot_v1/94022_B7/energy_hourly_2025.csv",
+      "observed_sha256": "fdb19c57bc3e36863f7c20fcaa6d0e5ee6ce77e86132bd570c6da64bb2b640e4",
+      "expected_sha256": "fdb19c57bc3e36863f7c20fcaa6d0e5ee6ce77e86132bd570c6da64bb2b640e4",
+      "signature_mode": "EXACT"
+    }
+  ],
+  "source_inventory_scope": "Complete source inventory for the release; this role has only the relevant exported files"
+}

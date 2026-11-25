@@ -1,0 +1,25 @@
+# WP3 | Spatial network design and site feasibility
+**SEEDExchange · San Rafael / El Arenal · Research brief · 25 November 2026**
+
+## Central research question
+How do household grouping, feeder topology and installation location affect infrastructure requirements and the feasibility of a shared energy community?
+
+## Starting point
+The previous geomapping work identified candidate sites, coordinates, gross land area, nearby houses and possible connections. Build on those site and clustering results. The new contribution is a controlled spatial comparison and a stronger site-feasibility evidence base.
+
+## Research directions
+- For plausible groups of 5–15 nearby households in Study B, how does a STAR topology compare with a branched minimum spanning tree (MST) when the household group and supply position are held constant? Consider total physical route length, longest path from supply, number of shared branches, downstream coincident load, cable/civil work quantities and access constraints. Both topologies are radial; an MST is a geometric proposal, not a surveyed route or proof of electrical feasibility.
+- Which of the already identified candidate sites have the strongest practical suitability? Extend the existing coordinate, area and connection evidence with slope/elevation, drainage, shading, vegetation, flood/landslide susceptibility, access, land ownership/permission, usable rather than gross area and expansion potential wherever reliable evidence exists. Mark unavailable evidence explicitly.
+- How do potential routes to the existing 94022 LV network compare with a new-transformer option at Site A? Distinguish straight-line distance, route length and an actual utility-approved connection. Site A is the agreed C1 priority; C2 is a fallback if justified. The northern transformer is excluded entirely. No direct LV tying of separate transformer secondaries.
+
+## Expected research outcome
+A georeferenced set of plausible candidate groups and controlled STAR/MST alternatives, a comparative cable/route inventory, site feasibility matrix and maps. Proposed topology should identify house IDs, supply-node ID, branch endpoints, route length in metres, route evidence and uncertainty, and downstream household IDs or another unambiguous topology representation. Provide machine-readable group membership and edge tables or a GeoPackage/GeoJSON suitable for importing into pandapower. Keep proposed connections separate from provisional EPM geometry. Report limitations; main modelling lead will calculate voltage, line/transformer loading, losses and final electrical feasibility. Initial new transformer 5 kVA is a planning hypothesis, not a construction selection.
+
+## Optional stretch question
+Can a reproducible multi-criteria method rank the best site/group/supply-position combinations, instead of choosing the closest point alone? Compare the trade-offs between cable route length and cost, usable area, access, terrain/shading/hazard constraints and coincident downstream demand. The method could be a transparent score, sensitivity analysis or optimization; weights, constraints and criteria need justification. All baseline annual synthetic household totals are equal, so hourly peak diversity and downstream coincidence are the meaningful demand distinctions, not fabricated geographic differences in annual consumption. A ranking is a screening result, not a final construction decision. Automated GIS optimization is optional; the controlled STAR/MST comparison takes priority.
+
+## Inputs from the modelling lead
+`data/household_coordinates_and_assignments.csv`, `data/cohort_memberships.csv`, `data/household_demand_2025.csv`, `data/model_assumptions.json`, `data/epm_context_filtered.geojson`, `data/site_a_boundary.geojson`, `data/site_a_assumptions.md`, and `data/household_load_statistics.csv`. The GIS contains mapped contextual lines and poles, not a verified service map. Only six source transformer points are retained in the contextual export; five active Study A territories plus 98380 support only. H08 is retained in the 35-house inventory but excluded from the current 34-house active Study A comparison. Northern/out-of-scope transformers must not become candidate supply points. Study B population and routes remain proposals; keep H08 handling explicit rather than silently excluding it from all future scenarios. Site A's gross digitized polygon (~1,759 m²) is not a surveyed usable installation area. External terrain, route, risk and land-ownership evidence are not supplied by the main model and need independent assessment.
+
+## Boundaries and integration
+Preserve physical H01–H35 IDs and their fixed synthetic profile assignments. Do not overwrite A0/A1 assumptions or infer EPM permission. Proposed alternatives should be traceable and changeable as site or equipment evidence improves. Return a concise report, maps, GIS layers, membership and edge tables, site evidence/ranking and route quantities. Choice of GIS methods, site metrics and justified alternative groups is yours.
