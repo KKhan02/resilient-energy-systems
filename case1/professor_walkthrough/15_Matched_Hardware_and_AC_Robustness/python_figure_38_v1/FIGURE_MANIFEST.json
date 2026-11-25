@@ -1,0 +1,22 @@
+{
+  "sources": {
+    "annual": {
+      "path": "StudyA_113699_Sizing_AnnualStress_v1/FACTOR_AC_SUMMARY.csv",
+      "signed_sha256": "09d2daa06ef68e66ce0228ca450df326765c76b534681f20216a1efa682d17b0",
+      "local_sha256": "09d2daa06ef68e66ce0228ca450df326765c76b534681f20216a1efa682d17b0"
+    },
+    "corridors": {
+      "path": "StudyA_94022_Stress_P_Probe_v1/STRESS_P_CORRIDORS.csv",
+      "signed_sha256": "4fd86089d5a90a5a3949190cd44b51b226301a07763ba2717aa90398c5779860",
+      "local_sha256": "4fd86089d5a90a5a3949190cd44b51b226301a07763ba2717aa90398c5779860"
+    }
+  },
+  "script_sha256": "66f50c0d71dcd41c41db24433dcca52af4500355e4e2a4a69ae6ddc78bb77e03",
+  "matplotlib": "3.10.7",
+  "pandas": "2.3.3",
+  "field_verified": false,
+  "output_sha256": {
+    "38_annual_stress_and_unresolved_events.png": "7a47fd72b108a742812c891ce6255459a0317404432fcbd43dd064c1eabe1d2b",
+    "38_annual_stress_and_unresolved_events.svg": "22eeaf77c869066efa9a4dbafd0da550745c64b1aeedcf01103712647ebf5bb3"
+  }
+}

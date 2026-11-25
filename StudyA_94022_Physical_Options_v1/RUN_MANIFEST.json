@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE_PHYSICAL_OPTION_SCREEN",
+  "events": 9,
+  "options": [
+    "head",
+    "middle",
+    "end",
+    "head_hypothetical_R050"
+  ],
+  "planned_probe_rows": 756,
+  "planned_head_regressions": 189,
+  "field_verified": false,
+  "annual_verified": false,
+  "no_new_LP": true,
+  "caveat": "Existing GIS proxy, hypothetical relocation and R*0.5 on five historical branches; no physical upgrade specification or cost.",
+  "head_regressions": 189,
+  "probe_rows": 756,
+  "option_event_rows": 36,
+  "output_sha256": {
+    "HOUSE_VOLTAGE_ENDPOINTS.csv": "77feb8bcaefae17f65516f09ef63ead3821647243c247a09fbe3a10cede214c3",
+    "PHYSICAL_OPTION_PROBES.csv": "1986a8f373430fdf87ab75d125e6974a8bc1204e01f72ab383372c77410bcb4e",
+    "PHYSICAL_OPTION_SUMMARY.csv": "ee4e0fd7e88aa9728480f327d85477b856e6eb6866822e685849af51ab60c705",
+    "WORST_HOUSE_PATH_DROPS.csv": "50d86ad20c7de48ddaf17cd1883f135431dfde4fe0803f09e5fbb62c28853d78"
+  }
+}
