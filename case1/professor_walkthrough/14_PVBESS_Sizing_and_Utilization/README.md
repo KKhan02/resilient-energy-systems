@@ -42,3 +42,7 @@ For changed nine-battery hardware (`SS_B9`, `MC_B9`), GitLab now contains a sepa
 ## 25 November: two targeted sizing decisions
 
 [03_targeted_sizing_two_territories.svg](03_targeted_sizing_two_territories.svg) compares all seven new fixed hardware energy cases against their signed reciprocal references. At 113699, reducing PV and storage can lower cost and spill with higher imports; at 94022, adding modules lowers spill and imports at higher cost, without changing peak transformer proxy. New schedules await AC validation. Source: `StudyA_Battery_Sizing_Pilot_v1/SIZING_SUMMARY.csv` and [derived delta table](../../studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/SIZING_DELTA_FIGURE_SOURCE_2026-11-25.csv).
+
+## 25 November: full-night reserve correction
+
+[04_94022_full_night_reserve.svg](04_94022_full_night_reserve.svg) documents all three corrected 94022 A0 annual reference schedules, zero violations, 81 changed hours, unchanged model cost. Reference PF .98, length ×1.0 only. Source: [figure table](../../studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/FULL_NIGHT_FIGURE_SOURCE_2026-11-25.csv); audit in the same study folder. Prior energy-only Figure 34 retained.
