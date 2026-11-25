@@ -1,0 +1,67 @@
+{
+  "status": "COMPLETE_MATCHED_OPTION_SAMPLE_NOT_ANNUAL",
+  "scope": "sample",
+  "options": [
+    "middle",
+    "end",
+    "head_hypothetical_R050"
+  ],
+  "cases": [
+    "A1_94022_min_cost_to_A0",
+    "94022_B6",
+    "94022_B7"
+  ],
+  "factors": [
+    [
+      0.95,
+      1.0
+    ],
+    [
+      0.95,
+      1.3
+    ],
+    [
+      0.95,
+      1.6
+    ],
+    [
+      0.98,
+      1.0
+    ],
+    [
+      0.98,
+      1.3
+    ],
+    [
+      0.98,
+      1.6
+    ],
+    [
+      1.0,
+      1.0
+    ],
+    [
+      1.0,
+      1.3
+    ],
+    [
+      1.0,
+      1.6
+    ]
+  ],
+  "planned_case_factors": 81,
+  "planned_new_AC_case_hours": 5427,
+  "planned_endpoint_regressions": 54,
+  "field_verified": false,
+  "no_new_LP": true,
+  "annual_verified": false,
+  "interpretation": "Frozen reference schedules; no optimization or physical installation approval",
+  "endpoint_regressions": 54,
+  "new_AC_case_hours": 5427,
+  "completed_case_factors": 81,
+  "output_sha256": {
+    "OPTION_AC_HOURLY.csv": "1bdae29216e3ca4f694d06894ab1861e296ed357b8951a605804a61201be2111",
+    "OPTION_AC_SUMMARY.csv": "0d7176e7b4a59436cae0a90f348e66c8e615bfaf1df44dd12bc6496f35666289",
+    "SIGNED_HEAD_COMPARISON.csv": "b3629854b1421533850e2b602a91192440552dc896af8dd51a167811ebd87dde"
+  }
+}

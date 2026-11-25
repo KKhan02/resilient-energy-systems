@@ -1,0 +1,22 @@
+{
+  "sources": {
+    "PHYSICAL_OPTION_PROBES.csv": {
+      "path": "StudyA_94022_Physical_Options_v1\\PHYSICAL_OPTION_PROBES.csv",
+      "signed_sha256": "1986a8f373430fdf87ab75d125e6974a8bc1204e01f72ab383372c77410bcb4e",
+      "local_sha256": "1986a8f373430fdf87ab75d125e6974a8bc1204e01f72ab383372c77410bcb4e"
+    },
+    "WORST_HOUSE_PATH_DROPS.csv": {
+      "path": "StudyA_94022_Physical_Options_v1\\WORST_HOUSE_PATH_DROPS.csv",
+      "signed_sha256": "50d86ad20c7de48ddaf17cd1883f135431dfde4fe0803f09e5fbb62c28853d78",
+      "local_sha256": "50d86ad20c7de48ddaf17cd1883f135431dfde4fe0803f09e5fbb62c28853d78"
+    }
+  },
+  "script_sha256": "483a13a2da52d9bdbed787604f9b5eb5af8b8ef0d915768879610b1ba608bfac",
+  "matplotlib": "3.10.7",
+  "pandas": "2.3.3",
+  "field_verified": false,
+  "output_sha256": {
+    "39_physical_option_voltage_diagnostics.png": "6b38aaaea091f519fa3c8b13ee07f7cfddf1cf2aa7a4eedda70759bcdbf96f4d",
+    "39_physical_option_voltage_diagnostics.svg": "4769ace40cd128b653141d954d6d0f6967a9e5b7c63511e92f0b203374006280"
+  }
+}
