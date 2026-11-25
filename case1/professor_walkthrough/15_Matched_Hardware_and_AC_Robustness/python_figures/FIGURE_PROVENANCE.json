@@ -1,0 +1,49 @@
+{
+  "source_commit": "7f11d9862d861a74e84baf60899eedcbc5ef4df4",
+  "original_manifests": [
+    "case1/professor_walkthrough/python_figures_30_36_v1/FIGURE_MANIFEST.json",
+    "case1/professor_walkthrough/python_figure_37_v1/FIGURE_MANIFEST.json"
+  ],
+  "generators": [
+    "case1/professor_walkthrough/generate_figures_30_36.py",
+    "case1/professor_walkthrough/plot_sizing_nine_factor.py"
+  ],
+  "copies": {
+    "30_matched_assignment_energy.png": {
+      "original_path": "case1/professor_walkthrough/python_figures_30_36_v1/30_matched_assignment_energy.png",
+      "git_content_sha256": "092de24f81398cf641146084675c110897ab5ab5345d1b06c6f33a30879aab9a",
+      "local_receipt_sha256": "092de24f81398cf641146084675c110897ab5ab5345d1b06c6f33a30879aab9a",
+      "receipt_exact": true
+    },
+    "30_matched_assignment_energy.svg": {
+      "original_path": "case1/professor_walkthrough/python_figures_30_36_v1/30_matched_assignment_energy.svg",
+      "git_content_sha256": "86bce3534b7ef4fbb8530d9fe46ac2735b975dd8202aebeaf5c990173d4437d5",
+      "local_receipt_sha256": "e34cb768c5e6da3465a447c4d51c9e52e0c30339fb6559066e4d6ef7de9c4c8b",
+      "receipt_exact": false
+    },
+    "31_113699_sampled_ac_robustness.png": {
+      "original_path": "case1/professor_walkthrough/python_figures_30_36_v1/31_113699_sampled_ac_robustness.png",
+      "git_content_sha256": "d2f2ef9f348137f8546d6a61acb67f9ffc6627ec170d788d2b64b3390a2d64ce",
+      "local_receipt_sha256": "d2f2ef9f348137f8546d6a61acb67f9ffc6627ec170d788d2b64b3390a2d64ce",
+      "receipt_exact": true
+    },
+    "31_113699_sampled_ac_robustness.svg": {
+      "original_path": "case1/professor_walkthrough/python_figures_30_36_v1/31_113699_sampled_ac_robustness.svg",
+      "git_content_sha256": "a093e115a960c785ebec77db794cbed8e6c4e6b324761ca6414d287b6fc46ca5",
+      "local_receipt_sha256": "9fc7c8e2079c0066c4ffca7d1439495e6629b6654da1c3945c0beb7bf89365d2",
+      "receipt_exact": false
+    },
+    "37_eight_design_nine_factor_sample.png": {
+      "original_path": "case1/professor_walkthrough/python_figure_37_v1/37_eight_design_nine_factor_sample.png",
+      "git_content_sha256": "0efb78ea1970f7c8e93986229422a9ea7fa3bf845a8298127d2826fcc0c03714",
+      "local_receipt_sha256": "0efb78ea1970f7c8e93986229422a9ea7fa3bf845a8298127d2826fcc0c03714",
+      "receipt_exact": true
+    },
+    "37_eight_design_nine_factor_sample.svg": {
+      "original_path": "case1/professor_walkthrough/python_figure_37_v1/37_eight_design_nine_factor_sample.svg",
+      "git_content_sha256": "39df6b03a1d886b5d7baa0546a5040bf083cd3163fb36802ccc1e431137746d2",
+      "local_receipt_sha256": "dd2d57a66af51172ae6d392e5a215885ec6837a18dbb2ff8a7ebb5bc5245f8cf",
+      "receipt_exact": false
+    }
+  }
+}

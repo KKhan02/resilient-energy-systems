@@ -1,6 +1,6 @@
 # SEEDExchange: professor research walkthrough
 
-**Status: research storyline updated 25 November 2026.** The figure index contains **34 curated figures** across 15 numbered stages, including five source-linked vector SVG figures. Additional Stage 14 local PNGs retain their own manifest. It is not a field-certification report or final poster. All figure copies retain links to original data and code; no original simulation outputs are moved or rewritten.
+**Status: research storyline updated 25 November 2026.** The figure index contains **37 curated figures** across 15 numbered stages, including eight newly regenerated Python figures. Additional Stage 14 local PNGs retain their own manifest. It is not a field-certification report or final poster. All figure copies retain links to original data and code; no original simulation outputs are moved or rewritten.
 
 ## Research storyline
 
@@ -65,3 +65,7 @@ python "%WALK%\generate_figures_30_36.py" --repo-root . --out "%WALK%\python_fig
 ## 25 November: completed Python figure upload and sizing robustness
 
 Seven PNGs (30–36) now match the uploaded Python manifest byte-for-byte according to GitLab content metadata. Active figure index uses these PNGs; original SVGs preserved. The seven uploaded regenerated SVG metadata hashes differ from the local receipt; newline conversion is plausible, not independently established. Figure 36 visually inspected. [Python outputs](python_figures_30_36_v1/). Figure 37 (sample-only eight-design nine-factor matrix) is prepared by `plot_sizing_nine_factor.py`, pending generation/upload. Study A is intentionally the reusable modelling foundation for B and C; do not transfer territory-specific feasibility or hardware directly.
+
+## Active stage-local Python figures
+
+[Stage 14: Figures 32–36](14_PVBESS_Sizing_and_Utilization/python_figures/) and [Stage 15: Figures 30, 31, 37](15_Matched_Hardware_and_AC_Robustness/python_figures/). Active index paths are relative to each stage. These are copies of original Python outputs, not new plots. Original generator folders and receipts remain unchanged; future figures should be generated within the relevant stage.

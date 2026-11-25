@@ -39,3 +39,7 @@ Keep both figures only when the story needs controlled assignment and voltage ro
 Both SVGs are editable vector plots built deterministically from the recorded source CSV fields; axes, units and sample denominators are included. Existing historical walkthrough PNGs are unchanged.
 
 Python-rendered [Figures 30–31](../python_figures_30_36_v1/) are now uploaded. For the later, distinct four-house 113699 and ten-house 94022 eight-design screen, see the new Figure 37 generator and battery closure audit. These populations and matched six-house A1 113699 are different.
+
+## Active stage-local Python figures
+
+Use [python_figures/](python_figures/) for Figures 30, 31 and 37. Provenance manifest links original generator scripts and receipts; original outputs and legacy figures retained. Figure 37 is sampled only, not annual nine-factor validation.
