@@ -1,0 +1,49 @@
+{
+  "status": "COMPLETE_94022_REFERENCE_RESERVE_PILOT_NOT_ANNUAL_AC",
+  "scope": "reserve94022",
+  "source_sample_hashes": {
+    "SAMPLED_AC_CASE_HOURS.csv": "f924fc5ce5adf40c154838cab0ad2a5908b3504b2cd8247af8a1230ce16140bf",
+    "SAMPLED_AC_SUMMARY.csv": "2bd159cfb402d60f37c6116dca2a192036f14169fa9abcedee8c6724d7a22142"
+  },
+  "field_verified": false,
+  "reference_events": [
+    "2025-03-28 20:00:00",
+    "2025-10-08 19:00:00",
+    "2025-10-26 19:00:00",
+    "2025-11-27 20:00:00",
+    "2025-11-29 20:00:00"
+  ],
+  "stress_events": [
+    "2025-03-28 20:00:00",
+    "2025-09-24 19:00:00",
+    "2025-09-24 20:00:00",
+    "2025-10-08 19:00:00",
+    "2025-10-26 19:00:00",
+    "2025-11-18 20:00:00",
+    "2025-11-27 20:00:00",
+    "2025-11-29 20:00:00"
+  ],
+  "planned_LPs_max": 3,
+  "note": "Reference-only corridors; stress diagnostic separate, not full nine-factor",
+  "power_probe_count": 394,
+  "reference_corridor_count": 5,
+  "stress_events_without_tested_segment": 2,
+  "new_LPs_completed": 3,
+  "new_reserve_AC_case_hours": 102,
+  "errors": [],
+  "annual_AC_verified": false,
+  "offline_perfect_foresight": true,
+  "output_sha256": {
+    "94022_B6_RESERVE_8760.csv": "33ece75305e965273e3390b059b5e3d5c2f3bcf23638dec33fbacfcc88e5953a",
+    "94022_B6_RESERVE_RECEIPT.json": "17d81ed895e0974c9c96bbb613e598945a13ac64cc34263b9d2c043cafd01ca2",
+    "94022_B7_RESERVE_8760.csv": "cdc4471c2e69d9bdcd2144f588bc0551f9317bfb3ca8491968c510e44a2a4163",
+    "94022_B7_RESERVE_RECEIPT.json": "6abc96f2c63820b664d1d4705980edd75bb112c2cab62ce4b0f38312f2f5bb66",
+    "A1_94022_min_cost_to_A0_RESERVE_8760.csv": "fc7ce6ca7dbe4152668a2214cc6770a217e2667e19ec0c4c6f919493836a387b",
+    "A1_94022_min_cost_to_A0_RESERVE_RECEIPT.json": "e8d84757b125dc6e7e7ed2427147c238d8c0f28276d5b4c3c13407cc6c5497a0",
+    "AC_POWER_PROBES.csv": "2c86c3c38db7ae9e1fad4f4d712be76ae9082eb339185bd4e2a397b0d05f12a5",
+    "EVENT_POWER_LIMITS.csv": "baeda8283acb680dcc167a0758ae9f7c34e6fca92ba3017b8a3000d8ea1be98f",
+    "RESERVE_ENERGY_SUMMARY.csv": "2b0b301b2ace0916fd90632837a6c27b9d429136ce6e778015f60d8c2cfaaa2d",
+    "RESERVE_SAMPLED_AC.csv": "56be1c9f37f9de1d384982ffe83f157fb9b416b66688fa9a01bc893dfc718097",
+    "RESERVE_SAMPLED_AC_SUMMARY.csv": "4c799358177658182508285e71d37544ef9cb994e8f3c3bf7a17d1a60f4296ca"
+  }
+}

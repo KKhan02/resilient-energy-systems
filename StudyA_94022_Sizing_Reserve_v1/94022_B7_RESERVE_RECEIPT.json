@@ -1,0 +1,105 @@
+{
+  "metrics": {
+    "case": "94022_B7",
+    "family": "constraint",
+    "role": "OFFLINE_REFERENCE_P_RESERVE_LP",
+    "pv_panels": 27,
+    "battery_modules": 7,
+    "battery_power_dc_kw": 8.610383666211986,
+    "inverter_kva": 8.0,
+    "transformer_kva_assumed_or_evidenced": 5.0,
+    "import_ac_kwh": 5902.003185691247,
+    "curtail_dc_kwh": 182.07863236430035,
+    "available_pv_dc_kwh": 14262.086724092842,
+    "discharge_dc_kwh": 5960.217456667298,
+    "charge_dc_kwh": 6273.913112281369,
+    "store_equivalent_discharge_cycles": 213.27616086288654,
+    "curtailed_hours": 117,
+    "spill_at_end_floor_kwh": 104.96178489809988,
+    "spill_at_end_ceiling_kwh": 0.0,
+    "spill_at_charge_cap_kwh": 0.0,
+    "spill_while_charging_idle_kwh": 108.46525582167308,
+    "instantaneous_extra_charge_upper_sum_dc_kwh": 182.07863236430035,
+    "spill_during_import_kwh": 0.0,
+    "curtail_fraction_pct": 1.2766619351480748,
+    "pf095_proxy_overload_hours": 0,
+    "pf095_proxy_peak_pct": 92.51840130970741,
+    "pf098_proxy_overload_hours": 0,
+    "pf098_proxy_peak_pct": 89.68620535124698,
+    "pf100_proxy_overload_hours": 0,
+    "pf100_proxy_peak_pct": 87.89248124422204,
+    "annual_equipment_usd": 2577.0786999918137,
+    "annual_grid_cost_usd": 1711.5809238504617,
+    "annual_total_usd": 4288.659623842275,
+    "self_sufficiency_pct": 68.90409280457719,
+    "annual_demand_kwh": 18979.999999999993,
+    "AC_verified": false,
+    "source_energy_sha256": "fdb19c57bc3e36863f7c20fcaa6d0e5ee6ce77e86132bd570c6da64bb2b640e4",
+    "new_energy_sha256": "cdc4471c2e69d9bdcd2144f588bc0551f9317bfb3ca8491968c510e44a2a4163",
+    "delta_import_ac_kwh": 3.0477167456410825e-09,
+    "delta_curtail_dc_kwh": -9.961809155356605e-11,
+    "delta_annual_model_usd": 0.0,
+    "changed_inverter_hours": 11
+  },
+  "hardware": {
+    "pv_panels": 27,
+    "battery_modules": 7,
+    "battery_power_dc_kw": 8.610383666211986,
+    "inverter_kva": 8.0,
+    "transformer_kva_assumed_or_evidenced": 5.0
+  },
+  "model_summary": {
+    "case": "AC_AWARE_FIXED_HARDWARE",
+    "objective": "economic",
+    "export_policy": "zero",
+    "status": "OPTIMAL_ENERGY_ONLY_NO_AC_VALIDATION",
+    "transformer_assumed_kva": 5.0,
+    "transformer_loading_screen_pu": 1.0,
+    "households": "AC_AWARE_FIXED_HARDWARE",
+    "panels_equivalent": 27.0,
+    "pv_kwp": 11.745,
+    "battery_modules_equivalent": 7.0,
+    "battery_usable_kwh": 30.275000000000002,
+    "battery_power_dc_kw": 8.610383666211986,
+    "inverter_ac_kva_assumed_unity_pf": 7.999999999999999,
+    "demand_kwh": 18979.999999999993,
+    "grid_import_kwh": 5902.003185691247,
+    "grid_export_kwh": 0.0,
+    "unserved_kwh": 0.0,
+    "self_sufficiency_of_demand_pct": 68.90409280457719,
+    "max_pcc_kva_proxy": 4.484310267562349,
+    "capex_usd_ex_vat": 22386.627524673808,
+    "annual_equipment_usd": 2577.0786999918137,
+    "annual_grid_import_usd": 1711.5809238504617,
+    "annual_export_credit_usd": 0,
+    "annual_total_usd": 4288.659623842275,
+    "total_25yr_NPC_usd": 54823.46341316125,
+    "battery_float_replacement_assumed_year": 20,
+    "pandapower_status": "NOT_RUN"
+  },
+  "corridors": {
+    "2025-03-28 20:00:00": [
+      0.01695143259446677,
+      3.8477118793156597
+    ],
+    "2025-10-08 19:00:00": [
+      0.06949667415798133,
+      4.351756738412349
+    ],
+    "2025-10-26 19:00:00": [
+      0.9680595816650552,
+      4.394414385778349
+    ],
+    "2025-11-27 20:00:00": [
+      0.8259784723310646,
+      4.222142272193079
+    ],
+    "2025-11-29 20:00:00": [
+      0.7646770409479419,
+      4.385864301536279
+    ]
+  },
+  "field_verified": false,
+  "offline_perfect_foresight": true,
+  "annual_AC_verified": false
+}
