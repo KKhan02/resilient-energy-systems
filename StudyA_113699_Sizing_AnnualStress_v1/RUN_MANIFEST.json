@@ -1,0 +1,39 @@
+{
+  "status": "COMPLETE_SELECTED_ANNUAL_FACTOR_REPLAY",
+  "scope": "annual",
+  "cases": [
+    "113699_P20_B4",
+    "113699_B4",
+    "113699_P18",
+    "113699_P20",
+    "113699_P22"
+  ],
+  "factors": [
+    [
+      0.95,
+      1.6
+    ]
+  ],
+  "planned_case_factors": 5,
+  "common_hours_by_family": {
+    "oversize": 80,
+    "constraint": 67
+  },
+  "planned_case_hours": 43800,
+  "planned_new_AC_case_hours": 43800,
+  "no_new_LP": true,
+  "field_verified": false,
+  "annual_AC_verified": false,
+  "note": "Fixed schedules; stress failure is not proof no alternative controller is feasible",
+  "new_AC_case_hours": 43800,
+  "reference_regressions": 11,
+  "completed_case_factors": 5,
+  "output_sha256": {
+    "113699_B4_PF95_L1p6_ANNUAL_AC.csv": "4f8ea86bbabd26cc3e0fcdf079e02da7ce93bac220fa47be4909b2b54966afdd",
+    "113699_P18_PF95_L1p6_ANNUAL_AC.csv": "43060ecb8f0613f6c7e3447babcc39485bd7dd5ce426215a7e288277ef1144e5",
+    "113699_P20_B4_PF95_L1p6_ANNUAL_AC.csv": "f339ac988d71e37f493e9e38028f5e4dd1a4b8a9ebf7b85c9a18489a4f6d316c",
+    "113699_P20_PF95_L1p6_ANNUAL_AC.csv": "81b29cf73570f0596390108b28df28bd6887f6b5545bd6c003509802143ada8f",
+    "113699_P22_PF95_L1p6_ANNUAL_AC.csv": "82c691240fcb6a4caa13dd177332d29721f3f74ef7955f88ecac83a548a41323",
+    "FACTOR_AC_SUMMARY.csv": "09d2daa06ef68e66ce0228ca450df326765c76b534681f20216a1efa682d17b0"
+  }
+}

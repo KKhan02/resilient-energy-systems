@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE_TARGETED_STRESS_P_DIAGNOSTIC",
+  "source_hourly_sha256": "222f498193ebc54c12406b00d956db6325261f9ded8925bcbcae845fd02559ff",
+  "source_summary_sha256": "a641606147653e1626eff0a632654215e99731c46ac69ef9374744a029fbf95b",
+  "failed_case_hours": 342,
+  "factor_timestamp_events": 115,
+  "unique_timestamps": 24,
+  "planned_regressions": 342,
+  "grid_probes_minimum": 2415,
+  "no_new_LP": true,
+  "annual_verified": false,
+  "field_verified": false,
+  "interpretation": "Finite-grid instantaneous AC feasibility only; no SOC or global infeasibility guarantee",
+  "regressions": 342,
+  "probes": 3687,
+  "event_status_counts": {
+    "TESTED_TERMINAL_SEGMENT": 106,
+    "NO_TESTED_FEASIBLE_POINT": 9
+  },
+  "output_sha256": {
+    "SOURCE_FAILED_CASE_HOURS.csv": "2aa2531d51119ce8be48d8c5a0337342e28e578e7ce77aa5fd7a2d51c49f7647",
+    "STRESS_P_CORRIDORS.csv": "4fd86089d5a90a5a3949190cd44b51b226301a07763ba2717aa90398c5779860",
+    "STRESS_P_PROBES.csv": "d7689fe04470047de318ccb388ae725321effc6284bac3d12979d3e595c6a947"
+  }
+}

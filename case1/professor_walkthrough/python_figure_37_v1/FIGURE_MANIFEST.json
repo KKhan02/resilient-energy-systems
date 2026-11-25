@@ -1,0 +1,14 @@
+{
+  "source_path": "StudyA_Sizing_NineFactor_Sample_v1\\FACTOR_AC_SUMMARY.csv",
+  "source_sha256": "a641606147653e1626eff0a632654215e99731c46ac69ef9374744a029fbf95b",
+  "signed_expected_sha256": "a641606147653e1626eff0a632654215e99731c46ac69ef9374744a029fbf95b",
+  "script_sha256": "32d2aef3a1ff7c027a79e2b72b86522518201dc7a56f1d4a9c69bd77ecf4cd29",
+  "sample_only": true,
+  "field_verified": false,
+  "matplotlib": "3.10.7",
+  "pandas": "2.3.3",
+  "output_sha256": {
+    "37_eight_design_nine_factor_sample.png": "0efb78ea1970f7c8e93986229422a9ea7fa3bf845a8298127d2826fcc0c03714",
+    "37_eight_design_nine_factor_sample.svg": "dd2d57a66af51172ae6d392e5a215885ec6837a18dbb2ff8a7ebb5bc5245f8cf"
+  }
+}
