@@ -37,3 +37,5 @@ Sources: `StudyA_A0_A1_MatchedHardware_113699_NineFactorStress_v1/{RUN_MANIFEST.
 Keep both figures only when the story needs controlled assignment and voltage robustness. The important conclusions are **conditional energy comparison** and **reactive-demand sensitivity**, not utility connection approval. For the eventual poster, pair Figure 01 with the original A0/A1 geospatial map in Stage 12, and Figure 02 with Stage 13's annual SOC-corrective mechanism. Do not put either figure in a results panel labelled installed network, field-verified transformer, complete nine-factor annual validation or grid-code compliance.
 
 Both SVGs are editable vector plots built deterministically from the recorded source CSV fields; axes, units and sample denominators are included. Existing historical walkthrough PNGs are unchanged.
+
+Python-rendered [Figures 30–31](../python_figures_30_36_v1/) are now uploaded. For the later, distinct four-house 113699 and ten-house 94022 eight-design screen, see the new Figure 37 generator and battery closure audit. These populations and matched six-house A1 113699 are different.

@@ -50,3 +50,5 @@ For changed nine-battery hardware (`SS_B9`, `MC_B9`), GitLab now contains a sepa
 ## Python figure update, 25 November
 
 Use the [walkthrough plotting generator](../generate_figures_30_36.py) to regenerate Figures 30–35 and create Figure 36 from the two annual AC summaries. Figure 36 compares the five 113699 alternatives and three corrected 94022 cases, separated by household count, including annual loss-cost sensitivity, DC spill and minimum voltage. All eight pass at PF 0.98 and service length x1.0 only; the nine-factor sizing screen remains pending. No generated figures are claimed until the local plotting run completes. Existing SVGs preserved for historical comparison, not accepted as Python-provenanced without reproducible generation.
+
+Python-rendered [Figures 32–36](../python_figures_30_36_v1/) are now uploaded; use the active PNG paths in the figure index. The eight new designs pass the reference annual AC condition only.

@@ -61,3 +61,7 @@ set "WALK=case1\professor_walkthrough"
 python "%WALK%\generate_figures_30_36.py" --repo-root . --out "%WALK%\python_figures_30_36_v1" --preflight-only
 python "%WALK%\generate_figures_30_36.py" --repo-root . --out "%WALK%\python_figures_30_36_v1"
 ```
+
+## 25 November: completed Python figure upload and sizing robustness
+
+Seven PNGs (30–36) now match the uploaded Python manifest byte-for-byte according to GitLab content metadata. Active figure index uses these PNGs; original SVGs preserved. The seven uploaded regenerated SVG metadata hashes differ from the local receipt; newline conversion is plausible, not independently established. Figure 36 visually inspected. [Python outputs](python_figures_30_36_v1/). Figure 37 (sample-only eight-design nine-factor matrix) is prepared by `plot_sizing_nine_factor.py`, pending generation/upload. Study A is intentionally the reusable modelling foundation for B and C; do not transfer territory-specific feasibility or hardware directly.
