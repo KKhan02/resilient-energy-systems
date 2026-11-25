@@ -16,6 +16,45 @@ HASHES={"PHYSICAL_OPTION_PROBES.csv":"1986a8f373430fdf87ab75d125e6974a8bc1204e01
 OPTIONS=("middle","end","head_hypothetical_R050")
 CASES=nf.CASES[-3:]
 
+SAMPLE_SOURCE=Path("StudyA_94022_Matched_Physical_Options_v1")
+SAMPLE_HASHES={
+    "OPTION_AC_HOURLY.csv":"1bdae29216e3ca4f694d06894ab1861e296ed357b8951a605804a61201be2111",
+    "OPTION_AC_SUMMARY.csv":"0d7176e7b4a59436cae0a90f348e66c8e615bfaf1df44dd12bc6496f35666289",
+    "SIGNED_HEAD_COMPARISON.csv":"b3629854b1421533850e2b602a91192440552dc896af8dd51a167811ebd87dde",
+}
+
+def annual_sample_gate(repo,prepared):
+    """Require the completed signed matched option sample, not just endpoint probes."""
+    m=read_json(repo/SAMPLE_SOURCE/"RUN_MANIFEST.json")
+    if m["status"]!="COMPLETE_MATCHED_OPTION_SAMPLE_NOT_ANNUAL" or m["new_AC_case_hours"]!=5427 or m["completed_case_factors"]!=81 or m["endpoint_regressions"]!=54:
+        raise ValueError("Completed matched sample receipt changed")
+    for name,h in SAMPLE_HASHES.items():
+        nf.check_receipt_hash(repo/SAMPLE_SOURCE/name,h,m["output_sha256"][name]);signed(repo/SAMPLE_SOURCE/name,h)
+    a=pd.read_csv(repo/SAMPLE_SOURCE/"OPTION_AC_HOURLY.csv",parse_dates=["timestamp_lst"],keep_default_na=False)
+    keys=["option","case","pf","length_factor","timestamp_lst"]
+    if len(a)!=5427 or a.duplicated(keys).any() or not a.status.eq("CONVERGED").all():
+        raise ValueError("Matched sample coverage changed")
+    x=prepared[2]
+    for (o,c,pf,l),g in a.groupby(keys[:-1]):
+        f=x["frames"][c].loc[g.timestamp_lst]
+        if o not in OPTIONS or c not in CASES or (pf,l) not in nf.FACTORS or set(g.timestamp_lst)!=set(x["hours"]) or len(g)!=67:
+            raise ValueError("Matched sample factor keys changed")
+        if not g.source_energy_sha256.eq(x["signatures"][c]).all() or not g.load_pf.eq(pf).all():
+            raise ValueError("Matched sample source identity changed")
+        for ac,e in (("gross_demand_kw","demand_kw"),("inverter_ac_kw","inverter_ac_kw"),("source_grid_import_kw","grid_import_kw")):
+            if not np.allclose(g[ac].to_numpy(),f[e].to_numpy(),rtol=0,atol=1e-9):
+                raise ValueError("Matched sample energy input changed")
+        if not np.array_equal(g.night_reactive_disabled.to_numpy(),f.pv_dc_available_kw.le(1e-9).to_numpy()):
+            raise ValueError("Night policy changed")
+    if a.groupby(keys[:-1]).ngroups!=81:
+        raise ValueError("Incomplete factor coverage")
+    return a.set_index(keys)
+
+def exact_sample_row(annual,q,r,context):
+    annual.exact_ac_regression(q,r,context)
+    if bool(q["strict_feasible"])!=bool(r["strict_feasible"]):
+        raise ValueError(context+": strict feasibility changed")
+
 def prepare(repo):
     m=read_json(repo/SOURCE/"RUN_MANIFEST.json")
     if m["status"]!="COMPLETE_PHYSICAL_OPTION_SCREEN" or m["probe_rows"]!=756 or m["head_regressions"]!=189:
@@ -47,10 +86,10 @@ def build(terr,opt,reg,l):
     if opt=="head_hypothetical_R050":phys.apply_bundle(n,reg,l)
     return n,m
 
-def run(out,prepared,options,cases,factors,scope,doc):
+def run(out,prepared,options,cases,factors,scope,doc,bench=None):
     import pandapower as pp
     v6,annual,x,a,reg,head=prepared
-    common=CASES[0];checks=0;rows=[];summ=[]
+    common=CASES[0];checks=0;sample_checks=0;rows=[];summ=[]
     for (opt,pf,l),g in a[a.option.isin(options)&a.probe_index.isin([0,20])].groupby(["option","pf","length_factor"]):
         terr=x["territories"][l];net,meta=build(terr,opt,reg,l)
         if set(meta["loads"])!=set(x["ids"]):raise ValueError("GIS load keys changed")
@@ -60,17 +99,24 @@ def run(out,prepared,options,cases,factors,scope,doc):
     for opt,c,pf,l,n in plan(options,cases,factors,67 if scope=="sample" else 8760):
         terr=x["territories"][l];net,meta=build(terr,opt,reg,l)
         if set(meta["loads"])!=set(x["ids"]):raise ValueError("GIS load keys changed")
-        f=x["frames"][c];local=[]
+        f=x["frames"][c];local=[];local_checks=0
         for t in (x["hours"] if scope=="sample" else f.index):
             q=follow.evaluate(v6,pp,net,meta,terr,x,c,t,pf)
             q.update(option=opt,case=c,pf=pf,length_factor=l,inverter_node=meta["node"],
                      source_energy_sha256=x["signatures"][c],source_grid_import_kw=float(f.at[t,"grid_import_kw"]),
                      strict_feasible=rn.strict_point(q))
+            if bench is not None and t in x["hours"]:
+                r=bench.loc[(opt,c,pf,l,t)].to_dict()
+                exact_sample_row(annual,q,r,opt+" "+c+" "+str(t));local_checks+=1;sample_checks+=1
             local.append(q)
         if len(local)!=n:raise ValueError("Incomplete factor replay")
         if scope=="annual":
+            if local_checks!=67:raise ValueError("Incomplete annual-to-sample regression")
             result=annual.annual_summary(local);result.update(option=opt,case=c,pf=pf,length_factor=l,
-                strict_exact_failed_hours=sum(not r["strict_feasible"] for r in local))
+                strict_exact_failed_hours=sum(not r["strict_feasible"] for r in local),
+                strict_exact_night_failed_hours=sum(not r["strict_feasible"] and r["night_reactive_disabled"] for r in local),
+                strict_exact_daylight_failed_hours=sum(not r["strict_feasible"] and not r["night_reactive_disabled"] for r in local),
+                sample_regressions=local_checks)
             annual.save_csv(out/(opt+"_"+c+"_ANNUAL_AC.csv"),local)
         else:
             z=pd.DataFrame(local);conv=z[z.status.eq("CONVERGED")]
@@ -85,7 +131,7 @@ def run(out,prepared,options,cases,factors,scope,doc):
         head.to_csv(out/"SIGNED_HEAD_COMPARISON.csv",index=False)
     pd.DataFrame(summ).to_csv(out/"OPTION_AC_SUMMARY.csv",index=False)
     doc.update(status="COMPLETE_MATCHED_OPTION_SAMPLE_NOT_ANNUAL" if scope=="sample" else "COMPLETE_SELECTED_OPTION_ANNUAL",
-        endpoint_regressions=checks,new_AC_case_hours=sum(z[-1] for z in plan(options,cases,factors,67 if scope=="sample" else 8760)),
+        endpoint_regressions=checks,annual_to_sample_regressions=sample_checks,new_AC_case_hours=sum(z[-1] for z in plan(options,cases,factors,67 if scope=="sample" else 8760)),
         completed_case_factors=len(summ),output_sha256={p.name:follow.sample.sha(p) for p in out.iterdir() if p.is_file() and p.name!="RUN_MANIFEST.json"})
 
 def main():
@@ -101,16 +147,18 @@ def main():
     if not a.preflight_only and (a.out is None or a.out.exists()):ap.error("Choose fresh output")
     factors=nf.FACTORS if a.scope=="sample" else [(a.pf,a.length)]
     prepared=prepare(a.repo_root.resolve())
+    bench=annual_sample_gate(a.repo_root.resolve(),prepared) if a.scope=="annual" else None
     n=67 if a.scope=="sample" else 8760
     grid=plan(options,cases,factors,n)
     doc=dict(status="SIGNED_MATCHED_PHYSICAL_OPTION_PREFLIGHT_NO_SOLVES",scope=a.scope,options=options,cases=cases,factors=[list(z) for z in factors],
              planned_case_factors=len(grid),planned_new_AC_case_hours=sum(z[-1] for z in grid),
              planned_endpoint_regressions=int(prepared[3].option.isin(options).mul(prepared[3].probe_index.isin([0,20])).sum()),
+             planned_annual_to_sample_regressions=len(grid)*67 if a.scope=="annual" else 0,
              field_verified=False,no_new_LP=True,annual_verified=False,interpretation="Frozen reference schedules; no optimization or physical installation approval")
     print(doc,flush=True)
     if a.preflight_only:return
     a.out.mkdir(parents=False);doc["status"]="INCOMPLETE_MATCHED_OPTION_REPLAY";follow.jsonsave(a.out/"RUN_MANIFEST.json",doc)
-    try:run(a.out,prepared,options,cases,factors,a.scope,doc)
+    try:run(a.out,prepared,options,cases,factors,a.scope,doc,bench)
     except Exception as e:
         doc["error"]=repr(e);follow.jsonsave(a.out/"RUN_MANIFEST.json",doc);raise
     follow.jsonsave(a.out/"RUN_MANIFEST.json",doc);print(doc,flush=True)

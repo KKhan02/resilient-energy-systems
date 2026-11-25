@@ -47,3 +47,5 @@ Use [python_figures/](python_figures/) for Figures 30, 31 and 37. Provenance man
 Figure 38 generator `plot_annual_stress_and_unresolved.py` reads signed latest annual stress and P-corridor summaries. Generate into `python_figure_38_v1/` within this stage. Index pending completed output and verification.
 
 Figure 38 uploaded and indexed. Figure 39 generator `plot_physical_option_voltage.py` reads the signed physical probe/path CSVs and plots matched voltage curves and modeled voltage-drop decomposition. Render under `python_figure_39_v1/` and index only after verification.
+
+Figure 39 uploaded and indexed. Figure 40 generator `plot_matched_physical_robustness.py` compares all four options with identical dispatch and sample denominators. Generate under `python_figure_40_v1/` and index after receipt verification.

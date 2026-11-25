@@ -1,6 +1,6 @@
 # SEEDExchange: professor research walkthrough
 
-**Status: research storyline updated 25 November 2026.** The figure index contains **38 curated figures** across 15 numbered stages, including eight newly regenerated Python figures. Additional Stage 14 local PNGs retain their own manifest. It is not a field-certification report or final poster. All figure copies retain links to original data and code; no original simulation outputs are moved or rewritten.
+**Status: research storyline updated 25 November 2026.** The figure index contains **39 curated figures** across 15 numbered stages, including eight newly regenerated Python figures. Additional Stage 14 local PNGs retain their own manifest. It is not a field-certification report or final poster. All figure copies retain links to original data and code; no original simulation outputs are moved or rewritten.
 
 ## Research storyline
 
