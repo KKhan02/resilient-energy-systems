@@ -1,6 +1,6 @@
 # SEEDExchange: professor research walkthrough
 
-**Status: research storyline updated 24 November 2026.** The figure index contains **33 curated figures** across 15 numbered stages, including four source-linked vector SVG figures. Additional Stage 14 local PNGs retain their own manifest. It is not a field-certification report or final poster. All figure copies retain links to original data and code; no original simulation outputs are moved or rewritten.
+**Status: research storyline updated 25 November 2026.** The figure index contains **34 curated figures** across 15 numbered stages, including five source-linked vector SVG figures. Additional Stage 14 local PNGs retain their own manifest. It is not a field-certification report or final poster. All figure copies retain links to original data and code; no original simulation outputs are moved or rewritten.
 
 ## Research storyline
 
@@ -29,7 +29,7 @@ For the historical connected narrative see [RESEARCH_NARRATIVE.md](RESEARCH_NARR
 | 11 | [Next research decisions](11_Next_Research_Decisions/) | Field evidence, loss-aware sizing, resilience and forecasting gaps |
 | 12 | [Geographic assignment and routing](12_Geographic_Assignment_and_Routing/) | A0/A1 spatial evidence, 92395 proposed STAR/MST electrical trade-off |
 | 13 | [Annual AC corrections and conditional retrofit](13_Annual_AC_Corrections_and_Conditional_Retrofit/) | Original versus corrected 432-case results; strictly hypothetical A0 five-edge network sensitivity |
-| 14 | [PV/BESS sizing and utilization](14_PVBESS_Sizing_and_Utilization/) | 34-house annual cost-import-curtailment diagram, marginal storage value, later six-design AC evidence and PV-first timing diagnostic |
+| 14 | [PV/BESS sizing and utilization](14_PVBESS_Sizing_and_Utilization/) | 34-house annual cost-import-curtailment diagram, marginal storage value, later six-design AC evidence and PV-first timing diagnostic and two-territory sizing comparison |
 | 15 | [Matched hardware and AC robustness](15_Matched_Hardware_and_AC_Robustness/) | Same-hardware 34-house assignment controls and 113699 PF/length undervoltage vulnerability |
 
 **As of 22 November 2026:** the original-network corrected portfolio remains 376/432 AC feasible, while 408/432 is a conditional total only if the hypothetical five-edge 94022 retrofit is substituted. A later six-design A1 106039 model comparison now has 27/27 source-stitched annual factor cases passing after SOC-aware correction, with narrow assumed transformer margins. The selected A1-origin SS90 matched-hardware portfolio now has conditional reference PF0.98 annual AC and loss-cost evidence in both assignments (common hypothetical 92395 STAR); other matched portfolios remain partially AC-verified. The 113699 PF/length uncertainty result is a 25-hour sampled AC screen, not an annual nine-factor pass. Hydropower is excluded.

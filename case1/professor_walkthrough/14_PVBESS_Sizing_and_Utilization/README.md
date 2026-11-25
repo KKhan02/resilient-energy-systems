@@ -37,3 +37,8 @@ For changed nine-battery hardware (`SS_B9`, `MC_B9`), GitLab now contains a sepa
 ## 24 November: charging priority and curtailment timing
 
 [02_pv_first_curtailment_timing.svg](02_pv_first_curtailment_timing.svg) shows a source-matched 24-hour comparison on 13 January 2025, MC_P33, 11-house A1 106039, 33 panels and eight modules. The PV-first rule shifts charging and spill earlier/later while daily and annual curtailment are unchanged to numerical precision. The annual rule breaches the grid-import proxy twice, so this is a diagnostic rather than an operational controller. Both complete archived 8,760-hour CSVs were reopened to check annual sums and timestamp parity; no new optimization. [Exact figure-day data](../../studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/FIGURE_MC_P33_2025_01_13.csv). The wider 18-case native causal archive already exists; the next local audit will extend coverage to exact reciprocal sources and additional fixed-hardware alternatives.
+
+
+## 25 November: two targeted sizing decisions
+
+[03_targeted_sizing_two_territories.svg](03_targeted_sizing_two_territories.svg) compares all seven new fixed hardware energy cases against their signed reciprocal references. At 113699, reducing PV and storage can lower cost and spill with higher imports; at 94022, adding modules lowers spill and imports at higher cost, without changing peak transformer proxy. New schedules await AC validation. Source: `StudyA_Battery_Sizing_Pilot_v1/SIZING_SUMMARY.csv` and [derived delta table](../../studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/SIZING_DELTA_FIGURE_SOURCE_2026-11-25.csv).
