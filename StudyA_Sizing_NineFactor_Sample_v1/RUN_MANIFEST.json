@@ -1,0 +1,70 @@
+{
+  "status": "COMPLETE_NINE_FACTOR_SAMPLE_NOT_ANNUAL",
+  "scope": "sample",
+  "cases": [
+    "113699_P20_B4",
+    "113699_B4",
+    "113699_P18",
+    "113699_P20",
+    "113699_P22",
+    "A1_94022_min_cost_to_A0",
+    "94022_B6",
+    "94022_B7"
+  ],
+  "factors": [
+    [
+      0.95,
+      1.0
+    ],
+    [
+      0.95,
+      1.3
+    ],
+    [
+      0.95,
+      1.6
+    ],
+    [
+      0.98,
+      1.0
+    ],
+    [
+      0.98,
+      1.3
+    ],
+    [
+      0.98,
+      1.6
+    ],
+    [
+      1.0,
+      1.0
+    ],
+    [
+      1.0,
+      1.3
+    ],
+    [
+      1.0,
+      1.6
+    ]
+  ],
+  "planned_case_factors": 72,
+  "common_hours_by_family": {
+    "oversize": 80,
+    "constraint": 67
+  },
+  "planned_case_hours": 5409,
+  "planned_new_AC_case_hours": 4808,
+  "no_new_LP": true,
+  "field_verified": false,
+  "annual_AC_verified": false,
+  "note": "Fixed schedules; stress failure is not proof no alternative controller is feasible",
+  "new_AC_case_hours": 4808,
+  "reference_regressions": 20,
+  "completed_case_factors": 72,
+  "output_sha256": {
+    "FACTOR_AC_HOURLY.csv": "222f498193ebc54c12406b00d956db6325261f9ded8925bcbcae845fd02559ff",
+    "FACTOR_AC_SUMMARY.csv": "a641606147653e1626eff0a632654215e99731c46ac69ef9374744a029fbf95b"
+  }
+}
