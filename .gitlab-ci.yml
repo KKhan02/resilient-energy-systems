@@ -33,9 +33,9 @@ stages:
       $env:RUNNER_VERIFIED_SESSION_ID = "$session"
       $env:NUMBA_CACHE_DIR = Join-Path $env:CI_PROJECT_DIR 'remote-cache\numba'
       $researchArgs = @()
-      if ($env:CI_JOB_NAME -eq 'study_a_94022_A1_sizing_preflight') { $researchArgs = @('--preflight-only') }
-      elseif ($env:CI_JOB_NAME -ne 'study_a_94022_A1_sizing_sample') { throw 'Unexpected scientific job' }
-      & $conda run --no-capture-output -n research python case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/remote_94022_A1_sizing.py @researchArgs
+      if ($env:CI_JOB_NAME -eq 'study_a_94022_A1_annual_preflight') { $researchArgs = @('--preflight-only') }
+      elseif ($env:CI_JOB_NAME -ne 'study_a_94022_A1_annual_validation') { throw 'Unexpected scientific job' }
+      & $conda run --no-capture-output -n research python case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/remote_94022_A1_annual.py @researchArgs
       if ($LASTEXITCODE -ne 0) { throw 'Scientific job failed; inspect artifacts and report' }
   artifacts:
     when: always
@@ -43,16 +43,16 @@ stages:
       - remote-research/
     expire_in: 90 days
 
-study_a_94022_A1_sizing_preflight:
+study_a_94022_A1_annual_preflight:
   extends: .remote_research
   stage: preflight
   timeout: 20m
   when: on_success
 
-study_a_94022_A1_sizing_sample:
+study_a_94022_A1_annual_validation:
   extends: .remote_research
   stage: research
   when: on_success
   needs:
-    - job: study_a_94022_A1_sizing_preflight
+    - job: study_a_94022_A1_annual_preflight
       artifacts: false
