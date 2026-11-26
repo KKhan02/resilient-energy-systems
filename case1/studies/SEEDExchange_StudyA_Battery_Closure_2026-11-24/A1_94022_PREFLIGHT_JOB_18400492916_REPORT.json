@@ -1,0 +1,227 @@
+{
+  "status": "INCOMPLETE",
+  "mode": "preflight",
+  "job_id": "18400492916",
+  "pipeline_id": "3119306230",
+  "execution_commit": "99f53a554095d5e60b74d9bbcc20eede69e91422",
+  "runner_id": "60033802",
+  "case": "A0_94022_ss90_to_A1",
+  "source_ref_sha256": "352b693570129ec6a2d4aa5bfa1cceb1a3c66a7b6f96a6527c5a0e365c37e1c0",
+  "assignment": "A1",
+  "transformer": "94022",
+  "households": 8,
+  "planned_LPs": 5,
+  "planned_existing_energy_comparators": 4,
+  "plan": [
+    [
+      "A1_94022_P37_B8",
+      37,
+      8
+    ],
+    [
+      "A1_94022_P34_B8",
+      34,
+      8
+    ],
+    [
+      "A1_94022_P30_B8",
+      30,
+      8
+    ],
+    [
+      "A1_94022_P41_B7",
+      41,
+      7
+    ],
+    [
+      "A1_94022_P34_B7",
+      34,
+      7
+    ]
+  ],
+  "factors": [
+    [
+      0.95,
+      1
+    ],
+    [
+      0.95,
+      1.3
+    ],
+    [
+      0.95,
+      1.6
+    ],
+    [
+      0.98,
+      1
+    ],
+    [
+      0.98,
+      1.3
+    ],
+    [
+      0.98,
+      1.6
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      1.3
+    ],
+    [
+      1,
+      1.6
+    ]
+  ],
+  "inverter_site": "head",
+  "energy_model_pf": 0.98,
+  "minimum_physical_soc": 0.2,
+  "zero_export": true,
+  "night_Q_disabled": true,
+  "annual_AC_verified": false,
+  "field_verified": false,
+  "offline_perfect_foresight": true,
+  "source_byte_audit": {
+    "status": "EXACT_SIGNED_CHECKOUT",
+    "execution_commit": "99f53a554095d5e60b74d9bbcc20eede69e91422",
+    "job_id": "18400492916",
+    "files": [
+      {
+        "path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/outputs/run_01/input_manifest_v6_2.json",
+        "expected_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+        "git_blob_sha256": "cc7704e1939d4a43d06322ebe14a826f5d09812b0f1b9da35bd8ab93c71ffbf5",
+        "checkout_before_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+        "git_blob_mode": "LF_TO_CRLF",
+        "checkout_mode": "EXACT",
+        "checkout_after_sha256": "2ff7eb9c1f28f12efc11aca9b366e5277da72a62f6d7709f47dc3841b6e71d69",
+        "changed": false
+      },
+      {
+        "path": "case1/studies/SEEDExchange_StudyA_v6_LocalRunner/seed_study_a_v6.py",
+        "expected_sha256": "7c0ecb05230807c4ed206f0fea36fc6af68b9d4744cec7adb18f3ce6109f95c8",
+        "git_blob_sha256": "7c0ecb05230807c4ed206f0fea36fc6af68b9d4744cec7adb18f3ce6109f95c8",
+        "checkout_before_sha256": "dd52ba805c67526a36ce88d55d62860f836ac22ccb0284d3343009296c0f6a8b",
+        "git_blob_mode": "EXACT",
+        "checkout_mode": "CRLF_TO_LF",
+        "checkout_after_sha256": "7c0ecb05230807c4ed206f0fea36fc6af68b9d4744cec7adb18f3ce6109f95c8",
+        "changed": true
+      },
+      {
+        "path": "case1/studies/ac_aware_redispatch_v1/fixed_hardware.py",
+        "expected_sha256": "126ecaf3127814abde12ec287f280af3e653c1f22bfd096b9c39c6d48afeebd4",
+        "git_blob_sha256": "126ecaf3127814abde12ec287f280af3e653c1f22bfd096b9c39c6d48afeebd4",
+        "checkout_before_sha256": "ac993067aa016b9f19bf4afc728d52f28abda2c43adabbd6efb068a0785495a7",
+        "git_blob_mode": "EXACT",
+        "checkout_mode": "CRLF_TO_LF",
+        "checkout_after_sha256": "126ecaf3127814abde12ec287f280af3e653c1f22bfd096b9c39c6d48afeebd4",
+        "changed": true
+      },
+      {
+        "path": "case1/studies/pypsa_joint_optimization_v1/model.py",
+        "expected_sha256": "4f04a7b6c94bdb3f40f2f09074b6896f13eb543598af18291ae9b10e31606eab",
+        "git_blob_sha256": "4f04a7b6c94bdb3f40f2f09074b6896f13eb543598af18291ae9b10e31606eab",
+        "checkout_before_sha256": "0dc4a4029edc99ac310b813aff0b0079fd5b363754cd813e205e2c07a3d6f3e3",
+        "git_blob_mode": "EXACT",
+        "checkout_mode": "CRLF_TO_LF",
+        "checkout_after_sha256": "4f04a7b6c94bdb3f40f2f09074b6896f13eb543598af18291ae9b10e31606eab",
+        "changed": true
+      },
+      {
+        "path": "case1/studies/epm_gis_pandapower_v1/run_epm_validation.py",
+        "expected_sha256": "f7358f23de8d5c499e6c89efd40edccdff2ed2c64463273de8e522f29c66356e",
+        "git_blob_sha256": "f7358f23de8d5c499e6c89efd40edccdff2ed2c64463273de8e522f29c66356e",
+        "checkout_before_sha256": "c4427a5e31d50d2efe0ffda37050813196c0831bdec31d2d2f7c2640fcc55668",
+        "git_blob_mode": "EXACT",
+        "checkout_mode": "CRLF_TO_LF",
+        "checkout_after_sha256": "f7358f23de8d5c499e6c89efd40edccdff2ed2c64463273de8e522f29c66356e",
+        "changed": true
+      },
+      {
+        "path": "case1/studies/epm_gis_pandapower_v1/epm_topology.py",
+        "expected_sha256": "0f25b37dd5cfba71c872701ab6c301da636805b303ed9744dec5e2dbcd0821d7",
+        "git_blob_sha256": "0f25b37dd5cfba71c872701ab6c301da636805b303ed9744dec5e2dbcd0821d7",
+        "checkout_before_sha256": "70fb37029a68a22c2baccb5408496b20b08d95e1cbd3e05ab88ceb2d096996b7",
+        "git_blob_mode": "EXACT",
+        "checkout_mode": "CRLF_TO_LF",
+        "checkout_after_sha256": "0f25b37dd5cfba71c872701ab6c301da636805b303ed9744dec5e2dbcd0821d7",
+        "changed": true
+      },
+      {
+        "path": "case1/studies/epm_gis_pandapower_v1/hil_voltvar.py",
+        "expected_sha256": "9a63bd182b7c1ac29e15afdfbe7fe6f67d5402a9ad655b6dcd8a4bddefe70b5c",
+        "git_blob_sha256": "9a63bd182b7c1ac29e15afdfbe7fe6f67d5402a9ad655b6dcd8a4bddefe70b5c",
+        "checkout_before_sha256": "a8cc6274ecf696faac84bfb0a015514e8b3b4c1928dcd79bbc09d1bc54f5a533",
+        "git_blob_mode": "EXACT",
+        "checkout_mode": "CRLF_TO_LF",
+        "checkout_after_sha256": "9a63bd182b7c1ac29e15afdfbe7fe6f67d5402a9ad655b6dcd8a4bddefe70b5c",
+        "changed": true
+      },
+      {
+        "path": "case1/studies/epm_gis_pandapower_v1/coordinated_q_control.py",
+        "expected_sha256": "10560af0fedfa9a92f72621ac775273be59eca0493fdf2eed4b4ec8d26504325",
+        "git_blob_sha256": "10560af0fedfa9a92f72621ac775273be59eca0493fdf2eed4b4ec8d26504325",
+        "checkout_before_sha256": "c3e45ebdc8f294ed497cb9d35dfb28c2c933e4dda834042e7076f97862ba1ca6",
+        "git_blob_mode": "EXACT",
+        "checkout_mode": "CRLF_TO_LF",
+        "checkout_after_sha256": "10560af0fedfa9a92f72621ac775273be59eca0493fdf2eed4b4ec8d26504325",
+        "changed": true
+      },
+      {
+        "path": "case1/studies/SEEDExchange_StudyA_LocalPreflight_v4/outputs/run_02/fixed_house_to_profile_map.csv",
+        "expected_sha256": "6a158461213a834247eaf9fc351a41708cd883e981536a71f997c3707d1363ac",
+        "git_blob_sha256": "81b736a29a1b2b3921663b58a267d8217d45e630881d215a182df7454e3471f9",
+        "checkout_before_sha256": "6a158461213a834247eaf9fc351a41708cd883e981536a71f997c3707d1363ac",
+        "git_blob_mode": "LF_TO_CRLF",
+        "checkout_mode": "EXACT",
+        "checkout_after_sha256": "6a158461213a834247eaf9fc351a41708cd883e981536a71f997c3707d1363ac",
+        "changed": false
+      },
+      {
+        "path": "case1/studies/SEEDExchange_StudyA_LocalPreflight_v4/outputs/run_02/household_profiles_2025_excel_35.csv",
+        "expected_sha256": "0c55b8dbe534c083d1ffeb39d41c52dd95a2c1f8013d72eb284e5ffa91ccbfd3",
+        "git_blob_sha256": "74a66b2795769e564a41e859fab665fc3db65ae81dfdfc53e1addf6aa459dd8c",
+        "checkout_before_sha256": "0c55b8dbe534c083d1ffeb39d41c52dd95a2c1f8013d72eb284e5ffa91ccbfd3",
+        "git_blob_mode": "LF_TO_CRLF",
+        "checkout_mode": "EXACT",
+        "checkout_after_sha256": "0c55b8dbe534c083d1ffeb39d41c52dd95a2c1f8013d72eb284e5ffa91ccbfd3",
+        "changed": false
+      },
+      {
+        "path": "case1/studies/epm_gis_pandapower_v1/data/epm_network_relevant_sanitized.geojson",
+        "expected_sha256": "adfa33a8a01b0b33ee449c69924515fed05ad49665868e8c1ae8ba5d047c1bab",
+        "git_blob_sha256": "adfa33a8a01b0b33ee449c69924515fed05ad49665868e8c1ae8ba5d047c1bab",
+        "checkout_before_sha256": "adfa33a8a01b0b33ee449c69924515fed05ad49665868e8c1ae8ba5d047c1bab",
+        "git_blob_mode": "EXACT",
+        "checkout_mode": "EXACT",
+        "checkout_after_sha256": "adfa33a8a01b0b33ee449c69924515fed05ad49665868e8c1ae8ba5d047c1bab",
+        "changed": false
+      },
+      {
+        "path": "case1/studies/epm_gis_pandapower_v1/data/houses_candidate_associations.csv",
+        "expected_sha256": "ad830d00739180d41755605b79d3091abbd9d4e3804779d526f8b33012cf50b9",
+        "git_blob_sha256": "ad830d00739180d41755605b79d3091abbd9d4e3804779d526f8b33012cf50b9",
+        "checkout_before_sha256": "30d8676300fa9e1d406d600b6d44d9ac8f6285654bb533dc0d08291a98f82367",
+        "git_blob_mode": "EXACT",
+        "checkout_mode": "CRLF_TO_LF",
+        "checkout_after_sha256": "ad830d00739180d41755605b79d3091abbd9d4e3804779d526f8b33012cf50b9",
+        "changed": true
+      }
+    ],
+    "restored_count": 8,
+    "signed_files": 12,
+    "signed_receipts_changed_in_git": false,
+    "scientific_inputs_changed": false
+  },
+  "error": "TypeError(\"'module' object is not subscriptable\")",
+  "duration_s": 5.119,
+  "output_sha256": {
+    "SOURCE_BYTE_AUDIT.json": "4699dc83235585f281a6ad715c64d3111d179dd5214ca59223f833f69068ba17",
+    "source_portability_tests.log": "c05ccdf40b600341e00fd837c515c85b3d93f3815eec157a7a3aa7df4c122ec5",
+    "test_remote_A1_94022_sizing.py.log": "839ba328e65e944fbfccbc2fc75cb5bba085d617defc19461e191d28709a362c",
+    "test_sizing_option_annual_gate.py.log": "3d5400e3aa56bad3de0cf7e6ed9094a554816b3d7c1409002233cfd79a7b73c7"
+  }
+}
