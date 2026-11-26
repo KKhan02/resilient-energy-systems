@@ -121,3 +121,31 @@ research_runner_project_validation:
     reports:
       junit: runner-test/project/junit.xml
     expire_in: 30 days
+
+research_runner_annual_replay:
+  stage: diagnostic
+  tags:
+    - research-laptop
+  when: manual
+  allow_failure: false
+  timeout: 10m
+  script:
+    - |
+      $ErrorActionPreference = 'Stop'
+      $identity = whoami
+      $session = (Get-Process -Id $PID).SessionId
+      if (($identity -split '\\')[-1] -ne 'researchrunner' -or $session -ne 0) { throw 'Expected restricted service account and Session 0' }
+      $actual = git rev-parse HEAD
+      if ($LASTEXITCODE -ne 0 -or $actual -ne $env:CI_COMMIT_SHA) { throw 'Checkout SHA mismatch' }
+      $env:RUNNER_VERIFIED_SESSION_ID = "$session"
+      $env:MPLBACKEND = 'Agg'
+      $env:NUMBA_CACHE_DIR = Join-Path $env:CI_PROJECT_DIR 'runner-test\numba-cache'
+      $conda = Join-Path $env:USERPROFILE 'miniforge3\Scripts\conda.exe'
+      if (!(Test-Path -LiteralPath $conda)) { throw 'Conda missing' }
+      & $conda run --no-capture-output -n research python runner_setup/annual_replay.py
+      if ($LASTEXITCODE -ne 0) { throw 'Annual replay validation failed; inspect result report' }
+  artifacts:
+    when: always
+    paths:
+      - runner-test/annual/
+    expire_in: 30 days
