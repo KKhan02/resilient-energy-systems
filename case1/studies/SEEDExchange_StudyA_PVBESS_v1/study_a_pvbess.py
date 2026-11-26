@@ -61,6 +61,25 @@ def load_module(path, name):
     return module
 
 
+def resolve_signed_v4_path(repo, manifest):
+    """Resolve the recorded historical repository-relative directory, never rewrite manifest."""
+    from pathlib import PureWindowsPath, PurePosixPath
+    old_root=str(manifest["repo_root"])
+    old_input=str(manifest["v4_run_dir"])
+    path_type=PureWindowsPath if PureWindowsPath(old_root).drive else PurePosixPath
+    root=path_type(old_root); source=path_type(old_input)
+    if not root.is_absolute() or not source.is_absolute():
+        raise ValueError("Signed source paths must be absolute")
+    rel=source.relative_to(root)
+    expected=("case1","studies","SEEDExchange_StudyA_LocalPreflight_v4","outputs","run_02")
+    if tuple(rel.parts)!=expected:
+        raise ValueError("Signed v4 source directory identity changed")
+    target=(repo/Path(*rel.parts)).resolve()
+    if not target.is_relative_to(repo.resolve()) or not target.is_dir():
+        raise ValueError("Signed v4 source directory unavailable in checkout")
+    return target
+
+
 def secure_context(repo, manifest_path):
     repo=repo.resolve()
     manifest_path=manifest_path.resolve()
@@ -76,7 +95,7 @@ def secure_context(repo, manifest_path):
         if digest(repo/rel)!=expected:
             raise ValueError('Original model source changed: '+rel)
     v6=load_module(runner,'signed_study_a_v6_2')
-    _,_,mapping,profiles,groups,_=v6.validated_sources(repo,Path(m['v4_run_dir']),m)
+    _,_,mapping,profiles,groups,_=v6.validated_sources(repo,resolve_signed_v4_path(repo,m),m)
     if groups!=m['groups'] or mapping!=m['mapping']:
         raise ValueError('Signed cohorts/profile mapping changed')
     return m,v6,mapping,profiles

@@ -13,6 +13,7 @@ import subprocess
 import sys
 import time
 import traceback
+from remote_signed_source_checkout import restore
 
 import numpy as np
 import pandas as pd
@@ -138,7 +139,9 @@ def figure(rows):
 def main():
     OUT.mkdir(exist_ok=False)
     start=time.perf_counter()
-    report=dict(status="INCOMPLETE",source_research_commit=BASE,execution_commit=os.environ.get("CI_COMMIT_SHA"),
+    preflight_only = sys.argv[1:]==["--preflight-only"]
+    if sys.argv[1:] not in ([],["--preflight-only"]):raise ValueError("Unsupported execution mode")
+    report=dict(mode="preflight" if preflight_only else "stress",status="INCOMPLETE",source_research_commit=BASE,execution_commit=os.environ.get("CI_COMMIT_SHA"),
         job_id=os.environ.get("CI_JOB_ID"),pipeline_id=os.environ.get("CI_PIPELINE_ID"),runner_id=os.environ.get("CI_RUNNER_ID"),
         session_id=os.environ.get("RUNNER_VERIFIED_SESSION_ID"),python=sys.version,platform=platform.platform(),
         assumptions=dict(territory="A0 94022 ten-house proxy",options=list(OPTIONS),factors=[[.98,1.],[.95,1.6]],cases=list(CASES),
@@ -151,6 +154,8 @@ def main():
             raise RuntimeError("Unexpected validated execution environment")
         for package in ("pandapower","pypsa","highspy","numpy","scipy","pandas","matplotlib","numba","linopy"):
             report["package_versions"][package]=metadata.version(package)
+        run(["-m","unittest","discover","-s",STUDY,"-p","test_remote_signed_source_checkout.py","-v"],"source_portability_tests")
+        report["source_byte_audit"]=restore(ROOT,OUT)
         signed(SAMPLE/"OPTION_AC_HOURLY.csv",SAMPLE_HASH)
         sample=pd.read_csv(SAMPLE/"OPTION_AC_HOURLY.csv",parse_dates=["timestamp_lst"])
         if len(sample)!=5427:raise ValueError("Sample coverage")
@@ -158,10 +163,13 @@ def main():
         run(["-m","unittest","discover","-s",STUDY,"-p","test_sizing_option_annual_gate.py","-v"],"regression_tests")
         args=[STUDY/"sizing_matched_physical_options.py","--repo-root",".","--scope","annual","--options",*OPTIONS,"--pf","0.95","--length","1.6"]
         run([*args,"--preflight-only"],"stress_preflight")
-        run([*args,"--out",STRESS],"stress_execution")
-        report["stress"]=audit(STRESS,.95,1.6,sample)
-        figure(report["reference"]+report["stress"])
-        report["status"]="COMPLETE_AUDITED_ANNUAL_COMPARISON"
+        if preflight_only:
+            report["status"]="COMPLETE_SIGNED_REMOTE_PREFLIGHT_NO_SOLVES"
+        else:
+            run([*args,"--out",STRESS],"stress_execution")
+            report["stress"]=audit(STRESS,.95,1.6,sample)
+            figure(report["reference"]+report["stress"])
+            report["status"]="COMPLETE_AUDITED_ANNUAL_COMPARISON"
     except Exception as e:
         report["error"]=repr(e);traceback.print_exc()
     finally:
@@ -169,5 +177,5 @@ def main():
         report["output_sha256"]={p.relative_to(OUT).as_posix():sha(p) for p in sorted(OUT.rglob("*")) if p.is_file() and p.name!="REMOTE_REPORT.json"}
         save(OUT/"REMOTE_REPORT.json",report)
         print("RESEARCH_REPORT_JSON="+json.dumps(report,separators=(",",":"),allow_nan=False),flush=True)
-    return 0 if report["status"]=="COMPLETE_AUDITED_ANNUAL_COMPARISON" else 1
+    return 0 if report["status"] in ("COMPLETE_AUDITED_ANNUAL_COMPARISON","COMPLETE_SIGNED_REMOTE_PREFLIGHT_NO_SOLVES") else 1
 if __name__=="__main__":raise SystemExit(main())
