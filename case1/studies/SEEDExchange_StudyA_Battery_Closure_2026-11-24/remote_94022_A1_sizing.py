@@ -192,6 +192,14 @@ def solve(prepared,report):
         new_sample_case_hours=len(a),completed_groups=len(summ),passing_groups=sum(r["strict_failures"]==0 for r in summ),
         summary=summ)
 
+def preflight_metadata(prepared):
+    # prepare() returns the fixed-hardware, v6 and annual modules, followed
+    # by the scientific context. Unpack explicitly to avoid tuple index drift.
+    fh,v6,annual,x=prepared
+    return dict(existing_energy_hashes=dict(x["signatures"]),
+                new_hardware={c:dict(h) for c,h in x["candidates"].items()},
+                planned_archived_regressions=100)
+
 def main():
     OUT.mkdir(exist_ok=False);start=time.perf_counter()
     preflight=sys.argv[1:]==["--preflight-only"]
@@ -208,9 +216,7 @@ def main():
         for test in ("test_sizing_option_annual_gate.py","test_remote_A1_94022_sizing.py"):
             run(["-m","unittest","discover","-s",STUDY,"-p",test,"-v"],test)
         prepared=prepare()
-        report.update(existing_energy_hashes=prepared[2]["signatures"],new_hardware=prepared[2]["candidates"],planned_archived_regressions=100)
-        # Snapshot mutable dictionaries before computation.
-        report["existing_energy_hashes"]=dict(report["existing_energy_hashes"])
+        report.update(preflight_metadata(prepared))
         if preflight:report["status"]="COMPLETE_SIGNED_A1_94022_SIZING_PREFLIGHT"
         else:solve(prepared,report)
     except Exception as exc:

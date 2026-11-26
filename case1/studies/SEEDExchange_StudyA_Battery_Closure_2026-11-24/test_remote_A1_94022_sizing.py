@@ -18,4 +18,17 @@ class CandidatePlan(unittest.TestCase):
         h=self.reference();d=r.new_designs(h)
         with self.assertRaisesRegex(ValueError,"Duplicate"):r.duplicate_guard(d,{"existing":next(iter(d.values()))})
 
+    def test_preflight_metadata_contract(self):
+        from types import ModuleType
+        context={"signatures":{"ref":"signed-source"},"candidates":{"P37":{"pv_panels":37}}}
+        prepared=(ModuleType("fixed"),ModuleType("v6"),ModuleType("annual"),context)
+        receipt=r.preflight_metadata(prepared)
+        self.assertEqual(receipt["existing_energy_hashes"],{"ref":"signed-source"})
+        self.assertEqual(receipt["new_hardware"],{"P37":{"pv_panels":37}})
+        self.assertEqual(receipt["planned_archived_regressions"],100)
+        context["signatures"]["new"]="new-output"
+        context["candidates"]["P37"]["pv_panels"]=99
+        self.assertEqual(receipt["existing_energy_hashes"],{"ref":"signed-source"})
+        self.assertEqual(receipt["new_hardware"],{"P37":{"pv_panels":37}})
+
 if __name__=="__main__":unittest.main()
