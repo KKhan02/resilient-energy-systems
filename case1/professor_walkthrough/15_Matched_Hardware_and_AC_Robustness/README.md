@@ -49,3 +49,5 @@ Figure 38 generator `plot_annual_stress_and_unresolved.py` reads signed latest a
 Figure 38 uploaded and indexed. Figure 39 generator `plot_physical_option_voltage.py` reads the signed physical probe/path CSVs and plots matched voltage curves and modeled voltage-drop decomposition. Render under `python_figure_39_v1/` and index only after verification.
 
 Figure 39 uploaded and indexed. Figure 40 generator `plot_matched_physical_robustness.py` compares all four options with identical dispatch and sample denominators. Generate under `python_figure_40_v1/` and index after receipt verification.
+
+Figure 40 uploaded and indexed; PNG hash verified. First remote research campaign will audit the six annual reference files and run stress on a dedicated protected execution branch, with Figure 41 generated from the completed audited annual data.
