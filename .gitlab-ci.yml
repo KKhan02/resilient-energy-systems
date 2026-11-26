@@ -52,7 +52,7 @@ study_a_94022_source_preflight:
 study_a_94022_annual_stress:
   extends: .remote_research
   stage: research
-  when: manual
+  when: on_success
   needs:
     - job: study_a_94022_source_preflight
       artifacts: false
