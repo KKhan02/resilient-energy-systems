@@ -1,5 +1,18 @@
 # Current continuation (27 November 2026)
 
+## Study B continuation, 27 November 2026
+
+Study B B1 geometry and gross annual load screening have passed exact replay qualification. The new research chapters below extend Study A without changing its published figures. The active index remains 49 verified figures until the new PNG/SVG payloads pass independent verification.
+
+| Stage | Planned figures | Research question |
+|---|---|---|
+| [19](19_StudyB_Spatial_Groups_and_Siting/) | 50–51 | How can 35 candidate households form geographically plausible 5–15-home groups and supply sites? |
+| [20](20_StudyB_Geometry_and_Loading_Tradeoffs/) | 52–54 | How do paired STAR/MST geometry, branch demand and gross transformer capacity trade off? |
+
+The verified median cable reduction of 36.43% comes with a 43.44% median longest-path increase and 1.82 kW median peak-branch increase. At PF .98, all sampled groups of 11–15 houses exceed the gross 5 kVA demand proxy at least once; this does not establish AC overload or exclude DER solutions. The [B1 source receipt](../studies/SEEDExchange_StudyB_Integration_v1/B1_QUALIFICATION_3124248027_RECEIPT.json) and [Python figure plan](STUDY_B_FIGURE_PLAN_2026-11-27.json) underpin the next figures. The [B3 sampled AC pilot](../studies/SEEDExchange_StudyB_Integration_v1/B3_LOAD_ONLY_PILOT.md) is submitted in [pipeline 3124290063](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124290063). Figures and sampled AC results are pending, not completed.
+
+
+
 Read [Study A conclusions and Study B gate](STUDY_A_CONCLUSIONS_AND_STUDY_B_GATE.md) and stages 16–18 after the historical narrative below. Earlier pending statements refer to their original dated checkpoint.
 
 # SEEDExchange Case 1: research progress narrative
