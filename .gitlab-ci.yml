@@ -33,27 +33,34 @@ stages:
       $env:RUNNER_VERIFIED_SESSION_ID = "$session"
       $env:NUMBA_CACHE_DIR = Join-Path $env:CI_PROJECT_DIR 'remote-cache\numba'
       $researchArgs = @()
-      if ($env:CI_JOB_NAME -eq 'study_b_geometry_preflight') { $researchArgs = @('--preflight-only') }
-      elseif ($env:CI_JOB_NAME -eq 'study_b_geometry_screen') { $researchArgs = @() }
+      if ($env:CI_JOB_NAME -eq 'study_b_qualification_preflight') { $researchArgs = @('--preflight-only') }
+      elseif ($env:CI_JOB_NAME -eq 'study_b_qualification_replay') { $researchArgs = @() }
       else { throw 'Unexpected scientific job' }
       & $conda run --no-capture-output -n research python case1/studies/SEEDExchange_StudyB_Integration_v1/build_independent_b1.py --repo-root . --out remote-research/study-b-b1 @researchArgs
       if ($LASTEXITCODE -ne 0) { throw 'Scientific job failed; inspect artifacts and report' }
+      if ($env:CI_JOB_NAME -eq 'study_b_qualification_replay') {
+        & $conda run --no-capture-output -n research python case1/studies/SEEDExchange_StudyB_Integration_v1/qualify_b1_tradeoffs.py --input remote-research/study-b-b1 --out remote-research/study-b-b1-qualification
+        if ($LASTEXITCODE -ne 0) { throw 'B1 evidence qualification failed' }
+      } else {
+        New-Item -ItemType Directory -Force -Path remote-research | Out-Null
+        "B1 preflight passed" | Set-Content remote-research/preflight.txt
+      }
   artifacts:
     when: always
     paths:
       - remote-research/
     expire_in: 90 days
 
-study_b_geometry_preflight:
+study_b_qualification_preflight:
   extends: .remote_research
   stage: preflight
   timeout: 20m
   when: on_success
 
-study_b_geometry_screen:
+study_b_qualification_replay:
   extends: .remote_research
   stage: research
   when: on_success
   needs:
-    - job: study_b_geometry_preflight
+    - job: study_b_qualification_preflight
       artifacts: false
