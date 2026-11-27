@@ -1,22 +1,22 @@
 # SEEDExchange | Research walkthrough
 
-**Current checkpoint: 27 November 2026. Study A selected-candidate quantitative assessment complete.** The active index contains 49 figures across stages 01–18. Nine new Python-only figures (41–49) were rendered on the Research-Laptop, independently byte-verified and visually inspected. See the [verified manifest](STUDY_A_FIGURES_41_49_VERIFIED_MANIFEST.json).
+**Current checkpoint: 27 November 2026. Study A selected-candidate quantitative assessment complete.** Study A contains 49 figures across stages 01–18; the current index includes five additional verified Study B figures. Nine new Python-only figures (41–49) were rendered on the Research-Laptop, independently byte-verified and visually inspected. See the [verified manifest](STUDY_A_FIGURES_41_49_VERIFIED_MANIFEST.json).
 
 ## Study B continuation, 27 November 2026
 
-Study B B1 geometry and gross annual load screening have passed exact replay qualification. The new research chapters below extend Study A without changing its published figures. The active index remains 49 verified figures until the new PNG/SVG payloads pass independent verification.
+Study B B1 geometry and gross annual load screening have passed exact replay qualification. The new research chapters below extend Study A without changing its published figures. The active index now contains 54 verified figures across stages 01–20. Study B figures 50–54 are independently hash-verified and visually reviewed. See [verified B1 figure manifest](STUDY_B_B1_FIGURES_50_54_VERIFIED_MANIFEST.json).
 
-| Stage | Planned figures | Research question |
+| Stage | Verified figures | Research question |
 |---|---|---|
 | [19](19_StudyB_Spatial_Groups_and_Siting/) | 50–51 | How can 35 candidate households form geographically plausible 5–15-home groups and supply sites? |
 | [20](20_StudyB_Geometry_and_Loading_Tradeoffs/) | 52–54 | How do paired STAR/MST geometry, branch demand and gross transformer capacity trade off? |
 
-The verified median cable reduction of 36.43% comes with a 43.44% median longest-path increase and 1.82 kW median peak-branch increase. At PF .98, all sampled groups of 11–15 houses exceed the gross 5 kVA demand proxy at least once; this does not establish AC overload or exclude DER solutions. The [B1 source receipt](../studies/SEEDExchange_StudyB_Integration_v1/B1_QUALIFICATION_3124248027_RECEIPT.json) and [Python figure plan](STUDY_B_FIGURE_PLAN_2026-11-27.json) underpin the next figures. The [B3 sampled AC pilot](../studies/SEEDExchange_StudyB_Integration_v1/B3_LOAD_ONLY_PILOT.md) is submitted in [pipeline 3124290063](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124290063). Figures and sampled AC results are pending, not completed.
+The verified median cable reduction of 36.43% comes with a 43.44% median longest-path increase and 1.82 kW median peak-branch increase. At PF .98, all sampled groups of 11–15 houses exceed the gross 5 kVA demand proxy at least once; this does not establish AC overload or exclude DER solutions. The [B1 source receipt](../studies/SEEDExchange_StudyB_Integration_v1/B1_QUALIFICATION_3124248027_RECEIPT.json) and [Python figure plan](STUDY_B_FIGURE_PLAN_2026-11-27.json) underpin the next figures. The [B3 sampled AC pilot](../studies/SEEDExchange_StudyB_Integration_v1/B3_LOAD_ONLY_PILOT.md) is submitted in [pipeline 3124290063](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124290063). Figures 50–54 are verified; B3 CSVs were written but the original JSON manifest failed serialization. Recovery pipeline 3124340971 is submitted; no full AC outcomes asserted.
 
 
 ### Stage 21: first paired electrical evidence
 
-[Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/) now records the two completed five-household preflight calculations and explains why voltage, rather than transformer nameplate, can be the limiting constraint. Both converged but failed the main voltage screen (STAR 0.917796 pu, MST 0.899280 pu); these are only two reference sampled points. Full B3 is not yet complete. Proposed figures 55–58 will use qualified actual sampled AC tables, not these two points as an annual proxy. The earlier pooled N=5–9 gross-screen denominator is 250 unique groups, not 255; the zero exceedance result is unchanged.
+[Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/) now records the two completed five-household preflight calculations and explains why voltage, rather than transformer nameplate, can be the limiting constraint. Both converged but failed the main voltage screen (STAR 0.917796 pu, MST 0.899280 pu); these are only two reference sampled points. B3 wrote all four numerical CSVs, but the report failed JSON serialization; retained archive recovery is submitted in [pipeline 3124340971](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124340971). Full results remain unqualified. Proposed figures 55–58 will use qualified actual sampled AC tables, not these two points as an annual proxy. The earlier pooled N=5–9 gross-screen denominator is 250 unique groups, not 255; the zero exceedance result is unchanged.
 
 ## Start here: the research argument
 

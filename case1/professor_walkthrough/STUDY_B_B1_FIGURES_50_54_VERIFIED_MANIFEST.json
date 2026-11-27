@@ -1,0 +1,89 @@
+{
+  "status": "COMPLETE_STUDY_B_B1_FIGURES",
+  "source_pipeline": 3124248027,
+  "source_execution_commit": "11ec0263a3391b7d74fe3e5fcfdc95955a4c49d0",
+  "sources": {
+    "group_roster.csv": "0abd27e01ed9bd4258b7979ccfdfa32364083b0141c54a76629070e65edcd4ca",
+    "partition_membership.csv": "8e000380d77fe0ae2c3c509decca4628031830cc35922d904385957898e77cfb",
+    "supply_sites.csv": "8d777d4324640935a7a6b3475a0941427784e91080a268a3b01bd03e70aba636",
+    "network_cases.csv": "de59e835548a027b6e3ce28d44e0a51fa7db6a035cb622ec1a96ab6f68157c3e",
+    "network_nodes.csv": "ec8f84a03165f6c98774307d4324dbd4efdc4fc4779d58f4d6938ec7d091c95e",
+    "network_branches.csv": "cf5d28f3685a3e3c4bfc3ac6415fc53f567ea46897a3eeaf54729b701d3de061",
+    "gross_screen.csv": "2b7803c2912722ac6259c8fce0cd98ef63eb6fc956682f0d814ffa5772ba2fcf",
+    "candidate_geometry_front.csv": "4e2b437476da17712c40d0430cc4e13fbf42b75996e359019b46aca8c2710647",
+    "paired_topology_tradeoffs.csv": "9e32026379bfb6e38bc05a787fa191f7b961f60bd40ed4440a1bcb1cdca1f9cc",
+    "unique_group_gross.csv": "66117c89e2bf559bf1c6cebb0a37d89d5ca9a742550d9d721efe0e6ed5c88834"
+  },
+  "generator_sha256": "37503b388388bb0ac46a4dd7cd5de69b6d8af084a59f21ca1364d10f33481021",
+  "files": [
+    {
+      "name": "50_group_size_and_supply_candidates.png",
+      "stage": "19_StudyB_Spatial_Groups_and_Siting",
+      "size": 56704,
+      "sha256": "3622c9f33d48421fb9262394e7b617433a298758e4d25179967c7f14a6942e80"
+    },
+    {
+      "name": "50_group_size_and_supply_candidates.svg",
+      "stage": "19_StudyB_Spatial_Groups_and_Siting",
+      "size": 73176,
+      "sha256": "e63985e6381cf5ed63ab607e1151f92e8b53d0e114f63526e70eaad0d436b4b0"
+    },
+    {
+      "name": "51_matched_star_mst_geometry.png",
+      "stage": "19_StudyB_Spatial_Groups_and_Siting",
+      "size": 171016,
+      "sha256": "9549322881c2a82a787d776d3f353567f6aff49bce4eccb6520c602b28d91c40"
+    },
+    {
+      "name": "51_matched_star_mst_geometry.svg",
+      "stage": "19_StudyB_Spatial_Groups_and_Siting",
+      "size": 123741,
+      "sha256": "8efa9ee7989fbc3dd62aa8af4e94dc6fccc350e52754392f3fee0f1adaf6e049"
+    },
+    {
+      "name": "52_star_mst_geometry_tradeoffs.png",
+      "stage": "20_StudyB_Geometry_and_Loading_Tradeoffs",
+      "size": 90234,
+      "sha256": "69f7237588bbea45a44874fb367f53b5067b153b8339a35c79c7619b8cf129d0"
+    },
+    {
+      "name": "52_star_mst_geometry_tradeoffs.svg",
+      "stage": "20_StudyB_Geometry_and_Loading_Tradeoffs",
+      "size": 150318,
+      "sha256": "7e460c5d4d91ee8b93cc553c37f944a8ea155716ad90ac175f48c402e1fd387a"
+    },
+    {
+      "name": "53_gross_transformer_loading_boundary.png",
+      "stage": "20_StudyB_Geometry_and_Loading_Tradeoffs",
+      "size": 182653,
+      "sha256": "f0a0aee26a1b864d8617ae24c840c9f9fda1915e34ff1e63aafa4bba2a28f761"
+    },
+    {
+      "name": "53_gross_transformer_loading_boundary.svg",
+      "stage": "20_StudyB_Geometry_and_Loading_Tradeoffs",
+      "size": 94529,
+      "sha256": "5dddb7311c61e068e1a3bcb20c0cb9a5d5ef04028f6a620ec9e9a9699572b2c5"
+    },
+    {
+      "name": "54_within_group_geometry_frontier.png",
+      "stage": "20_StudyB_Geometry_and_Loading_Tradeoffs",
+      "size": 264223,
+      "sha256": "6cb27943669223cfd09ae80add6becb4ebecd84dc9ac74987ac4a97fdde7b891"
+    },
+    {
+      "name": "54_within_group_geometry_frontier.svg",
+      "stage": "20_StudyB_Geometry_and_Loading_Tradeoffs",
+      "size": 1677181,
+      "sha256": "88764593924a7e7f89f09594f8da3583315a7024b03bb4f515fefb2b4f0cf5f3"
+    }
+  ],
+  "figures": 5,
+  "matplotlib": "3.10.7",
+  "new_solves": 0,
+  "render_job": 18436937793,
+  "render_pipeline": 3124290063,
+  "render_execution_commit": "edc4a4dda1a81527fa7f3e7d3121f7d4bbcbb33f",
+  "figure_byte_commit": "08cadcc75ac62d5dd463a7ff31bc6dd616b2fbca",
+  "verification": "10/10 trace-reassembled byte size SHA256 header checked; 10/10 GitLab content SHA256/size readback; 5/5 PNG visually inspected",
+  "visual_review": "Readable and numerically consistent; tight subtitle/axes spacing in some panels, especially figure 51; preserve original render, refine typography in future revision. Figure 51 supply symbol can coincide with a household; topology remains accurate."
+}
