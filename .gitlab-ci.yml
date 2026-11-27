@@ -33,10 +33,10 @@ stages:
       $env:RUNNER_VERIFIED_SESSION_ID = "$session"
       $env:NUMBA_CACHE_DIR = Join-Path $env:CI_PROJECT_DIR 'remote-cache\numba'
       $researchArgs = @()
-      if ($env:CI_JOB_NAME -eq 'study_a_walkthrough_figure_preflight') { $researchArgs = @('--preflight-only') }
-      elseif ($env:CI_JOB_NAME -eq 'study_a_walkthrough_figure_render') { $researchArgs = @('--emit-figure-bytes') }
+      if ($env:CI_JOB_NAME -eq 'study_b_geometry_preflight') { $researchArgs = @('--preflight-only') }
+      elseif ($env:CI_JOB_NAME -eq 'study_b_geometry_screen') { $researchArgs = @() }
       else { throw 'Unexpected scientific job' }
-      & $conda run --no-capture-output -n research python case1/professor_walkthrough/generate_study_a_conclusion_figures.py --repo-root walkthrough-render-inputs --out remote-research/study-a-walkthrough @researchArgs
+      & $conda run --no-capture-output -n research python case1/studies/SEEDExchange_StudyB_Integration_v1/build_independent_b1.py --repo-root . --out remote-research/study-b-b1 @researchArgs
       if ($LASTEXITCODE -ne 0) { throw 'Scientific job failed; inspect artifacts and report' }
   artifacts:
     when: always
@@ -44,16 +44,16 @@ stages:
       - remote-research/
     expire_in: 90 days
 
-study_a_walkthrough_figure_preflight:
+study_b_geometry_preflight:
   extends: .remote_research
   stage: preflight
   timeout: 20m
   when: on_success
 
-study_a_walkthrough_figure_render:
+study_b_geometry_screen:
   extends: .remote_research
   stage: research
   when: on_success
   needs:
-    - job: study_a_walkthrough_figure_preflight
+    - job: study_b_geometry_preflight
       artifacts: false
