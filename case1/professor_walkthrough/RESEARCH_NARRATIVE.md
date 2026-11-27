@@ -1,5 +1,10 @@
 # Current continuation (27 November 2026)
 
+### Stage 21: first paired electrical evidence
+
+[Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/) now records the two completed five-household preflight calculations and explains why voltage, rather than transformer nameplate, can be the limiting constraint. Both converged but failed the main voltage screen (STAR 0.917796 pu, MST 0.899280 pu); these are only two reference sampled points. Full B3 is not yet complete. Proposed figures 55–58 will use qualified actual sampled AC tables, not these two points as an annual proxy. The earlier pooled N=5–9 gross-screen denominator is 250 unique groups, not 255; the zero exceedance result is unchanged.
+
+
 ## Study B continuation, 27 November 2026
 
 Study B B1 geometry and gross annual load screening have passed exact replay qualification. The new research chapters below extend Study A without changing its published figures. The active index remains 49 verified figures until the new PNG/SVG payloads pass independent verification.

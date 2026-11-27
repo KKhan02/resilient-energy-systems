@@ -42,7 +42,7 @@ def main():
     z["overvoltage"]=z.converged & z.max_voltage_pu.gt(1.05+1e-8)
     z["transformer_overload"]=z.converged & z.trafo_loading_pct.gt(100+1e-6)
     z["line_overload"]=z.converged & z.line_loading_pct.gt(100+1e-6)
-    z["voltage_only"]=z.undervoltage & ~z.overvoltage & ~z.transformer_overload & ~z.line_overload
+    z["voltage_only"]=(z.undervoltage|z.overvoltage)&~z.transformer_overload&~z.line_overload
     z["thermal_only"]=(z.transformer_overload|z.line_overload)&~z.undervoltage&~z.overvoltage
     z["both_voltage_and_thermal"]=(z.undervoltage|z.overvoltage)&(z.transformer_overload|z.line_overload)
     dims=["site_id","group_id","house_count","hour_index","timestamp","condition","conductor","pf","route_factor"]

@@ -13,6 +13,11 @@ Study B B1 geometry and gross annual load screening have passed exact replay qua
 
 The verified median cable reduction of 36.43% comes with a 43.44% median longest-path increase and 1.82 kW median peak-branch increase. At PF .98, all sampled groups of 11–15 houses exceed the gross 5 kVA demand proxy at least once; this does not establish AC overload or exclude DER solutions. The [B1 source receipt](../studies/SEEDExchange_StudyB_Integration_v1/B1_QUALIFICATION_3124248027_RECEIPT.json) and [Python figure plan](STUDY_B_FIGURE_PLAN_2026-11-27.json) underpin the next figures. The [B3 sampled AC pilot](../studies/SEEDExchange_StudyB_Integration_v1/B3_LOAD_ONLY_PILOT.md) is submitted in [pipeline 3124290063](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124290063). Figures and sampled AC results are pending, not completed.
 
+
+### Stage 21: first paired electrical evidence
+
+[Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/) now records the two completed five-household preflight calculations and explains why voltage, rather than transformer nameplate, can be the limiting constraint. Both converged but failed the main voltage screen (STAR 0.917796 pu, MST 0.899280 pu); these are only two reference sampled points. Full B3 is not yet complete. Proposed figures 55–58 will use qualified actual sampled AC tables, not these two points as an annual proxy. The earlier pooled N=5–9 gross-screen denominator is 250 unique groups, not 255; the zero exceedance result is unchanged.
+
 ## Start here: the research argument
 
 1. **Foundation, stages 01–05.** Establish the community, 35 synthetic candidate household profiles, annual PV resource, investment model and provisional EPM-backed geometry.
