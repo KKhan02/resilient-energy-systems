@@ -1,0 +1,37 @@
+{
+  "source_pipeline": 3124248027,
+  "source_execution_commit": "11ec0263a3391b7d74fe3e5fcfdc95955a4c49d0",
+  "source_receipt": "../studies/SEEDExchange_StudyB_Integration_v1/B1_QUALIFICATION_3124248027_RECEIPT.json",
+  "figures": [
+    {
+      "number": 50,
+      "stem": "50_group_size_and_supply_candidates",
+      "stage": "19_StudyB_Spatial_Groups_and_Siting",
+      "purpose": "Counts of actual unique groups and sites by N; overlapping groups are not a system partition."
+    },
+    {
+      "number": 51,
+      "stem": "51_matched_star_mst_geometry",
+      "stage": "19_StudyB_Spatial_Groups_and_Siting",
+      "purpose": "Same-group/site actual geographic chord networks for representative 10- and 15-house candidates; not surveyed routes."
+    },
+    {
+      "number": 52,
+      "stem": "52_star_mst_geometry_tradeoffs",
+      "stage": "20_StudyB_Geometry_and_Loading_Tradeoffs",
+      "purpose": "Same-site cable savings, longest-path increase and peak branch demand difference by N."
+    },
+    {
+      "number": 53,
+      "stem": "53_gross_transformer_loading_boundary",
+      "stage": "20_StudyB_Geometry_and_Loading_Tradeoffs",
+      "purpose": "Unique-group peak and exceedance hours at three PFs; gross demand only, not AC overload."
+    },
+    {
+      "number": 54,
+      "stem": "54_within_group_geometry_frontier",
+      "stage": "20_StudyB_Geometry_and_Loading_Tradeoffs",
+      "purpose": "Geometric candidate tradeoffs, nondominated within each identical household group; no economic or electrical feasibility claim."
+    }
+  ]
+}
