@@ -1,0 +1,53 @@
+{
+  "pipeline": 3124217129,
+  "job": 18436393872,
+  "execution_commit": "0403d53d7c80e429c1bd7268a7f28bc4f5c26574",
+  "evidence": "runner trace; archive not independently downloaded",
+  "report": {
+    "status": "PASS_GEOMETRY_AND_GROSS_SCREEN_ONLY",
+    "source_hashes_expected": {
+      "case1/studies/SEEDExchange_StudyA_LocalPreflight_v4/outputs/run_02/household_profiles_2025_excel_35.csv": "74a66b2795769e564a41e859fab665fc3db65ae81dfdfc53e1addf6aa459dd8c",
+      "case1/studies/SEEDExchange_StudyA_LocalPreflight_v4/outputs/run_02/fixed_house_to_profile_map.csv": "81b736a29a1b2b3921663b58a267d8217d45e630881d215a182df7454e3471f9",
+      "case1/studies/community_georef/field_review_2026_10_27/houses_field_review.csv": "157f2ac460d5cf2e3ef4f162f1d03f91437f85f13157d0f4c711d559b85f60fe"
+    },
+    "source_hashes_actual": {
+      "case1/studies/SEEDExchange_StudyA_LocalPreflight_v4/outputs/run_02/household_profiles_2025_excel_35.csv": "0c55b8dbe534c083d1ffeb39d41c52dd95a2c1f8013d72eb284e5ffa91ccbfd3",
+      "case1/studies/SEEDExchange_StudyA_LocalPreflight_v4/outputs/run_02/fixed_house_to_profile_map.csv": "6a158461213a834247eaf9fc351a41708cd883e981536a71f997c3707d1363ac",
+      "case1/studies/community_georef/field_review_2026_10_27/houses_field_review.csv": "7b15c8137112704ac4131f1151dc1098a5f4e8e8437d8021341e8a5f3203373d"
+    },
+    "topology_sha256": "1c3f903cc1e8550fc954318b3df471bbeef4e382afaab8fdca1ec1f215092e97",
+    "script_sha256": "7b648007212c451f3746dff3fa7da8f912cb04c9798fae8dad16d080d2980bb1",
+    "hours": 8760,
+    "demand_kwh": 66429.99999999999,
+    "groups": 454,
+    "groups_per_N": {
+      "5": 60,
+      "6": 57,
+      "7": 55,
+      "8": 35,
+      "9": 43,
+      "10": 30,
+      "11": 40,
+      "12": 41,
+      "13": 27,
+      "14": 33,
+      "15": 33
+    },
+    "partitions": 36,
+    "sites": 1573,
+    "cases": 3146,
+    "screen_rows": 28314,
+    "branch_rows": 28398,
+    "AC_solves": 0,
+    "LP_solves": 0,
+    "output_hashes": {
+      "group_roster.csv": "0abd27e01ed9bd4258b7979ccfdfa32364083b0141c54a76629070e65edcd4ca",
+      "partition_membership.csv": "8e000380d77fe0ae2c3c509decca4628031830cc35922d904385957898e77cfb",
+      "supply_sites.csv": "8d777d4324640935a7a6b3475a0941427784e91080a268a3b01bd03e70aba636",
+      "network_cases.csv": "de59e835548a027b6e3ce28d44e0a51fa7db6a035cb622ec1a96ab6f68157c3e",
+      "network_nodes.csv": "ec8f84a03165f6c98774307d4324dbd4efdc4fc4779d58f4d6938ec7d091c95e",
+      "network_branches.csv": "cf5d28f3685a3e3c4bfc3ac6415fc53f567ea46897a3eeaf54729b701d3de061",
+      "gross_screen.csv": "2b7803c2912722ac6259c8fce0cd98ef63eb6fc956682f0d814ffa5772ba2fcf"
+    }
+  }
+}
