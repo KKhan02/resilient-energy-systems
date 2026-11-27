@@ -1,0 +1,31 @@
+{
+  "source_pipeline": 3124340971,
+  "source_execution_commit": "14174cba8f0b8f6688972e2ca727b07cd724f4ba",
+  "source_receipt": "../studies/SEEDExchange_StudyB_Integration_v1/B3_COMPLETE_3124340971_RECEIPT.json",
+  "figures": [
+    {
+      "number": 55,
+      "stem": "55_sampled_electrical_feasibility",
+      "purpose": "Pass fractions and converged voltage minima for each N, topology, conductor, condition; nonconvergence included in denominators.",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility"
+    },
+    {
+      "number": 56,
+      "stem": "56_matched_topology_ac_differences",
+      "purpose": "MST minus STAR paired voltage, transformer loading and loss differences only for both-converged points; full outcome counts separate.",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility"
+    },
+    {
+      "number": 57,
+      "stem": "57_conductor_sensitivity_recovered_points",
+      "purpose": "AAC 4 to AAC 1/0 matched transitions, pass gains/losses and voltage improvements for both-converged pairs.",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility"
+    },
+    {
+      "number": 58,
+      "stem": "58_site_level_electrical_constraints",
+      "purpose": "Site-level all-sampled-pass counts and point failure-mode decomposition; not annual feasibility.",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility"
+    }
+  ]
+}

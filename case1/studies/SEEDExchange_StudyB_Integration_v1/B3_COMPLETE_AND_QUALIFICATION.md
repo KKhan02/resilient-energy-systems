@@ -1,0 +1,5 @@
+# B3 completed sampled AC report and evidence qualification
+
+The original failed-job archive could not be retrieved with the restricted runner token; the identical bounded replay completed successfully in pipeline 3124340971. The original archive is retained. The successful run produced 5,928 sampled AC records, 5,767 converged, 2,645 passed and 3,283 failed (including 161 nonconvergent). 741 matched site-hours across 43 sites, two topologies, two conductors and two conditions. All nonconvergence occurred in MST AAC4 cases. The report's four CSV hashes and 88 summary rows are retained in the trace receipt.
+
+Next qualify exact successful archive or, if scoped access is denied, reproduce the identical run once with all four output hashes and exact report required to match the receipt. Independent paired analysis, both preflight points, energy balance, exclusive failure accounting, site-level denominator and exact factor matching must pass before figures 55–58. Export original/qualified CSV bytes in a signed archive, not just plots, for future read-only use. No new design assumptions, no annual AC or LP and no final equipment choice. 
