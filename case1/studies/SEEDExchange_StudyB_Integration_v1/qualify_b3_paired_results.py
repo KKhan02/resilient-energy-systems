@@ -37,12 +37,18 @@ def main():
     check(np.isfinite(v[["min_voltage_pu","max_voltage_pu","trafo_loading_pct","line_loading_pct","loss_kw"]].to_numpy()).all(),"finite convergence")
     recalc=v.min_voltage_pu.ge(.95-1e-8)&v.max_voltage_pu.le(1.05+1e-8)&v.trafo_loading_pct.le(100+1e-6)&v.line_loading_pct.le(100+1e-6)
     check((recalc==v.screen_pass).all() and not z.loc[~z.converged,"screen_pass"].any(),"screen parity")
+    smoke=json.loads(Path(__file__).with_name("B3_PREFLIGHT_3124290063_RECEIPT.json").read_text(encoding="utf-8"))["report"]["smoke"]
+    for row in smoke:
+        hit=z[(z.case_id==row["case_id"])&(z.condition==row["condition"])&(z.conductor==row["conductor"])&(z.hour_index==row["hour_index"])]
+        check(len(hit)==1,"smoke missing")
+        for key in ["min_voltage_pu","max_voltage_pu","trafo_loading_pct","line_loading_pct","loss_kw","balance_residual_kw"]:
+            check(abs(float(hit.iloc[0][key])-row[key])<1e-8,"smoke mismatch "+key)
     # Keep simultaneous limit violations as separate Boolean flags; nonconvergence is distinct.
     z["undervoltage"]=z.converged & z.min_voltage_pu.lt(.95-1e-8)
     z["overvoltage"]=z.converged & z.max_voltage_pu.gt(1.05+1e-8)
     z["transformer_overload"]=z.converged & z.trafo_loading_pct.gt(100+1e-6)
     z["line_overload"]=z.converged & z.line_loading_pct.gt(100+1e-6)
-    z["voltage_only"]=z.undervoltage & ~z.overvoltage & ~z.transformer_overload & ~z.line_overload
+    z["voltage_only"]=(z.undervoltage|z.overvoltage)&~z.transformer_overload&~z.line_overload
     z["thermal_only"]=(z.transformer_overload|z.line_overload)&~z.undervoltage&~z.overvoltage
     z["both_voltage_and_thermal"]=(z.undervoltage|z.overvoltage)&(z.transformer_overload|z.line_overload)
     dims=["site_id","group_id","house_count","hour_index","timestamp","condition","conductor","pf","route_factor"]
@@ -73,10 +79,15 @@ def main():
     site=z.groupby(gkeys+["site_id"]).agg(sampled_points=("screen_pass","size"),pass_points=("screen_pass","sum"),converged_points=("converged","sum"),min_voltage_pu=("min_voltage_pu","min"),peak_transformer_pct=("trafo_loading_pct","max"),max_sample_loss_kw=("loss_kw","max")).reset_index()
     site["all_sampled_pass"]=site.pass_points.eq(site.sampled_points)
     site["all_sampled_converged"]=site.converged_points.eq(site.sampled_points)
+    check(int(z.screen_pass.sum()+z.voltage_only.sum()+z.thermal_only.sum()+z.both_voltage_and_thermal.sum()+(~z.converged).sum())==len(z),"exclusive failure accounting")
     x.out.mkdir(parents=True,exist_ok=False)
     for name,t in [("point_failure_flags",z),("paired_topology",pair),("paired_conductor",c),("failure_summary",summary),("site_summary",site)]:
         t.to_csv(x.out/(name+".csv"),index=False)
-    report=dict(status="QUALIFIED_B3_PAIRED_SAMPLED_ANALYSIS",source_receipt=sha(x.receipt),source_hashes=manifest["output_hashes"],sampled_points=len(z),paired_points=len(pair),paired_conductor_points=len(c),paired_outcomes=pair.pair_outcome.value_counts().to_dict(),both_converged_topology=int(pair.both_converged.sum()),rescued_by_lower_R=int(c.rescued_by_lower_R.sum()),lost_pass=int(c.lost_pass.sum()),voltage_only=int(z.voltage_only.sum()),thermal_only=int(z.thermal_only.sum()),both_voltage_thermal=int(z.both_voltage_and_thermal.sum()),nonconverged=int((~z.converged).sum()),new_AC_solves=0,new_LP_solves=0,output_hashes={f.name:sha(f) for f in x.out.glob("*.csv")})
-    (x.out/"manifest.json").write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
-    print("B3_PAIRED_REPORT_JSON "+json.dumps(report,separators=(",",":")),flush=True)
+    report=dict(status="QUALIFIED_B3_PAIRED_SAMPLED_ANALYSIS",source_receipt=sha(x.receipt),source_hashes=manifest["output_hashes"],sampled_points=len(z),paired_points=len(pair),paired_conductor_points=len(c),paired_outcomes={str(k):int(v) for k,v in pair.pair_outcome.value_counts().items()},both_converged_topology=int(pair.both_converged.sum()),rescued_by_lower_R=int(c.rescued_by_lower_R.sum()),lost_pass=int(c.lost_pass.sum()),voltage_only=int(z.voltage_only.sum()),thermal_only=int(z.thermal_only.sum()),both_voltage_thermal=int(z.both_voltage_and_thermal.sum()),nonconverged=int((~z.converged).sum()),new_AC_solves=0,new_LP_solves=0,output_hashes={f.name:sha(f) for f in x.out.glob("*.csv")})
+    report["max_balance_residual_kw"]=float(v.balance_residual_kw.abs().max())
+    report["site_pass_counts"]=[dict(topology=str(k[0]),condition=str(k[1]),conductor=str(k[2]),sites=len(t),all_sampled_pass=int(t.all_sampled_pass.sum())) for k,t in site.groupby(["topology","condition","conductor"])]
+    report["paired_by_factor"]=[dict(condition=str(k[0]),conductor=str(k[1]),pairs=len(t),both_converged=int(t.both_converged.sum()),outcomes={str(a):int(b) for a,b in t.pair_outcome.value_counts().items()}) for k,t in pair.groupby(["condition","conductor"])]
+    report["conductor_by_factor"]=[dict(topology=str(k[0]),condition=str(k[1]),pairs=len(t),rescued=int(t.rescued_by_lower_R.sum()),lost=int(t.lost_pass.sum())) for k,t in c.groupby(["topology","condition"])]
+    (x.out/"manifest.json").write_text(json.dumps(report,indent=2,allow_nan=False)+"\n",encoding="utf-8")
+    print("B3_PAIRED_REPORT_JSON "+json.dumps(report,separators=(",",":"),allow_nan=False),flush=True)
 if __name__=="__main__":main()
