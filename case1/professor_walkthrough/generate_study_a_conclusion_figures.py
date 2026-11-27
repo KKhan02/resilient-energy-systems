@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Study A walkthrough figures 41-48. Read-only Matplotlib, signed CSV inputs."""
+"""Study A walkthrough figures 41-49. Read-only Matplotlib, signed CSV inputs."""
 from pathlib import Path
 import argparse,base64,hashlib,json,math
 import numpy as np
@@ -123,13 +123,26 @@ def fig48(d):
     a[1].barh(["Main limits","V ≥ .951","Loading ≤ 99%","Both tighter"],count,color=["#007f83","#aab4bf","#aab4bf","#aab4bf"]);a[1].invert_yaxis();a[1].set_xlabel("Eligible portfolios");a[1].set_xlim(0,3650)
     for i,v in enumerate(count):a[1].text(v+65,i,str(v),va="center")
     return f
-FUN={41:fig41,42:fig42,43:fig43,44:fig44,45:fig45,46:fig46,47:fig47,48:fig48}
+def fig49(d):
+    z=d["pareto"]
+    f,a=canvas("Techno-economic Pareto trade-offs | Cost, imports, spill and battery use","Nondominated within each physical class; color = DC spill (left) or capacity-weighted equivalent cycles (right). CAPEX for network works excluded.",2,(13,5.8))
+    markers={"MIDDLE_NO_R_CHANGE":"o","R050_CONDITIONAL":"s","OLDER_CONDITIONAL_FIVE_EDGE":"^","MAPPED_HEAD":"D"}
+    for ax,key,label,cmap in [(a[0],"curtailment_dc_kwh","DC curtailment (MWh/a)","viridis"),(a[1],"efc_physical_window","Equivalent battery cycles","plasma")]:
+        v=z[key]/(1000 if key=="curtailment_dc_kwh" else 1)
+        norm=matplotlib.colors.Normalize(vmin=v.min(),vmax=v.max())
+        for g,q in z.groupby("geometry_family",sort=False):
+            ax.scatter(q.imports_kwh/1000,q.reference_loss_purchase_cost_usd/1000,c=q[key]/(1000 if key=="curtailment_dc_kwh" else 1),norm=norm,cmap=cmap,marker=markers[g],s=28,alpha=.8,label=NAMES[g],edgecolors="none")
+        f.colorbar(matplotlib.cm.ScalarMappable(norm=norm,cmap=cmap),ax=ax,label=label,pad=.02)
+        ax.set_xlabel("Grid imports (MWh/a)");ax.set_ylabel("Annual reference cost (thousand USD)")
+        ax.legend(fontsize=7,loc="best")
+    return f
+FUN={41:fig41,42:fig42,43:fig43,44:fig44,45:fig45,46:fig46,47:fig47,48:fig48,49:fig49}
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument("--repo-root",type=Path,default=Path("."));ap.add_argument("--out",type=Path,required=True);ap.add_argument("--preflight-only",action="store_true");ap.add_argument("--emit-figure-bytes",action="store_true");args=ap.parse_args()
     d,receipts=load(args.repo_root.resolve())
     if args.preflight_only:
-        print("WALKTHROUGH_PREFLIGHT="+json.dumps({"status":"PASS","sources":receipts,"figures":8},separators=(",",":")),flush=True);return
+        print("WALKTHROUGH_PREFLIGHT="+json.dumps({"status":"PASS","sources":receipts,"figures":len(PLAN["figures"])},separators=(",",":")),flush=True);return
     args.out.mkdir(parents=True,exist_ok=False);outputs=[]
     for spec in PLAN["figures"]:
         fig=FUN[spec["number"]](d)
@@ -139,7 +152,7 @@ def main():
             if ext=="svg" and b"<svg" not in raw:raise ValueError("SVG header")
             outputs.append(dict(name=path.name,stage=spec["stage"],size=len(raw),sha256=sha(raw)))
         plt.close(fig)
-    report={"status":"COMPLETE_STUDY_A_WALKTHROUGH_FIGURES","source_commit":PLAN["source_commit"],"sources":receipts,"figures":8,"files":outputs,"matplotlib":matplotlib.__version__,"new_solves":0}
+    report={"status":"COMPLETE_STUDY_A_WALKTHROUGH_FIGURES","source_commit":PLAN["source_commit"],"sources":receipts,"figures":len(PLAN["figures"]),"files":outputs,"matplotlib":matplotlib.__version__,"new_solves":0}
     (args.out/"FIGURE_MANIFEST.json").write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
     print("WALKTHROUGH_REPORT="+json.dumps(report,separators=(",",":")),flush=True)
     if args.emit_figure_bytes:

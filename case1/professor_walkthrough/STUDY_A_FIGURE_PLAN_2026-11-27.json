@@ -117,6 +117,15 @@
         "headroom"
       ],
       "caption": "Best attainable headroom per geometry and 3312 candidate combinations under illustrative tighter screens"
+    },
+    {
+      "number": 49,
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "stem": "49_technoeconomic_pareto_multimetric",
+      "inputs": [
+        "pareto"
+      ],
+      "caption": "Cost versus imports for all 307 class-specific nondominated portfolios; color encodes DC spill or physical-window equivalent cycles"
     }
   ]
 }
