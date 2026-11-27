@@ -1,0 +1,30 @@
+{
+  "status": "PASS_SOURCE_ONLY_NOT_AC",
+  "date": "2026-11-27",
+  "team_release": "SEEDExchange_Team_Inputs_v2",
+  "release_commit": "80abc7719cfe95b8fa9f9c001e04d5b7e73fb35e",
+  "study_a_source_commit": "ed93f4265ff42f67d194d1770e87fcbde658832e",
+  "method": "Read actual release demand, PV, coordinates, assumptions and manifest; compare every released demand cell to corresponding frozen original Excel-derived profile column; check full timestamp sequence against 2025 hourly local labels and compare all ID/profile/coordinate records with field-review CSV; compare GitLab content SHA-256 metadata against release manifest. No solver or field validation.",
+  "households": 35,
+  "hours": 8760,
+  "demand_cells": 306600,
+  "clock_mismatches": 0,
+  "invalid_cells": 0,
+  "profile_value_mismatches_at_1e_12_kw": 0,
+  "maximum_absolute_profile_delta_kw": 0,
+  "annual_demand_total_kwh": 66429.99999999999,
+  "min_household_annual_kwh": 1897.9999999999902,
+  "max_household_annual_kwh": 1898.0000000000064,
+  "coordinate_and_profile_matches": 35,
+  "pv_hours": 8760,
+  "pv_annual_dc_kwh_per_kwp": 1214.311343047495,
+  "pv_peak_dc_kw_per_kwp": 0.9363887996223423,
+  "H08_profile": "house_25_kw",
+  "source_hash_matches": {
+    "data/household_demand_2025.csv": "7b589c6531014b83a825417a751fe7d81ba668303345f0e52d4899732e95da1a",
+    "data/pv_availability_2025.csv": "9e6d552c56cdefcc35c0f158558e1c93b09115ec3098d6d488408bcb89bff741",
+    "data/household_coordinates_and_assignments.csv": "3f2bd4972e00db9906b834987ee93928d76210a86752b721b78c2fe4788961d6",
+    "data/model_assumptions.json": "8daf5ea440f2edfde6b16010d96e7380a9c9389a105bd7b5648e0c8810334c26"
+  },
+  "new_simulations": 0
+}
