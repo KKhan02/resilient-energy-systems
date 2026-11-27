@@ -30,6 +30,24 @@ def new_designs(h):
     if sizing.hardware_tuple(h)!=REF_HW:raise ValueError("Reference hardware differs")
     return {name:dict(h,pv_panels=p,battery_modules=m) for name,p,m in PLAN}
 
+def native_model_summary(receipt):
+    # The signed four-home discrete MILP manifests use model_summary,
+    # unlike transferred fixed-hardware reference manifests.
+    if receipt["status"]!="FULL_8760H_NEW_FOUR_HOUSE_MILP_ENERGY_ONLY_NOT_AC_VALIDATED" or receipt.get("hardware_reoptimized") is not True:
+        raise ValueError("Unexpected four-house native manifest type")
+    m=receipt["model_summary"]
+    if m["status"]!="OPTIMAL_ENERGY_ONLY_NO_AC_VALIDATION" or m["export_policy"]!="zero":
+        raise ValueError("Unexpected native economic model status")
+    h=receipt["hardware"]
+    pairs=(("panels_equivalent","pv_panels"),("battery_modules_equivalent","battery_modules"),
+        ("battery_power_dc_kw","battery_power_dc_kw"),("inverter_ac_kva_assumed_unity_pf","inverter_kva"),
+        ("transformer_assumed_kva","transformer_kva_assumed_or_evidenced"))
+    if any(abs(float(m[k])-float(h[v]))>1e-8 for k,v in pairs):
+        raise ValueError("Native economic hardware mismatch")
+    if abs(float(m["annual_equipment_usd"])+float(m["annual_grid_import_usd"])-float(m["annual_total_usd"]))>1e-6 or abs(float(m["annual_grid_import_usd"])-.29*float(m["grid_import_kwh"]))>1e-6:
+        raise ValueError("Native economic cost mismatch")
+    return m
+
 def archive_key(family,pf,length):
     return family+"_mapped_optimized_pf"+str(round(pf*100)).zfill(3)+"_length"+str(round(length*10))+"_annual8760"
 
@@ -58,7 +76,7 @@ def prepare():
             raise ValueError("Native identity "+c)
         path=folder/"energy_hourly_2025.csv"
         signed(path,EXPECTED[c]);f=read_frame(path)
-        frames[c]=f;hardware[c]=r["hardware"];signatures[c]=EXPECTED[c];models[c]=r["source_model_summary"]
+        frames[c]=f;hardware[c]=r["hardware"];signatures[c]=EXPECTED[c];models[c]=native_model_summary(r)
     for c,f in frames.items():
         h=hardware[c];sizing.validate_comparison(f,h,demand,solar)
         q=table[table.case.eq(c)]
