@@ -1,0 +1,26 @@
+# Study A conclusions and Study B research gate | 27 November 2026
+
+## Research question and controlled design
+
+Can geographic household allocation and shared PV/BESS investment reduce grid dependence and costs while satisfying modeled distribution-network limits? Study A compares original A0 and geographically nearest A1 on 34 identical synthetic 2025 household traces (64,532 kWh/year). The 35th profile H08 remains available for B; it is support-only in A. Household attachments, phase balance, selected transformer ratings and common 92395 STAR are provisional. All conclusions refer to the modeled system.
+
+## Results in causal order
+
+- Chronological battery operation matters: enforce the physical 20% SOC floor, preserve annual cyclic accounting and disable unsupported night Q. AC-aware dispatch can relieve individual limiting hours without changing annual energy totals. Static corridors alone do not prove chronological feasibility.
+- Physical geometry matters: 94022 original middle severe stress records 76–78 nighttime failures. Corrected full-night reserve schedules pass all three fixed-hardware annual cases; minimum voltage is 0.9500001035 pu. Conditional R050 provides greater local voltage headroom and lower losses but has no verified installed cost. The older five-edge alternative is a distinct hardware/geometry comparison. Do not equate either with actual EPM modifications.
+- Sizing trade-offs matter: nine A1 94022 designs and A0/A1 85398 alternatives pass selected annual reference and severe factors; minimum cost, minimum imports and minimum DC spill differ. The final reciprocal 113699 six-house case retains one severe nighttime failure, while the four-house reciprocal case passes. These are not universal nine-factor annual results.
+- Controlled assignment effects: 16 reciprocal hardware cases distinguish assignment from equipment choice; eight composed 34-house portfolios have six reference passes and three severe passes. A1-origin min-cost applied to A0 uses the middle placement. No universal A1 superiority.
+- Mixed portfolio optimization: the selected stress-qualified candidate set has 53 territory records, 3,312 independent combinations in four geometry classes and 307 three-objective nondominated points within classes. Annual cost includes a .29 USD/kWh modeled purchase sensitivity for reference losses, not an actual utility bill or loss-reoptimized LP. All alternatives exclude unknown physical CAPEX. A1 minimum cost USD14,248.42/a, SS81.9224%, imports11,665.83 kWh, spill7,330.81 kWh. A1 cheapest above 90% SS USD14,652.36/a, SS90.5897%, imports6,072.66 kWh, spill13,317.66 kWh, 295.56 physical-window EFC. A1 maximum modeled SS94.2063%, cost15,507.76 USD/a. A0 conditional five-edge minimum cost14,273.37 USD/a, maximum SS93.0315%; middle/R050 maximum SS86.7737%. These are selected candidate-set frontiers, not global equipment optima.
+- Vulnerability: 106039 limits transformer headroom; 94022 limits voltage for middle and A1. All 3,312 pass main stress screens, none passes minimum .951 pu or max loading99%. These additional screens are sensitivity indicators, not new requirements or outage-service estimates. Energy independence does not establish outage resilience or causal control performance.
+
+## What Study A establishes and what remains
+
+Selected numerical comparison complete. Actual EPM connections, conductor/rating/phase, protection, connection and construction costs, resource/demand realism, eight historical consolidated schedule hash links, remaining historical reciprocal stress gaps, and independently reviewed field evidence remain distinct. No claim of full installed economic ranking. No new isolated sizing unless a specific decision requires it.
+
+## Study B entry specification
+
+Study B uses all 35 georeferenced profiles. Construct geographically coherent shared PV/BESS groups of 5–15 households, compare candidate transformer locations and radial STAR versus branched MST with explicit route assumptions; retain demand/PV/SOC and economic conventions from A. Evaluate clustering and siting objective alternatives, conductor length, loss, voltage/thermal margin and cost using the same fixed-hardware/AC workflow. Do not transfer Study A equipment or transformer size automatically; hypothetical 5 kVA is a starting case, rating selected through evidence and screening. Before new optimization, verify household coordinate IDs and geographic route basis; define whether groups cover the population once and test grouping feasibility. Preserve 92395 hypothetical STAR/MST comparison as method reference, not verified utility network. Keep Study C Site A PV/BESS integration and candidate 94022 tie as a separate scenario, fallback new transformer if unsuitable. Exclude northern 25 kVA from Site A options. Compare centralized and multiple shared clusters only with comparable population, hardware and accounting. No invented critical-load fractions or outage conclusions.
+
+## Presentation route
+
+Stage 16 shows why annual checks and corrections were needed; Stage 17 shows why mixed decisions improve cost/import/spill trade-offs; Stage 18 identifies where structural headroom prevents further benefit and motivates different spatial architectures. Use all nine Python plots after output verification. Historical Figures 1–40 remain in their original stages.

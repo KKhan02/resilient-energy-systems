@@ -1,3 +1,7 @@
+# Latest continuation (27 November 2026)
+
+Stages 16–18 complete the selected Study A quantitative story. See [conclusions and Study B gate](STUDY_A_CONCLUSIONS_AND_STUDY_B_GATE.md). The older continuation below remains historical.
+
 # SEEDExchange research storyline: continuation after Stage 11
 
 The existing [walkthrough](README.md) contains **24 historical PNG figures across Stages 01–08**, with Stages 09–11 as methodological and decision notes. Keep every historical figure and its original evidence boundary.

@@ -1,3 +1,7 @@
+# Current continuation (27 November 2026)
+
+Read [Study A conclusions and Study B gate](STUDY_A_CONCLUSIONS_AND_STUDY_B_GATE.md) and stages 16–18 after the historical narrative below. Earlier pending statements refer to their original dated checkpoint.
+
 # SEEDExchange Case 1: research progress narrative
 
 **El Arenal, Antioquia, Colombia | Updated for professor review, 6 November 2026**
