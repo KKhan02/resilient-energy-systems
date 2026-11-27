@@ -11,12 +11,27 @@ Study B B1 geometry and gross annual load screening have passed exact replay qua
 | [19](19_StudyB_Spatial_Groups_and_Siting/) | 50–51 | How can 35 candidate households form geographically plausible 5–15-home groups and supply sites? |
 | [20](20_StudyB_Geometry_and_Loading_Tradeoffs/) | 52–54 | How do paired STAR/MST geometry, branch demand and gross transformer capacity trade off? |
 
-The verified median cable reduction of 36.43% comes with a 43.44% median longest-path increase and 1.82 kW median peak-branch increase. At PF .98, all sampled groups of 11–15 houses exceed the gross 5 kVA demand proxy at least once; this does not establish AC overload or exclude DER solutions. The [B1 source receipt](../studies/SEEDExchange_StudyB_Integration_v1/B1_QUALIFICATION_3124248027_RECEIPT.json) and [Python figure plan](STUDY_B_FIGURE_PLAN_2026-11-27.json) underpin the next figures. The [B3 sampled AC pilot](../studies/SEEDExchange_StudyB_Integration_v1/B3_LOAD_ONLY_PILOT.md) is submitted in [pipeline 3124290063](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124290063). Figures 50–54 are verified; B3 CSVs were written but the original JSON manifest failed serialization. Recovery pipeline 3124340971 is submitted; no full AC outcomes asserted.
+The verified median cable reduction of 36.43% comes with a 43.44% median longest-path increase and 1.82 kW median peak-branch increase. At PF .98, all sampled groups of 11–15 houses exceed the gross 5 kVA demand proxy at least once; this does not establish AC overload or exclude DER solutions. The [B1 source receipt](../studies/SEEDExchange_StudyB_Integration_v1/B1_QUALIFICATION_3124248027_RECEIPT.json) and [Python figure plan](STUDY_B_FIGURE_PLAN_2026-11-27.json) underpin the next figures. The [B3 sampled AC pilot](../studies/SEEDExchange_StudyB_Integration_v1/B3_LOAD_ONLY_PILOT.md) is submitted in [pipeline 3124290063](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124290063). Figures 50–54 are verified; B3 CSVs were written but the original JSON manifest failed serialization. The identical replay completed in pipeline 3124340971; its report is available. See the updated Stage 21 section below.
 
 
-### Stage 21: first paired electrical evidence
+## Stage 21: completed diagnostic load-only AC campaign
 
-[Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/) now records the two completed five-household preflight calculations and explains why voltage, rather than transformer nameplate, can be the limiting constraint. Both converged but failed the main voltage screen (STAR 0.917796 pu, MST 0.899280 pu); these are only two reference sampled points. B3 wrote all four numerical CSVs, but the report failed JSON serialization; retained archive recovery is submitted in [pipeline 3124340971](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124340971). Full results remain unqualified. Proposed figures 55–58 will use qualified actual sampled AC tables, not these two points as an annual proxy. The earlier pooled N=5–9 gross-screen denominator is 250 unique groups, not 255; the zero exceedance result is unchanged.
+The initial report failed only at final JSON serialization; scoped retrieval of that failed-job archive was denied. The identical bounded replay completed successfully in [pipeline 3124340971](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124340971), producing a report and four signed tables. The [completed receipt](../studies/SEEDExchange_StudyB_Integration_v1/B3_COMPLETE_3124340971_RECEIPT.json) records 43 matched sites, 741 selected site-hours and 5,928 AC points across two topologies, two conductor proxies and reference/severe factors. 5,767 converge; 2,645 pass; 3,283 fail including 161 nonconvergent points, all in MST AAC4. These counts describe the selected critical hours only.
+
+| Topology | Conductor | Condition | Pass / 741 | Minimum converged voltage (pu) | Peak transformer (%) |
+|---|---|---|---:|---:|---:|
+| STAR | AAC 1/0 | Reference | 427 | .95546 | 148.10 |
+| STAR | AAC 4 | Reference | 416 | .91780 | 148.83 |
+| STAR | AAC 1/0 | Severe | 394 | .93980 | 154.01 |
+| STAR | AAC 4 | Severe | 366 | .86751 | 155.24 |
+| MST | AAC 1/0 | Reference | 337 | .81533 | 155.84 |
+| MST | AAC 4 | Reference | 258 | .46579 | 198.89 |
+| MST | AAC 1/0 | Severe | 295 | .66209 | 182.00 |
+| MST | AAC 4 | Severe | 152 | .55566 | 171.27 |
+
+Minimum voltages and peak transformer loadings are extrema among converged points, not necessarily coincident. The seemingly higher severe MST AAC4 minimum is not evidence of improvement: only 608 of 741 points converge compared with 713 at reference, so the sets differ.
+
+The complete point-level paired qualification, source archive export and Python figures 55–58 are submitted in [pipeline 3124486343](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124486343). Figure index remains 54 until actual output verification. [Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/) and [B3-to-B4 decision gate](../studies/SEEDExchange_StudyB_Integration_v1/B3_TO_B4_DECISION_GATE.md) explain the implications. No annual pass, installed-cost or field feasibility assertion.
 
 ## Start here: the research argument
 
