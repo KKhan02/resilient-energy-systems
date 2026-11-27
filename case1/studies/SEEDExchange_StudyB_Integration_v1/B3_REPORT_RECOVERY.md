@@ -1,0 +1,3 @@
+# B3 reporting recovery
+
+Job 18436937794 failed after all four B3 CSV writes at JSON serialization of a NumPy int64 grouping key. Preserve the archive. Attempt same-project job-token retrieval of the exact failed archive; if available, verify signed B1 tables, reconstruct selected sites/hours and full factor matrix, compare frozen per-house aggregate, convergence/failure flags, balance, summary and both authenticated smoke results. Copy original B3 CSV bytes unchanged and emit recovered manifest, explicitly identify source job and zero new solves. If archive access is denied, use fixed serializer and rerun the identical bounded pilot on protected runner; original failed archive remains intact. No scientific input change.

@@ -159,7 +159,7 @@ def main():
     summary=[]
     for keys,r in z.groupby(["house_count","topology","condition","conductor"]):
         ok=r[r.converged]
-        summary.append(dict(zip(["house_count","topology","condition","conductor"],keys))|dict(
+        summary.append(dict(zip(["house_count","topology","condition","conductor"],(int(keys[0]),str(keys[1]),str(keys[2]),str(keys[3]))))|dict(
             sampled_points=len(r),converged_points=len(ok),pass_points=int(r.screen_pass.sum()),
             min_voltage_pu=None if ok.empty else float(ok.min_voltage_pu.min()),
             peak_transformer_pct=None if ok.empty else float(ok.trafo_loading_pct.max()),
@@ -173,6 +173,6 @@ def main():
                 engine_hashes={name:sha(ENGINE/name) for name in ("run_epm_validation.py","epm_topology.py","hil_voltvar.py","transformer_q_guard.py")},
                 script_sha256=sha(Path(__file__)),pandapower=pp.__version__,summary=summary,
                 output_hashes={f.name:sha(f) for f in args.out.glob("*.csv")})
-    (args.out/"manifest.json").write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
-    print("B3_PILOT_REPORT_JSON "+json.dumps(result,separators=(",",":")),flush=True)
+    (args.out/"manifest.json").write_text(json.dumps(result,indent=2,allow_nan=False)+"\n",encoding="utf-8")
+    print("B3_PILOT_REPORT_JSON "+json.dumps(result,separators=(",",":"),allow_nan=False),flush=True)
 if __name__=="__main__":main()
