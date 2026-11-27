@@ -1,0 +1,10 @@
+# B1 independent geographic baseline (27 November 2026)
+
+User explicitly approved parallel independent research and later comparison with WP3. This is a geometry and coincident gross-load screen, not an installed design or AC feasibility result. Reuse the frozen Study A inputs and existing topology. Generate deduplicated nearest-neighbour candidate groups for every N=5..15, for full 35 and matched 34 populations, plus balanced full partitions along E-W, N-S and two nearest-neighbour walks for every feasible cluster count. These are exploratory heuristics, not globally optimal or surveyed partitions. Group IDs are deterministic within this version. Site candidates: centroid, approximate geometric median, house medoid, minimax house; co-located supply/house contracted into one bus, no zero-length line. Compare same-group/same-site STAR and MST. Base routes are geometric chords, not routes through mapped poles; route factors are applied once. All sites and MV connections remain unverified. No northern transformer or Site A tie is used. Conductor unknown; no AC, voltage, losses, cost or outage survival claims.
+
+Run from repository root with research environment:
+```powershell
+python case1/studies/SEEDExchange_StudyB_Integration_v1/build_independent_b1.py --repo-root . --out case1/studies/SEEDExchange_StudyB_Integration_v1/outputs/b1_v1 --preflight-only
+python case1/studies/SEEDExchange_StudyB_Integration_v1/build_independent_b1.py --repo-root . --out case1/studies/SEEDExchange_StudyB_Integration_v1/outputs/b1_v1
+```
+Output immutable tables: group roster, partitions, supply sites, cases, nodes, branches with downstream peak, gross PF/route sensitivity, manifest. 5 kVA gross load is a screening hypothesis, never rejects PV/BESS hardware. Geometric candidates are not ranked as buildable. Next select non-redundant representatives based on cable/path/peak tradeoffs, compare credible WP3 alternatives, qualify conductor/upstream/phase assumptions, then load-only and matched-hardware AC, independent sizing and resilience. Report unknown costs separately. No independent transformer LV tie.
