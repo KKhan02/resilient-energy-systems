@@ -1,6 +1,6 @@
 # SEEDExchange | Research walkthrough
 
-**Current checkpoint: 27 November 2026. Study A selected-candidate quantitative assessment complete.** The active historical index contains 40 figures across stages 01–15. Nine new Python-only figures (41–49) are in automatic rendering/verification; their planned stage locations are below. Do not treat pending files as published.
+**Current checkpoint: 27 November 2026. Study A selected-candidate quantitative assessment complete.** The active index contains 49 figures across stages 01–18. Nine new Python-only figures (41–49) were rendered on the Research-Laptop, independently byte-verified and visually inspected. See the [verified manifest](STUDY_A_FIGURES_41_49_VERIFIED_MANIFEST.json).
 
 ## Start here: the research argument
 

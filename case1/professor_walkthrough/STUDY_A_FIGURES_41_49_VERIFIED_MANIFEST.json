@@ -1,0 +1,177 @@
+{
+  "status": "COMPLETE_STUDY_A_WALKTHROUGH_FIGURES",
+  "source_commit": "ab715ad64ea54712dc8971b494242692e28c2fe7",
+  "sources": {
+    "candidates": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MIXED_PORTFOLIO_QUANTITATIVE_CANDIDATES_2026-11-27_v4.csv",
+      "expected_sha256": "7ff8bdab32009d56892b5f0b849e611696da79a20b88a13b487ab23f94601570",
+      "actual_sha256": "c51978acd4332f48a7c58d001e5fbb8af3686296676018569d893b178e62b5ea"
+    },
+    "pareto": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MIXED_PORTFOLIO_COMPLETE_PARETO_2026-11-27_v3.csv",
+      "expected_sha256": "5e35a9ebaa71da3ba4fe598a84f232035a4d8ac21553332aba5e1e90257e60a2",
+      "actual_sha256": "29dedb0212b80abfacbe9132519bbbfadfb9cf6009240da32609a47d7499e35f"
+    },
+    "reps": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MIXED_PORTFOLIO_COMPLETE_REPRESENTATIVES_2026-11-27_v3.csv",
+      "expected_sha256": "8e4104a12cd24e51e47c11d04c7c410fe0608c7a695fbe62b485079c7dc2d606",
+      "actual_sha256": "e587622bd9fcf2ca11f9d2c523085daa0cbe33adb8ec6408a08ba99c4fca4107"
+    },
+    "headroom": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MIXED_PORTFOLIO_HEADROOM_SENSITIVITY_2026-11-27.csv",
+      "expected_sha256": "13de2910a5a630398aa395e4d9f3d2fee4ace1cb39523bb39a4f5f5203361bf0",
+      "actual_sha256": "2585c14ebb9aaa3c30376a72f47a2d90f5bc96a61965d46cb2c7c938f2482fd9"
+    },
+    "matched": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MATCHED_34HOUSE_PORTFOLIO_EVIDENCE_2026-11-27_v2.csv",
+      "expected_sha256": "5ffa5f7a20d9436f2ffbd3814bccbf403c3ed8b54160884677c254ec0aa8953b",
+      "actual_sha256": "995fd1ca362573f52b7bf2d4f3bf5c73ca91f8e040f850ee7b9f34def5dfda8d"
+    },
+    "middle": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/MIDDLE_RESERVE_ANNUAL_COMPARISON_2026-11-26.csv",
+      "expected_sha256": "773d5783642bbd398f6095c653bc72cb54d87bb69b7362ffae9c2e9d416f9fc3",
+      "actual_sha256": "554666c3902732bb92e1d5a2a395c2d83ebfbc712cee94deb550a75c9278ab74"
+    },
+    "head": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/A1_94022_NINE_DESIGN_ANNUAL_FRONTIER_2026-11-27.csv",
+      "expected_sha256": "cc338686b2021129913b7d664be8f78bee84a89163af8d1d25585b62631d6e23",
+      "actual_sha256": "38ce6f1b3f1861bdd289cb1455009ffb655e9e539f9353850f475a6d2bb25bcb"
+    },
+    "a0": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/A0_85398_NINE_DESIGN_ANNUAL_FRONTIER_2026-11-27.csv",
+      "expected_sha256": "39028902fb556cb0c04e4fcced96e363db791eb6861791f7f5ce16b5e26f04d0",
+      "actual_sha256": "5de0227ad35909f9a17f7a6a6e4ed217e13ac31481af3e075d0e6bd0569ab84f"
+    },
+    "a1": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/A1_85398_FOUR_DESIGN_ANNUAL_FRONTIER_2026-11-27.csv",
+      "expected_sha256": "e8159b67f3d4391bd7bbb017e6555b3f3c2a7486dbefaca5f014510bd3db5d0d",
+      "actual_sha256": "fd278f27bcc2e083c8845bb8475cba3515741cb94b28d823689127f1274c04d9"
+    },
+    "gap": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/113699_RECIPROCAL_FINAL_ANNUAL_2026-11-27.csv",
+      "expected_sha256": "591782aecba42a551acd685aaa509780771c62fee7beb06bad08e3f2dd91789f",
+      "actual_sha256": "4b12b3abf4a2fdf039a119dd82f2e278e7576855b1d7f11972c0959c890b51d4"
+    }
+  },
+  "figures": 9,
+  "files": [
+    {
+      "name": "41_94022_annual_physical_dispatch.png",
+      "stage": "16_StudyA_Annual_Evidence_Closure",
+      "size": 84531,
+      "sha256": "0b4782f681ef12fd405234d7e288c244cfa2833df0e4985b3e8323fad14a4269"
+    },
+    {
+      "name": "41_94022_annual_physical_dispatch.svg",
+      "stage": "16_StudyA_Annual_Evidence_Closure",
+      "size": 24181,
+      "sha256": "85dd8419b188007f7b949a0aa91400cdc635dfbf1232b3ccd927eb5333b8e8c6"
+    },
+    {
+      "name": "42_territory_sizing_frontiers.png",
+      "stage": "16_StudyA_Annual_Evidence_Closure",
+      "size": 116381,
+      "sha256": "ac454a9aead2ea5d222048eb0b4b4257f70bc19fbefcae3a51bf55760bdbe22c"
+    },
+    {
+      "name": "42_territory_sizing_frontiers.svg",
+      "stage": "16_StudyA_Annual_Evidence_Closure",
+      "size": 45252,
+      "sha256": "65b3f3734a21b2efd3a05320c305bccd9f95bac65c3690d7ac6ce6bdb9fdb225"
+    },
+    {
+      "name": "43_reciprocal_113699_annual.png",
+      "stage": "16_StudyA_Annual_Evidence_Closure",
+      "size": 80428,
+      "sha256": "dbb8d711cef0748adde7564455fe7c68e21e935732086e9a28b8ae37c4097abf"
+    },
+    {
+      "name": "43_reciprocal_113699_annual.svg",
+      "stage": "16_StudyA_Annual_Evidence_Closure",
+      "size": 20295,
+      "sha256": "eab578bcacdd26164d6560427c6f67e3a35a275557838fc77d07176a6dbcc413"
+    },
+    {
+      "name": "44_matched_portfolio_evidence.png",
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "size": 81584,
+      "sha256": "b284adc803ad6bd27791bfb50d3b7052f499c1ef870124eb0bcc0326f3d69871"
+    },
+    {
+      "name": "44_matched_portfolio_evidence.svg",
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "size": 35245,
+      "sha256": "03585ddaabfd778c1d80f4a14ad4478868f3909b52b9a719ed7a3382f9d2afb2"
+    },
+    {
+      "name": "45_mixed_portfolio_pareto.png",
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "size": 205514,
+      "sha256": "be770591802cba2761d6caadcdf266b45e156666274c39b4c56285f778465fcd"
+    },
+    {
+      "name": "45_mixed_portfolio_pareto.svg",
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "size": 138120,
+      "sha256": "b332c35c6c63a931e4c2986c8cc680a4a84b82e2eb575e91d1c90596a86e6252"
+    },
+    {
+      "name": "46_a1_investment_strategies.png",
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "size": 137801,
+      "sha256": "36377a580467464772dad43e7793db6c686ea8920f4238e87e00dfe7c9c42827"
+    },
+    {
+      "name": "46_a1_investment_strategies.svg",
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "size": 45164,
+      "sha256": "3ddeb5c0155fb4a9e725adea6f954c0a6223048179b53b0dfbc68dfda6289e4d"
+    },
+    {
+      "name": "47_territory_electrical_bottlenecks.png",
+      "stage": "18_StudyA_Vulnerability_and_StudyB_Transition",
+      "size": 110803,
+      "sha256": "fd4425de1ffa2faea8696458a0aac5599682bf612c3ade4ed2f969803cef34e3"
+    },
+    {
+      "name": "47_territory_electrical_bottlenecks.svg",
+      "stage": "18_StudyA_Vulnerability_and_StudyB_Transition",
+      "size": 51891,
+      "sha256": "683c05876f251a589c6c3011f6c7e9ec6f4eb000431955ea1d4d433a53a915b2"
+    },
+    {
+      "name": "48_portfolio_headroom_sensitivity.png",
+      "stage": "18_StudyA_Vulnerability_and_StudyB_Transition",
+      "size": 83271,
+      "sha256": "a59273a3970f6199b508d9f6c1ccd080fd15c2ef8438adc28b9ef0904a304349"
+    },
+    {
+      "name": "48_portfolio_headroom_sensitivity.svg",
+      "stage": "18_StudyA_Vulnerability_and_StudyB_Transition",
+      "size": 22118,
+      "sha256": "f074c991d06a5ab54a34781d7c23827b36a689e8bb19609926577d825264b626"
+    },
+    {
+      "name": "49_technoeconomic_pareto_multimetric.png",
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "size": 203782,
+      "sha256": "5e9475b4cbbe2813e87f30f1cc27af09009a4624fce65656d8c0604b20a348fa"
+    },
+    {
+      "name": "49_technoeconomic_pareto_multimetric.svg",
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "size": 140547,
+      "sha256": "8e77b599000fd4d2063b8a7addf3cc76165ee96cc49671b0d1d068b183f2e39d"
+    }
+  ],
+  "matplotlib": "3.10.7",
+  "new_solves": 0,
+  "verification": {
+    "job_id": 18435729489,
+    "pipeline_id": 3124133839,
+    "execution_commit": "28b60cae01c44cf93e5a7f7fba96bb4a439b9537",
+    "method": "Reassembled all immutable job-trace base64 chunks; independently computed SHA-256 and length for all 18 payloads; PNG header and dimensions, SVG header checked; all nine PNGs visually inspected before publication.",
+    "visual_review": "Readable. Fig42 overlapping data points and Fig45 nearly overlapping classes are legitimate. Fig48 title refers to adaptive capacity but only headroom sensitivity is quantified; interpret accordingly. Fig49 EFC is a displayed metric, not a fourth dominance objective.",
+    "status": "18/18 independent SHA-256 matches before publication"
+  }
+}
