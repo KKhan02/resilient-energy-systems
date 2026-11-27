@@ -1,0 +1,131 @@
+{
+  "source_commit": "ab715ad64ea54712dc8971b494242692e28c2fe7",
+  "inputs": {
+    "candidates": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MIXED_PORTFOLIO_QUANTITATIVE_CANDIDATES_2026-11-27_v4.csv",
+      "sha256": "7ff8bdab32009d56892b5f0b849e611696da79a20b88a13b487ab23f94601570"
+    },
+    "pareto": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MIXED_PORTFOLIO_COMPLETE_PARETO_2026-11-27_v3.csv",
+      "sha256": "5e35a9ebaa71da3ba4fe598a84f232035a4d8ac21553332aba5e1e90257e60a2"
+    },
+    "reps": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MIXED_PORTFOLIO_COMPLETE_REPRESENTATIVES_2026-11-27_v3.csv",
+      "sha256": "8e4104a12cd24e51e47c11d04c7c410fe0608c7a695fbe62b485079c7dc2d606"
+    },
+    "headroom": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MIXED_PORTFOLIO_HEADROOM_SENSITIVITY_2026-11-27.csv",
+      "sha256": "13de2910a5a630398aa395e4d9f3d2fee4ace1cb39523bb39a4f5f5203361bf0"
+    },
+    "matched": {
+      "path": "case1/studies/SEEDExchange_StudyA_Synthesis_2026-11-22/MATCHED_34HOUSE_PORTFOLIO_EVIDENCE_2026-11-27_v2.csv",
+      "sha256": "5ffa5f7a20d9436f2ffbd3814bccbf403c3ed8b54160884677c254ec0aa8953b"
+    },
+    "middle": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/MIDDLE_RESERVE_ANNUAL_COMPARISON_2026-11-26.csv",
+      "sha256": "773d5783642bbd398f6095c653bc72cb54d87bb69b7362ffae9c2e9d416f9fc3"
+    },
+    "head": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/A1_94022_NINE_DESIGN_ANNUAL_FRONTIER_2026-11-27.csv",
+      "sha256": "cc338686b2021129913b7d664be8f78bee84a89163af8d1d25585b62631d6e23"
+    },
+    "a0": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/A0_85398_NINE_DESIGN_ANNUAL_FRONTIER_2026-11-27.csv",
+      "sha256": "39028902fb556cb0c04e4fcced96e363db791eb6861791f7f5ce16b5e26f04d0"
+    },
+    "a1": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/A1_85398_FOUR_DESIGN_ANNUAL_FRONTIER_2026-11-27.csv",
+      "sha256": "e8159b67f3d4391bd7bbb017e6555b3f3c2a7486dbefaca5f014510bd3db5d0d"
+    },
+    "gap": {
+      "path": "case1/studies/SEEDExchange_StudyA_Battery_Closure_2026-11-24/113699_RECIPROCAL_FINAL_ANNUAL_2026-11-27.csv",
+      "sha256": "591782aecba42a551acd685aaa509780771c62fee7beb06bad08e3f2dd91789f"
+    }
+  },
+  "figures": [
+    {
+      "number": 41,
+      "stage": "16_StudyA_Annual_Evidence_Closure",
+      "stem": "41_94022_annual_physical_dispatch",
+      "inputs": [
+        "middle"
+      ],
+      "caption": "A0 ten-house 94022: corrected chronological dispatch versus original middle and conditional R050; full-year severe stress"
+    },
+    {
+      "number": 42,
+      "stage": "16_StudyA_Annual_Evidence_Closure",
+      "stem": "42_territory_sizing_frontiers",
+      "inputs": [
+        "head",
+        "a0",
+        "a1"
+      ],
+      "caption": "A1 94022 and A0/A1 85398 loss-inclusive sizing: imports, cost and DC spill"
+    },
+    {
+      "number": 43,
+      "stage": "16_StudyA_Annual_Evidence_Closure",
+      "stem": "43_reciprocal_113699_annual",
+      "inputs": [
+        "gap"
+      ],
+      "caption": "Final two reciprocal 113699 annual reference/severe cases, one retained night undervoltage"
+    },
+    {
+      "number": 44,
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "stem": "44_matched_portfolio_evidence",
+      "inputs": [
+        "matched"
+      ],
+      "caption": "Eight original matched-hardware portfolios: pass, fail and unresolved territory evidence by factor"
+    },
+    {
+      "number": 45,
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "stem": "45_mixed_portfolio_pareto",
+      "inputs": [
+        "pareto"
+      ],
+      "caption": "307 nondominated portfolios across four separate physical classes; reference loss-cost, SS and spill"
+    },
+    {
+      "number": 46,
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "stem": "46_a1_investment_strategies",
+      "inputs": [
+        "reps"
+      ],
+      "caption": "Five A1 representative strategies: loss-cost, imports, spill and capacity-weighted battery cycles"
+    },
+    {
+      "number": 47,
+      "stage": "18_StudyA_Vulnerability_and_StudyB_Transition",
+      "stem": "47_territory_electrical_bottlenecks",
+      "inputs": [
+        "candidates"
+      ],
+      "caption": "53 selected territory candidates: severe-stress voltage and transformer margin; provisional model"
+    },
+    {
+      "number": 48,
+      "stage": "18_StudyA_Vulnerability_and_StudyB_Transition",
+      "stem": "48_portfolio_headroom_sensitivity",
+      "inputs": [
+        "reps",
+        "headroom"
+      ],
+      "caption": "Best attainable headroom per geometry and 3312 candidate combinations under illustrative tighter screens"
+    },
+    {
+      "number": 49,
+      "stage": "17_StudyA_Mixed_Portfolio_Decisions",
+      "stem": "49_technoeconomic_pareto_multimetric",
+      "inputs": [
+        "pareto"
+      ],
+      "caption": "Cost versus imports for all 307 class-specific nondominated portfolios; color encodes DC spill or physical-window equivalent cycles"
+    }
+  ]
+}
