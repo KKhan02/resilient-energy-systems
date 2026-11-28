@@ -1,0 +1,82 @@
+{
+  "status": "COMPLETE_B3_WALKTHROUGH_FIGURES",
+  "source_pipeline": 3124340971,
+  "source_execution_commit": "14174cba8f0b8f6688972e2ca727b07cd724f4ba",
+  "source_hashes": {
+    "matched_critical_hours.csv": "a8c01f369ef7a028e66e7dd4da1fd0bae3ea996c92b9cab541e9d0f8a9007f41",
+    "sampled_ac.csv": "55c0768baec20fe1c2895774088007180dc7089bf26ce5c1d596158641667c64",
+    "sampled_summary.csv": "22e7599e369a0e343341a68b6fb1ff27afb8218da8c3af1d0b9dde1b3a9d6f5c",
+    "selected_sites.csv": "919bd52917f9d85f4904dcf489e262d9626a14bcdcb2c09a47e0f72d27d275b1"
+  },
+  "qualified_hashes": {
+    "failure_summary.csv": "9e5cb94d2c107cfce17a10a39ae7e77b23d7caa3119c38b8031c3169b24695d7",
+    "paired_conductor.csv": "252ed7142c8e92333269cf99685cfce948353ab419ba8d931fc031948b6be25b",
+    "paired_topology.csv": "0c54d6bb921b5f38cae4758af4cfc41f746761861a02f203ac062213b03b0a85",
+    "point_failure_flags.csv": "cd353cc6c0000102dd027e1ea33763f66ebbcbeaedb5af14b36df33fe98ee170",
+    "site_summary.csv": "ec0a16d4b4ae108d3783f1e4ecc0e49c3e752b71e96eda8d52dfcce2def8c412"
+  },
+  "generator_sha256": "835010d5721f0bfff838588f4d96d5b1ab1a42b53cb36cade7b074037c39147b",
+  "files": [
+    {
+      "name": "55_sampled_electrical_feasibility.png",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility",
+      "size": 195889,
+      "sha256": "25cba43d6b9f4245ef2c553fea7b246e24d84d9f1a309c8e6691825046c6a29f"
+    },
+    {
+      "name": "55_sampled_electrical_feasibility.svg",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility",
+      "size": 165886,
+      "sha256": "6c9005f3cd4c793cdda0a88214dfb3f575a19218b813ce24b6336959e2107a38"
+    },
+    {
+      "name": "56_matched_topology_ac_differences.png",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility",
+      "size": 136228,
+      "sha256": "e89b308a727fd1c1693c8a623d24bbf283b6d890b53ee42126c2a59081edbd7a"
+    },
+    {
+      "name": "56_matched_topology_ac_differences.svg",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility",
+      "size": 275146,
+      "sha256": "fc1a59fb9c2e5f74e7415f4ef88bfc3a1256dc2dcc965f81636aa12dab8cfb92"
+    },
+    {
+      "name": "57_conductor_sensitivity_recovered_points.png",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility",
+      "size": 84575,
+      "sha256": "2b2ca54f190ff0b11fef1332eaa686ed310ed90a22c1bedc7465c93f55a3ffa4"
+    },
+    {
+      "name": "57_conductor_sensitivity_recovered_points.svg",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility",
+      "size": 109438,
+      "sha256": "cc3769886a017d20d966d8da8f6b356f9e21b4a9e5b90092c11e3da3b84413bc"
+    },
+    {
+      "name": "58_site_level_electrical_constraints.png",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility",
+      "size": 91970,
+      "sha256": "9f1c2f5413bd0fb6d4813faff3872c8673bd49e0f60c68aaa73a40d93138aced"
+    },
+    {
+      "name": "58_site_level_electrical_constraints.svg",
+      "stage": "21_StudyB_Load_Only_Electrical_Feasibility",
+      "size": 106880,
+      "sha256": "cf25cb0615c59f4af8d696d24628bfca6742578a18f93403f9c66d481f64582b"
+    }
+  ],
+  "archive": {
+    "name": "B3_SIGNED_NUMERICAL_TABLES.zip",
+    "size": 1724842,
+    "sha256": "96f2df6e1c73215f8701fd9822e0f4e65761de98026c4dd1a89cd80ae3bffa2c"
+  },
+  "matplotlib": "3.10.7",
+  "new_solves": 0,
+  "render_pipeline": 3124486343,
+  "render_job": 18438399877,
+  "figure_storage_commit": "39e7c7ffcf3752c634f9cc4ca0e9afbc284d4df0",
+  "archive_storage_commit": "c442ea85e5bbe8030cf4a16bdef3863ea368336c",
+  "verification": "All eight figure files and source ZIP match independently reconstructed trace SHA-256 and repository readback size/hash. All four PNGs inspected in previous turn.",
+  "visual_review": "55 left heatmap labels clipped; 58 lower axis title clips. Original output retained, not approved for final presentation. 56/57 readable. Layout-only revision of 55/58 required before index publication."
+}

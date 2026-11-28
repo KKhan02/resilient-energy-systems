@@ -1,0 +1,174 @@
+{
+  "pipeline": 3124486343,
+  "job": 18438399877,
+  "execution_commit": "52f118577fc52cacc574e82007a236c61739aedd",
+  "report": {
+    "status": "QUALIFIED_B3_PAIRED_SAMPLED_ANALYSIS",
+    "source_receipt": "669f3fc51eccd9709ea85b56f19e313cd50c2a70aea7863c1e93e8bd164af193",
+    "source_hashes": {
+      "matched_critical_hours.csv": "a8c01f369ef7a028e66e7dd4da1fd0bae3ea996c92b9cab541e9d0f8a9007f41",
+      "sampled_ac.csv": "55c0768baec20fe1c2895774088007180dc7089bf26ce5c1d596158641667c64",
+      "sampled_summary.csv": "22e7599e369a0e343341a68b6fb1ff27afb8218da8c3af1d0b9dde1b3a9d6f5c",
+      "selected_sites.csv": "919bd52917f9d85f4904dcf489e262d9626a14bcdcb2c09a47e0f72d27d275b1"
+    },
+    "sampled_points": 5928,
+    "paired_points": 2964,
+    "paired_conductor_points": 2964,
+    "paired_outcomes": {
+      "NEITHER_PASS": 1361,
+      "BOTH_PASS": 1042,
+      "STAR_ONLY": 561
+    },
+    "both_converged_topology": 2803,
+    "rescued_by_lower_R": 261,
+    "lost_pass": 0,
+    "voltage_only": 441,
+    "thermal_only": 1263,
+    "both_voltage_thermal": 1418,
+    "nonconverged": 161,
+    "new_AC_solves": 0,
+    "new_LP_solves": 0,
+    "output_hashes": {
+      "failure_summary.csv": "9e5cb94d2c107cfce17a10a39ae7e77b23d7caa3119c38b8031c3169b24695d7",
+      "paired_conductor.csv": "252ed7142c8e92333269cf99685cfce948353ab419ba8d931fc031948b6be25b",
+      "paired_topology.csv": "0c54d6bb921b5f38cae4758af4cfc41f746761861a02f203ac062213b03b0a85",
+      "point_failure_flags.csv": "cd353cc6c0000102dd027e1ea33763f66ebbcbeaedb5af14b36df33fe98ee170",
+      "site_summary.csv": "ec0a16d4b4ae108d3783f1e4ecc0e49c3e752b71e96eda8d52dfcce2def8c412"
+    },
+    "max_balance_residual_kw": 0.00003378460644332115,
+    "site_pass_counts": [
+      {
+        "topology": "MST",
+        "condition": "REFERENCE",
+        "conductor": "AAC 1/0",
+        "sites": 43,
+        "all_sampled_pass": 19
+      },
+      {
+        "topology": "MST",
+        "condition": "REFERENCE",
+        "conductor": "AAC 4",
+        "sites": 43,
+        "all_sampled_pass": 14
+      },
+      {
+        "topology": "MST",
+        "condition": "SEVERE",
+        "conductor": "AAC 1/0",
+        "sites": 43,
+        "all_sampled_pass": 16
+      },
+      {
+        "topology": "MST",
+        "condition": "SEVERE",
+        "conductor": "AAC 4",
+        "sites": 43,
+        "all_sampled_pass": 7
+      },
+      {
+        "topology": "STAR",
+        "condition": "REFERENCE",
+        "conductor": "AAC 1/0",
+        "sites": 43,
+        "all_sampled_pass": 22
+      },
+      {
+        "topology": "STAR",
+        "condition": "REFERENCE",
+        "conductor": "AAC 4",
+        "sites": 43,
+        "all_sampled_pass": 21
+      },
+      {
+        "topology": "STAR",
+        "condition": "SEVERE",
+        "conductor": "AAC 1/0",
+        "sites": 43,
+        "all_sampled_pass": 20
+      },
+      {
+        "topology": "STAR",
+        "condition": "SEVERE",
+        "conductor": "AAC 4",
+        "sites": 43,
+        "all_sampled_pass": 18
+      }
+    ],
+    "paired_by_factor": [
+      {
+        "condition": "REFERENCE",
+        "conductor": "AAC 1/0",
+        "pairs": 741,
+        "both_converged": 741,
+        "outcomes": {
+          "BOTH_PASS": 337,
+          "NEITHER_PASS": 314,
+          "STAR_ONLY": 90
+        }
+      },
+      {
+        "condition": "REFERENCE",
+        "conductor": "AAC 4",
+        "pairs": 741,
+        "both_converged": 713,
+        "outcomes": {
+          "NEITHER_PASS": 325,
+          "BOTH_PASS": 258,
+          "STAR_ONLY": 158
+        }
+      },
+      {
+        "condition": "SEVERE",
+        "conductor": "AAC 1/0",
+        "pairs": 741,
+        "both_converged": 741,
+        "outcomes": {
+          "NEITHER_PASS": 347,
+          "BOTH_PASS": 295,
+          "STAR_ONLY": 99
+        }
+      },
+      {
+        "condition": "SEVERE",
+        "conductor": "AAC 4",
+        "pairs": 741,
+        "both_converged": 608,
+        "outcomes": {
+          "NEITHER_PASS": 375,
+          "STAR_ONLY": 214,
+          "BOTH_PASS": 152
+        }
+      }
+    ],
+    "conductor_by_factor": [
+      {
+        "topology": "MST",
+        "condition": "REFERENCE",
+        "pairs": 741,
+        "rescued": 79,
+        "lost": 0
+      },
+      {
+        "topology": "MST",
+        "condition": "SEVERE",
+        "pairs": 741,
+        "rescued": 143,
+        "lost": 0
+      },
+      {
+        "topology": "STAR",
+        "condition": "REFERENCE",
+        "pairs": 741,
+        "rescued": 11,
+        "lost": 0
+      },
+      {
+        "topology": "STAR",
+        "condition": "SEVERE",
+        "pairs": 741,
+        "rescued": 28,
+        "lost": 0
+      }
+    ]
+  }
+}
