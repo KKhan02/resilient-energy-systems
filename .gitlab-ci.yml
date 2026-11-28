@@ -35,44 +35,19 @@ stages:
       $study = 'case1/studies/SEEDExchange_StudyB_Integration_v1'
       $archive = Join-Path $env:CI_PROJECT_DIR "$study/outputs/b3_qualified_2026-11-27/B3_SIGNED_NUMERICAL_TABLES.zip"
       if ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne '96f2df6e1c73215f8701fd9822e0f4e65761de98026c4dd1a89cd80ae3bffa2c') { throw 'Archived B3 source hash mismatch' }
-      if ($env:CI_JOB_NAME -eq 'study_b_b3_layout_revision') {
-        Expand-Archive -LiteralPath $archive -DestinationPath b3-input
-        & $conda run --no-capture-output -n research python -m py_compile case1/professor_walkthrough/revise_study_b_b3_layout.py
-        if ($LASTEXITCODE -ne 0) { throw 'Layout syntax failed' }
-        & $conda run --no-capture-output -n research python case1/professor_walkthrough/revise_study_b_b3_layout.py --b3 b3-input/b3 --qualified b3-input/qualified --out remote-research/study-b-b3-layout --emit
-        if ($LASTEXITCODE -ne 0) { throw 'Layout correction failed' }
-      } elseif ($env:CI_JOB_NAME -eq 'study_b_b31_preflight') {
-        & $conda run --no-capture-output -n research python -m py_compile "$study/run_b31_transformer_conductor_sensitivity.py"
-        if ($LASTEXITCODE -ne 0) { throw 'B31 syntax failed' }
-        & $conda run --no-capture-output -n research python "$study/build_independent_b1.py" --repo-root . --out remote-research/study-b-b1
-        if ($LASTEXITCODE -ne 0) { throw 'Frozen geometry replay failed' }
-        & $conda run --no-capture-output -n research python "$study/run_b31_transformer_conductor_sensitivity.py" --repo-root . --b1 remote-research/study-b-b1 --out remote-research/study-b-b31 --preflight-only
-        if ($LASTEXITCODE -ne 0) { throw 'B31 preflight failed; do not bypass' }
-      } elseif ($env:CI_JOB_NAME -eq 'study_b_b31_sensitivity') {
-        if (!(Test-Path -LiteralPath remote-research/study-b-b1/manifest.json -PathType Leaf)) { throw 'Expected same-pipeline frozen geometry artifact missing' }
-        & $conda run --no-capture-output -n research python "$study/run_b31_transformer_conductor_sensitivity.py" --repo-root . --b1 remote-research/study-b-b1 --out remote-research/study-b-b31
-        if ($LASTEXITCODE -ne 0) { throw 'B31 sensitivity failed; inspect retained results' }
-      } else { throw 'Unexpected scientific job' }
+      $b31 = Join-Path $env:CI_PROJECT_DIR "$study/outputs/b31_2026-11-28/B31_NUMERICAL_TABLES.zip"
+      if ((Get-FileHash -LiteralPath $b31 -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'e6e3eee673e0436c46916df1cfbe0384ffbb72444ed4088530c79c96f681f606') { throw 'Archived B31 hash mismatch' }
+      & $conda run --no-capture-output -n research python -m py_compile "$study/qualify_and_plot_b31.py"
+      if ($LASTEXITCODE -ne 0) { throw 'Syntax failed' }
+      & $conda run --no-capture-output -n research python "$study/qualify_and_plot_b31.py" --out remote-research/study-b-b31-qualified --emit
+      if ($LASTEXITCODE -ne 0) { throw 'Qualification failed; do not bypass' }
   artifacts:
     when: always
     paths:
       - remote-research/
     expire_in: 90 days
 
-study_b_b3_layout_revision:
+study_b_b31_qualification:
   extends: .remote_research
   stage: research
-  needs: []
   timeout: 20m
-
-study_b_b31_preflight:
-  extends: .remote_research
-  stage: preflight
-  timeout: 30m
-
-study_b_b31_sensitivity:
-  extends: .remote_research
-  stage: research
-  needs:
-    - job: study_b_b31_preflight
-      artifacts: true
