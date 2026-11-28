@@ -9,3 +9,8 @@ The four layouts are uniform AAC4, AAC2, AAC1/0, and a shared-branch AAC1/0/sing
 Expected research outputs after execution and qualification: (1) transformer rating effect at each fixed conductor layout, (2) intermediate and shared-branch conductor trade-offs at fixed transformer rating, (3) per-site all-sampled-hour feasibility and retained violations/nonconvergence, (4) actual length of each conductor size and comparison with paired STAR/MST cable totals. Figures 59 onward remain provisional until numerical results exist; generate only from authenticated tables. This chapter does not reject a DER-enabled alternative on a load-only failure or claim annual feasibility. Next: matched PV/BESS hardware and exact-cohort chronological dispatch, with targeted annual AC validation after comparison.
 
 [Detailed methodology](../../studies/SEEDExchange_StudyB_Integration_v1/B31_TRANSFORMER_CONDUCTOR_METHOD.md) | [Python engine](../../studies/SEEDExchange_StudyB_Integration_v1/run_b31_transformer_conductor_sensitivity.py) | [B3 paired receipt](../../studies/SEEDExchange_StudyB_Integration_v1/B3_PAIRED_3124486343_RECEIPT.json).
+
+
+## Live update, 28 November 2026
+
+Preflight 18454771717 passed (12 diagnostic solves including two exact archived regressions); layout job 18454771718 succeeded. Figures 55–58 are published at 64159721, revised 55/58 and originals retained at 6a9d5c35. Main sensitivity job 18454771719 status at latest check: running. No completed result inferred from the preflight. See [B3.1 qualification and B4 entry gate](../../studies/SEEDExchange_StudyB_Integration_v1/B31_QUALIFICATION_AND_B4_ENTRY_GATE.md).
