@@ -16,7 +16,7 @@ Among 2,964 matched STAR/MST site-hour-condition-conductor pairs: both pass 1,04
 
 ## Study B continuation, 27 November 2026
 
-Study B B1 geometry and gross annual load screening have passed exact replay qualification. The new research chapters below extend Study A without changing its published figures. The active index now contains 54 verified figures across stages 01–20. Study B figures 50–54 are independently hash-verified and visually reviewed. See [verified B1 figure manifest](STUDY_B_B1_FIGURES_50_54_VERIFIED_MANIFEST.json).
+Study B B1 geometry and gross annual load screening have passed exact replay qualification. The new research chapters below extend Study A without changing its published figures. The active index now contains 58 verified figures across stages 01–21. Study B figures 50–54 are independently hash-verified and visually reviewed. See [verified B1 figure manifest](STUDY_B_B1_FIGURES_50_54_VERIFIED_MANIFEST.json).
 
 | Stage | Verified figures | Research question |
 |---|---|---|
@@ -139,3 +139,8 @@ Seven PNGs (30–36) now match the uploaded Python manifest byte-for-byte accord
 ## Active stage-local Python figures
 
 [Stage 14: Figures 32–36](14_PVBESS_Sizing_and_Utilization/python_figures/) and [Stage 15: Figures 30, 31, 37](15_Matched_Hardware_and_AC_Robustness/python_figures/). Active index paths are relative to each stage. These are copies of original Python outputs, not new plots. Original generator folders and receipts remain unchanged; future figures should be generated within the relevant stage.
+
+
+## 28 November: verified layout publication
+
+Figures 55–58 are active. Corrected 55/58 are layout-only revisions from the same signed numerical archive, with no new AC calculations. All four corrected files pass independent trace SHA-256/size and GitLab readback; both PNGs pass visual inspection. Original versions remain preserved. See [active manifest](STUDY_B_B3_FIGURES_55_58_ACTIVE_VERIFIED_MANIFEST.json) and [Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/). B3.1 preflight passed (12 diagnostic solves including two archived regressions); sensitivity job 18454771719 running at last observation.

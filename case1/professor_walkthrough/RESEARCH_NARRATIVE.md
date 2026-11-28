@@ -39,7 +39,7 @@ The complete point-level paired qualification, source archive export and Python 
 
 ## Study B continuation, 27 November 2026
 
-Study B B1 geometry and gross annual load screening have passed exact replay qualification. The new research chapters below extend Study A without changing its published figures. The active index now contains 54 verified figures, including figures 50–54.
+Study B B1 geometry and gross annual load screening have passed exact replay qualification. The new research chapters below extend Study A without changing its published figures. The active index now contains 58 verified figures, including figures 50–58.
 
 | Stage | Verified figures | Research question |
 |---|---|---|
@@ -115,3 +115,8 @@ The network-feasible cost/self-sufficiency frontier is **not yet complete**. Par
 ## Remaining work
 
 Complete the annual campaign and corrective SOC-aware feedback for failed hardware, verify battery current ratings and inverter nighttime Q support, include AC/inverter losses in economics, obtain utility transformer and service connection records, and then test outage resilience, forecast-based operation and new-household hosting. Until those are complete, all results are conditional research design evidence.
+
+
+## 28 November: verified layout publication
+
+Figures 55–58 are active. Corrected 55/58 are layout-only revisions from the same signed numerical archive, with no new AC calculations. All four corrected files pass independent trace SHA-256/size and GitLab readback; both PNGs pass visual inspection. Original versions remain preserved. See [active manifest](STUDY_B_B3_FIGURES_55_58_ACTIVE_VERIFIED_MANIFEST.json) and [Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/). B3.1 preflight passed (12 diagnostic solves including two archived regressions); sensitivity job 18454771719 running at last observation.

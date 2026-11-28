@@ -66,3 +66,12 @@ Pipeline 3124486343 passed. The exact four B3 source tables were reproduced and 
 The AAC1/0 change recovers 261 points without lost passes. All-sampled-hour passing sites (of 43): STAR AAC1/0 22/20 reference/severe, STAR AAC4 21/18, MST AAC1/0 19/16, MST AAC4 14/7. The maximum absolute power-balance residual is 0.0000337846064 kW. These are diagnostic hours, not annual probabilities.
 
 All eight original figure files match source and repository hashes. [Figure 56](python_figures/56_matched_topology_ac_differences.png) and [Figure 57](python_figures/57_conductor_sensitivity_recovered_points.png) are visually readable. Figures 55 and 58 have clipped labels; originals are retained and layout-only revisions submitted to pipeline 3127147250. The figure index remains 54 until both corrected outputs are verified. Next [Stage 22](../22_StudyB_Transformer_and_Conductor_Sensitivity/) isolates physical sizing effects before the matched hardware study.
+
+## Active verified figures, 28 November 2026
+
+- Figure 55: [PNG](python_figures/revised_layout/55_sampled_electrical_feasibility.png) · [SVG](python_figures/revised_layout/55_sampled_electrical_feasibility.svg). Sampled pass rates and converged voltage minima by household count, topology, conductor and condition; no annual interpretation.
+- Figure 56: [PNG](python_figures/56_matched_topology_ac_differences.png) · [SVG](python_figures/56_matched_topology_ac_differences.svg). Matched STAR/MST AC differences; preserve convergence-conditioned comparisons.
+- Figure 57: [PNG](python_figures/57_conductor_sensitivity_recovered_points.png) · [SVG](python_figures/57_conductor_sensitivity_recovered_points.svg). Paired conductor sensitivity and recovered feasible operating points.
+- Figure 58: [PNG](python_figures/revised_layout/58_site_level_electrical_constraints.png) · [SVG](python_figures/revised_layout/58_site_level_electrical_constraints.svg). Sites passing every sampled hour and exclusive point failure categories; no annual probability.
+
+[Active figure manifest](../STUDY_B_B3_FIGURES_55_58_ACTIVE_VERIFIED_MANIFEST.json). Original files retained; 55/58 layout only, zero new solves. Both corrected PNGs visually inspected and all four revised file hashes and sizes verified independently and by repository readback.
