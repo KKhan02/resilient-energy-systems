@@ -144,3 +144,8 @@ Seven PNGs (30–36) now match the uploaded Python manifest byte-for-byte accord
 ## 28 November: verified layout publication
 
 Figures 55–58 are active. Corrected 55/58 are layout-only revisions from the same signed numerical archive, with no new AC calculations. All four corrected files pass independent trace SHA-256/size and GitLab readback; both PNGs pass visual inspection. Original versions remain preserved. See [active manifest](STUDY_B_B3_FIGURES_55_58_ACTIVE_VERIFIED_MANIFEST.json) and [Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/). B3.1 preflight passed (12 diagnostic solves including two archived regressions); sensitivity job 18454771719 running at last observation.
+
+
+## Study B3.1 qualified and published, 28 November 2026
+
+[Stage 22](22_StudyB_Transformer_and_Conductor_Sensitivity/) closes the diagnostic physical sensitivity with 23,712 logical points, 14,554 passing, 376 nonconvergent and 3,450 matched STAR-only versus zero MST-only passes. At 10 kVA voltage dominates residual failures; a broad 15 kVA sweep is deferred. 63 active verified figures through Stage 22; [figure manifest](STUDY_B_B31_FIGURES_59_63_VERIFIED_MANIFEST.json). Next matched PV/BESS hardware on exact cohorts, without load-only rejection or any annual claim.

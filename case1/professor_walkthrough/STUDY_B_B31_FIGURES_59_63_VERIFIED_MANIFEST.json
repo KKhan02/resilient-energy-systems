@@ -1,0 +1,89 @@
+{
+  "status": "QUALIFIED_B31",
+  "logical_points": 23712,
+  "new_AC_solves": 0,
+  "new_LP_solves": 0,
+  "source_archive_sha256": "e6e3eee673e0436c46916df1cfbe0384ffbb72444ed4088530c79c96f681f606",
+  "source_b3_sha256": "96f2df6e1c73215f8701fd9822e0f4e65761de98026c4dd1a89cd80ae3bffa2c",
+  "max_balance_residual_kw": 0.0000342583913729988,
+  "converged": 23336,
+  "passed": 14554,
+  "failure_counts": {
+    "PASS": 14554,
+    "VOLTAGE_ONLY": 3343,
+    "BOTH": 2975,
+    "THERMAL_ONLY": 2464,
+    "NONCONVERGED": 376
+  },
+  "topology_outcomes": {
+    "BOTH_PASS": 5552,
+    "STAR_ONLY": 3450,
+    "NEITHER": 2854
+  },
+  "output_hashes": {
+    "qualified_by_house_count.csv": "3f388ae3668a01da87bec10ef467909e43c9d472be85df09490bb75a8d1cf077",
+    "qualified_contrasts.csv": "c25926112cecce0cde4982136e13358acb4ac976d0991784a22a440d91c48cd4",
+    "qualified_factor.csv": "e7c52dee3041156a430eef20defba3b92de415d0e0e869f536f5d35e285f517c",
+    "qualified_lengths.csv": "d890f8f75f052b43bb6bd35f84dcef1b64d29faebe216afa1457692f2c6e1dd8",
+    "qualified_site.csv": "a61d4a7e8b7b4fd9c9037be666335f7bc0a2437aa61179f77c3832f2a4254c20",
+    "qualified_topology.csv": "d1be27fb93813e459fd063bf2de892b6654ce59357a66451d4475ce9d9a021a7"
+  },
+  "files": [
+    {
+      "name": "59_transformer_rating_sensitivity.png",
+      "size": 97052,
+      "sha256": "459c11c8eba0ba12b6504582960e185ac91d31ef453f6ba28c8f30cae48eb5b8"
+    },
+    {
+      "name": "59_transformer_rating_sensitivity.svg",
+      "size": 81689,
+      "sha256": "d3d0cead575b3810f00b25cfe091fb8c0788af40fef10b8dbe4de56b6d2c4855"
+    },
+    {
+      "name": "60_conductor_and_failure_modes.png",
+      "size": 64312,
+      "sha256": "0564b6aa7b1c1e60164c5c4aa266442635cd38eca288bd2e123788f80216fe32"
+    },
+    {
+      "name": "60_conductor_and_failure_modes.svg",
+      "size": 72821,
+      "sha256": "cd075fdd84d92a7c5874690e2cf08c2d623b863e9ad1916f4337a1fdec354435"
+    },
+    {
+      "name": "61_mixed_conductor_lengths.png",
+      "size": 60266,
+      "sha256": "00029be15441e0d493ae416de01066d8474abed1336b5a825f1cf194c2330dc9"
+    },
+    {
+      "name": "61_mixed_conductor_lengths.svg",
+      "size": 77104,
+      "sha256": "2bfe77253c8b749501db30f5062bed8f766d846c40ddb9b1a8deb5485bf9e502"
+    },
+    {
+      "name": "62_site_coverage_by_house_count.png",
+      "size": 190286,
+      "sha256": "ed64aaa49707e3a087cd40704e6794c85d63e707905aa8938f319fedc1bb8d20"
+    },
+    {
+      "name": "62_site_coverage_by_house_count.svg",
+      "size": 122139,
+      "sha256": "f8b93c1a2ff9640cdacd27e9bd573c7e631573c4c1a66500c0edc8b1520ff87f"
+    },
+    {
+      "name": "63_route_feasibility_tradeoffs.png",
+      "size": 95889,
+      "sha256": "2c68ed87dc9da428bcead41f463be5894f434a849b9b51c2f579ac8c08a55a64"
+    },
+    {
+      "name": "63_route_feasibility_tradeoffs.svg",
+      "size": 126025,
+      "sha256": "e94a0fc99d916f184f0228152676958c7c56ccc07c7d55fd5700381790a7b050"
+    }
+  ],
+  "matplotlib": "3.10.7",
+  "qualification_pipeline": 3127178423,
+  "qualification_job": 18454944138,
+  "execution_commit": "35fa14bfc7e7847f02af9dc9cc21338eca131acb",
+  "figure_storage_commit": "d600a1149f1806ed1a005005d6a642b9b335daa2",
+  "verification": "All ten files independently reconstructed from runner trace and SHA256/size matched; GitLab readback matches all ten. All five PNGs visually inspected in prior turn. Figure 62 has overlapping equal-value traces; Figure 63 has overlapping points; no values displaced."
+}
