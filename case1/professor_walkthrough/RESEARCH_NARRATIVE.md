@@ -1,3 +1,16 @@
+# Current continuation (28 November 2026)
+
+## Current Study B checkpoint, 28 November 2026
+
+B3 paired qualification completed successfully in [pipeline 3124486343](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124486343). All four original table hashes matched exactly on the bounded replay, and the five qualification tables passed identity, limit, power-balance and matched-factor checks. The archived 1,724,842-byte numerical ZIP and eight figure files have independently verified SHA256 and repository readback hashes. The ZIP is now a permanent source, eliminating the need to repeat the B3 baseline.
+
+Among 2,964 matched STAR/MST site-hour-condition-conductor pairs: both pass 1,042; STAR alone 561; MST alone zero; neither 1,361. Of 3,283 failed points, 441 voltage only, 1,263 thermal only, 1,418 both limits, 161 nonconvergent. Maximum power-balance residual 0.0000337846064 kW. Uniform AAC1/0 versus AAC4 recovers 261 points and loses none, with MST 79/143 reference/severe and STAR 11/28. All sampled-hour site-pass counts (of 43) are STAR AAC1/0 22/20, STAR AAC4 21/18, MST AAC1/0 19/16, MST AAC4 14/7. These describe selected critical hours, not annual failure rates.
+
+[Stage 21](21_StudyB_Load_Only_Electrical_Feasibility/) now records the qualified evidence. Figures 55–58 were rendered and all eight PNG/SVG bytes authenticated. Visual review found clipped left heatmap labels in 55 and clipped lower axis title in 58. Preserve originals; layout-only revisions are submitted and must pass independent readback and visual review before the active index increases from 54 to 58. Figures 56/57 are readable. The [original verified figure manifest](STUDY_B_B3_FIGURES_55_58_ORIGINAL_VERIFIED_MANIFEST.json) records the exact source.
+
+[Stage 22](22_StudyB_Transformer_and_Conductor_Sensitivity/) adds a controlled physical sensitivity before matched PV/BESS hardware. B3.1 retains all 43 sites and 741 selected site-hours, 2 topologies, 2 joint PF/route conditions; tests 5 and 10 kVA and four conductor layouts. 23,712 logical points = 5,928 archived baseline + 2,964 exact STAR layout aliases + 14,820 new AC solves; 12 preflight solves are separate, including two archived baseline regression checks. 10 kVA and shared/leaf allocation are conditional hypotheses, not equipment approvals. No 15 kVA unless needed by the results. No annual AC, LP or physical pricing. [Pipeline 3127147250](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3127147250) submitted, not completed.
+
+
 # Current continuation (27 November 2026)
 
 ## Stage 21: completed diagnostic load-only AC campaign

@@ -44,3 +44,25 @@ The initial report failed only at final JSON serialization; scoped retrieval of 
 Minimum voltages and peak transformer loadings are extrema among converged points, not necessarily coincident. The seemingly higher severe MST AAC4 minimum is not evidence of improvement: only 608 of 741 points converge compared with 713 at reference, so the sets differ.
 
 The complete point-level paired qualification, source archive export and Python figures 55–58 are submitted in [pipeline 3124486343](https://gitlab.com/KKhan02/resilient-energy-systems/-/pipelines/3124486343). Figure index remains 54 until actual output verification. [B3-to-B4 decision gate](../../studies/SEEDExchange_StudyB_Integration_v1/B3_TO_B4_DECISION_GATE.md) explain the implications. No annual pass, installed-cost or field feasibility assertion.
+
+## Qualified paired analysis, 28 November 2026
+
+Pipeline 3124486343 passed. The exact four B3 source tables were reproduced and the five qualification tables verified; the signed numerical archive is now stored permanently in the repository. See [paired receipt](../../studies/SEEDExchange_StudyB_Integration_v1/B3_PAIRED_3124486343_RECEIPT.json) and [numerical archive](../../studies/SEEDExchange_StudyB_Integration_v1/outputs/b3_qualified_2026-11-27/B3_SIGNED_NUMERICAL_TABLES.zip).
+
+| Paired topology result | Count |
+|---|---:|
+| Both pass | 1042 |
+| STAR only | 561 |
+| MST only | 0 |
+| Neither passes | 1361 |
+
+| Exclusive failed-point class | Count |
+|---|---:|
+| Voltage only | 441 |
+| Thermal only | 1263 |
+| Both limits | 1418 |
+| Nonconvergence | 161 |
+
+The AAC1/0 change recovers 261 points without lost passes. All-sampled-hour passing sites (of 43): STAR AAC1/0 22/20 reference/severe, STAR AAC4 21/18, MST AAC1/0 19/16, MST AAC4 14/7. The maximum absolute power-balance residual is 0.0000337846064 kW. These are diagnostic hours, not annual probabilities.
+
+All eight original figure files match source and repository hashes. [Figure 56](python_figures/56_matched_topology_ac_differences.png) and [Figure 57](python_figures/57_conductor_sensitivity_recovered_points.png) are visually readable. Figures 55 and 58 have clipped labels; originals are retained and layout-only revisions submitted to pipeline 3127147250. The figure index remains 54 until both corrected outputs are verified. Next [Stage 22](../22_StudyB_Transformer_and_Conductor_Sensitivity/) isolates physical sizing effects before the matched hardware study.

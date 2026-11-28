@@ -18,3 +18,7 @@ The B3 sampled load-only run completed with 43 site pairs and 5,928 operating po
 
 ## Immediate execution gate
 Pipeline 3124486343 first attempts exact successful job archive; on scoped download denial, it runs the identical bounded pilot once, requiring exact report and all four CSV hashes to match the successful receipt. No bypass of qualification failure. Verify both original smoke points, full factor matching, power balance, mutually exclusive failure categories, paired outcomes, source/plot hashes. Export original and qualified tables as a signed ZIP to avoid future replay. After verified retrieval, publish index and plan targeted hardware/physical alternatives. No new B4 solver submitted in this checkpoint.
+
+## Gate update, 28 November 2026
+
+Point-level qualification and signed numerical archive complete, with original figures rendered; layout revisions 55/58 pending. 561 matched pairs pass only STAR, zero only MST, 1,042 both, 1,361 neither. Failure classes justify independent transformer and conductor sensitivity. B3.1 submitted under existing protected runner in pipeline 3127147250. See [B31 method](B31_TRANSFORMER_CONDUCTOR_METHOD.md). 10 kVA and shared-branch AAC1/0/single-house AAC4 are controlled conditional hypotheses. Matched hardware study remains next after review of physical sensitivity results. No scope or annual feasibility claim changed.
